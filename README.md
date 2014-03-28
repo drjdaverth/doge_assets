@@ -24,18 +24,20 @@ Some notes on Git / Github for Noobs
 
 * **Just browsing**: No problem, [head on over](https://github.com/jdaverth/doge_assets) and start clicking some links.  You can navigate just like any file manager.  Clicking on a folder will open that folder, clicking on an image will open that image, clicking on ... you know, I think you get the idea!
 * **Download a single file**: Go to the file, right-click and choose 'Save-as' or whatever your browser does for such things.  There's probably a more git-hubby way to do this.  I dunno ...
-* **Linking to Files**: This is a bad idea.  The repository is new and the structre is bound to change as it grows.  Directly linking to an asset on github will likely result in that link being broken down the line.  You will be better hosting the image yourself or on a third-party image host.
-* **Download the entire repository**: A couple of options, but the easiest is probably to look on the right side of the screen for the button that says 'Download ZIP"  This will download the entire archive to your computer and you can use an unzip utility (buiilt-in to most OSs or you can download a free one like [PeaZip](http://peazip.sourceforge.net/) (Windows / Linux) or [The Unarchiver](http://wakaba.c3.cx/s/apps/unarchiver.html) (OSX).  Or if you're one of the cool kids, just clone the repo (and make it better!)
+* **Linking to Files**: This is a bad idea.  The repository is new and the structure is bound to change as it grows.  Directly linking to an asset on github will likely result in that link being broken down the line.  You will be better hosting the image yourself or on a third-party image host.
+* **Download the entire repository**: A couple of options, but the easiest is probably to look on the right side of the screen for the button that says 'Download ZIP"  This will download the entire archive to your computer and you can use an unzip utility (buillt-in to most OSs or you can download a free one like [PeaZip](http://peazip.sourceforge.net/) (Windows / Linux) or [The Unarchiver](http://wakaba.c3.cx/s/apps/unarchiver.html) (OSX).  Or if you're one of the cool kids, just clone the repo (and make it better!)
 * **Did you say clone?**: If you're new to git, 'clone' means downloading an entire copy of the repo to your desktop.  This includes not only the current version, but the entire history of changes, all active branches, etc.  If you want to contribute to the project, this is how you would begin.  You can clone using a GUI (e.g., click 'Clone in Desktop' button on the project page to get started) or from your terminal, simply use the clone url from the [project page](https://github.com/jdaverth/doge_assets).  
 
-I'll try to respond quickly to any and all pull requests, so let's have 'em!  Or feel free to [message me directly](http://www.reddit.com/message/compose/?to=urthwalker) and I will provide whatever support I can.  Stackoverflow also has a decent [git for beginners](http://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide) guide.    
+I'll try to respond quickly to any and all pull requests, so let's have 'em!  Or feel free to [message me directly](http://www.reddit.com/message/compose/?to=urthwalker) and I will provide whatever support I can.
+
+**I've written a detailed [tutorial](https://github.com/jdaverth/doge_assets/blob/master/@HOW_TO_CONTRIBUTE/Tutorial.md) which should be all you need!**
 
 A Final Note On LICENSING
 ======================
 
 Most work in this repository is covered by a creative commons BY-NC-SA license.  See LICENSE.md for details.  **This license may be superseded by the inclusion of a LICENSE or LICENSE.md file in your folder**  
 
-The short version is that this is a public repo, so let's all do our share to make sure we're adhering to copyrights.  **Please ensure that your contributions are either public domain, your own work, or otherwise not covered by somebody else's copyright**.  I will not indeminify unfounded claims of 'fair use' and will respond swiftly to valid takedown notices.  If you have any suggestions for a better licensing scheme for the project I welcome your expertise and will adjust accordingly.
+The short version is that this is a public repo, so let's all do our share to make sure we're adhering to copyrights.  **Please ensure that your contributions are either public domain, your own work, or otherwise not covered by somebody else's copyright**.  I will not indemnify unfounded claims of 'fair use' and will respond swiftly to valid takedown notices.  If you have any suggestions for a better licensing scheme for the project I welcome your expertise and will adjust accordingly.
 
 Hey, you're awesome /u/urthwalker -- can I tip you?
 =======================================
