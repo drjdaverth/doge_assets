@@ -1,0 +1,27 @@
+This is what I have so far:
+4 = 42coin
+2 = Shibe
+a = Anoncoin
+A = Auroracoin
+b = Bitcoin Symbol
+B = Bitcoin Logo
+d = Dogecoin Symbol
+D = Dogecoin Logo
+E = Ethereum
+f = Flappycoin
+F = Feathercoin
+G = Goldcoin
+L = Litecoin
+N = Namecoin
+M = Mastercoin
+p = Primecoin
+P = Peercoin
+Q = Quarkcoin
+R = Ripple
+K = Darkcoin
+k = Digitalcoin
+V = Vertcoin
+W = Worldcoin
+~ = PotCoin
+
+Licence: I made this. Do whatever you want with it :)
