@@ -24,4 +24,4 @@ V = Vertcoin
 W = Worldcoin
 ~ = PotCoin
 
-Licence: I made this. Do whatever you want with it :) Send additions/change requests to brad@imagehouse.com
+Licence: I made this. Do whatever you want with it :) Send additions/change requests to keyare@ih2.com
