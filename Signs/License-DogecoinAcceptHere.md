@@ -19,12 +19,13 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 Under the following terms:
 
 Attribution - You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
 ShareAlike - If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
 
 
 If under my understanding:
 
-Anyone can use these signs and modify when necessary for their requirements and use it as a means to promote business for themselves.  They are also able to modify as necessary with an option to attribute creator (not required to attribute original creator).
+Anyone can use these signs and modify when necessary for their requirements and use it as a means to promote business for themselves.  They are also able to modify as necessary as long as appropriate credit is given.
 
-If you have any concerns of questions you can contact creator directly: sdpenaloza@gmail.com
+If you have any concerns or questions you can contact creator directly: sdpenaloza@gmail.com
