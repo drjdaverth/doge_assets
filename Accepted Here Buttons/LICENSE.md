@@ -1,5 +1,5 @@
 <snippet>
-	<content><![CDATA[
+	<content>
 Public Domain Mark 1.0
 No Copyright
 
