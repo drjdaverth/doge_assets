@@ -1,0 +1,7 @@
+<installed>
+	<plugin id="entermedia-server" />
+	<plugin id="app-emshare" />
+	<plugin id="extension-openedit" />
+	<plugin id="extension-avconv" />
+	<plugin id="extension-ooffice" />
+</installed>

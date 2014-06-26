@@ -1,0 +1,4 @@
+<page>
+<property name="virtual">true</property>
+<inner-layout>${bloghome}/feedview/viewfeed.html</inner-layout>
+</page>

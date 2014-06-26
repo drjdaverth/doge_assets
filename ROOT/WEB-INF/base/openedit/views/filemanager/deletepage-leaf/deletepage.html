@@ -1,0 +1,12 @@
+#set ( $delete = $request.getParameter( "delete" ) )
+#set ( $destinationPath = "$pathutil.extractDirectoryPath($delete)")
+
+##<form name="deleteform" method="post" action="$home${page.filerootpath}/deletepage-leaf/deletepage-finish.html?oemaxlevel=1">
+<form name="deleteform" method="post" action="$home${page.filerootpath}/deletepage-leaf/deletepage-finish.html">
+    <h2>$context.getPageProperty('text.deletepageordir')</h2>
+		<div class="oelist-box">$context.getPageProperty('text.areyousure')<br>
+		<b>$delete</b></div>
+		<input type="hidden" name="delete" value="$delete" width="40">
+		<input type="submit" name="YES"
+			value="[[Delete]]" />
+</form>

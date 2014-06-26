@@ -1,0 +1,18 @@
+<page>
+	<property name="text.Translate">
+		<value locale="es">Traducir</value>
+	</property>
+	<property name="text.Mount External Folders">
+		<value locale="es">Montar Directorios Externos</value>
+	</property>
+	<property name="text.Mount">
+		<value locale="es">Montar</value>
+	</property>
+	<property name="text.Resize Image">
+		<value locale="es">Redimensionar Imagen</value>
+	</property>
+	<property name="text.Crop Image">
+		<value locale="es">Recortar Imagen</value>
+	</property>
+	
+</page>

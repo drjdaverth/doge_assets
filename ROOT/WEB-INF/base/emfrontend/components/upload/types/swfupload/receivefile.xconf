@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout />
+	<inner-layout />
+	
+	<permission name="view">
+		<blank/>
+	</permission>
+	<path-action name="Admin.login"/>
+	<path-action name="MediaArchiveModule.uploadAsset"/>
+</page>

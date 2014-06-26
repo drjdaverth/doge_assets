@@ -1,0 +1,29 @@
+<page>
+	<property name='text.language'>
+        	<value>Language</value>
+		<value locale="es">Idioma</value>
+    	</property>
+	<property name='text.value'>
+        	<value>Value</value>
+		<value locale="es">Valor</value>
+    	</property>
+	<property name='text.no'>
+        	<value>No</value>
+    	</property>
+	<property name='text.yes'>
+        	<value>Yes</value>
+		<value locale="es">Sí</value>
+    	</property>
+	<property name='text.default'>
+        	<value>Default</value>
+		<value locale="es">Por Defecto</value>
+    	</property>
+	<property name='text.usedefault'>
+        	<value>Use Default</value>
+		<value locale="es">Usar Por Defecto</value>
+    	</property>
+	<property name='text.editable'>
+        	<value>Editable</value>
+    	</property>
+
+</page>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<page>
+	<page-action name="User.findGroups" />
+	<page-action name="User.loadAllGroupHits" />
+	<property name="hitsname">grouphits</property>
+</page>

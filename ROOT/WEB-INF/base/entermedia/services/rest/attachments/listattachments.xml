@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rsp stat="ok">
+<hits sessionid="$attachments.sessionId" page="$attachments.page" pages="$attachments.totalPages" totalsize="$attachments.size()">
+#foreach( $hit in $attachments )
+	<attachment name="$hit.name" sourcepath="$hit.sourcepath" folder="$hit.folder" parentsourcepath="$hit.parentsourcepath">
+		##foreach( $property in $hit.properties )
+		##	<property name="$property">$hit.get($property)</property>
+		##end
+	</attachment> 
+#end
+</hits>
+</rsp>

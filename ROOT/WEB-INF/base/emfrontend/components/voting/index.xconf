@@ -1,0 +1,4 @@
+<page>
+	<page-action name="AssetEditModule.loadAssetVotes" />
+	<property name="oemaxlevel">1</property>
+</page>

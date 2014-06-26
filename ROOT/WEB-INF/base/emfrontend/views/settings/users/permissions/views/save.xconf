@@ -1,0 +1,9 @@
+<page>
+	<path-action name="DataEditModule.saveData" />
+	<path-action name="ProfileModule.reLoadUserProfile" />
+<!--
+	<path-action name="Script.run">
+		<script>/${catalogid}/scripts/savechildpermissions.groovy</script>
+	</path-action>
+	-->
+</page>

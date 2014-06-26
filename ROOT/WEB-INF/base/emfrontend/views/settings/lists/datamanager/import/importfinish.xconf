@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+<path-action name="Page.uploadFile"/>
+<property name="allowspecifiedpath" >true</property>
+
+<path-action name="DataImportModule.importDataWithScript"/>
+<!--
+<path-action name="DataImportModule.geocode"/>
+-->
+	<inner-layout>${dataroot}/list/innerlayout.html</inner-layout>
+
+</page>

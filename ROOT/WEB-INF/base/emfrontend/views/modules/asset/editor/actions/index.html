@@ -1,0 +1,42 @@
+
+#if( $caneditasset)
+	#if( $asset.name )
+		#set ($assetSearcher = $mediaarchive.assetSearcher)
+		#set( $name = "'$asset.name'")
+		
+		#set ($hits = $assetSearcher.fieldSearch("name",$name))
+		#if ($hits && $hits.size() > 1)
+		
+			<div align="right">
+			<div style="background-color: #EEEEEE; width:300px; padding: 10px;" >
+					[[Notice]]: <a href="$home$apphome/search/field.html?field=name&name.value='${asset.name}'&operation=matches">[[Duplicate Item Number]]</a>
+			#if( $asset.sourcePath.startsWith("newassets") )
+				<p>[[Cannot approve a duplicate item number]]</p> #set( $canapproveandmove = false)</p>
+			#end
+			</div>
+			</div>
+		#end
+	#end
+	
+	#if ( $asset.get('mediatype') && $asset.get('lob') && $asset.get('primaryasset') )
+		 <p align="right"> 
+		 #if( $asset.get('businesscategory') && "$canapproveandmove" != "false")
+		 	#if( $asset.name )
+		  <a href="$home$apphome/components/detaileditor/actions/move.html?sourcepath=$asset.sourcePath"   >[[Approve and Move]]</a> |
+		  	#else
+			<div><a href="$home$apphome/components/detaileditor/index.html?openview=assetdetails&assetid=$asset.id">Item Number</a> [[is not filled in]]</div>				  	
+		  	#end
+		#end
+			<a href="$home$apphome/components/detaileditor/actions/print.html?sourcepath=$asset.sourcePath"  >[[Print Cutoff Sheet]]</a>
+		</p>	
+	#else
+	
+		 <p align="right">
+			<a href="$home$apphome/components/detaileditor/actions/print.html?sourcepath=$asset.sourcePath"  >[[Print Cutoff Sheet]]</a>
+		</p>	
+	#end
+#else
+	<p align="right">
+		<a href="$home$apphome/components/detaileditor/actions/print.html?sourcepath=$asset.sourcePath"  >[[Print Cutoff Sheet]]</a>
+	</p>	
+#end

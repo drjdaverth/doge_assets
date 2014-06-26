@@ -1,0 +1,19 @@
+<page>
+	
+	<path-action name="AssetEditModule.handleUploads"/>
+	
+	<property name="searchtype">${module}</property>
+	<path-action name="DataEditModule.saveData" >
+			<property name="searchtype">${module}</property>
+	</path-action>
+	
+	<path-action name="DataEditModule.loadPageOfSearch" >
+				<property name="searchtype">${module}</property>
+	</path-action>
+	
+	
+	<property name="save">true</property>
+
+	<path-action name="PathEventModule.runEvent" runpath="/${catalogid}/events/${module}/saved.html" allowduplicates="true" />		
+			
+</page>

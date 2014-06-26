@@ -1,0 +1,16 @@
+#set( $id = $context.getRequestParameter("categoryid") )
+
+#if( !$id && $category )
+	#set( $id = $category.id )
+#end
+
+#if( $id)
+	$!categoryPickerTree.getTreeRenderer().setSelectedNodeById($id)
+#end
+<script language="javascript">
+	var lastselected = "$categoryPickerTree.getTreeRenderer().getSelectedId()";
+	categoryPickerTree.selectRow(lastselected); 
+</script> 
+<div id="$categoryPickerTree.getName()render">      
+	$!categoryPickerTree.render()
+</div>

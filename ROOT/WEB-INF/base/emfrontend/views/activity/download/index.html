@@ -1,0 +1,56 @@
+<div style="text-align: left;">
+#set($order = $data)
+
+	#set($ordersearcher = $searcherManager.getSearcher($catalogid, "order"))
+	#set($owner = $userManager.getUser($order.userid))
+	
+<h3>Download </h3>
+
+<table>
+<tr>
+<td>
+	
+$context.putPageValue("searcher", $ordersearcher)	 
+$context.putPageValue("data", $order)	 
+$context.putPageValue("view", "order/vieworder")	
+$pages.include("/${applicationid}/components/xml/detaileditor.html?detailsreadonly=true", $context)
+
+</td>
+<td>
+#if( $order.orderstatus == "complete")
+	##to much work to support group downloads yet
+#else
+<p>Order still being processed. <a href="$home$apphome/views/activity/download/index.html?orderid=$order.id">refresh</a>
+</p>
+#end
+</td>
+</tr>
+</table>
+
+<br>
+
+#set($orderitemsearcher = $searcherManager.getSearcher($catalogid, "orderitem"))
+$context.putPageValue("searcher", $orderitemsearcher)	 
+
+<div id="emselectable">
+<table class="striped greytxt">		
+	<thead>
+	<th style="text-align: center">Title</th>
+	<th style="text-align: center">&nbsp;</th>
+	<th style="text-align: center">File Name</th>
+	<th style="text-align: center">Status</th>
+	</thead>
+		#foreach( $item in $orderitems )
+			#set( $asset = $mediaarchive.getAssetBySourcePath($item.assetsourcepath))
+			$context.putPageValue("asset", $asset)
+			$context.putPageValue("item", $item)
+			$context.setRequestParameter("sourcepath", $asset.sourcepath)					
+			$pages.include("${apphome}/views/activity/download/row.html", $context)
+		#end
+</table>
+</div>
+
+
+
+
+</div>

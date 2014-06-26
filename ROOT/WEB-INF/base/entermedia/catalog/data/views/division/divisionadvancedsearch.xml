@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root> 
+  <property id="description">Keyword</property>
+  <property id="name" editable="true" index="true" stored="true">Name</property>
+  
+</root>

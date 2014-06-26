@@ -1,0 +1,22 @@
+#if($youtubedata)
+	<form id="importform" method="post" action="$home/$applicationid/upload/types/youtube/import.html">
+		<input type="hidden" name="importurl" value="$context.getRequestParameter('youtubeurl')"/>
+		<input type="hidden" name="catalogid" value="$context.getRequestParameter('uploadcatalog')"/>
+		<div style="width: 100%;" id="previewcontainer">
+			<img src="$youtubedata.thumb" alt="[[Video Preview]]"/><br>
+			<button id="importbutton" type="button" onclick="startImport();">[[Import video]]</button>
+			$!youtubedata.get("assettitle")
+		</div>
+	</form>
+
+	<script type="text/javascript">
+		startImport = function()
+		{
+			jQuery("#importbutton").attr("disabled","disabled");
+			jQuery("#importbutton").html("[[Downloading]]");
+			jQuery("#importform").submit();
+		}
+	</script>	
+#else
+	[[Could not get data from youtube.]]
+#end

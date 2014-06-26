@@ -1,0 +1,48 @@
+#set( $moduleid = $context.findValue("module") )
+#if( $hits && $hits.totalPages > 1 )
+#set($resultsPage = "$home$apphome/views/modules/${moduleid}/moduleresults/results.html?hitssessionid=$hits.sessionId&searchtype=$searcher.searchType&hitsperpage=$!hits.hitsPerPage&categoryid=$!category.id&oemaxlevel=1&resultstype=$!resultstype&view=$view")
+#set($resultsPage = "$resultsPage&page")
+#set($thispage = $hits.getPage())
+
+#set($targetdivinner = "subresults")
+             #if ( $hits )
+
+    #end
+            <div id="pages">
+       
+                <ul>
+                    #if( $hits.prevPage() )
+                    <li><a class="ajax" targetdivinner="$targetdivinner" href="$resultsPage=$hits.prevPage()" title="Previous ( alt p enter)" accesskey="p" >Previous</a></li>
+                    #end
+                    #set( $befores = $hits.linksBefore() )                  
+                        #if($befores.size()!=0)
+                          #if($befores.get(0)>1)
+                            <li><a class="ajax" targetdivinner="$targetdivinner" href="$resultsPage=1" >1</a></li>   
+                            <li class="ellipsis">...</li>
+                           #end
+                        #end
+                        #set( $afters = $hits.linksAfter() )
+                    #foreach( $before in $befores )
+                        <li><a class="ajax" targetdivinner="$targetdivinner" href="$resultsPage=$before" >$before</a></li>        
+                    #end
+                        <li class="current"><a  class="ajax" targetdivinner="$targetdivinner" href="$resultsPage=$thispage" >$!thispage</a></li>
+                    #foreach( $after in $afters )
+                        <li><a  class="ajax" targetdivinner="$targetdivinner" href="$resultsPage=$after">$after</a></li>      
+                    #end
+                    #set($size=${afters.size()})
+                    #set( $size = $size - 1 )
+                    #if($size>0)
+                        #if ($afters.get($size)< $hits.getTotalPages() )
+                            <li class="ellipsis">...</li>
+                            <li><a  class="ajax" targetdivinner="$targetdivinner" href="$resultsPage=$hits.getTotalPages()" >$hits.getTotalPages()</a></li>   
+                        #end
+                    #end
+                    #if ( $hits.nextPage() )
+                    <li><a class="ajax" targetdivinner="$targetdivinner" href="$resultsPage=$hits.nextPage()"   title="Next (alt n enter)" accesskey="n">Next</a>
+                    #end
+                </ul>
+            </div>
+                    <p class="">[[Displaying records]] $!hits.getPageStart() - $!hits.getPageEnd()  [[of]] $!hits.total [[items]]</p>
+            
+    #end
+

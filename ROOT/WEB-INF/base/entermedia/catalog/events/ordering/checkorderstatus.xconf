@@ -1,0 +1,7 @@
+<page>
+	<property name="eventname">Check on Orders</property>	
+	<property name="delay">1</property>
+	<property name="period">1m</property>
+	
+	<path-action name="OrderModule.updatePendingOrders" allowduplicates="true" />
+</page>

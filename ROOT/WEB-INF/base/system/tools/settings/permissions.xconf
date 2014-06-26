@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<page>
+	<property name="title">
+		<value>Open Edit Permission Editor</value>
+		<value locale="es">Editor de Permisos de OpenEdit</value>
+	</property>
+	
+	<property name='text.ok'>
+        	<value>Ok</value>
+    	</property>
+	<property name='text.add'>
+        	<value>Add</value>
+		<value locale="es">Agregar</value>
+    	</property>
+	<property name='text.permissionsfordir'>
+        	<value>PERMISSIONS FOR DIRECTORY</value>
+		<value locale="es">PERMISOS PARA EL DIRECTORIO</value>
+    	</property>
+	<property name='text.readpermissionsonly'>
+        	<value>Read Permission</value>
+		<value locale="es">Leer Permiso</value>
+    	</property>
+	<property name='text.cancel'>
+        	<value>Cancel</value>
+		<value locale="es">Cancelar</value>
+    	</property>
+	<property name='text.help'>
+        	<value>Help</value>
+		<value locale="es">Ayuda</value>
+    	</property>
+	<property name='text.editpermissionsonly'>
+        	<value>Edit Permission</value>
+		<value locale="es">Editar Permiso</value>
+    	</property>
+
+	<page-action name="PageValue.loadPageVariable" bean="userManager" />
+</page>

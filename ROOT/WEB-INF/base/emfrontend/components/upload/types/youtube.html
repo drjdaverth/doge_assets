@@ -1,0 +1,12 @@
+<div style="margin-top: 1em;">
+<form method="post" action="$home/$applicationid/upload/types/youtube/preview.html"
+	class="ajaxform" targetdiv="previewcontainer">
+[[Please, enter the URL to the YouTube video]]:<br/>
+<input type="text" name="youtubeurl" size="50" />
+<input type="submit" value="[[preview]]"/>
+<input type="hidden" name="uploadcatalog" value="$context.getRequestParameter('uploadcatalog')"/>
+</form>
+
+<div id="previewcontainer" style="margin-top: 1em;">
+</div>
+</div>

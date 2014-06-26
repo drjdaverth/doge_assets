@@ -1,0 +1,14 @@
+#set( $searchtype = "assetcolors")
+$context.putPageValue("fieldexternalid", "assetid")
+$context.putPageValue("fieldexternalvalue", $data.getId())
+$context.putPageValue("listid", "color")
+$context.putPageValue("listexternalid", "colorid")
+$context.putPageValue("permissionname", "caneditasset")
+$context.putPageValue("imagetype", $page.imagetype)
+<p>[[Select the available colors.]]</p>
+
+$context.putPageValue("availablesearchtype", "assetcolorsavailable")
+$context.putPageValue("unavailablesearchtype", "assetcolorsunavailable")
+$context.putPageValue("header",$content.getProperty("text.${view}", $context.getLocale() ) )
+
+$pages.include("$apphome/components/detaileditor/genericmulti/double.html?edit=false",$context)

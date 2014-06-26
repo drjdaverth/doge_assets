@@ -1,0 +1,12 @@
+<page>
+	<property name="virtual">true</property>
+	
+	<path-action name="Admin.allowViewing" alltypes="true" />
+	
+	<path-action name="MediaArchiveModule.forceDownload" alltypes="true" />
+	<property name="downloadrootdirectory">${filerootpath}/download</property>
+	
+	<layout/>
+	<inner-layout/>
+	<generator name="downloadGenerator"/>
+</page>

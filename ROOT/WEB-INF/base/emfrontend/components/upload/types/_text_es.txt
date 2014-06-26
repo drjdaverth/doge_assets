@@ -1,0 +1,14 @@
+#
+#Fri May 07 10:34:40 CLT 2010
+Upload=Subir
+Choose\ a\ media\ file\ to\ upload.=Eleja un archivo para subir.
+Unzip\ on\ server=Descomprimir en el servidor
+Grab\ asset=Obtener art\u00EDculo
+preview=vista previa
+Uploading,\ please\ wait...=Cargando, por favor espere ...
+Select\ a\ folder\ or\ any\ file\ format\ that\ you\ want\ to\ share.=Seleccione una carpeta o cualquier archivo que desee compartir.
+Zip\ files\ will\ be\ unzipped\ and\ one\ asset\ will\ be\ created\ per\ each\ contained\ file.=Archivos zip se descomprimir\u00E1n y se crear\u00E1 un art\u00EDculo por cada archivo contenido.
+Create\ a\ new\ asset.=Crear un nuevo Art\u00EDculo.
+Please,\ enter\ the\ URL\ to\ the\ YouTube\ video=Por favor, introduzca la URL del v\u00EDdeo YouTube
+New\ Asset=Nuevo Art\u00EDculo
+Please,\ enter\ the\ URL\ to\ the\ asset=Por favor, introduzca la URL al art\u00EDculo

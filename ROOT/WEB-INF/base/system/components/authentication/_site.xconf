@@ -1,0 +1,10 @@
+<page>
+
+  <property name="loginroot">/system/components/authentication</property>
+  
+	
+	<permission name="view">
+		<boolean value="true" />
+	</permission>
+	
+</page>

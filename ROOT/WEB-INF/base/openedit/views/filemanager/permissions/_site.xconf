@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<inner-layout>${filerootpath}/permissions/layout.html</inner-layout>
+
+<property name="fallbackdirectory">/system/tools/permissions</property>
+<property name="subtab">permissiontab</property>
+
+<property name="permissionrootpath">${filerootpath}/permissions</property>
+
+<property name='showcontent'>true</property>
+
+</page>

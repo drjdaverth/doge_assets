@@ -1,0 +1,4 @@
+<page>
+	<inner-layout>/${applicationid}/views/settings/lists/production/innerlayout.html</inner-layout>
+	<property name="subtab">titles</property>	
+</page>

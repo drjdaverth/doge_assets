@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.Iterator;
+import org.openedit.entermedia.util.*;
+import org.openedit.*;
+import com.openedit.page.*;
+import org.openedit.entermedia.*;
+
+String path = context.getRequestParameter("path");
+
+Page input = pageManager.getPage(path);
+
+if (input.exists())
+{
+        log.info("Starting import...");
+        file = new ImportFile('	');
+        file.read( input.getReader() );
+        int processed = 0, skipped = 0;
+        while( ( row = file.getNextRow() ) != null )
+        {
+        	processed++;
+            String id = row.get("AssetSourcePath");
+            if (id == null || id.trim().equals(""))
+            {
+                    skipped++;
+                    log.info("No AssetSourcePath colum");
+                    continue;
+            }
+            Asset asset = mediaarchive.getAssetBySourcePath( id );
+            String catid = row.get("CategoryId");
+            if( catid != null )
+            {
+            	Category cat = mediaarchive.getCategory(catid);
+            	if( cat == null )
+            	{
+            		log.error("Missing category" + catid );
+            	}
+            	else
+            	{
+		            asset.addCategory(cat);
+		        }
+    		}        
+            mediaarchive.getAssetArchive().saveAsset( asset );
+		}
+        log.info("Finished:" + processed + " skipped:" + skipped);
+		log.info("Now you need to reindex");
+}

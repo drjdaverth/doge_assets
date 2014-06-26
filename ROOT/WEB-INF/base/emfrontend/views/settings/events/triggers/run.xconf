@@ -1,0 +1,4 @@
+<page>
+	<path-action name="PathEventModule.runSharedEvent" />
+	<inner-layout>${themeprefix}/layouts/dialoglayout.html</inner-layout>
+</page>

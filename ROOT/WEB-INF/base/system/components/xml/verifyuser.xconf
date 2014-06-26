@@ -1,0 +1,3 @@
+<page>
+	<page-action name="LDAPModule.searchUserAlias"/>
+</page>

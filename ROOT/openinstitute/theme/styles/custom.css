@@ -1,0 +1,233 @@
+
+
+/* HARVARD BUSINESS SCHOOL CUSTOM CSS */
+
+/* body background */
+
+#asset-data {
+	width: 594px;
+}
+
+html {
+	background: url('../images/body-bg.jpg');
+}
+
+body {
+	background: url('../images/bg2.jpg') top center no-repeat;
+	min-height: 750px;
+}
+
+
+/* header */
+
+
+/* logo location */
+
+.logo {
+	margin-top: -30px;
+	margin-bottom: 15px;
+	margin-left: 0;
+}
+
+/* widget-header gradients */
+#nav {
+	background: url('../images/wood-texture.jpg');
+	border: 1px solid #493121;
+}
+.ui-widget-header, #header .navlinks {
+	background: #7c5032 url('../images/texture.png');
+}
+
+/* nav buttons */
+
+#nav li a {
+	background: rgb(198,122,77); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(198,122,77,1) 0%, rgba(140,88,54,1) 69%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(198,122,77,1)), color-stop(69%,rgba(140,88,54,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(198,122,77,1) 0%,rgba(140,88,54,1) 69%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(198,122,77,1) 0%,rgba(140,88,54,1) 69%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(198,122,77,1) 0%,rgba(140,88,54,1) 69%); /* IE10+ */
+background: linear-gradient(top, rgba(198,122,77,1) 0%,rgba(140,88,54,1) 69%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c67a4d', endColorstr='#8c5836',GradientType=0 ); /* IE6-9 */
+	border-color: #2e1a0d;
+}
+#nav li a:hover {
+background: rgb(204,136,96); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(204,136,96,1) 0%, rgba(163,103,63,1) 69%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,136,96,1)), color-stop(69%,rgba(163,103,63,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(204,136,96,1) 0%,rgba(163,103,63,1) 69%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(204,136,96,1) 0%,rgba(163,103,63,1) 69%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(204,136,96,1) 0%,rgba(163,103,63,1) 69%); /* IE10+ */
+background: linear-gradient(top, rgba(204,136,96,1) 0%,rgba(163,103,63,1) 69%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc8860', endColorstr='#a3673f',GradientType=0 ); /* IE6-9 */
+	
+}
+#nav li.navselected a, #nav li a:active {
+	border-color: #8c5738;
+	background: rgb(45,27,11); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(45,27,11,1) 0%, rgba(89,47,22,1) 49%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(45,27,11,1)), color-stop(49%,rgba(89,47,22,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(45,27,11,1) 0%,rgba(89,47,22,1) 49%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(45,27,11,1) 0%,rgba(89,47,22,1) 49%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(45,27,11,1) 0%,rgba(89,47,22,1) 49%); /* IE10+ */
+background: linear-gradient(top, rgba(45,27,11,1) 0%,rgba(89,47,22,1) 49%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d1b0b', endColorstr='#592f16',GradientType=0 ); /* IE6-9 */
+}
+
+/* left column background color */
+
+#left-col {
+	background-color: #fbf9ed;
+}
+
+/* left column widget border colors */
+
+#left-col .ui-widget-content {
+
+}
+
+/* right column border color */
+
+#right-col {
+	background: #fcfcfc;
+	border-color: #bbb;
+}
+
+/* main widget background color */
+
+#emcontent {
+	border-color: #d5d3ba;
+	background: #fff;
+}
+#left-col .ui-widget-content {
+	border-color: #d5d3ba;
+}
+#right-col {
+	border-color: #d5d3ba;
+}
+
+/* table header background color and font color */
+
+#emcontainer #emselectable #tableheader th, table tr.tableheader th {
+	background: #9c8c69;
+}
+
+/* table rows colors */
+
+#emcontainer #emselectable table tr {
+	
+}
+#emcontainer #emselectable table tr.odd, table tr.odd {
+	
+}
+
+/* table rows hover background color */
+
+#emcontainer #emselectable table tr.emborderhover, table tr.emborderhover {
+	background-color: #f3f3f3;
+}
+#emcontainer #emselectable table tr {
+	border-color: #eaeaea;
+}
+tr.odd {
+	background: #f9f9f9;
+}
+
+/* media player background */
+
+#media-player {
+	background-color: #382416;
+}
+
+/* sidebar hover background color */
+
+.sidebar-caption span {
+	background-color: #9c8c69;
+}
+.search-list li.current a.search-href, .sidebar-list li.current a {
+	background: #9c8c69;
+}
+
+/* categories and tags background color */
+
+.asset-details-more a {
+	background: #8CB5AF;
+}	
+
+.asset-details-more a:hover {
+
+}
+
+/* category tree selected row background color */
+
+#emcategoryinline .dTreeNodeSel {
+	background: #9c8c69;
+}
+
+/* asset metadata editor frame background color and side tab background color */
+
+body #emcontainer .emasseteditorareawrapper, #assetmenu .catalogs_menu_item.current {
+	
+}
+
+/* settings area sub navigation background color and border color */
+
+#eml-tab-subnav ul, #eml-tabs ul li.current a, #sub-nav {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #fff6e2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#fff6e2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#fff6e2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#fff6e2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#fff6e2 100%); /* IE10+ */
+	background: linear-gradient(top, #ffffff 0%,#fff6e2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fff6e2',GradientType=0 ); /* IE6-9 */
+	border-color: #e6d9bc;
+}
+#eml-tab-subnav ul li a, #eml-tabs ul li.current a, #sub-nav li a {
+	color: #9c8c69;
+}
+#eml-tab-subnav ul li a:hover, #eml-tabs ul li.current a:hover, #sub-nav li a:hover, #sub-nav li:hover a, #sub-nav li.edit-columns:hover #column-editor {
+	background-color: #c3b699;
+}
+
+/* main asset table dropdown border color */
+
+ul#sub-nav li ul {
+	border-color: #9c8c69;
+}
+
+/* main asset table dropdown link color */
+
+ul#sub-nav li:hover ul li a {
+	background: #c3b699;
+}
+ul#sub-nav li:hover ul li a:hover {
+	background: #9c8c69;
+}
+#eml-tab-subnav ul li.current a {
+	background: #9C8C69;
+}
+
+/* hints color and hover colors */
+
+.hints h3, .hints a:hover {
+
+}
+
+/* standard font colors */
+
+h1, h2, .subnav-title, #footer p, #footer p a {
+	color: #9c8c69;	
+}
+
+/* form focus border color */
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+	
+}
+
+/* SETTINGS WIDGET HEADERS */
+
+.commentbox .ui-widget-header {
+	background: #c3b699;	
+}

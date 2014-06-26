@@ -1,0 +1,38 @@
+<style type="text/css">
+.historyTable td
+{
+	text-align: center;
+}
+</style>
+
+<div class="ad_usagehistory">
+	#if( $history && $history.size() > 0 )
+		<table class="historyTable" cellspacing="0" width="80%">
+			<tr>
+				#set( $details = $historySearcher.getDetailsForView("usagehistory/asset", $user) )
+				#foreach( $detail in $details)
+				#if($detail.id == "description")
+					<th style="color: rgb(140, 26, 26); font-weight: bold; text-align: left;">Usage History:</th>
+				#else
+					<th style="text-align: center;">$detail.name</th>
+				#end
+				#end
+			</tr>
+			#foreach( $hit in $history )
+				<tr>
+				#foreach( $detail in $details )
+					#if($detail.id == "description")
+						<td style="text-align: left;"><b>$!hit.get($detail.id)</b></td>
+					#elseif($detail.id == "date")
+						<td>$context.getDateTime($history.toDate($hit.date))</td>
+					#else
+						<td>$!hit.get($detail.id)</td>
+					#end
+				#end
+				</tr>
+			#end
+		</table>
+	#else
+		<div>No usage history.</div>
+	#end
+</div>

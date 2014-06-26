@@ -1,0 +1,5 @@
+<properties>
+<property id="userName" />
+<property id="firstName" />
+<property id="lastName" />
+</properties> 

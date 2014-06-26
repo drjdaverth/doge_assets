@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  	<property name="editable">false</property>
+  	<path-action name="MountModule.loadDefaultMountForPath" />
+	<property name='text.Edit Mount'>
+        	<value>Edit Mount</value>
+		<value locale="es">Editar Punto de Montaje</value> 
+   	</property>
+	<property name='text.File System Path'>
+        	<value>File System Path</value>
+		<value locale="es">Ruta del Sistema de Archivos</value> 
+    	</property>
+	<property name='text.The file system path is a local disk drive, path or Windows Share that will be mounted'>
+        	<value>The file system path is a local disk drive, path or Windows Share that will be mounted</value>
+		<value locale="es">La ruta del sistema de archivos es un dispositivo de disco local, o Windows Share el cual será montado</value> 
+   	</property>
+	<property name='text.Use Version Control'>
+        	<value>Use Version Control</value>
+		<value locale="es">Usar Control de Versiones</value> 
+    	</property>
+	<property name='text.Save'>
+        	<value>Save</value>
+		<value locale="es">Guardar</value> 
+   	</property>
+</page>

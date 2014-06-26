@@ -1,0 +1,6 @@
+<properties>
+
+	<property id="id" editable="true" stored="true" index="true">ID</property>
+	<property id="name" editable="true" stored="true" index="true">Name</property>
+	<property id="permission" datatype="list" editable="true" stored="true" index="true">Parent Permission</property>
+</properties>

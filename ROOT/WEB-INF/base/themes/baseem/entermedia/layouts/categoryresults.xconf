@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+  	<inner-layout>${themeprefix}/entermedia/layouts/categorytree.html</inner-layout>
+</page>

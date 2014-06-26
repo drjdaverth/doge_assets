@@ -1,0 +1,4 @@
+<properties usagelabel="Detail Editor / Preview History">
+	<property id="date"/>
+	<property id="user" />
+</properties>

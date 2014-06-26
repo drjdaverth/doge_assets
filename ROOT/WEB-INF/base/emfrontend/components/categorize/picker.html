@@ -1,0 +1,29 @@
+#set( $rootpath = "${apphome}/components/categorize")
+
+#if($asset.getId().startsWith("multiedit"))
+	#set($postfix = 'multi')
+#else
+	#set($postfix = $asset.id )
+#end
+
+
+<div id="assetdetailscategorylist$postfix">
+
+<div id="emcategorypicker" >
+<div id="empickerbody">
+	<form class="ajaxform" targetdiv="assetdetailscategorylist$postfix" name="pickeritems" action="$home$rootpath/save.html">
+
+	#set( $selectednodes = $asset.getCategories() )
+	$context.putPageValue("selectednodes",$selectednodes)
+	<div id="treescroller">
+        $pages.include("$apphome/components/emtree/index.html?tree-name=categoryAssetPickerTree&showchecks=true&editabletree=$caneditcategories&allowselections=true",$context)
+    </div>
+		<input type="hidden" name="save" value="true" />
+		<input type="hidden" name="assetid" value="$!asset.id" />
+		<div style="margin:20px;">
+		      <input class="btn small" type="submit" value="Save" /> <a class="ajax btn small" style="float: right;" targetdiv="assetdetailscategorylist$postfix" href="$home$rootpath/index.html?assetid=$asset.id" >Cancel</a>
+	    </div>
+	</form>	
+</div>
+</div>
+</div>

@@ -1,0 +1,6 @@
+<page>
+	<inner-layout>/${applicationid}/views/settings/users/permissions/innerlayout.html</inner-layout>
+	<property name="subsettinglist">settingspermissions</property>
+	<property name="subtab">permissions</property>
+	<property name="tab">permissions</property>
+</page>

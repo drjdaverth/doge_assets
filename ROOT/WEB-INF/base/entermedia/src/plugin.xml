@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd"
+
+ default-lazy-init="true"
+>
+
+<!-- GROOVY Script Version -->
+	<lang:groovy id="imagemagickCreator" script-source="conversions/creators/imagemagickCreator.groovy" lazy-init="false">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+		<lang:property name="preProcessors"><ref bean="imagePreProcessors" /></lang:property>
+	</lang:groovy>
+	<lang:groovy id="oofficeDocumentCreator" script-source="conversions/creators/oofficeDocumentCreator.groovy" lazy-init="default">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+	</lang:groovy>
+	<lang:groovy id="originalCreator" script-source="conversions/creators/originalCreator.groovy" lazy-init="default">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+	</lang:groovy>			
+	<lang:groovy id="digitalrapidsCreator" script-source="conversions/creators/digitalrapidsCreator.groovy" lazy-init="default">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+	</lang:groovy>
+	<lang:groovy id="exiftoolthumbCreator" script-source="conversions/creators/exiftoolthumbCreator.groovy" lazy-init="default">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+	</lang:groovy>
+	<lang:groovy id="audioCreator" script-source="conversions/creators/audioCreator.groovy" lazy-init="default">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+	</lang:groovy>
+	<lang:groovy id="ffmpegCreator" script-source="conversions/creators/ffmpegCreator.groovy" lazy-init="default">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+	</lang:groovy>
+	<lang:groovy id="ffmpegimageCreator" script-source="conversions/creators/ffmpegimageCreator.groovy" lazy-init="default">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+	</lang:groovy>
+	
+	
+	
+	<lang:groovy id="GhostScriptImageCreator" script-source="conversions/creators/GhostScriptImageCreator.groovy" lazy-init="default">
+		<lang:property name="pageManager"><ref bean="pageManager" /></lang:property>
+		<lang:property name="exec"><ref bean="exec" /></lang:property>
+	</lang:groovy>
+<!--
+	<lang:groovy id="amazonpublisher" script-source="publishing/publishers/amazonpublisher.groovy" />
+	<lang:groovy id="asperapublisher" script-source="publishing/publishers/asperapublisher.groovy" />
+	<lang:groovy id="entermediapublisher" script-source="publishing/publishers/entermediapublisher.groovy" />
+-->
+	<lang:groovy id="attachmentpublisher" script-source="publishing/publishers/attachmentpublisher.groovy" />
+	<lang:groovy id="filecopypublisher" script-source="publishing/publishers/filecopypublisher.groovy" />
+	<lang:groovy id="ftppublisher" script-source="publishing/publishers/ftppublisher.groovy" />
+	<lang:groovy id="pushpublisher" script-source="publishing/publishers/pushpublisher.groovy" />
+	<lang:groovy id="sftppublisher" script-source="publishing/publishers/sftppublisher.groovy" />
+	<lang:groovy id="smbpublisher" script-source="publishing/publishers/smbpublisher.groovy" />
+	<lang:groovy id="httppublisher" script-source="publishing/publishers/httppublisher.groovy" />
+	<lang:groovy id="fatwirepublisher" script-source="publishing/publishers/fatwirepublisher.groovy" />
+
+	
+	<lang:groovy id="orderManager" script-source="model/orders/BaseOrderManager.groovy" lazy-init="default">
+	   	<lang:property name="searcherManager"><ref bean="searcherManager"/></lang:property>
+		<lang:property name="webEventHandler"><ref bean="mediaEventHandler" /></lang:property>
+		<lang:property name="lockManager"><ref bean="lockManager" /></lang:property>
+	</lang:groovy>
+	<lang:groovy  id="pushManager" script-source="model/push/BasePushManager.groovy" lazy-init="default">
+			<lang:property name="searcherManager"><ref bean="searcherManager" /></lang:property>
+			<lang:property name="userManager"><ref bean="userManager" /></lang:property>
+	</lang:groovy>
+
+	<!-- 
+	<bean  id="ProjectModule" class="modules.projects.ProjectModule" lazy-init="default" />
+	<bean  id="projectManager" class="model.projects.BaseProjectManager" lazy-init="default">
+			<property name="searcherManager"><ref bean="searcherManager" /></property>
+	</bean>
+ 	-->
+ 	
+	<lang:groovy  id="ProjectModule" script-source="modules/projects/ProjectModule.groovy" lazy-init="default" />
+	<lang:groovy  id="projectManager" script-source="modules/projects/BaseProjectManager.groovy" lazy-init="default">
+			<lang:property name="searcherManager"><ref bean="searcherManager" /></lang:property>
+	</lang:groovy>
+
+
+<!-- Compiled Class Version
+
+	<bean id="orderManager" class="model.orders.BaseOrderManager">
+	   	<property name="searcherManager"><ref bean="searcherManager"/></property>
+		<property name="webEventHandler"><ref bean="mediaEventHandler" /></property>
+		<property name="lockManager"><ref bean="lockManager" /></property>
+
+	</bean>
+	<bean  id="pushManager" class="model.push.BasePushManager" >
+			<property name="searcherManager"><ref bean="searcherManager" /></property>
+			<property name="userManager"><ref bean="userManager" /></property>
+	</bean>
+	
+ -->
+ 	
+</beans>

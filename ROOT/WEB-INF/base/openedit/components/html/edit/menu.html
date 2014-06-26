@@ -1,0 +1,72 @@
+
+
+#set( $sections = ["htmledit","text","preview", "seo","versions","styles","scripts", "properties"] )
+#set( $thissection = $content.section )
+#set($origURL = $context.getRequestParameter('origURL'))
+#set($editPath = $context.getRequestParameter('editPath'))
+
+#set( $editPage = $pageManager.getPage( $editPath ) )
+
+#if( $editPage.isFolder() ) #set( $type = "folder" ) 
+#elseif ( $editPage.getMimeType().startsWith("image/")) #set ( $type = "image" )
+#else #set( $type = "file" )
+#end
+
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+     
+     
+     <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">File Options<b class="caret"></b></a>
+      	
+        <ul class="dropdown-menu">
+        
+        	<li><a data-title="[[Copy File]]" class="ajaxDialog" href="$home$apphome/components/html/edit/actions/copypage-leaf/copypage.html?path=$!{editPath}&editPath=$editPath&oemaxlevel=1" >$context.getText("Copy $type")</a></li>
+			#if( $pages.canEdit($editPath) || $caneditallfiles)
+			<li><a data-title="[[Move or Rename File]]" class="ajaxDialog" href="$home$apphome/components/html/edit/actions/movepage-leaf/movepage.html?path=$!{editPath}&editPath=$editPath&oemaxlevel=1" class="ajaxDialog" >$context.getText("Move and rename $type")</a></li>		
+			<li><a  data-title="[[Delete File]]" class="ajaxDialog" href="$home$apphome/components/html/edit/actions/deletepage-leaf/deletepage.html?delete=$!{editPath}&editPath=$editPath&oemaxlevel=1" >$context.getText("Delete $type")</a></li>
+			#end
+			<li><a href="$home${page.filerootpath}/download${editPath}">[[Download File]] </a></li>	
+			#if( $editorSession.getEditPage().isDraft() )
+			
+				<li><a href="$home/openedit/components/html/edit/htmledit/approve-finished.html?editPath=$editorSession.getEditPath()">Approve Draft</a></li>
+				<li><a href="$home/openedit/components/html/edit/htmledit/delete.html?editPath=$editorSession.getEditPath()">Delete Draft</a></li>
+			
+			#end
+        
+        
+        
+        
+        </ul>
+      </li>
+     
+     #foreach( $section in $sections )
+     
+     
+     	#set( $img = "/openedit/components/html/theme/images/${section}.png")
+			#set( $link = "$home/openedit/components/html/edit/${section}/index.html?width=1000&editPath=$context.getRequestParameter('editPath')&textheight=500px&origURL=$!origURL")
+	<li #if($thissection == $section)  class="active" #end>		<a href="$link"  ><img border=0 src="$img"> $context.getText($content.get($section))</a></li>
+     
+     #end
+     
+     
+      
+      
+    </ul>
+    
+  </div><!-- /.navbar-collapse -->
+</nav>			

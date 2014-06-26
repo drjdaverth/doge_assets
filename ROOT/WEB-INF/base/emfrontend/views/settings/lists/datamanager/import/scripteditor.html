@@ -1,0 +1,24 @@
+#set( $dataroot = $context.findValue("dataroot"))
+#set( $filename = $context.getRequestParameter("filename"))
+#set( $script = $pages.getPage("$dataroot/import/scripts/$filename") )
+
+<div style="background: #f7f7f7; border: 1px solid #ddd; padding: 20px 30px 10px 30px; border-radius: 5px; margin-bottom: 20px;">
+
+<form name="save" class="ajaxform" targetdiv="scriptlist" method="post" action="$home$dataroot/import/scriptsave.html?oemaxlevel=1">
+	<input class="field" name="filename" value="$script.getName()"/> <span style="margin-left: 10px; font-weight: bold;">Script File Name</span>
+	<textarea spellcheck="false" style="width: 97%; height: 450px; overflow: auto;" name="scriptcode">$script.getContent()</textarea>
+	<p>
+		<input type="submit" class="btn small" value="Save">
+		
+		<a class="ajax btn small right" targetdiv="scriptlist" href="$home$dataroot/import/scriptdelete.html?filename=$script.getName()&oemaxlevel=1" >Delete</a>
+	    <a id="cancel-edit" style="cursor: pointer; margin-right: 5px;" class="btn small right">Cancel</a>
+	</p>
+</form>	
+</div>
+
+<script>
+    $('#cancel-edit').click(function(){
+        $('#scriptarea').hide();
+        $('#submit').show();
+    })
+</script>

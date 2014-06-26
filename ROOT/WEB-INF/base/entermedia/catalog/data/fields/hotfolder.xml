@@ -1,0 +1,26 @@
+
+<properties>
+  <property id="id" index="true" stored="true">Id</property>
+  <property id="name" editable="true" index="true" stored="true">Name</property>
+  <property id="subfolder" editable="true" index="true" stored="true">Sub Folder Name</property>
+  <property id="externalpath" editable="true" index="true" stored="true">External Path</property>
+  <property id="includes" editable="true" index="true" stored="true">Includes</property>
+  <property id="excludes" editable="true" index="true" stored="true">Excludes</property>
+  <property id="attachmenttrigger" editable="true" index="true" stored="true">Attachment Trigger</property>
+  <property id="enabled" editable="true" index="true" stored="true" type="boolean">Enabled</property>
+  <property id="lastscanstart" index="true" stored="true" type="time">Last Scan Start</property>
+  <property id="versioncontrol" editable="true" index="true" stored="true" type="boolean">Version Control</property>
+
+<!-- Move to system settings -->
+<!--    
+  <property id="automatic" editable="true" index="true" stored="true" type="boolean">Automatic</property>
+  <property id="convertpreset" index="true" stored="true" editable="true" type="multiselect">Presets to Send</property>
+  <property id="dayofweek" editable="true" index="true" stored="true" type="list" viewtype="multiselect">Days to run</property>
+  <property id="allowablestart" editable="true" index="true" stored="true" >Friday</property>
+  <property id="allowableend" editable="true" index="true" stored="true" >Daily?</property>
+  -->
+   
+
+
+
+</properties>

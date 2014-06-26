@@ -1,0 +1,5 @@
+<properties>
+	<property id="id" index="true" stored="true">Location ID</property>
+	<property id="publishtype"  index="true" stored="true" editable="true" viewtype="list" type="list">Publish Type</property>
+	<property id="url" index="true" stored="true" editable="true" viewtype="list" type="list">Destination URL</property>
+</properties>

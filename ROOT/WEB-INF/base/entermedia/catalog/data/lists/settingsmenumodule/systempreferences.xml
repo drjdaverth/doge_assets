@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+
+  <property id="appreferences"  type="toplevel"  module="system" path="/views/settings/applicationsetup/preferences/index.html" ordering="01">App Settings</property>
+  
+  
+</properties>
+

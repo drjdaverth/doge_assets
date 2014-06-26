@@ -1,0 +1,22 @@
+
+<div id="tablist" align="right">
+<div style="width:700px; padding: 5px;" >
+
+#set( $seltab = $context.getRequestParameter('nodeID'))
+#set( $tabid = $context.getRequestParameter('tabid'))
+#if( $tabid)
+$!tablist.setLastSelectedById($tabid)
+#end
+<form name="selecttab">
+[[Jump to recent file]]: <select name="pathselect" onchange="document.location.href = this.options[this.options.selectedIndex].value;">
+#foreach($tab in $tablist.tabs) 
+	#if( $tab.path.startsWith("$page.filerootpath/preview/index.html")) 	
+		<option><a href="$home$tab.path" >$tab.name</option>
+	#else
+		<option value="$home$page.filerootpath/tab.html?tabid=$tab.id&nodeID=$tab.id" #if($tablist.lastSelected && $tab == $tablist.lastSelected ) selected #end>$tab.path</option>
+	#end
+#end
+</select> <a href="$home$page.filerootpath/cleartabs.html">([[clear]])</a>
+</form>
+</div>
+</div> 	

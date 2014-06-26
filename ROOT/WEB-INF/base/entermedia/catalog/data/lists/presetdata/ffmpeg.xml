@@ -1,0 +1,9 @@
+<properties>
+  <preset id="ffmpegpreviewmp4"  >FFMMPEG 640x360 MP4</preset>
+  <preset id="ffmpeg480p"  >FFMMPEG 480p MP4</preset>
+  <preset id="ffmpeg720p"  >FFMMPEG 720p MP4</preset>
+  <preset id="ffmpeg1080p" >FFMMPEG 1080p MP4</preset>
+  <preset id="ffmpegslomo" >720P Slow Motion</preset>
+  <preset id="previewffmpegthumb" >Video Thumbnail</preset>
+  
+</properties>

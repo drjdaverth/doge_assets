@@ -1,0 +1,46 @@
+<page>
+	<property name='text.Before Date'>
+        	<value>Before Date</value>
+		<value locale="es">Antes de la Fecha</value>
+    	</property>
+	<property name='text.Past 24 hours'>
+        	<value>Past 24 hours</value>
+		<value locale="es">24 horas anteriores</value>
+    	</property>
+	<property name='text.Past week'>
+        	<value>Past week</value>
+		<value locale="es">Semana Pasada</value>
+    	</property>
+	<property name='text.Past month'>
+        	<value>Past month</value>
+		<value locale="es">Mes Pasado</value>
+    	</property>
+	<property name='text.Past year'>
+        	<value>Past year</value>
+		<value locale="es">Año Pasado</value>
+    	</property>
+	<property name='text.After Date'>
+        	<value>After Date</value>
+		<value locale="es">Después de la Fecha</value>
+    	</property>
+	<property name='text.Pick a date'>
+        	<value>Pick a date</value>
+		<value locale="es">Escoja una Fecha</value>
+    	</property>
+	<property name='text.Exactly'>
+        	<value>Exactly</value>
+		<value locale="es">Exactamente</value>
+    	</property>
+	<property name='text.Under'>
+        	<value>Under</value>
+		<value locale="es">Bajo</value>
+    	</property>
+	<property name='text.Over'>
+        	<value>Over</value>
+		<value locale="es">Sobre</value>
+    	</property>
+	<property name='text.Help'>
+        	<value>Help</value>
+		<value locale="es">Ayuda</value>
+    	</property>
+</page>

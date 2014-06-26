@@ -1,0 +1,48 @@
+#if(!$hits)
+        #set($hitsname = $context.getRequestParameter('hitsname'))
+        #set($hits = $context.getPageValue($hitsname))
+#end
+
+#if(!$hits)
+        #set($hitssessionid = $context.getRequestParameter('hitssessionid'))
+        #if($hitssessionid)
+            #set($hits = $context.getSessionValue($hitssessionid))
+        #end
+#end
+#set( $moduleid = $context.findValue("module") )
+#set( $searchhome = $context.findValue("searchhome") )
+$context.putPageValue("searchhome",$searchhome)
+
+#if(!$hits)
+#set($hits = $context.getPageValue($content.hitsname))
+#end
+$context.putPageValue("hits", $hits)
+#set( $moduleid = $context.findValue("module") )
+
+<div id="searchplugin">
+	<div class="subcolumns">
+		<div class="c25l" id="left-col">
+#set($module = $searcherManager.getData($catalogid, "module", $moduleid ) )
+
+			<h2>$module</h2>
+				$pages.include("${searchhome}/sidebar/standard.html",$context)
+		</div>
+		<div id="right-col" class="module-inner">
+				
+					<div id="resultsdiv" data-searchhome="$home$content.searchhome" data-hitssessionid="$hits.sessionId">
+						<div id="emresultscontent">
+							
+							$pages.include("${searchhome}/resultsactions.html",$context)
+							
+							<div id="resultsarea">
+								<div id="resultslist">
+										$pages.includeContent()
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+		</div>
+	</div>
+</div>    

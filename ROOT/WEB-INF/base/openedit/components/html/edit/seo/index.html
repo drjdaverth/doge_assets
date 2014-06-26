@@ -1,0 +1,41 @@
+<form  method="post" 
+	action="$home/openedit/components/html/edit/seo/save.html" >
+	
+#set ( $editPath = $editorSession.getEditPath() )
+#set ( $origURL = $context.getRequestParameter("origURL") )
+<input name="editPath" type="hidden" value="$!editPath" />
+<input name="origURL" type="hidden" value="$!origURL" />
+
+<div style="height: 400px;">
+
+<h2>Search Engine Optimization: $editPage.path</h2>
+
+  <table class="oepropertiestable" >
+  	<tr>
+   	<td class="oetableleft">[[Title]]</td>
+	<td  class="oetableright">
+		<input type="hidden" name="field" value="title" />
+		<input name="title.value" value="$!editPage.get('title')" /> 
+	</td>  
+   </tr>   
+  	<tr>
+   	<td class="oetableleft">[[Keywords]]</td>
+	<td class="oetableright">
+		<input type="hidden" name="field" value="keywords" />
+		<input name="keywords.value" size="20" value="$!editPage.get('keywords')" />
+	</td>  
+   </tr>   
+  	<tr>
+   	<td class="oetableleft">[[Description]]</td>
+	<td class="oetableright">
+		<input type="hidden" name="field" value="description" />
+		<textarea name="description.value"  >$!editPage.get('description')</textarea>
+		<br>
+		    <input type="submit" value="[[Save]]"/>
+	</td>  
+   </tr>   
+
+   </table>
+	
+</div>
+

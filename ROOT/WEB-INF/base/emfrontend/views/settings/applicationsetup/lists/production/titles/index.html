@@ -1,0 +1,46 @@
+#set($searcher = $searcherManager.getSearcher($catalogid, "title"))
+$!context.putPageValue("searcher",$searcher)		
+
+#set( $query = $searcher.createSearchQuery() )
+#set( $null = $query.addMatches("id","*") )
+$query.addSortBy("inputtype")
+
+<p>Titles and Episodes help you organize your media into smaller groups</p>
+#set( $details = $searcher.getDetailsForView("title/results",$userprofile) )
+<div  id="emselectable">
+<table class="striped greytxt">
+<thead><tr class="tableheader">
+#foreach( $detail in $details)
+<th>$detail.getText($context)</th>
+#end
+</tr>
+</thead>
+<tbody>
+#foreach($row in $searcher.search($query) )
+<tr rowid="$row.id" >
+	#foreach( $detail in $details)
+		$!context.putPageValue("detail",$detail)
+		<td>		
+		#set( $value = false)
+		#set( $value = $row.get($detail.id) )
+		#if( $value)
+			$!context.putPageValue("val",$value)		
+			$pages.include("$apphome/components/xml/detailreadonly.html", $context)
+		#end
+		</td>
+	#end
+
+</tr>
+#end
+</tbody>
+</table>
+<form name="editview" action="$home$apphome/views/settings/lists/production/titles/edit/edit.html"> 
+	<input type="hidden" name="id" id="emselectedrow">
+</form>
+</div>
+
+
+<a class="btn" href="$home$apphome/views/settings/lists/production/titles/edit/addnew.html">Add New Title</a>
+
+
+

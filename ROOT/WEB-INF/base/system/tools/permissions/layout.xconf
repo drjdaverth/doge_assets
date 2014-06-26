@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  	<page-action name="PermissionModule.loadPermissions"/>
+  	<property name="text.remove">
+    		<value>[remove]</value>
+    		<value locale="es">[eliminar]</value>
+  	</property>
+  	<property name="text.Are you sure you want to delete this permission?">
+    		<value>Are you sure you want to delete this permission?</value>
+    		<value locale="es">¿Está seguro de que desea borrar este permiso?</value>
+  	</property>
+  	<property name="text.Parent Permissions">
+    		<value>Parent Permissions</value>
+    		<value locale="es">Permisos de los Padres</value>
+  	</property>
+  	<property name="text.Other Properties">
+    		<value>Other Properties</value>
+    		<value locale="es">Otras Propiedades</value>
+  	</property>
+  	<property name="text.Permission">
+    		<value>Permission</value>
+    		<value locale="es">Permiso</value>
+  	</property>
+  	<property name="text.add new permission">
+   		<value>add new permission</value>
+    		<value locale="es">agregar nuevo permiso</value>
+  	</property>
+  	<property name="text.Permission Editor">
+    		<value>Permission Editor</value>
+    		<value locale="es">Editor de Permisos</value>
+  	</property>
+  	<property name="text.Permission Names">
+    		<value>Permission Names</value>
+    		<value locale="es">Nombre del Permiso</value>
+  	</property>
+  	<property name="text.Rules and Conditions">
+    		<value>Rules and Conditions</value>
+    		<value locale="es">Reglas y Condiciones</value>
+  	</property>
+  	<property name="text.Actions">
+    		<value>Actions</value>
+    		<value locale="es">Acciones</value>
+  	</property>
+  	<property name="text.Path">
+    		<value>Path</value>
+    		<value locale="es">Ruta</value>
+  	</property>
+  	<property name="text.edit">
+    		<value>[edit]</value>
+    		<value locale="es">[editar]</value>
+  	</property>
+  	<property name="text.override">
+    		<value>[override]</value>
+    		<value locale="es">[sobreescribir]</value>
+  	</property>
+</page>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<page-action name="HtmlEditor.loadView" />
+	<property name='text.Save'>
+        	<value>Save</value>
+		<value locale="es">Guardar</value>
+    	</property>
+	<property name='text.Help'>
+        	<value>Help</value>
+		<value locale="es">Ayuda</value>
+    	</property>
+	<property name='text.Would you like to auto save now or continue editing?'>
+        	<value>Would you like to auto save now or continue editing?</value>
+		<value locale="es">¿Desea guardar automáticamente ahora o desea continuar editando?</value>
+    	</property>
+	<property name='text.(Modified)'>
+        	<value>(Modified)</value>
+		<value locale="es">(Modificado)</value>
+    	</property>
+	<property name='text.You have unsaved changes to'>
+        	<value>You have unsaved changes to</value>
+		<value locale="es">Tiene cambios sin guardar en</value>
+    	</property>
+	<property name='text.Cancel'>
+        	<value>Cancel</value>
+		<value locale="es">Cancelar</value>
+    	</property>
+	<property name='text.to discard your changes or'>
+        	<value>to discard your changes or</value>
+		<value locale="es">para descartar los cambios o</value>
+    	</property>
+	<property name='text.to save'>
+        	<value>to save</value>
+		<value locale="es">para guardar</value>
+    	</property>
+
+</page>

@@ -1,0 +1,105 @@
+<div id="oefileworkspace">
+
+#if ($browser.browserType == 1)
+	<link rel="stylesheet" href="$home$themeprefix/entermedia/styles/filemanager/iefixes.css" />
+#end
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="$home/${applicationid}/tools/images/oefavicon.ico">
+
+
+<div id="oeadmin">
+
+#set ( $path = $context.getRequestParameter("path") )
+#if ($path)
+	#set( $nill = $!pageTree.getTreeRenderer().setSelectedNodeByUrl($path) )
+	#set( $node = $pageTree.getTreeRenderer().getSelectedNode() )
+	#set( $editPath = $context.getRequestParameter("editPath"))
+	#if( $node && $editPath && $editPath == $path)
+		$pageTree.getTreeRenderer().expandNode($node)
+	#end
+
+#end
+
+<script type="text/javascript">
+
+pageTree = new Object();
+pageTree.lastselected = "$!pageTree.getTreeRenderer().getSelectedId()";
+pageTree.name = "pageTree";
+pageTree.jumpToNode = function(inUrl, inNodeId)
+{
+	this.selectRow( inNodeId );
+	var thepath = "$page.filerootpath/tab.html";
+	jQuery("#oetabarea").load('$home' + thepath, { nodeID: inNodeId, path: inUrl, origURL: "$content.path", oemaxlevel: 1  });
+	return false;
+}
+pageTree.toggleNode = function(inUrl,inTreeId, inNodeId)
+{
+	jQuery("#" + this.name + "treerow"+inNodeId).load('$home$page.filerootpath/tree/toggle.html', {nodeID: inNodeId, treeid: inTreeId,origURL: "$content.path" });
+	return false;
+}
+pageTree.jumpAndOpenNode = function(inUrl,inTreeId, inNodeId)
+{
+	this.jumpToNode( inUrl, inNodeId );
+	return false;
+}
+pageTree.selectRow = function( inNodeId )
+{
+//	if( this.lastselected.length > 0 )
+//	{
+		jQuery("div.dtree .dTreeNodeSel").removeClass("dTreeNodeSel");
+		jQuery("#" + this.name + "treeitem" + inNodeId).addClass("dTreeNodeSel");
+//	}
+	this.lastselected = inNodeId;
+}
+
+jQuery(document).ready(function() 
+{ 
+	$('.dtree .treerowtext' ).on(
+	function()
+	{
+		jQuery(this).hover(
+			function () 
+			{
+		        $(this).addClass("emtreehover");
+		 	}, 
+			function () {
+			    $(this).removeClass("emtreehover");
+			}
+		);
+		jQuery(this).click( function(event)
+			{
+				if( $(event.target).hasClass("treerowtext") )
+				{
+					var path = $(this).attr("path");
+					var id = $(this).attr("nodeid");
+					pageTree.jumpToNode(path,id);
+				}
+			}
+		);
+	});
+});
+
+
+</script>    
+
+
+<table width="100%">
+	<tr>
+		<td valign="top" width="250">
+			<h2>[[File Manager]]</h2>
+			$pages.include("$page.filerootpath/tree/tree.html")
+		</td>
+		<td valign="top">
+			#if($node.isLeaf() )
+				<!-- show menu -->
+			#end
+			<div id="oetabarea">
+				$pages.includeContent()
+			</div>
+		</td>
+	</tr>
+</table>
+
+
+</div>
+
+</div>

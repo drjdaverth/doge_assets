@@ -1,0 +1,27 @@
+<page>
+	<property name="searchtype">presetdata</property>
+	<property name="searchhome">/${applicationid}/views/settings/modules/asset/presetconfig</property>
+	<property name="showsearch">false</property>
+	<property name="showactions">true</property>
+	
+	<property name="resultspage">${searchhome}/search/results.html</property>
+	<inner-layout>${searchhome}/resultsinnerlayout.html</inner-layout>
+	<property name="editable">false</property>
+	<property name="hitsname">hits</property>
+	<property name="showsearch">false</property>
+	<property name="searchfields">advancedsearch</property>
+	
+	 <path-action allowduplicates="true" bean="searcherManager" name="PageValue.loadPageVariable"/>
+	
+	 <permission name="delete">
+	 	<group name="administrators"/>
+	 </permission>
+	 <permission name="editdata">
+	 	<group name="administrators"/>
+	 </permission>
+	 
+ 	<property name="tab">preferences</property>
+	<property name="subtab">presets</property>
+	<inner-layout>${themeprefix}/layouts/settingssubtablayoutnomargin.html</inner-layout>
+	
+</page>

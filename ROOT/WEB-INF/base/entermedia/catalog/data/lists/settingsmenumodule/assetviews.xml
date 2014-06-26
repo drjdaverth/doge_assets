@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+  <property id="assetviews"  type="toplevel" module="asset" parentid="assetviews" path="/views/settings/modules/asset/metadata/views/index.html" ordering="010" sublabel="Editing">Views</property>
+  <property id="assetsystemviews"  module="asset" parentid="assetviews" path="/views/settings/modules/asset/metadata/viewssystem/index.html" ordering="110">System</property>
+<!--   <property id="searching" module="asset" parentid="views" path="/views/settings/metadata/fields/index.html" >Searching</property>
+  <property id="results" module="asset" parentid="views" path="/views/settings/metadata/assettypes/index.html" >Results</property>
+  <property id="uploading" module="asset" parentid="views" path="/views/settings/metadata/assettypes/index.html" >Uploading</property>
+  -->
+</properties>

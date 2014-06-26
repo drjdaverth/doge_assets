@@ -1,0 +1,6 @@
+#if($errors)
+#set($errormsg = "$!errors.get($context.getRequestParameter('field'))")
+<span style="color:red;white-space:nowrap;">$context.getText($errormsg)</span>
+#end
+
+

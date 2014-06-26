@@ -1,0 +1,34 @@
+<!-- 
+
+Name	must be unique
+Width
+Height
+On Import
+Image Location
+
+convertpreset:
+id		{underscore name??}**
+name	eg. Basic Article
+inputtype	image**
+outputfile	imageWxH.jpg**
+fileexportformat	${filename}W_${asset.id}.jpg**
+type	Image Magick**
+guid	generated**
+onimport	true/false
+ordering	automatic**
+publishtofatwire	true**
+
+
+
+presetdata:
+id	GUID
+name	same as convertpreset.name
+
+presetparameter:
+id	same as convertpreset.id + X
+parameterdata	GUID
+name	prefheight, prefwidth, imagelocation
+value	330, etc
+
+
+ -->

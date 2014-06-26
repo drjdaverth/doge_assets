@@ -1,0 +1,8 @@
+<page>
+
+	<script src="/${applicationid}/components/javascript/aspera/asperaweb.js" id="aspera"/>
+	<script src="/${applicationid}/components/javascript/aspera/connectversions.js" id="connectversion" />
+	<script src="/${applicationid}/components/javascript/aspera/connectinstaller.js" id="connectinstaller"/>
+  	<script src="http://java.com/js/deployJava.js" id="deployjava" />
+
+</page>

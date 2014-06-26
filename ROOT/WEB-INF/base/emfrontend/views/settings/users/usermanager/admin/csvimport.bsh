@@ -1,0 +1,83 @@
+/*
+ * CSV User File Importer
+ * By Jorge Valencia <jvalencia@openedit.org>
+ */
+
+
+import java.io.*;
+import org.openedit.util.*;
+import org.openedit.entermedia.util.*;
+import org.openedit.tracker.*;
+
+backLog = new StringWriter();
+log = new PrintWriter( backLog ); 
+
+/* Catch exceptions that otherwise would send ugly messages to the user */
+try {
+	log.println( "Starting importing..." );
+	userSearcher = context.get("searcher");
+	userManager = context.get("usermanager");
+	pageManager = userManager.pageManager;
+	usersPage = pageManager.getPage("/WEB-INF/temp/users.csv");
+	log.println( "Checking if users file exists: " + usersPage.exists() );
+	if ( usersPage.exists() ) {
+		log.println( "Starting users importing..." );
+		int rowcount = 0; int newuser = 0;
+		usersFile = usersPage.contentItem.file;
+		importFile = new ImportFile('	');
+		importFile.load( usersFile );
+		headers = importFile.header.headerNames;
+		while ( (row = importFile.nextRow) != null ) {
+			username = row.get("username");
+			if( username == null)
+			{
+				username = row.get("property.Username");
+			}
+			if( username == null)
+			{
+				log.println( "row is missing username" );
+				continue;
+			}
+			rowcount++;
+			user = userManager.getUser( username );
+			if (user == null) {
+				newuser++;
+				user = userManager.createUser( username, "password" );
+			}
+			user.setFirstName( row.get("firstname") );
+			user.setLastName( row.get("lastname") );
+			user.setEmail( row.get("email") );
+			for ( i = headers.iterator(); i.hasNext(); ) {
+				column = i.next();
+				if (column.startsWith("property."))
+				{
+					user.setProperty(column.substring("property.".length()), row.get(column));
+				}
+				else if ( column.equals("groups"))
+				{
+					groups = row.get(column);
+					split = groups.split(",");
+					for( int i=0;i<split.length;i++)
+					{
+						group = userManager.getGroup(split[i]);
+						if( group != null)
+						{
+							user.addGroup( group);
+						}
+					}
+				}
+			}
+			userManager.saveUser(user);
+			userSearcher.updateIndex(user);
+		}
+		userManager.flush();
+		log.println( "" + rowcount + " rows processed.");
+		log.println( "" + newuser + " user created.");
+	}
+	log.println( "Ended normally" );
+} catch ( Exception e ) {
+	log.println( "Exception caught:" );
+	e.printStackTrace( log );
+} finally {
+	context.putPageValue( "importlog", backLog.toString() );
+}

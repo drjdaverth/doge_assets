@@ -1,0 +1,11 @@
+<div class="logintext" align="right"><FORM name="login" action="$home/openedit/authentication/logon.html" method="POST">
+User: <INPUT id="accountname" name="accountname" size="14" value="admin"/><br>
+Password: <INPUT name="password" type="password" size="14" value="admin" />
+<div style="margin-top:4px;margin-left: 70px;"><INPUT name="submit" type="submit" value="Login" /></div>
+#if( $user )
+<a href="$home/openedit/authentication/logout.html">Logout</a><br />
+#else
+<br />	
+#end
+</FORM>
+</div>

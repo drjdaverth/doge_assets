@@ -1,0 +1,32 @@
+#set($searcher = $mediaarchive.getAssetSearcher())
+$context.putPageValue("searcher", $searcher)
+$context.putPageValue("data", $asset)
+##check for assettype specific first?
+
+#if( $asset.assettype && $archive.viewExists("asset/assettype/$asset.assettype/previewstatus") )
+  #set ($view = "asset/assettype/$asset.assettype/previewstatus")
+#else
+  #set ($view = "asset/assettype/default/previewstatus")
+#end
+
+#set( $details  = $searcher.getDetailsForView($view,$userprofile) )
+$context.putPageValue("details", $details)
+
+#set( $showstatus = false)
+#foreach( $detail in $details )
+	#set( $value = $asset.get($detail.getId() ) )
+	#if( $value )
+		#set( $showstatus = true)
+	#end
+#end
+
+#if ( $canviewvoting )
+    <div id="assetVoteCount">
+        $pages.include("$apphome/views/modules/asset/editor/voting/index.html", $context)
+    </div>
+#end
+#if( $showstatus )
+<div id="status-flag">
+    $pages.include("$apphome/components/xml/detaileditorcss.html?detailsreadonly=true", $context)
+</div>
+#end

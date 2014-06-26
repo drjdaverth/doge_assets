@@ -1,0 +1,9 @@
+A new comment has been posted by $comment.author on <A href="${entry.link}?cache=false">$entry.link</a>
+
+$pages.stream($entry.path)
+
+<div class="comment">
+ <div class="comment-body">$comment.content</div>
+ <div class="comment-poster">$comment.author <span class="comment-timestamp">$comment.published("EEE, MMM d, h:mm a")</span>
+ </div>
+</div>

@@ -1,0 +1,42 @@
+
+<table> 
+<tr>
+
+<td width="300" style="vertical-align: top; max-width: 300px;">
+
+<div class="em-rounded">
+$pages.include("$apphome/components/savedsearches/index.html", $context)
+</div>
+
+<div class="em-rounded" style="margin-top: 20px;">
+<h3>Asset Types</h3>
+$pages.include("$apphome/components/dontshow/index.html")
+</div>
+
+<div id="advsearchpanel" class="em-rounded" style="margin-top: 20px;">
+$context.putPageValue("view", "asset/advancedsearch")
+$context.putPageValue("searcher", $mediaarchive.getAssetSearcher())
+
+
+
+##set ($details = $mediaarchive.getAssetSearcher().getDetailsForView("asset/advancedsearch", $userprofile))
+##$context.putPageValue("details", $details)
+
+$pages.include("$apphome/components/advancedsearch/index.html", $context)
+</div>
+
+
+
+</td>
+<td width="10">
+</td>
+<td  style="vertical-align: top;" >
+      
+$pages.includeContent()
+</td>
+</tr>
+</table>
+<div class="nothing" style="display:none;"></div>
+
+
+

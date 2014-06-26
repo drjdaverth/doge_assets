@@ -1,0 +1,56 @@
+
+<div id="eml-green-dialog" class="clearfix" style="width: 758px;">
+
+<div id="arrow" class="arrow">&nbsp;</div>		
+
+#set( $termid = $context.getRequestParameter("termid"))
+#set( $term = $query.getTermByTermId($termid) )
+
+#set( $detail = $term.getDetail() )
+#set( $searcher = $mediaarchive.getAssetSearcher() )
+#set( $view = "asset/advancedsearch")
+
+<form name="editform" action="$home$apphome/views/search/edit/saveparam.html">
+	
+		<input name="queryid" value="$query.id" type="hidden" />
+		<input name="termid" value="$term.id" type="hidden" />
+		<input name="detailid" value="$detail.id" type="hidden" />
+		
+	<div class="ui-widget" style="overflow: hidden;">
+		<div class="ui-widget-header">$!detail.getText($context)</div>
+		<div  class="ui-widget-content emselectmenu">
+		#set( $viewtype = $detail.viewType )
+		#if (!$viewtype)
+			#set ($viewtype = $detail.dataType)
+		#end
+		#if (!$viewtype)
+			#set ($viewtype = "default")
+		#end
+
+
+#if( "orgroup" == $term.getOperation())
+		<input name="orgroup" value="${detail.getId()}" type="hidden">
+#else
+		<input name="field" value="$searcher.getCatalogId():$view:${detail.getId()}" type="hidden">
+		<input name="operation" value="$term.getOperation()" type="hidden" />
+#end
+		#set( $value = $term.value )
+		$context.putPageValue("val",$value)
+		$context.putPageValue("detail",$detail)
+		$pages.include("$apphome/components/xml/types/${viewtype}.html", $context)
+	
+	
+	</div></div>
+	
+		<input type="submit" class="btn small" value="Save" />
+		<a class="btn small" targetdiv="querybigeditarea" href="$home$apphome/views/search/edit/paramdeletefinish.html?queryid=$query.id&termid=$termid">Delete</a> 
+		<a class="btn small" style="float: right" targetdiv="querybigeditarea" href="$home$apphome/views/search/edit/index.html?queryid=$query.id">Cancel</a> 
+</form>
+</div>
+<!-- 
+	#if ($edit == "true")
+		<a href="#" onclick="javascript:deleteField('$detail.id'); return false;">
+		<img src="$home$apphome/theme/images/navigation/deletesm.png"/>
+		</a>
+	#end
+ -->

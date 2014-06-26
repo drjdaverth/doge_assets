@@ -1,0 +1,19 @@
+<h1 class="post-title">
+ $entry.title
+</h1>
+<div id="post-description">
+	
+		$pages.stream($entry.getPath() )
+		
+</div>
+		
+<div class="post-footer">
+  <div class="post-poster">Posted by $entry.author <span class="post-timestamp">$entry.published("EEE, MMM d yyyy h:mm a")</span></div>
+</div>
+ #if($page.isPropertyTrue('usecomments'))
+<div class="commentlist">
+$pages.stream("$bloghome/layout/commentlist.html")
+</div>
+
+$pages.stream("$bloghome/layout/postcomment.html")
+#end

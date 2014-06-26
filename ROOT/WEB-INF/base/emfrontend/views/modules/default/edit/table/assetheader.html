@@ -1,0 +1,99 @@
+
+<div>
+#set($hitssessionid = $context.getRequestParameter('hitssessionid'))
+$hitssessionid 
+
+	<ul id="sub-nav" class="search-views">
+		
+		#set ($classname="enabled")
+		#if( $candownload || $canconvert || $candownloadfpo )
+			<li><a  href="$home$apphome/views/activity/downloadassets.html?hitssessionid=$!hitssessionid" >Download</a></li>
+		#end	
+		##Email and publish should be under share
+		#if($canpublish || $canemaillink )
+			<li><a>Share</a>
+				<ul>
+					#if( $canemaillink )
+					<li><a href="$home$apphome/views/activity/emailassets.html?hitssessionid=$!hitssessionid" >Email Assets</a></li>
+					#end
+					#if( $canpublish)
+					<li><a href="$home$apphome/views/activity/publishassets.html?hitssessionid=$!hitssessionid" >Publish Assets to Server</a></li>
+					#end
+				</ul>
+			</li>
+		#end
+		
+		#if ( $canviewbasket )
+
+			#set( $showremoveselections = $context.findValue("showremoveselections") )
+			#if( $showremoveselections == "true" )
+				#set( $showremoveselections = true )
+			#else
+				#set( $showremoveselections = false )
+			#end
+			#if($showremoveselections )
+				<li><a class="updatebasket" data-action="remove" targetdiv="basket-paint"  href="$home$apphome/components/basket/removeselection.html?hitssessionid=$hits.getSessionId()" ">Remove</a></li>
+			#else
+				<li><a class="updatebasket" targetdiv="basket-paint"  href="$home$apphome/components/basket/addselection.html?hitssessionid=$hits.getSessionId()" ">Add to Basket</a></li>
+			#end
+		#end
+		
+		#if ($canmetadatageneral && $hits)
+			<li><a href="$home$apphome/views/modules/asset/editor/multiedit/index.html?hitssessionid=$!hitssessionid" title="[[Edit one or more selected records]]">Edit</a></li>
+		#end
+		
+		#set( $edit = $context.getRequestParameter("editheader") )
+		#if($edit && $edit == "true"  )
+			<li>
+				<a class="drag-columns-text"><span class="ui-icon ui-icon-info" style="float: left; margin-top: 14px; margin-right: 5px;"></span>
+				[[Drag columns to move them]]</a>
+			</li>
+		#elseif($hits.hasSelections() )
+			<li>
+				$pages.include("$apphome/components/results/selected/index.html",$context)
+			</li>
+		#end
+		
+		#set ($resultview = $userprofile.get('resultview'))
+		#if (!$resultview || $resultview == 'table')
+			<li style="float: right;" class="edit-columns">	
+				<div style="position: relative;">
+					#if( $canedittablecolumns )
+					<div id="table-edit-outside">
+						#if( !$edit ) <a class="ajax" id="table-editor" targetdiv="emresultscontent" href="$home$apphome/components/results/table.html?searchtype=asset&hitssessionid=$hits.getSessionId()&editheader=true"> <img style="position: relative; top: -1px;" title="Edit Columns" src="$home$themeprefix/images/edit.gif" /></a>
+						#else <a class="ajax table-edit-close" targetdiv="emresultscontent" href="$home$apphome/components/results/table.html?searchtype=asset&hitssessionid=$hits.getSessionId()&editheader="><img title="Cancel" style="position: relative; top: -1px;" src="$home$themeprefix/images/delete.gif" /></a>
+						<div id="column-editor">
+							<div id="column-editor-content">
+								#set ($alldetails = $searcher.getUserPropertyDetails() )
+								<select  onchange='addColumn(jQuery(this).val())' name="addcolumn" >
+									<option>Add Column</option>
+									#foreach( $detail in $alldetails) <option value="$detail.id">$detail.getText($context)</option>
+									#end
+								</select>
+								<script type="text/javascript">
+									function addColumn(inId) {
+										jQuery('#emresultscontent').load("$home$apphome/components/results/addremovecolumns.html?oemaxlevel=1&searchtype=asset&hitssessionid=$hits.getSessionId()&editheader=true&addcolumn=" + inId);
+									}
+								</script>
+							</div>
+						</div>
+						#end
+					</div>
+					#end
+				</div>
+			</li>
+		#end
+		
+			<li style="float: right;">	
+				<a class="ajax" targetdivinner="view-picker-content" title="$hits.size() results" href="$home$apphome/components/results/changeresultview.html?oemaxlevel=1&hitssessionid=$hits.getSessionId()&searchtype=asset&page=$hits.getPage()&showremoveselections=$showremoveselections">
+				
+					#if (!$resultview || $resultview == 'table')
+						View Gallery
+					#else
+						View Table
+					#end
+					
+				</a>
+			</li>
+	</ul>
+</div>

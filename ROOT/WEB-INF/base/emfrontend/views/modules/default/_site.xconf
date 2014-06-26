@@ -1,0 +1,30 @@
+<page>
+<property name="searchhome">/${applicationid}/views/modules/${module}</property>
+<property name="resultspage">${searchhome}/search/results.html</property>
+<inner-layout>${searchhome}/resultsinnerlayout.html</inner-layout>
+<property name="editable">false</property>
+<property name="hitsname">hits</property>
+<property name="showsearch">true</property>
+<property name="searchfields">advancedsearch</property>
+
+<!-- this causes problems for one to many tables -->
+
+<!--
+<property name="searchtype">${module}</property>
+-->
+
+<property name="showactions">true</property>
+ <path-action allowduplicates="true" bean="searcherManager" name="PageValue.loadPageVariable"/>
+ <permission name="delete">
+ 	<permission name="oe.administration"/>
+ </permission>
+ <permission name="editdata">
+ 	<permission name="oe.administration"/>
+ </permission>
+ 	<script id="results" src="/${applicationid}/components/javascript/results.js"/>
+ 	
+  	<!-- include tooltips for generating previews on results table -->
+  	<script id="tooltips" src="/${applicationid}/components/javascript/tooltip/jquery.powertip.min.js"/>
+  	<style id="tooltips-css" href="${themeprefix}/styles/tooltip/jquery.powertip-blue.min.css" />
+ 
+</page>

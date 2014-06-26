@@ -1,0 +1,3 @@
+#set( $searchhome = $context.findValue("searchhome") )
+#set( $moduleid = $context.findValue("module") )
+$pages.include("$searchhome/moduleresults/results.html", $context)

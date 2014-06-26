@@ -1,0 +1,9 @@
+<properties usagelabel="Specify columns used on results Table Data view">
+	<property id="name"/>
+	<property id="assettitle"/>
+	<property id="productionnumber" />
+	<property id="assettype" />
+	<property id="length" />
+	<property id="filesize" />
+	
+</properties>

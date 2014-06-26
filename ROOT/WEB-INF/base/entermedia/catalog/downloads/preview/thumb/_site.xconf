@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                                                                                                                                   
+<page>
+	<property name="assetrootfolder">/${catalogid}/downloads/preview/thumb</property>
+	<generator name="convertArchiveDocument"/>
+	<property name="prefwidth">200</property>
+	<property name="prefheight">200</property>
+	<property name="virtual">true</property>
+	<path-action name="AssetControlModule.loadAssetPermissions" alltypes="true" />
+	<property name="uselegacythumbimages">false</property>
+	<property name="sourcefile">image</property>
+</page>
+
+

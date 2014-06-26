@@ -1,0 +1,6 @@
+<page>
+	<property name="sectiontitle">
+		<value>Translation Exporter</value>
+	</property>
+	<property name="tab">translations</property>
+</page>

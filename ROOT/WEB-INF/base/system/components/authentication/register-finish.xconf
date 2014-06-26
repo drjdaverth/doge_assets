@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <page-action name="User.createGuestAccount"/>
+  <property name="email-template">/${applicationid}/authentication/registeremail.html</property>
+  <property name="admin-email-template">/${applicationid}/authentication/registeradminemail.html</property>
+</page>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="text.[remove">
+    <value>[remove</value>
+    <value locale="es">[eliminar</value>
+  </property>
+  <property name="text.A asset can be in multiple categories. To add a category select from the tree and click the button.">
+    <value>A asset can be in multiple categories. To add a category select from the tree and click the button.</value>
+    <value locale="es">Un asseto puede estar en varias categorías. Para añadir una categoría de seleccionar el árbol y haga clic en el botón.</value>
+  </property>
+  <property name="text.Add">
+    <value>Add</value>
+    <value locale="es">Agregar</value>
+  </property>
+</page>

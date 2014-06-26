@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <property id="asset"/>
+  <property id="name"/>
+  <property id="taskdescription"/>
+  <property id="taskstatus"/>
+  <property id="client"/>
+  <property id="library"/>
+  <property id="assigned"/>
+  <property id="deliverydate"/>
+</root>

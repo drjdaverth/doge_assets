@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="text.Asset details">
+    <value locale="es">Detalles del artículo</value>
+  </property>
+  <property name="text.Yes">
+    <value locale="es">Sí</value>
+  </property>
+  <property name="text.No">
+    <value locale="es">No</value>
+  </property>
+  <property name="text.No Data has yet been entered.">
+    <value locale="es">No se han ingresado datos aún.</value>
+  </property>
+  <property name="text.Go back">
+    <value locale="es">Volver</value>
+  </property>
+</page>

@@ -1,0 +1,19 @@
+<page>
+	<generator name="velocityGenerator" />
+	<inner-layout />
+	
+	<path-action name="Admin.autoLogin" alltypes="true"/>
+	<path-action name="Admin.loadPermissions" alltypes="true"/>
+	<path-action name="MediaArchiveModule.getEnterMedia"  alltypes="true"/>
+	<property name="cancelredirect">true</property>
+	
+	<path-action name="Admin.allowViewing" alltypes="true">
+		<login-path>/${applicationid}/services/rest/noaccess.xml</login-path>
+		<exclude>/${applicationid}/services/rest/login.xml</exclude>
+	</path-action>
+
+	<permission name="view">
+		<user/>
+	</permission>	
+	
+</page>

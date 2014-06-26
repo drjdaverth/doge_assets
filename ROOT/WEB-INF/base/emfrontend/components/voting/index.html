@@ -1,0 +1,34 @@
+
+<div id="assetVoteCount" style="width: 250px;">
+
+
+
+#if( $canvote )
+#if($alreadyvoted)
+	<a style="float: right;" class="ajax btn" targetdiv="assetVoteCount" href="$home$apphome/components/voting/removeVote.html?sourcepath=$asset.sourcepath&catalogid=$asset.catalogid')"><img title="Unlike" src="$home$themeprefix/images/buttons/starfull.png" width="12" height="12" />&nbsp; Unlike</a>
+#else
+	<a style="float: right;" class="ajax btn" targetdiv="assetVoteCount" href="$home$apphome/components/voting/addVote.html?sourcepath=$asset.sourcepath&catalogid=$asset.catalogid"><img title="Like" src="$home$themeprefix/images/buttons/starempty.png" width="12" height="12" />&nbsp; Like</a> 
+#end
+#end
+
+<div class="likes-count" style="float: right; margin-right: 10px; height: 15px;">
+
+#set($size = $voteshits.size() )
+
+#if($size > 0) 
+<p style="float: right; font-size: 12px;">
+	#set( $first = $voteshits.get(0).username )
+  	   <a href="$home/$applicationid/users/${first}/index.html">$userManager.getScreenName($first)</a>
+	#if($size == 1)
+		[[likes this]]
+	#elseif($size == 2)
+		#set( $second = $voteshits.get(1).get('username') )
+		 and <a href="$home/$applicationid/users/$second/index.html">$userManager.getScreenName($second)</a>  [[like this]] 
+	#elseif( $size > 2 )
+		#set($size = $size - 2)
+			and <a class="emdialog" href="$home$apphome/components/voting/showvotes.html?sourcepath=$asset.sourcepath&catalogid=$catalogid">$size more</a> [[like this]] 
+	#end
+	</p>
+#end
+</div>
+</div>

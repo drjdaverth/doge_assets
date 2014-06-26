@@ -1,0 +1,8 @@
+<page>
+	<permission name="view">
+		<not>
+			<pagevalue name="caneditasset" equals="false"/>
+		</not>
+	</permission>	
+
+</page>

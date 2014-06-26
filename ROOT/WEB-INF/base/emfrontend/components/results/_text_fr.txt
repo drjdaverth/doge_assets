@@ -1,0 +1,7 @@
+#
+#Mon Aug 27 10:52:53 EDT 2012
+items=articles
+No\ results\ found=Aucun r\u00E9sultat trouv\u00E9
+Drag\ columns\ to\ move\ them=Faites glisser les colonnes pour les d\u00E9placer
+Displaying\ records=Affichage des dossiers
+of=de

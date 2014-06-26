@@ -1,0 +1,13 @@
+<div id="usereditarea">
+<form class="ajaxform" id="usereditform" targetdiv="usereditarea" action="$home$apphome/components/usereditor/saveuser.html?">
+<input type="hidden" name="username" value="$user.id"/>
+$context.putPageValue("searcher", $searcher)	 
+$context.putPageValue("view", "user/myaccount")	
+$context.putPageValue("data", $user)	
+
+<br/>
+$pages.include("/${content.parentapplicationid}/components/xml/detaileditor.html", $context)
+<input type="submit" value="[[Save Changes]]" />
+<br>
+</form>
+</div>

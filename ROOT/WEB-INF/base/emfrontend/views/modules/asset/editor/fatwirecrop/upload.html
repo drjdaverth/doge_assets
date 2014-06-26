@@ -1,0 +1,11 @@
+<form id="uploadform" name="wizard" method="post" enctype="multipart/form-data" action="$home${apphome}/views/modules/asset/editor/fatwirecrop/uploadfinish.html">
+		<input type="file" size="50"  style="color: white; background-color: #2D2C2C;" name="file.0">
+		<input type="hidden" name="unzip" value="false" />
+		<input type="hidden" name="sourcepath" value="$!context.getRequestParameter('assetid')" />
+		<input type="hidden" name="assetid" value="$!context.getRequestParameter('assetid')" />
+		<input type="hidden" name="presetid" value="$!context.getRequestParameter('presetid')" />
+
+		<input type="submit" id="finishbutton" value="[[Upload]]" >
+
+
+</form>

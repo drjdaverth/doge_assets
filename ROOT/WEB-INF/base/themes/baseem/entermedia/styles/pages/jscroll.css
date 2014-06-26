@@ -1,0 +1,23 @@
+/**
+ * Overwrite for having a carousel with dynamic width.
+ 150 * 7 wide  = 1050
+ */
+.jcarousel-container-horizontal {
+	width: 1050px;
+	background-color: #F9F9F9;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	height: 150px;
+}
+
+.jcarousel-clip-horizontal {
+	height: 150px;
+
+}
+
+.jcarousel-list-horizontal
+{
+	height: 150px;
+
+}
+

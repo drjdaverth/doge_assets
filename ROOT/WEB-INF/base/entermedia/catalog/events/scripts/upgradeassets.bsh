@@ -1,0 +1,163 @@
+import org.openedit.entermedia.modules.*;
+import org.openedit.entermedia.edit.*;
+import com.openedit.page.*;
+import com.openedit.*;
+import org.openedit.entermedia.*;
+import org.openedit.data.Searcher;
+import com.openedit.hittracker.*;
+import org.openedit.entermedia.creator.*;
+import org.openedit.repository.filesystem.*;
+import org.openedit.repository.*;
+import org.openedit.*;
+
+String root = "/" + mediaarchive.getCatalogId() + "/assets";
+String newroot = "/WEB-INF/data/" + mediaarchive.getCatalogId() + "/assets";
+
+public void processFolder(String inPath)
+{
+	children = pageManager.getChildrenPaths(inPath);
+
+	//look for any .xconf files in here
+	//or folders
+	for (Iterator iterator = children.iterator(); iterator.hasNext();) 
+	{
+	 	path =  iterator.next();
+		if( path.contains("/.versions") )
+		{
+			continue;
+		}
+		page = pageManager.getPage(path);
+		
+	 	if( path.endsWith(".xconf") )
+	 	{
+			configuration = page.getPageSettings().getUserDefined("asset");
+			if( configuration != null )
+			{
+				String xml = configuration.toXml("UTF-8");
+				String newpath = path.replace(root, newroot);
+				newpath = newpath.replace("/_site.xconf","/data.xml");
+				StringItem content = new StringItem( newpath, xml ,"UTF-8");
+				content.setMakeVersion(false);
+				log.info("saving " + newpath );
+				Page data = pageManager.getPage(newpath);
+				data.setContentItem(content);
+				pageManager.putPage(data);	
+				
+				//remove the old element
+				page.getPageSettings().getUserDefinedData().removeChild(configuration);
+				xml = page.getPageSettings().getUserDefinedData().toXml("UTF-8");
+				if( xml.length() > 50 )
+				{
+					StringItem oldcontent = new StringItem( path, xml ,"UTF-8");
+					oldcontent.setMakeVersion(false);
+					page.setContentItem(oldcontent);
+					pageManager.putPage(page);	
+				}
+				else
+				{
+					pageManager.removePage(page);
+				}
+
+			}
+		}
+		else if(path.endsWith(".xml"))
+		{
+			String newpath = path.replace(root, newroot);
+			//if it's assetalbums I may have to make modifications to the file.
+			//there may also be other xml files that have catalog id in them
+			Page newpage = pageManager.getPage(newpath);
+			migratePage(page, newpage);
+		}
+		else
+		{
+			if( page.isFolder() )
+			{
+				processFolder(path);
+			}
+		}
+	}
+}
+
+public void migratePage(Page source, Page destination)
+{
+	if(source != null && destination != null)
+	{
+		log.info("moving " + source + " to " + destination + " for " + applicationid);
+		try
+		{
+			pageManager.movePage(source, destination);
+		}
+		catch(RepositoryException e)
+		{
+			log.info(e.getMessage());
+		}
+	}
+}
+
+public void migrateCategories()
+{
+	categoriesxml = pageManager.getPage("/" + mediaarchive.getCatalogId() + "/categories/categories.xml");
+	destcategoriesxml = pageManager.getPage("/WEB-INF/data/" + mediaarchive.getCatalogId() + "/categories.xml");
+	migratePage(categoriesxml, destcategoriesxml);	
+}
+
+public void migrateAssetsCounter()
+{
+	counter = pageManager.getPage("/" + mediaarchive.getCatalogId() + "/configuration/asset.properties");
+	destcounter = pageManager.getPage(newroot + "/idcounter.properties");
+	migratePage(counter, destcounter);
+}
+
+public void migrateOriginals()
+{
+	originals = pageManager.getPage("/" + mediaarchive.getCatalogId() + "/data/originals");
+	destoriginals = pageManager.getPage("/WEB-INF/data/" + mediaarchive.getCatalogId() + "/originals");
+	migratePage(originals, destoriginals);
+}
+
+public void migrateConfiguration()
+{
+	configuration = pageManager.getPage("/" + mediaarchive.getCatalogId() + "/configuration");
+	data = pageManager.getPage("/" + mediaarchive.getCatalogId() + "/data");
+	migratePage(configuration, data);
+}
+
+public void renameProperties(String inPath)
+{
+	children = pageManager.getChildrenPaths(inPath);
+	for (Iterator iterator = children.iterator(); iterator.hasNext();) 
+	{
+	 	path =  iterator.next();
+	 	if( path.contains("/.versions") )
+		{
+			continue;
+		}
+		
+		page = pageManager.getPage(path);
+	 	if(path.endsWith("properties.xml"))
+	 	{
+	 		String newpath = path.replace("properties.xml", ".xml");
+	 		newpage = pageManager.getPage(newpath);
+	 		migratePage(page, newpage);
+	 	}
+	 	else
+	 	{
+	 		if( page.isFolder() )
+			{
+				renameProperties(path);
+			}
+	 	}
+	}
+}
+
+//Run this next
+
+//catalog level - then these can be done
+processFolder(root + "/");
+migrateCategories();
+migrateAssetsCounter();
+migrateConfiguration();
+migrateOriginals();
+renameProperties("/" + mediaarchive.getCatalogId() + "/data");
+
+

@@ -1,0 +1,69 @@
+<script type="text/javascript">
+	removeAllMembers = function(inGroupId)
+	{
+		if(confirm("Are you sure you want to remove all members from the group \"" + inGroupId + "\" ?"))
+		{
+			jQuery("#usersearchresultspanel").load("$home$usermanagerhome/groups/removeallmembers.html", {groupid: inGroupId, oemaxlevel: '1'});
+		}
+	}
+	selectUser = function(inUser)
+	{
+		var currentUser = $("#selecteduserholder").attr("value");
+		//console.log("selected user = "+inUser+", current user = "+currentUser);
+		if (currentUser!=undefined){
+			$("#"+currentUser+"_row").css("background-color",'');
+		}
+		$("#"+inUser+"_row").css("background-color","lightblue");
+		$("#selecteduserholder").attr("value", inUser);
+	}
+	deleteUser = function()
+	{
+		var currentUser = $("#selecteduserholder").attr("value");
+		if (currentUser!=undefined) {
+			if(confirm("Are you sure you want to delete user: " + currentUser + "?"))
+			{	
+				$("#groupmanagerpanel").load('$home$usermanagerhome/users/deleteuser.html', {usertodelete: currentUser, oemaxlevel: '1'});
+			}
+		}
+		
+	}
+	viewUser = function()
+	{
+		var currentUser = $("#selecteduserholder").attr("value");
+		//console.log("view current user "+currentUser);
+		window.location.href= "$home$apphome/views/settings/users/usermanager/user/index.html?username="+currentUser;
+		return false;
+	}
+	removeMember = function(inGroupId)
+	{
+		var currentUser = $("#selecteduserholder").attr("value");
+		//console.log("remove current user "+currentUser+" from group "+inGroupId);
+		$("#usersearchresultspanel").load("$home$usermanagerhome/groups/removemember.html", {removeUsernames: currentUser, groupid: inGroupId, oemaxlevel: '1'});
+		return false;
+	}
+</script>
+
+<div class="subcolumns">
+          <div class="c33l">
+            <div class="subcl">
+<div class="ui-widget" style="overflow: hidden;">
+<div class="ui-widget-header">[[Groups]]</div>
+<div  class="ui-widget-content emselectmenu">
+				$pages.include("./searchgroups.html")
+
+
+				
+
+</div>
+</div>
+
+</div>
+          </div>
+        <div class="c66r">
+            <div id="groupmanagerpanel" class="subcr" >
+	
+				$pages.streamContent()
+			</div>
+		</div>
+		<div id="selecteduserholder" style="display:none;"></div>
+</div>

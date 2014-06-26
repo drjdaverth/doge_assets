@@ -1,0 +1,19 @@
+#set($idcount = $context.getRequestParameter("idcount"))
+#if(!$idcount)
+	#set($idcount = "")
+#end
+#if( $val && !$val.isEmpty() )
+
+##set( $val = $val.replace(","," | ") )
+#set( $vals = $val.split("\s*\|\s*") )
+
+#set( $type = $detail.getListId() )
+
+<div class="tageditor-viewer">
+#foreach( $val in $vals )
+  <a href="$home$apphome/views/search/search.html?field=${type}&operation=contains&${type}.value=#esc($val)"
+  >#esc($val)</a> 
+#end
+</div>
+
+#end

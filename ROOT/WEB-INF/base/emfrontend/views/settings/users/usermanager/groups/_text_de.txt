@@ -1,0 +1,20 @@
+#
+#Thu Apr 08 15:18:24 EDT 2010
+Remove\ All\ Members\ From\ Group=Entfernen Sie alle Mitglieder aus der Gruppe
+newuser=F\u00FCgen Sie der Gruppe einen neuen Benutzer hinzu. Geben Sie einen neuen Benutzernamen ein
+Delete\ Group=Gruppe l\u00F6schen
+addbyemail=Durch email hinzuf\u00FCgen
+Members=Mitglieder
+add=hinzuf\u00FCgen
+Group=Gruppe
+Add\ By\ Username\ or\ Email=hinzuf\u00FCgen, indem Sie Benutzernamen oder E-Mail angeben
+Group\ $groupname\ added=Gruppe $ groupname hinzugef\u00FCgt
+GROUP\ ADDED=Gruppe hinzugef\u00FCgt
+Remove\ Selected=Auswahl entfernen
+removeall=Alle Mitglieder der Gruppen entfernen
+View\ User=Benutzersicht
+Back=zur\u00FCck
+Add\ New= neu Hinzuf\u00FCgen
+Edit\ Group=Gruppe bearbeiten
+Group\ Name=Gruppenname
+Forward=vorw\u00E4rts

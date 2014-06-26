@@ -1,0 +1,12 @@
+$pages.includeContent()
+
+#foreach( $log in $messages )
+	#if( $log.getLogRecord().getLevel().intValue() > 800)
+		<pre style="padding-left: 10px;">
+			<b>$log.getMessage()</b> $!log.getName()#$!log.getMethod() <br>
+		</pre>
+	#else
+		<b>$log.getMessage()</b> $!log.getName()#$!log.getMethod() <br>	
+	#end
+
+#end

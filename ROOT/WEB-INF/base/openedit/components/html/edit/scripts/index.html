@@ -1,0 +1,10 @@
+
+<div class="oelist-box">
+<h2>Current Scripts - $editPage.getName()</h2>
+<table width="90%" class="emdatatable" >
+<tr><th  class="white-on-grey" >ID</th><th  class="white-on-grey">Path</th></tr>
+#foreach($style in $editPage.getScripts())
+<tr><td>$style.id</td><td>$style.src</td></tr>
+#end
+</table>
+</div>

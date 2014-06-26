@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<permissions name="Module Permissions">
+  <permission id="view" permissiontype="view" name="View Module" description="Can be viewed" ordering="100"/>
+  <permission id="viewmodulesettings" permissiontype="view" name="View Module Settings" description="Can View the Settings of a Module" ordering="250"/>
+  <permission id="editdata" permissiontype="edit" name="Edit Data" description="Can edit data" ordering="200"/>
+  <permission id="delete" permissiontype="edit" name="Delete Data" description="Can delete" ordering="300"/>
+  
+</permissions>

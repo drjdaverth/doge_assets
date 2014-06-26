@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<properties>
+	<option id="1" width="2400" mediatype="image">8" x 10" color (2400px X 3400px)</option>
+	<option id="2" width="1500" mediatype="image">5" x 7" color (1500px X 2100px)</option>
+	<option id="3" width="1200" mediatype="image">4" x 6" color (1200px X 1800px)</option>
+	<option id="4" width="300" mediatype="image">2" x 2" color (300px X 300px)</option>
+	<option id="5" width="288" mediatype="image">4" x 6" web site (288px X 432px)</option>
+	<option id="6" width="720" mediatype="image">PowerPoint (720px X 540px)</option>
+</properties>

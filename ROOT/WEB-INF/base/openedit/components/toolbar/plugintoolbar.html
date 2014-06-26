@@ -1,0 +1,27 @@
+#set ( $origURL=$context.getRequestParameter( "origURL" ) )
+#set ( $path = $context.getRequestParameter( "path" ) )
+#if ( !$path )
+	#set( $path = $content.path )
+#end
+#set( $path = $url_util.encode($path) )
+
+<div id="oeadmintoolbarlocation" class="oeadmintoolbarlocation" style="position:absolute">
+			
+	#set( $id = $plugin.id )
+
+<ul class="oeglossymenu">
+	<li><a href="$home/index.html" target="_parent"><img border="0" src="$home/openedit/theme/images/toolbar/home.gif" title="[[Home]]"/> [[Home]]</a></li>
+	
+	#if($pages.canView("/openedit/views/filemanager/"))
+	<li><a href="$home/openedit/views/filemanager/index.html" target="_parent"><img border="0" src="$home/openedit/theme/images/toolbar/filemanager.gif" title="[[filemanager]]"/> [[File Manager]]</a></li>
+	#end
+	
+	#set( $mode = $user.get("oe.edit.mode") )
+	<li><a class="oemodechange" href="$home/openedit/views/workflow/mode/viewpreview.html?origURL=$origURL"  #if( $mode == "preview")class="oeglossyselected" #end ><img src="$home/openedit/theme/images/toolbar/modepreview.gif" border="0" title="Live Mode" /> Live Mode</a></li>
+	<li><a class="oemodechange" href="$home/openedit/views/workflow/mode/viewediting.html?origURL=$origURL"  #if( $mode == "editing")class="oeglossyselected" #end><img src="$home/openedit/theme/images/toolbar/modeeditor.png" border="0" title="Edit Mode" /> Edit Mode</a></li>
+	<li><a class="oemodechange" href="$home/openedit/views/workflow/mode/viewdebug.html?origURL=$origURL"  #if( $mode == "debug")class="oeglossyselected" #end ><img src="$home/openedit/theme/images/toolbar/modedebug.gif" border="0" title="Debug Mode" /> Debug Mode</a></li>
+	<li><a class="oemodechange" href="$home/openedit/authentication/logout.html"><img src="$home/openedit/theme/images/toolbar/logout.gif" border="0" title="Logout" /> Logout</a></li>
+		
+</ul>
+</div>
+

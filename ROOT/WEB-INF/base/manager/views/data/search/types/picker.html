@@ -1,0 +1,19 @@
+<div id="picker_$termid">
+$pages.include("${content.typespath}/pickerlist.html", $context)
+</div>
+
+<script type="text/javascript">
+	updatePicker$termid = function(catalogid, view)
+	{
+		jQuery('#picker_$termid').load('$home${content.typespath}/pickerlist.html', {
+			oemaxlevel: 1
+			,catalogid: catalogid
+			,view: view
+			,termid: '$termid'
+			#foreach( $depend in $depends )
+			,${depend.id}: document.getElementById('${termid}${depend.id}').value
+			#end
+		});
+		return false;
+	}
+</script>

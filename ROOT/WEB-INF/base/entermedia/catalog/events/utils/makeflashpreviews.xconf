@@ -1,0 +1,7 @@
+<page>
+	<property name="outputtype">mp4</property>
+	<path-action name="Script.run">
+		<script>/${catalogid}/events/scripts/makeavpreview.groovy</script>
+	</path-action>
+<property name="virtual">true</property>
+</page>

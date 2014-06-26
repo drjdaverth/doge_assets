@@ -1,0 +1,13 @@
+#
+#Tue Apr 27 10:52:00 CLT 2010
+View=Vista
+Remove\ Selected\ From\ This\ View=Quitar Seleccionados de esta Vista
+New\ View\ Name=Nombre de la Nueva Vista
+Add\ New\ Property=Agregar Nueva Propiedad
+Fields=Campos
+Visible\ Fields=Campos Visibles
+Views=Vistas
+Save=Guardar
+Add=Agregar
+Rename\ View\ As=Renombrar Vista Como
+

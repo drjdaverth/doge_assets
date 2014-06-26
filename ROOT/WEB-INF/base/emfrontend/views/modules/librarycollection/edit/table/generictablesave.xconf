@@ -1,0 +1,8 @@
+<page>
+
+	<path-action name="Script.run">
+		<script>/${searchhome}/edit/table/savedrow.groovy</script>
+	</path-action>
+
+	<property name="subject">Collection Shared ( ${librarycollection.name} )</property>
+</page>

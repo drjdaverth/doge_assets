@@ -1,0 +1,20 @@
+#set( $id = $context.getRequestParameter("categoryid") )
+
+#if( !$catalog )		
+	#set ( $catalog = $cart.lastVisitedCatalog )
+#end	
+#if( !$id && $category )
+	#set( $id = $category.id )
+#end
+
+#if( $id)
+	$!categoryPickerTree.getTreeRenderer().setSelectedNodeById($id)
+#end
+<script language="javascript">
+	var lastselected = "$categoryPickerTree.getTreeRenderer().getSelectedId()";
+	categoryPickerTree.selectRow(lastselected); 
+</script> 
+<div id="$categoryPickerTree.getName()render" class="assetdropcategory" data-treeid="$categoryPickerTree.getId()" data-treename="$categoryPickerTree.getName()" >      
+	$!categoryPickerTree.render()
+</div>
+##<p align="right"><a href="$home/$catalogid/settings/modules/asset/categories/index.html">edit tree</a></p>

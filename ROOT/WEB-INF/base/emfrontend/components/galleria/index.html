@@ -1,0 +1,40 @@
+
+
+        <div id="galleria" style="height: 600px;">
+           #foreach($hit in $hits)
+          		#set( $click = "$home$apphome/views/assets/${sourcepath}/index.html?categoryid=$catid&hitssessionid=$rootid" )
+	#if($hit.owner)
+				#set( $click = "$home$apphome/users/${hit.owner}/assets/${sourcepath}/index.html?categoryid=$catid&hitssessionid=$rootid&assetid=$hit.id" )
+			#end
+          #set ($sourcepath = $hit.sourcepath)
+		#set ($large = "/${applicationid}/views/modules/asset/downloads/preview/large/$sourcepath/thumb.jpg")
+		#set ($thumb = "/${applicationid}/views/modules/asset/downloads/preview/thumbsmall/$sourcepath/thumb.jpg")
+           <a href="$large">
+            	<img title="$hit"
+            	     alt="$hit.caption"
+            	     src="$thumb">
+        	</a>
+            
+           #end
+            
+        </div>
+
+      
+    
+
+         
+         
+
+
+
+    <script>
+
+    // Load the classic theme
+	Galleria.loadTheme('$home$apphome/components/galleria/themes/classic/galleria.classic.min.js');
+
+	// Initialize Galleria
+	$('#galleria').galleria();
+
+    </script>
+    </body>
+</html>

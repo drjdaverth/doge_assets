@@ -1,0 +1,29 @@
+<properties>
+	<property id="id" index="true" stored="true">Id</property>
+	<property id="name" index="true" stored="true">Order Number</property>
+	<property id="ordertype"  editable="true" index="true" stored="true" type="list" listid="order/ordertype">Order Type</property>
+	<property id="userid" viewtype="user" index="true" stored="true">User Id</property>
+	<property id="date" datatype="date" viewtype="time" index="true" stored="true" >Date</property>
+	<property id="orderstatus" editable="true"  datatype="list" index="true" stored="true">Status</property>
+	<property id="orderstatusdetails" editable="true"  index="true" stored="true">Status Details</property>
+	<property id="project" editable="true"  datatype="list" listid="order/projects" index="true" stored="true">Project</property>
+
+	<property id="applicationid"  index="true" stored="true">Application Ordered</property>
+	<property id="sharedby"  index="true" stored="true">Shared By</property>
+	<property id="publishdestination"  editable="true" type="list" index="true" stored="true">Destination Id</property>
+
+	<property id="expireson" editable="true" type="date"  index="true" stored="true">Expires On</property>
+	<property id="sharewithemail"  editable="true" note="separated by commas" index="true" stored="true">Email</property>
+	<property id="sharenote"  viewtype="html" editable="true"  stored="true">Notes</property>
+	<property id="shareformattype" type="list" viewtype="radioselect" listid="order/shareformattypes" editable="true"  stored="true">Share Type</property>
+	<property id="emailsent"  type="boolean" editable="true" index="true" stored="true">Email Sent</property>
+
+	<property id="historyuserstatus" stored="true" index="true" type="list" listid="order/userstatus" >Last Status</property>
+	<property id="historyuserid" editable="false" stored="true" index="true">Last User ID</property>
+	<property id="historynote" editable="false" stored="true" index="true">Last Note</property>
+	<property id="historydate" editable="false" index="true" stored="true" viewtype="time" type="date" >Last Changed</property>
+	<property id="historyassetids" editable="false" stored="true" index="true"  >Last Attachments</property>
+	<property id="basket"  index="true" stored="true" type="boolean">Is an order basket</property>
+
+
+</properties>

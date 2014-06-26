@@ -1,0 +1,14 @@
+#set($sourcepath = $content.replaceProperty($detail.sourcepath))
+#set($current = $mediaarchive.getAssetBySourcePath($sourcepath))
+
+<div id="${detail.getId()}-previewimage">
+#if($current)
+<img src="$home/$detail.catalogId/downloads/preview/thumb/$current.sourcepath/image.jpg"/>
+#end
+</div>
+#if(!$context.getRequestParameter("viewonly") == true)
+
+<input type="hidden" class="$detail.getId()-field" id="${detail.getId()}.value" name="${detail.getId()}.value" value="$val" />
+<input type="hidden" class="$detail.getId()-field" id="${detail.getId()}.value" name="${detail.getId()}.sourcepath" value="$sourcepath" />
+<input type="file" name="file.${detail.getId()}" />
+#end

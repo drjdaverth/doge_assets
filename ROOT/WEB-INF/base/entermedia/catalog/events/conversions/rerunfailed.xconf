@@ -1,0 +1,7 @@
+<page>
+	<property name="eventname">Mark Conversion Errors As New</property>	
+
+	<path-action name="Script.run" allowduplicates="true" >
+		<script>/${catalogid}/events/scripts/conversions/rerunfailed.groovy</script>
+	</path-action>
+</page>

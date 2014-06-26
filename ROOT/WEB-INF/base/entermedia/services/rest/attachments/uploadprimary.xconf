@@ -1,0 +1,4 @@
+<page>
+	<path-action name="Page.uploadFile" alltypes="true"/>
+	<path-action name="AssetEditModule.replacePrimaryAsset" alltypes="true"/>
+</page>

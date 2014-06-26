@@ -1,0 +1,17 @@
+#
+#Wed Apr 28 14:48:24 CLT 2010
+Add\ Media=Agregar Media
+Photos=fotos
+Audio=audio
+Public\ Assets=los bienes p\u00FAblicos
+Import\ From\ YouTube=importaci\u00F3n de youtube
+Please\ select\ an\ upload\ type\:=Por favor, seleccione un tipo de subida\:
+Mount\ Folder=Carpeta de montaje
+Create\ New\ Asset=crear nuevo activo
+Videos=videos
+Fetch\ asset\ from\ URL=recuperar los activos de una URL
+Documents=documentos
+Please\ choose\ a\ catalog\:=Por favor, elija un cat\u00E1logo\:
+Single\ File\ Upload=carga de archivo \u00FAnico
+Multiple\ File\ Upload=carga de archivos m\u00FAltiples
+You\ are\ not\ allowed\ to\ upload\ assets\ to\ any\ catalogs.=No est\u00E1 autorizado para subir art\u00EDculos a ning\u00FAn cat\u00E1logo

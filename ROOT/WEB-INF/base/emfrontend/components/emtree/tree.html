@@ -1,0 +1,104 @@
+#set($treename = $context.getRequestParameter("tree-name") )
+#set($webtree = $context.getPageValue($treename) )
+
+#set( $showinput = $webtree.getTreeRenderer().isAllowSelections() )
+#set( $editable = $webtree.getTreeRenderer().isEditable() )
+#set( $model = $webtree.getModel() )
+#set( $render = $webtree.getTreeRenderer() )
+
+#set( $adding = $context.getRequestParameter("adding" ) )
+
+
+#macro(showtreecategories $cat $depth) 
+		#set ( $padding = (15 * $depth) )
+		#if( $showinput )
+		  #set ($padding = $padding + 35)
+		#end
+		#set($children = $model.getChildren($cat))
+		#if( $children.size() > 0)
+			#set( $haschildren = true)
+		#else
+			#set( $haschildren = false)
+		#end
+		#set( $open = $haschildren)
+		#set( $expanded = $webtree.isExpanded($cat) )
+		#set( $isselected = $render.isNodeSelected($cat))
+		<li id="${cat.id}_row" class="noderow" data-nodeid="$cat.id" data-depth="$depth">
+			<div class="categorydroparea #if( $isselected ) selected #end" style="padding-left: ${padding}px" title="$cat.name #if($editable) ($cat.id) #end">
+			    #if( $showinput )
+			    <div class="checkbox">
+			         <input name="categoryid" value="$cat.id" type="checkbox" #if( $render.isIdSelected($cat.id) ) checked="true" #end  >
+			    </div>
+			    #end
+				#if($haschildren)<span class="arrow #if($expanded) down #end "></span>#end 
+				<span id="${cat.id}_display" class="name folder #if($haschildren) leaf #end" >$cat.name</span>
+				<span id="${cat.id}_edit" class="name folder" style="display:none;">
+					<input class="field" type="text" value="$cat.name" id="${cat.id}_edit_field" />
+					<a class="editsave btn">Save</a>
+					<a id="${cat.id}" class="editcancel btn">Cancel</a>
+				</span>
+				#if( $editable )
+				<span class="actions">
+					<a class="edit ir tooltip" title="Edit Category Name">Edit</a>
+					<a class="add ir tooltip" title="Add a new Category" id="$cat.id">Add New</a>
+					<a data-parent="${cat.id}" class="delete ir tooltip" title="Delete Category">Delete</a>
+				</span>
+				#end
+			</div>
+	    #if( $adding )
+		   <ul class="open" >
+		  <li id="${cat.id}_add" >
+			  #set ( $depth = $depth + 1)
+			  #set ( $padding = (20 * $depth) )
+		  	  <div   style="padding-left: ${padding}px" class="selected new"><span class="name folder"><input class="field text" type="text" value="New Category" id="${cat.id}_new" /><a data-parent="${cat.id}" class="save btn">Save</a><a id="${cat.id}" class="cancel btn">Cancel</a></span></div>
+	  	 </li> 
+	  	    </ul>
+		#elseif($haschildren && $expanded)
+		   <ul class="open" >
+			#set ( $depth = $depth + 1)
+			#foreach( $subcategory in $children)
+				  #showtreecategories($subcategory, $depth)
+		    #end
+		   </ul>
+		#end
+		</li>
+		
+#end
+
+#set( $toggle = $context.getRequestParameter("toggle" ) )
+#if( $toggle && $toggle == "true" )
+	#set( $nodeid = $context.getRequestParameter("nodeID" ) )
+	#set( $target = $webtree.getModel().getChildById($nodeid) )
+
+	$!webtree.getTreeRenderer().toggleNode($target)
+
+	#set( $depths = $context.getRequestParameter("depth" ) )
+	#set( $depth = 0 )
+	#set( $depth = $depth.parseInt($depths) )
+	#showtreecategories($target, $depth)
+
+#elseif( $adding && $adding == "true" )
+	#set( $nodeid = $context.getRequestParameter("nodeID" ) )
+	#set( $target = $webtree.getModel().getChildById($nodeid) )
+	$!webtree.getTreeRenderer().expandNode($target)
+	#set( $depths = $context.getRequestParameter("depth" ) )
+	#set( $depth = 0 )
+	#set( $depth = $depth.parseInt($depths) )
+	#showtreecategories($target, $depth)
+	
+#else
+#if($category && $content.isPropertyTrue("searchcategory") )
+	$render.setSelectedNode($category)
+#end
+#set($rootcategory = $webtree.getModel().getRoot())
+
+#set( $top = $context.getRequestParameter("treetoplocation") )
+#set( $left = $context.getRequestParameter("treeleftlocation") )
+<div id="treeholder" data-treetoplocation="$!top" data-treeleftlocation="$!left">
+	<div class="emtree emtree-widget" data-home="$home$apphome" data-treename="$treename" data-editable="$editable" data-url-prefix="$home$apphome/views/categories/" data-url-postfix="">
+			<ul  class="open" >
+			#showtreecategories($rootcategory, 1)
+			</ul>
+	</div>
+</div>
+#end

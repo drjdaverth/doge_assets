@@ -1,0 +1,34 @@
+#set ($usersettingsSearcher = $searcherManager.getSearcher($catalogid, "usersettings"))
+#set ($hits = $usersettingsSearcher.fieldSearch("userid", $selectedUser.id))
+
+#if ($hits.size() == 1)
+	#set ($usersettings = $hits.get(0))
+#end
+	
+<form class="ajaxform validate" id="usersettingseditform" targetdiv="usersettingseditarea" action="$home$usermanagerhome/users/editusersettings-save.html">
+$context.putPageValue("searcher", $usersettingsSearcher)	 
+$context.putPageValue("view", "usersettings/edit")	
+$context.putPageValue("data", $usersettings)	
+<input type="hidden" name="view" value="usersettings/edit"/>
+<input type="hidden" name="searchtype" value="usersettings"/>
+<input type="hidden" name="catalogid" value="$usersettingsSearcher.catalogId"/>
+<input type="hidden" name="save" value="true"/>
+<input type="hidden" name="id" value="$!userprofile.id"/>
+
+<input type="hidden" name="field" value="userid"/>
+<input type="hidden" name="userid.value" value="$selectedUser.id"/>
+
+$pages.include("/${applicationid}/components/xml/detaileditor.html", $context)
+
+<br/>
+
+<!-- 
+<table><tr><td>
+<div class="embutton" style="padding-left: 100px;">
+<a href="#" onclick="jQuery('#usersettingseditform').submit();" >[[Save Changes]]</a>
+</div>
+</td></tr></table>
+ -->
+</form>
+
+

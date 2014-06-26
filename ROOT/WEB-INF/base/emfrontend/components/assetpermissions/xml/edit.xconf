@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  	<property name="text.Showing Child">
+    		<value>Showing Child</value>
+    		<value locale="es">Listando Hijo</value>
+  	</property>
+  	<property name="text.Done with Child">
+    		<value>Done with Child</value>
+    		<value locale="es">Finalizar Hijo</value>
+  	</property>
+  	<property name="text.Permission Editor">
+    		<value>Permission Editor</value>
+    		<value locale="es">Editor de Permisos</value>
+  	</property>
+  	<property name="text.Save">
+    		<value>Save</value>
+    		<value locale="es">Guardar</value>
+  	</property>
+  	<property name="text.Cancel">
+    		<value>Cancel</value>
+    		<value locale="es">Cancelar</value>
+  	</property>
+  	<property name="text.set value">
+    		<value>[set value]</value>
+    		<value locale="es">[configurar valor]</value>
+  	</property>
+</page>

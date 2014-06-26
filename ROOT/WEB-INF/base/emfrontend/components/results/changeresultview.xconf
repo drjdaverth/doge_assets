@@ -1,0 +1,4 @@
+<page>
+	<path-action name="DataEditModule.loadPageOfSearch"/>
+	<path-action name="ProfileModule.changeResultView"/>
+</page>

@@ -1,0 +1,9 @@
+<properties>
+	<property id="id" index="true" stored="true">Item Id</property>
+	<property id="type" index="true" stored="true" type="list" listid="relatedassets/type" editable="true">Type</property>
+	<property id="assetid" index="true" stored="true" type="asset" editable="true" >Source Asset</property>
+	<property id="targetid" index="true" stored="true" type="asset" editable="true" >Target</property>
+	<property id="targetcatalogid" index="true" stored="true" editable="true" >Target Catalog</property>
+	<property id="notes" index="true" stored="true" editable="true" >Notes</property>
+
+</properties>

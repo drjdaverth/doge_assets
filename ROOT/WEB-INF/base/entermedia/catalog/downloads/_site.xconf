@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<path-action name="Admin.autoLogin" alltypes="true" />	
+	<property name="oe.enableautologinparam">true</property>
+	<permission name="view">
+		<boolean value="true" />
+	</permission>	
+	<property name="watermarkplacement">tile</property>
+		
+</page>

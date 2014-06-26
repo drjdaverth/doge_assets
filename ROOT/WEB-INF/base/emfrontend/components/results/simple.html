@@ -1,0 +1,63 @@
+<div id="resultsdiv" data-hitssessionid="$hits.getSessionId()">
+#if( $hits.size() == 0 )
+	<p>No Results Found</p>
+#end
+#set( $showtoolbar = $page.isPropertyTrue("showtoolbar"))
+$context.putPageValue("showtoolbar",  $showtoolbar)
+
+#if( $hideheader &&  $hideheader == "false")
+$pages.include("$apphome/components/results/header.html",$context) 
+#end
+
+#if( !$thumbsize )
+    #set( $thumbsize  = "thumb" )
+#end
+
+
+    #if ( $hits && $hits.size() > 0 )
+    #set( $details = $mediaarchive.getAssetSearcher().getDetailsForView("asset/resultstable",$context.getUserProfile()) )
+    $context.putPageValue("details",$details)
+
+
+
+<ul  class="emgallery"  >  
+
+            
+            <li  id="emslidesheet" class="clearfix">
+            #set( $rootid = $hits.sessionId )
+            #set($count = 0)
+            #foreach ($hit in $hits.getPageOfHits())
+            
+                #set ($sourcepath = $hit.sourcepath)
+                
+                $context.putPageValue("hit", $hit)
+                #set( $type = $mediaarchive.getMediaRenderType($hit.fileformat))
+                $context.putPageValue("type", $type)
+                #set( $click = "$home$apphome/views/modules/asset/editor/viewer/index.html?assetid=$hit.id&categoryid=$catid&hitssessionid=$rootid" )
+               
+                $context.putPageValue("clink", $clink)
+                $context.putPageValue("assetid", $hit.id)
+                $context.putPageValue("count", $count )
+                $context.putPageValue("click", $click)
+                $context.putPageValue("sourcepath", $sourcepath)
+                
+                $pages.include("$apphome/components/results/gallery-cell.html", $context)
+                
+                #set ( $count = $count + 1)
+                
+            #end
+            </li>
+    
+</ul>
+
+    $pages.include("$apphome/components/results/pages.html",$context)
+
+    #end
+#if ( $hits.totalPages == 0 )
+<p class="info" style="margin: 20px;">
+[[No results found.]]
+</p>
+#end
+<div id="messagearea"></div>
+</div>
+</div>

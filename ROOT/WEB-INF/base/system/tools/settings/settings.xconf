@@ -1,0 +1,44 @@
+<page>
+    	<property name='text.noinnerlayout'>
+        	<value>No Inner Layout</value>
+		<value locale="es">Sin diseño interno</value>
+    	</property>
+	<property name='text.nolayout'>
+        	<value>No Layout</value>
+		<value locale="es">Sin diseño</value>
+    	</property>
+	<property name='text.innerlayout'>
+        	<value>Inner Layout</value>
+		<value locale="es">Diseño Interno</value>
+    	</property>
+	<property name='text.default'>
+        	<value>Parent</value>
+		<value locale="es">Padre</value>
+    	</property>
+	<property name='text.useslayout'>
+        	<value>Uses Layout</value>
+		<value locale="es">Usa el Diseño</value>
+    	</property>
+	<property name='text.usesoutlayout'>
+        	<value>Outer Layout</value>
+		<value locale="es">Diseño Externo</value>
+    	</property>
+	<property name='text.value'>
+        	<value>Value</value>
+		<value locale="es">Valor</value>
+    	</property>
+	<property name='text.no'>
+        	<value>No</value>
+    	</property>
+	<property name='text.yes'>
+        	<value>Yes</value>
+		<value locale="es">Sí</value>
+    	</property>
+	<property name='text.usedefault'>
+        	<value>Use Parent</value>
+		<value locale="es">Usar Padre</value>
+    	</property>
+	<property name='text.editable'>
+        	<value>Editable</value>
+    	</property>
+</page>

@@ -1,0 +1,27 @@
+
+#set( $moduleid = $context.findValue("module") )
+#set( $searchhome = $context.findValue("searchhome") )
+<div class="ui-widget uipanel" id="left-col-search" >
+	
+	
+	<div  class="ui-widget-header">Search
+		#if( $canviewmodulesettings )
+			<span class="widget-header-edit">
+			<a class="ir emdialog" data-width="700" href="$home$apphome/views/settings/modules/$moduleid/metadata/viewssystem/indexdialog.html?viewid=${moduleid}advancedsearch&viewpath=${moduleid}/${moduleid}advancedsearch">Edit</a>
+			</span>
+		#end
+	</div>
+	
+	
+	
+	<div  class="ui-widget-content">
+
+			$pages.include("${searchhome}/searchform.html")
+
+	</div>
+	
+	
+	
+</div>
+
+			

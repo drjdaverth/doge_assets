@@ -1,0 +1,87 @@
+	<div style="width: 60em;">
+	<div style="float:left; width:25em;">
+	<select size="20" style="width: 20em;" id="elementid" name="elementid" onchange='selectElement()' >
+		#foreach( $element in $xmlfile.elements )
+		#if( $selectedelement && $element.attributeValue('id') == $selectedelement.attributeValue('id') )			
+			#set( $selected = "selected")
+		#else
+			#set( $selected = "")		
+		#end #set($textval = $element.getText()) 
+		<option value="$element.attributeValue('id')" $selected >$!textval</option>		
+		#end
+	</select><br>
+	<input type="button" value="$context.getPageProperty('text.add')" onclick="javascript:addElement();" />&nbsp;&nbsp;
+	#if( $selectedelement )
+	<input type="button" value="$context.getPageProperty('text.remove')" onclick="javascript:deleteElement();" />
+	#end
+	</div>
+
+	#if( $selectedelement )
+	<div style="float:right; width:35em;">
+	<div style="text-align:right;width:25em;">
+	<table>
+
+	#foreach( $attrib in $xmlfile.attributes )
+		#set( $value = "")
+		#if( $attrib.id == "text" )
+			#set( $value = $selectedelement.getText() )
+		#else
+			#set( $value = $selectedelement.attributeValue($attrib.id) )
+		#end
+		<tr><td align="right" nowrap="true" >$attrib.description:</td>
+		<td>
+			#if( $attrib.size > 20)
+			<textarea cols="40" rows="4" name="$attrib.id" >$!value</textarea>
+			#elseif( $attrib.type && $attrib.type == "boolean")
+			<input type="checkbox"  name="$attrib.id" value="true" #if($value == "true")CHECKED="true"#end/>
+			#else
+			<input type="text" size="$attrib.size" name="$attrib.id" value="$!value" />
+			#end
+			</td></tr>
+	#end
+	#if( $xmlfile.isEditText() )
+		<tr><td align="right">[[Text]]:</td>
+		<td><textarea cols="30" rows="2" name="elementtext">$!selectedelement.text</textarea></td>		
+		</tr>
+	#end
+	</table>
+	</div>
+	<div style="text-align: center;">
+	<input type="button" value="$context.getPageProperty('text.save')" onclick="javascript:saveElement();" /> <br><b>$!message</b>
+	</div>
+	</div>
+	#end
+<div>
+	<input type=hidden name="fileid" id="fileid" value="$xmlfile.id" />
+	<input type=hidden name="oe-action" id="xmleditoe-action" />
+
+<script language="javascript">
+	function deleteElement()
+	{
+		var ok = confirm("$context.getPageProperty('text.confirmdelete')");
+		if ( ok )
+		{
+			var action = document.getElementById("xmleditoe-action");
+			action.value = "Xml.deleteElement";
+			document.xmlEditForm.submit();
+		}
+	}
+	function addElement()
+	{
+		var action = document.getElementById("xmleditoe-action");
+		action.value = "Xml.addElement";
+		document.xmlEditForm.submit();
+	}
+	function saveElement()
+	{
+		var action = document.getElementById("xmleditoe-action");
+		action.value = "Xml.saveElement";
+		document.xmlEditForm.submit();
+	}
+	function selectElement()
+	{
+		var action = document.getElementById("xmleditoe-action");
+		action.value = "Xml.selectElement";
+		document.xmlEditForm.submit();
+	}
+</script>

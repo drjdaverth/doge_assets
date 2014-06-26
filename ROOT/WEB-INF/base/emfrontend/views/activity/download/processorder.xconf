@@ -1,0 +1,6 @@
+<page>
+	<path-action name="OrderModule.preprocessOrder"/>	
+	<path-action name="OrderModule.createConversionAndPublishRequest"/>	
+	<path-action name="OrderModule.updatePendingOrders"/>
+
+</page>

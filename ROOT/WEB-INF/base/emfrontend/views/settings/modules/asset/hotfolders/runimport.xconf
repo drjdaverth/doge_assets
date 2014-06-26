@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <path-action name="AssetEditModule.runAutoMountImport"/>
+  
+  <property name="text.Import is complete. $numrecords records were added.">
+    <value locale="es">La importación se ha completado. $numrecords registros se han añadido.</value>
+  </property>
+</page>

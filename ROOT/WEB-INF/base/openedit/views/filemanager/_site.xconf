@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<inner-layout>${filerootpath}/treelayout.html</inner-layout>
+	<path-action bean="pageManager" name="PageValue.loadPageVariable"/>
+	
+	<path-action name="LinkTree.loadSizer"/>
+	<path-action name="WebTree.getTree" allowduplicates="true" >
+		<property name="tree-name">pageTree</property>
+		<property name="renderleaves">false</property>
+	</path-action>
+
+	<property name='tab'>managerviewer</property>
+	
+	<property name='showcontent'>false</property>
+	
+	<property name="tree-name">pageTree</property>
+	<property name="root">/</property>
+	<property name="excludes">.bash*, *CVS*</property>
+	<property name="tablistname">tablist</property>
+	<property name="tab">filemanager</property>
+
+	<property name="sectiontitle">
+		<value>File Manager</value>
+		<value locale="es">Administrador de Archivos</value>
+	</property>
+
+  	<permission name="editallfiles">
+		<permission name="oe.filemanager.editall"/>
+  	</permission>
+
+
+	<link rel="stylesheet" href="${themeprefix}/entermedia/styles/dtree.css" />
+	<link rel="stylesheet" href="${themeprefix}/entermedia/styles/filemanager/tools.css" />
+	<script type="text/javascript" src="/${applicationid}/javascript/validateandedit.js"> </script>
+	<script type="text/javascript" src="/${applicationid}/components/javascript/oepopup.js"> </script>
+
+
+
+	<!-- Translations -->
+	<property name="text.File Manager">
+		<value locale="es">Administrador de Archivos</value>
+	</property>
+	<property name="text.Refresh List">
+		<value locale="es">Actualizar Lista</value>
+	</property>
+	<property name="text.Jump to recent file">
+		<value locale="es">Saltar a archivo reciente</value>
+	</property>
+	<property name='text.clear'>
+		<value locale="es">limpiar</value>
+	</property>
+	<property name='text.Copy folder'>
+		<value locale="es">Copiar carpeta</value>
+	</property>
+	<property name='text.Copy file'>
+		<value locale="es">Copiar archivo</value>
+	</property>
+	<property name='text.Copy image'>
+	</property>
+	<property name='text.Move and rename folder'>
+		<value locale="es">Mover y renombrar carpeta</value>
+	</property>
+	<property name='text.Move and rename file'>
+		<value locale="es">Mover y renombrar archivo</value>
+	</property>
+	<property name='text.Move and rename image'>
+		<value locale="es">Mover y renombrar imagen</value>
+	</property>
+	<property name='text.Delete folder'>
+		<value locale="es">Eliminar carpeta</value>
+	</property>
+	<property name='text.Delete file'>
+		<value locale="es">Eliminar archivo</value>
+	</property>
+	<property name='text.Delete image'>
+		<value locale="es">Eliminar imagen</value>
+	</property>
+	<property name='text.Download File'>
+		<value locale="es">Descargar archivo</value>
+	</property>
+	<property name='text.Page Properties'>
+		<value locale="es">Propiedades de Página</value>
+	</property>
+	<property name='text.Set Permissions'>
+		<value locale="es">Configurar Permisos</value>
+	</property>
+	<property name='text.New'>
+		<value locale="es">Nuevo</value>
+	</property>
+	<property name='text.Edit'>
+		<value locale="es">Editar</value>
+	</property>
+	<property name='text.Upload/Download'>
+		<value locale="es">Subir/Bajar</value>
+	</property>
+	<property name='text.Tools'>
+		<value locale="es">Herramientas</value>
+	</property>
+	<property name='text.Empty Folder'>
+		<value locale="es">Carpeta Vacía</value>
+	</property>
+	<property name='text.Upload File'>
+		<value locale="es">Subir Archivo</value> 
+   	</property>
+	<property name='text.Download In Zip'>
+		<value locale="es">Descargar En Zip</value> 
+   	</property>
+	<property name='text.Download File'>
+		<value locale="es">Descargar Archivo</value> 
+    </property>
+    
+	<property name='text.Prev Page'>
+		<value locale="es">Página Anterior</value> 
+   	</property>
+	<property name='text.Next Page'>
+		<value locale="es">Página Siguiente</value> 
+   	</property>
+	<property name='text.Name'>
+		<value locale="es">Nombre</value> 
+    </property>
+	<property name='text.Size'>
+		<value locale="es">Tamaño</value> 
+   	</property>
+	<property name='text.Last Modified'>
+		<value locale="es">Última Modificación</value> 
+   	</property>
+
+	<property name='text.Create File'>
+		<value locale="es">Crear Archivo</value> 
+   	</property>
+	<property name='text.Create Folder'>
+		<value locale="es">Crear Carpeta</value> 
+   	</property>
+
+	<property name='text.Open Preview Tab'>
+		<value locale="es">Abrir Pestaña de Vista Previa</value> 
+   	</property>
+	<property name='text.Visual Editor'>
+		<value locale="es">Editor Visual</value> 
+   	</property>
+	<property name='text.Text Editor'>
+		<value locale="es">Editor de Texto</value> 
+   	</property>
+	<property name='text.Edit XConf'>
+		<value locale="es">Editar XConf</value> 
+   	</property>
+	<property name='text.Versions'>
+		<value locale="es">Versiones</value> 
+   	</property>
+	<property name='text.Edit Site XConf'>
+		<value locale="es">Editar Site XConf</value> 
+   	</property>
+	<property name='text.Set Permissions'>
+		<value locale="es">Configurar Permisos</value> 
+   	</property>
+	<property name='text.Translate'>
+		<value locale="es">Traducir</value> 
+   	</property>
+	<property name='text.Page Properties'>
+		<value locale="es">Propiedades de Página</value> 
+   	</property>
+	<property name='text.Folder Properties'>
+		<value locale="es">Propiedades de Carpeta</value> 
+   	</property>
+	<property name='text.Image Properties'>
+		<value locale="es">Propiedades de Imagen</value> 
+   	</property>
+	<property name='text.Mount External Folders'>
+		<value locale="es">Montar Carpetas Externas</value> 
+   	</property>
+	<property name='text.Mount'>
+		<value locale="es">Montar</value> 
+   	</property>
+	<property name='text.Push Directory'>
+		<value locale="es">Enviar Directorio</value> 
+   	</property>
+    
+     <property name="iconhome">/${applicationid}/theme/images/tree/</property>
+     <!--
+    	<generator name="velocityGenerator" mimetypes="text/html"/>
+    -->
+</page>

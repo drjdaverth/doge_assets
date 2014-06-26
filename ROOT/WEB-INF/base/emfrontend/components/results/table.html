@@ -1,0 +1,61 @@
+<div id="resultsdiv" data-hitssessionid="$hits.getSessionId()">
+<div id="emresultscontent" >
+#set( $showtoolbar = $page.isPropertyTrue("showtoolbar"))
+$context.putPageValue("showtoolbar",  $showtoolbar)
+$context.putPageValue("thumbsize", $page.isPropertyTrue("thumbsize"))
+$context.putPageValue("showcaption", $page.isPropertyTrue("showcaption"))
+$context.putPageValue("resultstype", $context.getRequestParameter("resultstype"))
+#if( $showtoolbar )
+$pages.include("$apphome/components/results/header.html",$context)
+#end
+
+$context.putPageValue("assetrootfolder", "/$catalogid/assets")
+
+#if( !$thumbsize )
+	#set( $thumbsize  = "crop" )
+#end
+
+$context.putPageValue("thumbsize", $thumbsize)
+
+	#if( $category )
+		#set( $catid = $category.id )
+	#else
+		#set( $catid = "index" )
+	#end
+
+#if ( $hits && $hits.size() > 0 )
+	
+	$context.putPageValue("details",$details)
+	
+	   #if($userprofile) 
+           #set( $details = $mediaarchive.getAssetSearcher().getDetailsForView("asset/resultstable",$userprofile) )
+       #else
+           #set( $details = $mediaarchive.getAssetSearcher().getDetailsForView("asset/resultstable") ) 
+       #end    
+	$context.putPageValue("details",$details)
+	
+<div id="emselectable">	
+<div class="autoresize-inner">	
+
+#set( $viewerlink = $content.get("assetviewerlink") )
+
+	<table id="main-results-table" class="emdownloadlisting emresultscontent striped" data-clickpath="$home$viewerlink?hitssessionid=${hits.sessionId}&assetid=">
+			$pages.include("$apphome/components/results/tableheader.html",$context)
+			#set($count = 0)
+			#foreach( $hit in $hits.getPageOfHits() )
+				$context.putPageValue("hit", $hit)
+				$context.putPageValue("count", $count)
+				$context.putPageValue("sourcepath", $hit.sourcepath)
+				$pages.include("${apphome}/components/results/row.html", $context)
+				#set($count = $count + 1)
+			#end
+	</table>
+
+</div>
+</div>	
+$pages.include("$apphome/components/results/pages.html",$context)
+#else
+<p class="info" style="margin: 20px;">[[No results found]]</p>
+#end
+</div>
+</div>

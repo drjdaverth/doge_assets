@@ -1,0 +1,18 @@
+#set($currentsearch = $context.getRequestParameter("searchtype"))
+#set( $action = "$home$content.dataroot/properties/index.html" )
+<h2>[[Field Setup]]</h2>
+
+<form action="$action">
+	<input type="hidden" name="catalogid" value="$catalogid"/>
+	[[Data Type]]: <select name="searchtype" onchange="submit();">
+		#foreach( $type in $searchtypes )
+			#if($type != "CVS")
+				<option id="$type" #if($type == $currentsearch) selected #end>$context.getText($type)</option>
+			#end
+		#end
+	</select>
+</form>
+<br>
+<div id="propertyEditPanel">
+	$pages.streamContent()
+</div>

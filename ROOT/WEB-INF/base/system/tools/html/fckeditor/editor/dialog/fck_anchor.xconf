@@ -1,0 +1,11 @@
+<page>
+	<property name='text.Anchor Properties'>
+        	<value>Anchor Properties</value>
+		<value locale="es">Propiedades del Marcador</value>
+    	</property>
+	<property name='text.Anchor Name'>
+        	<value>Anchor Name</value>
+		<value locale="es">Nombre del Marcador</value>
+    	</property>
+</page>
+

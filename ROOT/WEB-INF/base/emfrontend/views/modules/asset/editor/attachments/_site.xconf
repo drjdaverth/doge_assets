@@ -1,0 +1,8 @@
+<page>
+	<path-action bean="commentArchive" name="PageValue.loadPageVariable"/>
+	<property name="assetrootfolder">/${catalogid}/assets</property>
+	<property name="attachmentroot">/${applicationid}/views/modules/asset/editor/attachments</property>
+	
+	<page-action name="PageValue.loadPageVariable" bean="userManager"  />
+		<property name="assettab">viewattachments</property>
+</page>

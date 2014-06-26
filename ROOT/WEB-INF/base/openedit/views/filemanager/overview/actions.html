@@ -1,0 +1,45 @@
+#set ( $nodeID = $context.getRequestParameter("nodeID") )
+#set( $editNode = $pageTree.getModel().getChildById($nodeID))
+
+#set( $editPath = $editNode.getURL() )
+#set( $editPage = $pageManager.getPage( $editPath ) )
+
+#if( $editPage.isFolder() ) #set( $type = "folder" ) 
+#elseif ( $editPage.getMimeType().startsWith("image/")) #set ( $type = "image" )
+#else #set( $type = "file" )
+#end
+
+#set ($origURL = "${page.filerootpath}/showfile.html")
+
+<li>
+	<a  href="#" onclick="showpath( 'oework','$home${page.filerootpath}/copypage-leaf/copypage.html?path=$!{editPath}',1);">
+	<img src="$home$themeprefix/images/toolbar/copy.gif" border="0"/>
+	$page.get("text.Copy $type")</a>
+</li>
+
+#if( $pages.canEdit($editPath) || $caneditallfiles)
+	<li>
+      <a  href="#" onclick="showpath('oework','$home${page.filerootpath}/movepage-leaf/movepage.html?path=$!{editPath}',1);">
+	<img src="$home$themeprefix/images/toolbar/modeediting.gif" border="0"/>
+	$page.get("text.Move and rename $type")</a>		
+	</li>
+	<li>
+	  <a  href="#" onclick="showpath('oework','$home${page.filerootpath}/deletepage-leaf/deletepage.html?delete=$!{editPath}',1);"><img src="$home$themeprefix/images/toolbar/deletefile.gif" border="0"/>
+	  $page.get("text.Delete $type")
+	  </a>
+	</li>
+
+
+	#if( $editPage.getMimeType().equals("image/jpeg") )
+			<li>
+				<a href="#" onclick="if(!window.name)window.name='$parentName';window.open('$home/system/tools/imageresize/edit.html?editPath=$editPath&origURL=$origURL&parentName='+window.name, 'imageresize','alwaysRaised=yes,menubar=no,scrollbars=yes,resizable=yes,top=120,left=50,width=1000,height=600' );return false;"><img src="$home$themeprefix/images/toolbar/resample.gif" border="0" title="[[Resize Image]]" />
+				[[Resize Image]]
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="if(!window.name)window.name='$parentName';window.open('$home/system/tools/crop/edit.html?editPath=$editPath&origURL=$origURL&parentName='+window.name, 'imageeditor','alwaysRaised=yes,menubar=no,scrollbars=yes,resizable=yes,top=120,left=50,width=1000,height=600' );return false;"><img src="$home$themeprefix/images/toolbar/crop.gif" border="0" title="[[Crop Image]]" />
+				[[Crop Image]]
+				</a>
+			</li>
+	#end
+#end

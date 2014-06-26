@@ -1,0 +1,8 @@
+<page>
+	
+	<path-action name="UpdateModule.cancelUpdate" />
+	<property name='text.Update has been canceled'>
+        	<value>Update has been canceled</value>
+		<value locale="es">La carga ha sido cancelada</value>
+    	</property>
+</page>

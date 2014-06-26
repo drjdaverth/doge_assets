@@ -1,0 +1,27 @@
+
+
+
+<li>
+	<a class="ajaxDialog" data-title="Copy Page" href="$home${page.filerootpath}/copypage/copypage.html?path=$!{editPage.path}&oemaxlevel=1" >
+	<img src="$home$themeprefix/images/toolbar/copy.gif" border="0"/>
+	$context.getText("Copy $type")</a>
+</li>
+
+#if( $pages.canEdit($editPath) || $caneditallfiles)
+	#if (!$rootsection)
+		<li>
+	      <a data-title="[[Move or Rename File]]" class="ajaxDialog" href="$home${page.filerootpath}/movepage/movepage.html?path=$!{editPage.path}&oemaxlevel=1" >
+		<img src="$home$themeprefix/images/toolbar/modeeditor.png" border="0"/>
+		$context.getText("Move and rename $type")</a>		
+		</li>
+		<li>
+		  <a data-title="Delete $editPage.name" class="ajaxDialog" href="$home${page.filerootpath}/deletepage/deletepage.html?delete=$!{editPage.path}&oemaxlevel=1"><img src="$home$themeprefix/images/toolbar/deletefile.gif" border="0"/>
+		  $context.getText("Delete $type")
+		  </a>
+		</li>
+				<li>
+		<a href="$home$page.filerootpath/folders/refresh.html?path=${editPage.path}"><img src="$home$themeprefix/images/toolbar/draft_comparison.gif" border="0"/> [[Refresh]]</a>
+		</li>	
+		
+	#end
+#end

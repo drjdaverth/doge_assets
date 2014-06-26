@@ -1,0 +1,12 @@
+<questions>
+<question id="1" text="4+5=" answer="9" />
+<question id="2" text="2+5=" answer="7" />
+<question id="3" text="1+5=" answer="6" />
+<question id="4" text="4+4=" answer="8" />
+<question id="5" text="4+3=" answer="7" />
+<question id="6" text="4+2=" answer="6" />
+<question id="7" text="0+5=" answer="5" />
+<question id="8" text="1+2=" answer="3" />
+<question id="9" text="2+3=" answer="5" />
+<question id="10" text="1+1=" answer="2" />
+</questions>

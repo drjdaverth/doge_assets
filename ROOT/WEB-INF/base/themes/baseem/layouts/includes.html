@@ -1,0 +1,8 @@
+
+#foreach( $script in $content.getScriptPaths() )
+	<script type="text/javascript" src="$home$script">  </script>
+#end
+
+#foreach( $style in $content.getStylePaths() )
+	<link rel="stylesheet" type="text/css" href="$home$style" />
+#end

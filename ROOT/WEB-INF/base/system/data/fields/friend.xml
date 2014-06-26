@@ -1,0 +1,6 @@
+<properties>
+  <property id="id" index="true" stored="true">id</property>
+  <property id="ownerid" index="true" stored="true">ownerid</property>
+  <property id="friendid" editable="true" index="true" stored="true">Friend Id</property>
+  <property id="notificationcomments"  type="boolean" editable="true" index="true" stored="true">Album Comments</property>
+</properties>

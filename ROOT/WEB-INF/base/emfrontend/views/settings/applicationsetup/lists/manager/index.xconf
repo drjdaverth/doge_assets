@@ -1,0 +1,8 @@
+<page>
+	<page-action name="UpdateModule.listPlugins">
+	</page-action>
+	<property name='text.Please select a Catalog Type'>
+        	<value>Please select a Catalog Type</value>
+		<value locale="es">Por favor seleccione un Tipo de Catálogo</value>
+    	</property>
+</page>

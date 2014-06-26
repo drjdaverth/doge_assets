@@ -1,0 +1,3 @@
+#
+#Wed Oct 20 15:33:29 EDT 2010
+File\ Manager=Datei-Manager

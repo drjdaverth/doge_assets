@@ -1,0 +1,13 @@
+#set($idcount = $context.getRequestParameter("idcount"))
+#if(!$idcount)
+	#set($idcount = "")
+#end
+
+#set( $detailid = $detail.getId().replace('.','-') )
+
+<div class="hidenoselect2results">
+<input name="${detail.getId()}.value" class="listtags" id="${detailid}${idcount}value" value="#esc($val)" 	
+	data-enterdata="[[Enter comma separated tags]]"
+	 />
+</div>
+ 

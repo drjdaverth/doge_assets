@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+  <property id="cms" ordering="00" path="/WEB-INF/base/emfrontend/components/deploy" caption="Generic Web Site" longdescription="Create dynamic web pages using templates with online editing">HTML Web Site</property>
+</properties>

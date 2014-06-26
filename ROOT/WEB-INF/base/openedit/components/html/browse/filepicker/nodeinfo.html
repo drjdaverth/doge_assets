@@ -1,0 +1,52 @@
+#set($targetpath = $context.getRequestParameter('path'))
+ 
+#set($targetpage = $pageManager.getPage($targetpath))
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">File Info</h2>
+  </div>
+  <div class="panel-body">
+    
+   <ul class="list-group">
+    <li class="list-group-item">Full URL: $targetpath</li>
+    <li class="list-group-item">File Type: #if($targetpage.isHtml()) HTML #elseif($targetpage.isFolder()) FOLDER #elseif($targetpage.isImage()) Image #else  $targetpage.getMimeType() #end</li>
+    
+    
+  
+    #if($targetpage.isImage())
+   	  <li class="list-group-item"> <img src="$targetpath" class="img img-responsive"/></li>
+   #end
+   
+   </ul>
+  </div>
+<a  id="selectbutton" href="#" data-url="$context.getRequestParameter('path')" class="btn btn-default">Select this file</a>
+
+
+
+</div>
+
+<script type="text/javascript">        
+
+
+	jQuery(document).ready(function () {
+				
+		
+		jQuery("#selectbutton").bind("click", function () {
+			var href = jQuery(this).data('url');
+			window.opener.CKEDITOR.tools.callFunction( 1, href );
+			window.close();
+			return false;
+		}
+		);
+
+
+		
+
+	} );
+
+	
+
+</script>

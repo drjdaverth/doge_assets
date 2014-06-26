@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<blog>
+  <title>Default Blog Settings</title>
+  <!--  if you comment out hostname, it will try to autoconfigure -->
+  <hostname>http://localhost:8080/</hostname>
+  <author>Me</author>
+  <description>Example Settings</description>
+  <auto-publish-entries>true</auto-publish-entries>
+
+  <allow-anonymous-comments>true</allow-anonymous-comments>
+  <auto-publish-comments>true</auto-publish-comments>  
+  <use-notification>true</use-notification>
+  
+
+</blog>

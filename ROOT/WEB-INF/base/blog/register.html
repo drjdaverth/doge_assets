@@ -1,0 +1,43 @@
+<form method="post" name="orderForm" action="register-finish.html">
+<h2 class="pageTitle">New User Registration</h2>
+<p>Your email will not be shared with anyone.</p>
+<table  border="0" cellspacing="0" cellpadding="6">
+    <tr>
+      <td align="right">*First Name: </td>
+      <td><input type="text" size="30" name="value-firstName" /></td>
+    </tr>
+
+    <tr>
+      <td align="right">*Last Name: </td>
+      <td><input type="text" size="30" name="value-lastName" /></td>
+    </tr>
+    <tr>
+      <td align="right">*Email: </td>
+      <td><input type="text" size="30" name="value-email" /><br>Password will be emailed to you.</td>
+    </tr>
+
+    <tr>
+      <td align="right">City: </td>
+      <td><input type="text" size="30" name="value-city1" /></td>
+    </tr>
+    <tr>
+      <td align="right">State/Region: </td>
+      <td><input type="text" size="30" name="value-region1" /></td>
+    </tr>
+
+    <tr>
+      <td align="right">Country: </td>
+      <td><input type="text" size="30" name="value-country" /></td>
+    </tr>
+     <tr>
+        <td colspan="2">
+ #if( !$user && !$answer )
+Registration test: $question.description <input type="text" name="answerid" size=2 />*<br>
+#end
+          <input type="submit" name="Submit" value="Submit">   $!oe-error $!error
+         </td>
+      </tr>
+    </table>
+	<input type=hidden name=loginokpage value="$!context.getParam('loginokpage')" />
+    <input type="hidden" name="value-refererurl" value="$!refererurl" />
+</form>

@@ -1,0 +1,5 @@
+<page>
+	<path-action name="User.updateUserProperties" />
+	<path-action name="User.loadHits" />
+	<property name="oemaxlevel">1</property>
+</page>

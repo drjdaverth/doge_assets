@@ -1,0 +1,25 @@
+<page>
+	<property name='text.add'>
+        	<value>Add</value>
+		<value locale="es">Agregar</value>
+    	</property>
+	<property name='text.save'>
+        	<value>Save</value>
+		<value locale="es">Guardar</value>
+    	</property>
+	<property name='text.confirmdelete'>
+        	<value>Are you sure you want to delete this element?</value>
+		<value locale="es">¿Está seguro de que desea eliminar este elemento?</value>
+    	</property>
+	<property name='text.remove'>
+        	<value>Remove</value>
+		<value locale="es">Borrar</value>
+    	</property>
+	<property name='text.Text'>
+        	<value>Text</value>
+		<value locale="es">Texto</value>
+    	</property>
+	<layout />
+	<inner-layout />
+
+</page>

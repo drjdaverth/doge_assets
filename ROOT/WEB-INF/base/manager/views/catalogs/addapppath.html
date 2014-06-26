@@ -1,0 +1,39 @@
+#set( $appcatalogid = $context.getRequestParameter("appcatalogid"))
+#set( $frontendid = $context.getRequestParameter("frontendid"))
+#set( $data = $searcherManager.getData("media","frontend",$frontendid))
+		<div class="wizard clearfix">
+			<div class="wizard-top">
+				<h1>App Wizard</h1>
+			</div>
+			<form id="catalog" name="savecatalog" method="post" action="$home$apphome/views/catalogs/addappfinish.html">
+
+			<div class="wizard-body">	
+			    <div class="wizard-content">		
+    				<label>Title</label>
+    					<input class="field" type="text" name="sitename" id="catalog-name" value="Your Site Name" />
+    				<label>Module</label>
+    ##					#set( $module  = $searcherManager.getData($appcatalogid,"module",$moduleid) )
+    ##					$module
+    					
+    ##				#if($data.module)
+    ##					<input name="module" value="${moduleid}" type="hidden" />
+    ##				#else
+    					<select name="module">
+    						<option value="">Select Module</option>
+    					#foreach( $module in $searcherManager.getList($appcatalogid,"module") )
+    						<option value="$module.getId()">$module</option>
+    					#end
+    					</select>
+    ##				#end
+    					
+    				<label>Path</label>
+    					$context.siteRoot/<input class="field" type="text" name="deploypath" id="catalog-name" />
+    				<input name="appcatalogid" value="$appcatalogid" type="hidden">
+    				<input name="frontendid" value="$frontendid" type="hidden">
+    			</div>
+			</div>
+			<div class="wizard-bottom">
+				<input class="btn blue build-your-own-app" value="[[Save]]" type="submit"/>	
+			</div>
+				</form>
+		</div>

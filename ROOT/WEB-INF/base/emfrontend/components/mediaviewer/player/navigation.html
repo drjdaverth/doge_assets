@@ -1,0 +1,94 @@
+#set( $link = "/${applicationid}/views/modules/asset/downloads/preview/large/$asset.sourcepath/preview.jpg")
+<div class="emprevnext clearfix">
+	#if( $hits )
+	#set($hitssessionid = $hits.sessionId )
+	#set($indexOf = $hits.indexOfId($asset.id))
+	#set($previous = $hits.previous($indexOf))
+	#set($next = $hits.next($indexOf))
+	
+	#if($previous) <a class="linkprevious" href="${home}$apphome/views/modules/asset/editor/index.html?assetid=${previous.id}&hitssessionid=${hitssessionid}"></a>
+	#end
+
+	#if($next) <a class="linknext" href="${home}$apphome/views/modules/asset/editor/index.html?assetid=${next.id}&hitssessionid=${hitssessionid}"></a>
+	#end
+	#end
+	<p class="asset-caption ellipsis">
+		#if($asset.caption) $asset.caption #else $asset #end
+	</p>
+</div>
+<ul class="emdetailactions">
+	
+	#if( $candownload )
+	<li>
+		<a class="btn" title="[[Download Asset]]" href="$home$apphome/views/activity/downloadassets.html?assetid=$asset.id">Download</a>
+	</li>
+	#end
+	#if ($content.isPropertyTrue("showaddselections") && $canviewbasket)
+	<li>
+		<a class="toggleitem ajax btn" targetdiv="basketmenu"  href="$home$apphome/components/basket/addselection.html?hitssessionid=$hits.getSessionId()">Add to Basket</a>
+	</li>
+	#end
+
+
+	#if ( $canshareasset )
+	<li>
+		<a class="btn toggleajax" targetdivinner="share-container" href="$home$apphome/components/shareasset/index.html?assetid=$asset.id&oemaxlevel=1" id="share-button">[[Share]]</a>
+	</li>
+	#end
+	
+
+	#if($candeleteasset)
+	<li style="float: right; margin-right: 0px;">
+		<a class="btn tooltip delete" title="Delete Asset" href="$home$apphome/views/modules/asset/editor/delete/index.html?sourcepath=$asset.sourcepath&hitssessionid=$!{hitssessionid}"><img width="12" src="$home$themeprefix/images/navigation/delete.png" title="Delete Asset" /></a>
+	</li>
+	#end
+	
+	#if( $asset.isFolder() )
+	<li style="float: right;">
+		<a class="btn tooltip attachments" title="View Attachments" href="$home$apphome/views/modules/asset/editor/attachments/index.html?sourcepath=$asset.sourcepath&hitssessionid=$!{hitssessionid}"><img width="14" src="$home$themeprefix/images/navigation/attachments-icon.png" title="View Attachments" /></a>
+	</li>
+	#end
+
+	#if($canprintpreview)
+	<li style="float: right;">
+		<a class="btn tooltip print" href="$home$apphome/views/modules/asset/editor/printpreview/index.html?sourcepath=$asset.sourcepath&hitssessionid=$!{hitssessionid}" title="Print Preview"><img width="12" src="$home$themeprefix/images/navigation/print-icon.png" /></a>
+	</li>
+	#end
+	
+	#if($canmetadatadetails)
+	<li style="float: right;">
+		<a class="btn tooltip edit" title="Edit Asset Metadata" href="$home$apphome/views/modules/asset/editor/generalinformation/index.html?sourcepath=$asset.sourcepath&hitssessionid=$!{hitssessionid}"><img width="12" src="$home$themeprefix/images/navigation/write-note.png" title="Edit Metadata" /></a>
+	</li>
+	#end
+
+	##if( $canviewvoting )
+	##<li class="emdetaileditasset" style="float: right;">
+	##	$pages.include("$apphome/components/voting/index.html?catalogid=$catalogid&sourcepath=$asset.sourcepath", $context)
+	##</li>
+	##end
+	
+</ul>
+
+<div id="share-container" style="display: none;">
+	
+</div>
+
+
+<script>
+	$('#share-button').click(function() {
+		$('#share-container').toggle('fast');
+	});
+
+	$('#share-container ul li').click(function() {
+
+		$('#share-container ul li.current').removeClass('current');
+		$(this).addClass('current');
+
+	});
+
+</script>
+$pages.include("/${applicationid}/components/mediaviewer/details/index.html",$context)
+
+#if ($canviewcomments)
+$pages.include("$apphome/components/mediaviewer/comments/index.html?sourcepath=$asset.sourcepath",$context)
+#end 

@@ -1,0 +1,75 @@
+<div id="editlayout">	
+		
+<form id="dataeditor" name="dataeditor" method="post" action="saveproperty.html" >
+	<input name="save" type="hidden" value="true" />
+	<input name="id" type="hidden" value="$!property.id" />
+	<input name="catalogid" type="hidden" value="$searcher.catalogId" />
+	<input name="searchtype" type="hidden" value="$searcher.getSearchType()" />
+	
+	<table width="100%">
+	<tr> <td>ID:</td> <td><input name="newid" value="$property.id" /></td> </tr>
+	<tr> <td>[[Label]]:</td> <td><input name="name" value="$!property.name" /></td> </tr>
+	<tr> <td>[[External ID]]:</td> <td><input name="externalid" value="$!property.externalId" /></td> </tr>
+
+	
+	<tr> <td>Editable:</td> <td><input name="editable" type="checkbox" #if ($property.editable == true) checked #end value="true"/> </td> </tr>
+	<tr> <td>[[Index]]:</td> <td><input name="index" type="checkbox" #if ($property.index == true) checked #end value="true"/> </td> </tr>
+	<tr> <td>[[Stored]]:</td> <td><input name="stored" type="checkbox" #if ($property.stored == true) checked #end value="true"/> </td> </tr>
+	<tr> <td>[[Is Keyword]]:</td> <td><input name="keyword" type="checkbox" #if ($property.keyword == true) checked #end value="true"/> </td> </tr>
+	<tr> <td>[[In Filters]]:</td> <td><input name="filter" type="checkbox" #if ($property.filter == true) checked #end value="true"/> </td> </tr>
+	
+	
+	<tr> <td>[[View Type]]:</td>
+	<td>
+	<select name="viewtype">
+		<option value="" >Text</option>
+		<option value="boolean" #if ($property.viewtype == "boolean") selected #end >[[Boolean]]</option>
+		<option value="number" #if ($property.viewtype == "number") selected #end >[[Number]]</option>
+		<option value="long" #if ($property.viewtype == "long") selected #end >Long</option>
+		<option value="double" #if ($property.viewtype == "double") selected #end >Double</option>
+		<option value="date" #if ($property.viewtype == "date") selected #end >[[Date]]</option>
+		<option value="list" #if ($property.viewtype == "list") selected #end >[[List]]</option>
+		<option value="permission" #if ($property.viewtype == "permission") selected #end >[[Permission]]</option>
+		<option value="file" #if ($property.viewtype == "file") selected #end >[[File]]</option>
+		<option value="image" #if ($property.viewtype == "image") selected #end >[[Image]]</option>
+		<option value="multiselect" #if ($property.viewtype == "multiselect") selected #end >[[Multi-Select]]</option>
+		<option value="textjoin" #if ($property.viewtype == "textjoin") selected #end >[[Text Join]]</option>
+	</select>	
+
+	</td>
+	</tr>
+
+	<tr> <td>[[Data Type]]:</td>
+	<td>
+	<select name="datatype">
+		<option value="" >Text</option>
+		<option value="boolean" #if ($property.datatype == "boolean") selected #end >[[Boolean]]</option>
+		<option value="number" #if ($property.datatype == "number") selected #end >[[Number]]</option>
+		<option value="long" #if ($property.datatype == "long") selected #end >Long</option>
+		<option value="double" #if ($property.datatype == "double") selected #end >Double</option>
+		<option value="date" #if ($property.datatype == "date") selected #end >[[Date]]</option>
+		<option value="list" #if ($property.datatype == "list") selected #end >[[List]]</option>
+		<option value="file" #if ($property.datatype == "file") selected #end >[[File]]</option>
+		<option value="image" #if ($property.datatype == "image") selected #end >[[Image]]</option>
+	</select>
+	</td>
+	<td>
+	#if($property.isList())
+		<a id="${element.id}editlist"  class="thickbox" href="$home$apphome/views/settings/metadata/list/modifylist.html?catalogid=$element.getListCatalogId()&searchtype=$element.getListId()&iframe=true&width=500&height=400">edit values</a>
+	 #end
+	</td>
+		
+	</tr>
+
+	<tr> <td>[[List Id]]:</td> <td><input name="listid" value="$!property.listid"/> </td> </tr>
+	<tr> <td>[[List Catalog Id]]:</td> <td><input name="listcatalogid" value="$!property.listcatalogid"/> </td> </tr>
+	<tr> <td>[[List Sort Field]]:</td> <td><input name="sort" value="$!property.sort"/> </td> </tr>
+	<tr> <td>[[List Query]]:</td> <td><input name="query" value="$!property.query"/> </td> </tr>
+	<tr> <td>[[Foreign Key ID]]:</td> <td><input name="foreignkeyid" value="$!property.foreignkeyid"/> </td> </tr>
+		
+	</table>
+	<br/><br/>
+	<div class="embutton" style="float:left;margin-left:50px;">
+		<input type="submit" value="Save"/>
+	</div>
+</form>

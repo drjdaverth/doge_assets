@@ -1,0 +1,8 @@
+<page>
+	<property name="tab">userupload</property>
+	<property name="subtab">userupload</property>
+
+	<property name="section">upload</property>
+	<inner-layout>${themeprefix}/layouts/myaccount.html</inner-layout>
+
+</page>

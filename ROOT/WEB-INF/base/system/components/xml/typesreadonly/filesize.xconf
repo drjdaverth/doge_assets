@@ -1,0 +1,3 @@
+<page>
+	<page-action name="PageValue.loadPageVariable" bean="sizer" />	
+</page>

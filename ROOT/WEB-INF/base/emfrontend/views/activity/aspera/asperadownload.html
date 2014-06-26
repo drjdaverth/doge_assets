@@ -1,0 +1,112 @@
+<h2>Aspera Download</h2>
+
+#set($itemid = $context.getRequestParameter("itemid"))
+#set($item = $searcherManager.getData($catalogid, "orderitem",$itemid) )
+
+#set($publishqueueid = $item.get("publishqueueid") )
+#set($publishqueue = $searcherManager.getData($catalogid, "publishqueue",$publishqueueid))
+#set( $destination = $searcherManager.getData($catalogid, "publishdestination",$publishqueue.publishdestination))  
+
+#set($presetpath = $publishqueue.exportname )
+  $presetpath
+<p id="install_message">
+  
+</p>
+
+<div id="objectholder">
+
+</div>
+
+
+<object id="aspera-web" type="application/x-aspera-web" width="1" height="1"><param name="AW_IMGSRV" value="" ></object>
+
+  <script language="JavaScript">
+
+  	function downloadNow()
+  	{
+		var aspera = new AsperaWeb('aspera-web');
+
+ 		#set( $username = $destination.get("username") )
+ 		#if(!$username )
+ 			alert("Username not set");
+ 		#else	
+	 		#set( $theuser = $userManager.getUser($username) )
+	 		#set( $password = $userManager.decryptPassword($theuser) )
+ 		#end
+ 		var sourceURL = 'fasp://${username}:${password}@${destination.get("server")}${destination.get("url")}/$presetpath?v=2&bwcap=Unlimited&targetrate=20000';
+ 		aspera.promptAndDownload(sourceURL, "$publishqueue.exportname");
+		jQuery('#install_message').html( "Download in progress using Aspera software in system tray" );
+		return false;    
+  	}	
+  	var refreshPage = function() 
+  	{
+	  	location.reload();
+  	};
+
+ 	function installProgressCallback(event) {
+  	  var msg = ""; 
+  	  if (event.state == "ERROR") 
+  	  {
+  	    msg += "Installation Error - " + event.description;
+  	  }
+  	  else if ((event.state == "DOWNLOAD")||(event.state == "START")||(event.state == "INSTALL"))
+  	  {
+  		msg = '<div class="ui-state-highlight"><img src="$home$themeprefix/images/spinner.gif"/> ' +  "Installing Aspera Plugin " + event.percent + "%" + '</div>';
+  		//$('aspera_progress_bar_percent').style.width = ""+evnt.percent+"%";
+  	  }
+  	  else if (event.state == "COMPLETE")
+  	  {
+  	  	//downloadNow();
+  	  	//or reload this page
+  	  	msg ="Reloading page";
+  	  	
+  	  	try 
+  	  	{
+			new ConnectInstaller('aspera-web',url).reloadPlugins();
+    	}
+    	catch(e) 
+    	{
+    		
+		}
+		var aspera = jQuery('#aspera-web');
+		aspera.remove();
+		
+		setTimeout(refreshPage, 2000);//refresh the page to run checks again and report to the user
+  	  	//reload page
+  	  	//window.location = "$home$apphome/views/activity/aspera/asperadownload.html?itemid=$itemid&orderid=$order.id&cache=false"
+  	  }
+  	  jQuery('#install_message').html( msg );
+  	} 
+  	
+    function checkInstall() 
+    {
+    	var asperaWeb = new AsperaWeb('aspera-web');
+
+      	if (asperaWeb.isInstalled()) 
+      	{
+			downloadNow();
+      	}
+      	else
+      	{
+      		var installed = '$context.getRequestParameter("installed")';
+      		if( installed == "true")
+      		{
+   				jQuery('#install_message').html( "Please restart your browser to finish installing plugin." );
+      		}
+      		else
+      		{
+	       		window.location = "$home$apphome/views/activity/aspera/asperainstall.html?itemid=$itemid&orderid=$order.id&cache=false";
+	       	}
+      	}
+    }
+    
+    jQuery(document).ready(
+		function()
+		{
+			setTimeout(checkInstall,2000);
+		}
+	);
+   
+	
+	
+  </script>

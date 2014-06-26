@@ -1,0 +1,120 @@
+/** This is a shared standard css. Don't create a second baseem.css */
+
+/** Data entry **/
+#emcontainer .emdataeditor td
+{
+	padding: 2px;
+}
+#emcontainer .emdatafield
+{
+	/*white-space: nowrap;*/
+	padding-right: 5px;
+	text-align: right;
+	vertical-align: middle;
+	max-width: 100px;
+}
+#emcontainer .emdatafieldvalue
+{
+	/*white-space: nowrap;*/
+	padding-right: 5px;
+	text-align: left;
+	vertical-align: middle;
+}
+#emcontainer .emdatafieldvalue input
+{
+	margin-left: 2px;
+}
+
+
+
+#emcontainer #emdropdown {
+    background: url("../images/backgrounds/dropdown_bg.gif") no-repeat scroll right top #FFFFFF;
+    cursor: pointer;
+    height: 20px;
+    margin-right: 14px;
+    min-width: 80px;
+    position: relative;
+    top: -3px;
+}
+#emcontainer #emdropdown .emvalue {
+    color: black;
+    height: 13px;
+    margin-right: 22px;
+    overflow: hidden;
+    padding: 2px 14px 1px 10px;
+}
+#emcontainer #emdropdown .emdropdowncontent {
+
+    background-color: white;
+    border: 1px solid #222222;
+    min-width: 250px;
+    display: none;
+    position: absolute;
+    z-index: 600;
+}
+
+.headerdraggable
+{
+	border-left: 2px solid transparent;
+}
+.rowdraggable
+{
+	border-top: 2px solid transparent;
+}
+.headerdraggableenabled
+{
+	border-left: 2px solid blue;
+}
+.rowdraggableenabled
+{
+	border-top: 2px solid blue;
+}
+
+.baseemshowonhover
+{
+	visibility:hidden;
+}
+
+.baseemshowonhovershow
+{
+	visibility:visible;
+}	
+
+th.editcolumnheader
+{
+	border-left: 1px solid #777;
+}
+a.baseemenableonhover
+{
+	opacity: .2;
+}
+
+a.baseemenableonhover:hover
+{
+	opacity: 1;
+}	
+
+/*********************************
+	CSS tables Does not work in IE7
+*********************************/
+div.emtable
+{
+	display: table;
+}
+
+div.emtable div.row
+{
+	display: table-row;
+}
+
+div.emtable div.row span,
+div.emtable div.row div
+{
+	display: table-cell;
+	padding: 3px;
+}
+
+div.emtable div.row div div
+{
+	display: block;
+}

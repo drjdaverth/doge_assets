@@ -1,0 +1,91 @@
+<script language="javascript" src="$home/openedit/components/javascript/validateandedit.js"> </script>
+
+#set( $path = $context.getRequestParameter("linkpath") )
+
+<script language="javascript">
+	function move(dir)
+	{
+		jQuery("#treeviewer").load("$home/${applicationid}/views/links/actions/move.html", {direction: dir, linkpath: '$!path'}, reloadTree());
+	
+		
+	/*	
+		new Ajax.Updater("treeviewer", "$home/${applicationid}/views/links/actions/move.html", 
+				{ parameters: {direction: dir, linkpath: '$!path'}, 
+		    		onSuccess: function(transport)
+		    		{
+		    			new Ajax.Updater("treetd", "$home/${applicationid}/views/links/tree.html", {parameters: {linkpath: '$!path'}});
+				    }
+			    });
+	*/
+	}
+
+	reloadTree = function()
+	{
+		jQuery("#treetd").load("$home/${applicationid}/views/links/tree.html", {linkpath: '$!path'} );
+		//new Ajax.Updater("treetd", "$home/${applicationid}/views/links/tree.html", {parameters: {linkpath: '$!path'} });
+	}
+
+	gotoEditAction = function(inActionPage)
+	{
+		jQuery("#treeviewer").load("$home/${applicationid}/views/links/actions/" + inActionPage,{linkpath: '$!path'}, reloadTree() );
+		//new Ajax.Updater("treeviewer", "$home/${applicationid}/views/links/actions/" + inActionPage, { onSuccess: reloadTree, parameters: {linkpath: '$!path'} });
+	}
+</script>
+
+<script type="text/javascript">
+var adminLinkTree = new Object();
+adminLinkTree.lastselected = "";
+adminLinkTree.name = "adminLinkTree";
+adminLinkTree.jumpToNode = function(inUrl, inNodeId)
+{
+	
+	this.selectRow( inNodeId );
+	//new Ajax.Updater(this.name + "treerow"+inNodeId, '$home/openedit/editors/links/select.html', { parameters: {nodeID: inNodeId, path: inUrl, origURL: "$content.path",  linkpath: "$!path"} });
+	//document.location = "$home/${applicationid}/views/links/linkeditor.html?linkpath=$!path&linkid=" + inNodeId;
+	jQuery("#treeviewer").load("$home/${applicationid}/views/links/linkeditor.html", {linkid: inNodeId, linkpath: '$!path'} );
+	//new Ajax.Updater("treeviewer", '$home/${applicationid}/views/links/linkeditor.html', { parameters: {linkid: inNodeId, linkpath: '$!path'} });
+	return false;
+}
+adminLinkTree.toggleNode = function(inUrl, inTreeId, inNodeId)
+{
+	
+	jQuery("#" + this.name + "treerow"+inNodeId).load("$home/${applicationid}/views/links/toggle.html", {nodeID: inNodeId, treeid: inTreeId, origURL: "$content.path", linkpath: "$!path" });
+	//new Ajax.Updater(this.name + "treerow"+inNodeId, '$home/${applicationid}/views/links/toggle.html', { parameters: {nodeID: inNodeId, treeid: inTreeId, origURL: "$content.path", linkpath: "$!path" } });
+	return false;
+}
+adminLinkTree.jumpAndOpenNode = function(inUrl, inTreeId, inNodeId)
+{	
+	this.jumpToNode( inUrl, inNodeId );
+	this.toggleNode( inUrl, inTreeId, inNodeId );
+	return false;
+}
+adminLinkTree.selectRow = function( inNodeId )
+{
+	if( this.lastselected.length > 0 )
+	{
+		var thediv = document.getElementById(this.name + "treeitem" + this.lastselected);
+		if( thediv )
+		{
+			thediv.style.backgroundColor = "#ffffff";
+		}
+		thediv = document.getElementById(this.name + "treeitem" + inNodeId);
+		if( thediv )
+		{
+			thediv.style.backgroundColor = "#c0d2ec";
+		}
+	}
+	this.lastselected = inNodeId;
+}
+</script>    
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">[[Menu Editor]]</div>
+  <div class="panel-body" id="treetd">
+   		$pages.include("/${applicationid}/views/links/tree.html")
+
+  </div>
+</div>
+
+
+	

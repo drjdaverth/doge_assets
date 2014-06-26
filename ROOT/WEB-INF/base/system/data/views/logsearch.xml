@@ -1,0 +1,6 @@
+<properties>
+	<property id="user"/>
+	<property id="query"/>
+	<property id="hits"/>
+	<property id="date"/>
+</properties>

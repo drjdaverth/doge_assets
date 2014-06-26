@@ -1,0 +1,36 @@
+<h2>[[Downloads]]</h2>
+<div class="emtable">
+
+	<div class="row">
+		<span>[[Home]]:</span>
+		<span>
+			<a href="$context.siteRoot$home$cataloghome/assets/$asset.sourcepath/index.html">view</a>
+			<input  size="100" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home$apphome/assets/$asset.sourcepath/index.html"/>
+		 </span>
+	</div>
+
+	<div class="row">
+		<span>[[Standard MP3 Link]]: </span>
+		<span><a href="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/mp3/$asset.sourcepath/audio.mp3">download</a>
+			<input size="100" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/mp3/$asset.sourcepath/audio.mp3"/>
+		 </span>
+	</div>
+	<!-- div class="row">
+		<span>[[WAV Download]]: </span>
+		<span><a href="$context.siteRoot$home$apphome/downloads/converted/cache/$asset.sourcepath/audio.wav">download</a>
+			<input size="100" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home$apphome/downloads/converted/cache/$asset.sourcepath/audio.wav"/>
+		 </span>
+	</div -->
+	<div class="row">
+		<span>[[Original Download]]: </span>
+		#set( $link = $mediaarchive.asLinkToOriginal($asset) )
+		<span><a href="$context.siteRoot$home$link">download</a>
+			<input size="100" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home$link"/>
+		 </span>
+	</div>
+
+</div>

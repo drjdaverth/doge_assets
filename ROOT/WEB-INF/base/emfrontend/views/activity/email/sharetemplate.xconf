@@ -1,0 +1,5 @@
+<page>
+	<property name="subject">Assets Shared</property>
+	<page-action name="OrderModule.findOrderItems"/>
+
+</page>

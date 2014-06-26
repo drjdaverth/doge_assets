@@ -1,0 +1,13 @@
+<form name="importdata" method="post" enctype="multipart/form-data" action="importfinish.html" >
+	<ol>
+		<li>From within Excel the File menu choose Save As</li>
+		<li>Select CSV as the file type</li>
+		<li>You must use Tab Separated Values as the delimiter</li> 
+		<li>Save the .csv file someplace on your local computer</li>
+		<li>Select your .csv file: <input type="file" name="file" value="Browse" /> </li>
+		<li><input type="submit" value="Import" /> Warning: By importing new data from a file you will loose any existing values.</li>
+	</ol>
+	<p>
+
+	<input type="hidden" name="sheet" value="$sheet.id" />
+</form>

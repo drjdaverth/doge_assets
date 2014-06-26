@@ -1,0 +1,8 @@
+#
+#Fri Apr 30 13:18:48 CLT 2010
+after=despu\u00E9s de
+Search=B\u00FAsqueda
+less\ than=menos que
+before\ =antes
+in=en
+more\ than=m\u00E1s que

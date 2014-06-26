@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  	<property name="text.section">
+    		<value>Visual Editor</value>
+    		<value locale="cn">编辑部分</value>
+    		<value locale="es">Editor Visual</value>
+  	</property>
+  	<property name="text.resize">
+    		<value>Resize Image</value>
+    		<value locale="cn">重量尺寸图象</value>
+    		<value locale="es">Redimensionamiento de Imagen</value>
+  	</property>
+  	<property name="text.crop">
+    		<value>Crop Image</value>
+    		<value locale="cn">庄稼图象</value>
+    		<value locale="es">Recorte de imagen</value>
+  	</property>
+  	<property name="text.edittext">
+    		<value>Text Editor</value>
+    		<value locale="cn">修改文本</value>
+    		<value locale="es">Editor de Texto</value>
+  	</property>
+  	<property name="text.settings">
+    		<value>Page Properties</value>
+    		<value locale="cn">修改设置</value>
+    		<value locale="es">Propiedades de Página</value>
+  	</property>
+  	<property name="text.revisions">
+    		<value>Versions</value>
+    		<value locale="cn">看法修正</value>
+    		<value locale="es">Versiones</value>
+  	</property>
+  	<property name="text.live">
+    		<value>See Live View</value>
+    		<value locale="cn">参见活看法</value>
+    		<value locale="es">Ver Vista Resumida</value>
+  	</property>
+  	<property name="text.draft">
+    		<value>See Draft View</value>
+    		<value locale="cn">参见草稿看法</value>
+    		<value locale="es">Ver Bosquejo</value>
+  	</property>
+  	<property name="text.logout">
+    		<value>Log Out</value>
+    		<value locale="cn">注销</value>
+    		<value locale="es">Salir</value>
+  	</property>
+  	<property name="text.showdraftcomparison">
+  		<value>Show Draft Comparison</value>
+		<value locale="es">Mostrar Comparación de Borradores</value>
+  	</property>
+  	<property name="text.View in Filemanager">
+    		<value>View in Filemanager</value>
+    		<value locale="es">Ver en Administrador de Archivos</value>
+  	</property>
+  	<property name="text.Action Menu">
+    		<value>Action Menu</value>
+    		<value locale="es">Menú de Acciones</value>
+  	</property>
+</page>

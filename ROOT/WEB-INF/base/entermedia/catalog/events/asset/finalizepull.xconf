@@ -1,0 +1,8 @@
+<page>
+	<property name="virtual">true</property>
+	<path-action name="Script.run">
+		<script>
+			/${catalogid}/events/scripts/assets/finalizepull.groovy
+		</script>
+	</path-action>
+</page>

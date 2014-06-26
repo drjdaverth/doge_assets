@@ -1,0 +1,358 @@
+#set( $attachmentroot = $content.attachmentroot )
+
+#set( $path = "/WEB-INF/data/$catalogid/originals/$asset.sourcepath/" )
+
+#macro(showattachments $parentfolder $depth) 
+
+		#set ( $depth = $depth + 1)
+		#set ( $padding = (15 * $depth) )
+		
+		#set( $files = $attachmentManager.listChildren($context, $mediaarchive, $parentfolder ) )
+		#foreach($file in $files)
+			#set( $filesource  = "${file.parentsourcepath}/${file.name}")
+			   <li class="noderow" id="${file.id}_row" data-nodeid="$file.id"><div style="padding-left: ${padding}px"><span class="#if ( $file.folder == 'true' )arrow down #end"></span>
+			   #if ( $file.folder == "true" ) 
+			   	<span id="${file.id}_display" class="name folder #if($isleaf) leaf #end" fileid="${file.id}">$file.name</span></span><span id="${file.id}_edit" class="name folder" style="display:none;">
+			   	<input class="field" type="text" value="$file.name" id="${file.id}_edit_field" /><a class="editsave btn">Save</a><a id="${file.id}" class="editcancel btn">Cancel</a></span>
+			   #else
+			   	#set( $subpath = $attachmentManager.parseFileSubPath($asset.sourcepath, ${file.parentsourcepath}, $file.name) )
+			    <span class="name $!file.fileformat" fileid="${file.id}" sourcepath="$filesource" >$file.name #if ( $asset.primaryFile == $subpath )<span class="small">(Primary File)</span>#end #if ( $asset.primaryThumb == $subpath )<span class="small">(Primary Thumbnail)</span>#end</span>
+			   #end
+			   <span class="actions">
+			    #set( $downloadpath = "/WEB-INF/data/$catalogid/originals/$filesource/" )
+			   	#if ( $file.folder == "true" )
+			   		<a class="download-folder click-link ir tooltip" title="Download Folder" id="${file.id}" href="$home$attachmentroot/zip/${file.name}-attachments.zip?path=$downloadpath&stripfolders=$downloadpath">Download Folder</a>
+			   		<a class="add-folder ir tooltip" title="Add a new Folder" id="${file.id}">Add New Folder</a>
+			   		<a class="upload-file ir tooltip" title="Upload a new File" id="${file.id}" >Upload</a>
+			   		<a class="edit ir tooltip" title="Edit Folder Name">Edit</a>
+				   	<a class="delete ir tooltip" title="Delete Folder" fileid="${file.id}" >Delete</a></span></div>
+			   	#else 
+			   		<a class="download-file click-link ir tooltip" title="Download File" id="${file.id}" href="$home/${applicationid}/views/modules/asset/downloads/originals/$filesource/${file.name}">Download File</a> 
+				   	<a class="delete ir tooltip" title="Delete File" fileid="${file.id}" >Delete</a></span></div>
+			   	#end
+					#if($file.folder == "true")  
+						<ul class="open" > ##use cookies to open/close them?
+						  #showattachments($filesource , $depth)
+					   </ul>
+					#end
+			   </li>
+			  #if ( $file.folder == "true" )
+			  	<li id="${file.id}_add-folder" style="display: none;">
+			  		<div class="selected new"><span class="name folder"><input class="clearfield" type="text" value="New Folder" id="${file.id}_new" /><a data-parent="${file.id}"  class="addfoldersave btn">Save</a><a id="${file.id}" class="cancel btn">Cancel</a></span></div>
+			  	</li>
+			 	<li id="${file.id}_upload-file" style="display: none;"></li>
+			  #end	 	
+		
+			   		
+		#end
+#end
+<div class="tab-actions" style="text-align: right;">
+    <a class="btn ajax" targetdivinner="right-col" href="$home$attachmentroot/reload.html?sourcepath=$asset.sourcePath&oemaxlevel=2">Reload Files</a>
+</div>
+	<div  class="ui-widget-content categories-widget no-padding-for-real of-visible" style="border: none; box-shadow: none;">
+		<div id="attachments-container">
+			<div id="attachmenttree" class="emtree attachments">
+					<ul class="open" >
+						<li class="noderow" id="toplevel_row" data-nodeid="toplevel" >
+							<div style="padding-left: 20px"><span class="arrow down"></span><span class="name folder" fileid="toplevel" sourcepath="$filesource" >Attachments</span>
+								<span class="actions">
+			   						<a class="download-folder click-link ir tooltip" title="Download Folder" id="toplevel" href="$home$attachmentroot/zip/${asset.name}-attachments.zip?path=$path&stripfolders=$path">Download Folder</a>
+									<a class="add-folder ir tooltip" title="Add a new Folder" id="toplevel">Add New Folder</a>
+									<a class="upload-file ir tooltip" title="Upload a new File" id="toplevel">Upload New File</a>
+									<a class="edit ir nope">Edit</a><a class="delete ir nope" data-parent="toplevel">Delete</a></span>
+							</div>
+							<ul class="open" >							
+								#showattachments($asset.sourcePath, 1)
+							</ul>
+						</li>
+					 	<li id="toplevel_add-folder" style="display: none;"><div class="selected new"><span class="name folder"><input class="clearfield" type="text" value="New Folder" id="toplevel_new" /><a data-parent="toplevel" class="addfoldersave btn">Save</a><a id="toplevel" class="cancel btn">Cancel</a></span></div></li>
+					 	<li id="toplevel_upload-file" style="display: none;"></li>
+					 </ul>	
+
+			</div>
+		<div id="preview-pane">
+		$pages.include("$attachmentroot/details.html")	
+		</div>
+		</div>
+	</div>
+##$sizer.inEnglish($attachment.size)
+
+
+<script type="text/javascript">
+
+
+
+	$('#attachmenttree ul li div').livequery(function()
+	{ 
+	  $(this).on({
+		click: function(){
+			
+			$(this).parent().find('> ul').toggle('fast');
+			
+			if ( $(this).find('.arrow').hasClass('down') )
+			{
+				$(this).find('.arrow').removeClass('down');
+			}
+			else 
+			{
+				$(this).find('.arrow').addClass('down');
+			}
+			var file = $(this).find('.name');
+			file = $(file);
+			var fileid = file.attr("fileid");
+			$("#preview-pane").load("$home$attachmentroot/details.html?oemaxlevel=1&assetid=$asset.id&fileid=" + fileid );
+			$('#attachmenttree ul li div').removeClass('selected');
+			$(this).addClass('selected');
+		}
+	 });
+	});
+
+	$('#attachmenttree .clearfield').livequery(function()
+	{ 
+	  $(this).on({
+		click: function (event) {
+			event.stopPropagation();
+		},
+		focusin: function(){
+			if ($(this).val() == this.defaultValue ) { 
+				$(this).val(''); 
+			}
+		}, 
+		focusout: function(){
+			if ($(this).val() == "") { 
+				$(this).val(this.defaultValue); 
+			}
+		}
+			
+	});
+	});
+
+	$("#attachmenttree .add-folder").livequery(function()
+	{ 
+	  $(this).on({
+			click: function (event) {
+				
+				event.stopPropagation();
+				
+				var id = $(this).attr("id");
+				padding = $("#" + id + "_row div").css('padding-left');
+				padding = padding.replace('px', '');
+				padding = parseInt(padding);
+				padding += 20;
+				var node = $(this).parents('.noderow:first').data('nodeid');
+				
+				if ( $("#" + id + "_row > div .arrow").length > 0 ) {
+					if ( $("#" + id + "_row > div .arrow").hasClass('down') ) {	
+						
+					} else {
+					   $("#" + id + "_row").find('> ul').toggle('fast');
+					   $("#" + id + "_row > div .arrow").addClass('down');
+					   jQuery.get("$home$apphome/views/settings/modules/asset/metadata/categories/expandnode.html?nodeID=" + node);
+					}
+				} else {
+					$("#" + id + "_row > div").prepend('<span class="arrow down" id="newarrow"></span>');
+					$("#" + id + "_row").find('> ul').toggle('fast');
+					$("#" + id + "_row > div .arrow").addClass('down');
+				}
+				
+				$("#" + id + "_add-folder").show("fast");
+				$("#" + id + "_add-folder div").css('padding-left', padding );
+				$("#" + id + "_row > div").addClass('selected');
+				$("#" + id + "_add input").focus();
+			}
+	} );
+	});
+
+	$("#attachmenttree .upload-file").livequery(function()
+	{ 
+		$(this).on({
+			click: function (event) {
+				event.stopPropagation();
+				
+				var id = $(this).attr("id");
+				padding = $("#" + id + "_row div").css('padding-left');
+				padding = padding.replace('px', '');
+				padding = parseInt(padding);
+				padding += 20;
+				var node = $(this).parents('.noderow:first').data('nodeid');
+				
+				if ( $("#" + id + "_row > div .arrow").length > 0 ) {
+					if ( $("#" + id + "_row > div .arrow").hasClass('down') ) {	
+						
+					} else {
+					   $("#" + id + "_row").find('> ul').toggle('fast');
+					   $("#" + id + "_row > div .arrow").addClass('down');
+					   jQuery.get("$home$apphome/views/settings/modules/asset/metadata/categories/expandnode.html?nodeID=" + node);
+					}
+				} else {
+					$("#" + id + "_row > div").prepend('<span class="arrow down" id="newarrow"></span>');
+					$("#" + id + "_row").find('> ul').toggle('fast');
+					$("#" + id + "_row > div .arrow").addClass('down');
+				}
+				
+				$("#" + id + "_upload-file").load('$home$attachmentroot/upload.html?assetid=${asset.id}&fileid=' + id);
+				$("#" + id + "_upload-file").show("fast");
+				$("#" + id + "_upload-file div").css('padding-left', padding );
+				$("#" + id + "_row > div").addClass('selected');
+				$("#" + id + "_add input").focus();
+			}
+	} );
+	});
+
+	$("#attachmenttree .cancel").livequery(function()
+	{ 
+      $(this).on({
+		click: function (event) {
+			
+			event.stopPropagation();
+			
+
+			$("#newarrow").remove();
+	
+			var id = $(this).attr("id");	
+			$("#" + id + "_add-folder").hide("fast");
+			$("#" + id + "_upload-file").hide("fast");
+			$("#" + id + "_row > div").removeClass('selected');
+		}
+	
+	  });
+	});
+	$("#attachmenttree .click-link").livequery(function()
+	{ 
+	  $(this).on({
+		click: function (event) {
+				event.stopPropagation();
+				var href= $(this).attr("href");
+				document.location = href;		
+				return false;
+		}
+	});
+	});
+
+	$("#attachmenttree .edit").livequery(function()
+	{ 
+	  $(this).on({
+		click: function (event) {
+				event.stopPropagation();
+				var id = $(this).parents('.noderow:first').data('nodeid');
+	
+				
+				jQuery("#" + id +"_display").hide("fast");
+				jQuery("#" + id +"_edit").show("fast");		
+				
+				return false;
+		}
+	});
+	});
+
+	$("#attachmenttree .editcancel").livequery(function()
+	{ 
+	  $(this).on({
+		click: function (event) {
+				event.stopPropagation();
+				var id = $(this).parents('.noderow:first').data('nodeid');
+	
+				
+				jQuery("#" + id +"_display").show("fast");
+				jQuery("#" + id +"_edit").hide("fast");		
+				return false;
+		}
+	});
+	});
+	$("#attachmenttree .editsave").livequery(function()
+	{ 
+	  $(this).on({
+		click: function (event) {
+				event.stopPropagation();
+				var id = $(this).parents('.noderow:first').data('nodeid');
+
+				
+				
+				var newname = $("#" + id + "_edit_field").attr("value");
+				jQuery.get("$home$attachmentroot/renamefolder.html", {
+					'id': id,
+					fileid: id,
+					'foldername': newname,
+					'assetid': $asset.id
+					} , function () {						
+						jQuery("#" + id +"_display").show("fast");
+						jQuery("#" + id +"_edit").hide("fast");		
+						jQuery("#" + id + "_display").html(newname);
+					}
+				
+				);
+				
+				return false;
+		}
+	});
+	});
+
+
+
+	$("#attachmenttree .addfoldersave").livequery(function()
+	{ 
+	  $(this).on({
+		click: function (event) {
+				event.stopPropagation();
+				var id = $(this).data('parent');
+				//alert("adding new folder under: " + id);
+				var newname = $("#" + id + "_new").attr("value");
+				var parentid = $("#" + id + "_new").data("parent");
+
+				jQuery.get("$home$attachmentroot/createfolder-finish.html", {
+					//'id': id,
+					fileid: id,
+					'foldername': newname,
+					'assetid': $asset.id
+				
+					} , function () {						
+					repaint();
+					}
+				
+				);
+				
+				return false;
+		}
+	});
+	});
+
+
+	$("#attachmenttree .delete").livequery(function()
+	{ 
+	  $(this).on({
+		click: function (event) {
+				event.stopPropagation();
+				var confirmtext = $(this).attr('title');
+				var agree=confirm( confirmtext + "?");
+				if(!agree){
+					return false;
+				}
+
+				var id = $(this).attr('fileid');
+				jQuery.get("$home$attachmentroot/delete.html", {
+					fileid: id,					
+					'assetid': $asset.id
+					} , function () {						
+						repaint();	 //this is problematic, delete should repaint
+  				    }
+				);
+				
+				return false;
+		}
+	
+	});
+	});
+
+	repaint = function () {
+		jQuery("#attachments-tree").load("$home$attachmentroot/files.html?assetid=$asset.id&oemaxlevel=1");
+		
+		
+	}
+	
+</script>
+
+
+<form id="uploadform" action="#">
+<div id="here"></div>
+
+</form>

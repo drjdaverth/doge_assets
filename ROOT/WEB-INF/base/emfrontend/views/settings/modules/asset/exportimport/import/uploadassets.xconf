@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <path-action name="Page.uploadFile"/>
+  <property name="allowspecifiedpath" >true</property>
+  
+  <path-action name="Script.run">
+    <script>./uploadassets.bsh</script>
+  </path-action>
+  <property name="text.Assets have been imported and the search reindexed">
+    <value>Assets have been imported and the search reindexed</value>
+    <value locale="es">Los assetos han sido importados y la búsqueda reindexed</value>
+  </property>
+  <property name="text.UPLOAD COMPLETED">
+    <value>UPLOAD COMPLETED</value>
+    <value locale="es">UPLOAD COMPLETADO</value>
+  </property>
+</page>

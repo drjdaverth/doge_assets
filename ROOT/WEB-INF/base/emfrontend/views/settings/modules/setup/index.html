@@ -1,0 +1,46 @@
+<ul id="folders" class="fwlist">
+    
+    #set ( $modules = $searcherManager.getList($catalogid, "module") )
+   
+        #foreach ( $module in $modules )
+    <li>
+        <a href="$home$apphome/views/settings/modules/${module.id}/info/module-setup.html?id=$module.id&field=last_selected_module&last_selected_module.value=${module.id}" class="folder module">      <div class="name">      <div style="margin-top: 8px" class="alias" title="Alias">$module</div>            </div>        </a>
+       
+        <div class="scan">
+             <a class="btn" href="$home$apphome/views/modules/${module.id}/index.html">Data</a>
+        </div>
+    </li>
+    #end
+    
+    <li class="add">
+            <div class="folder module"></div>
+            <a class="btn right" href="$home$apphome/views/settings/modules/setup/add-new-module.html">Add Module</a>
+    </li>
+    
+    <!-- 
+    <li class="auto">
+        <a href="$home$apphome/views/folders/folder-setup.html" class="folder">
+            <div class="name">
+                <div class="alias" title="Really Long Alias that is dumb and really long">Really Long Alias that is dumb and really long</div>
+                <div class="path" title="C:/Path/To/The/Files/Goes/Here">C:/Path/To/The/Files/Goes/Here</div>
+                <div class="last-activity">Last Scanned: 3:14 PM May 9, 2012</div>
+            </div>
+        </a>
+        <div class="scan">
+            <a class="btn">Scan</a>
+        </div>
+    </li>
+    <li class="manual">
+        <a href="$home$apphome/views/folders/folder-setup.html" class="folder">
+            <div class="name">
+                <div class="alias" title="Really Long Alias that is dumb and really long">Really Long Alias that is dumb and really long</div>
+                <div class="path" title="C:/Path/To/The/Files/Goes/Here">C:/Path/To/The/Files/Goes/Here</div>
+                <div class="last-activity">Last Scanned: 3:14 PM May 9, 2012</div>
+            </div>
+        </a>
+        <div class="scan">
+            <a class="btn">Scan</a>
+        </div>
+    </li>
+     -->
+</ul>               

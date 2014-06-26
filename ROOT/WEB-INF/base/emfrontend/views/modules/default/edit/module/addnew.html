@@ -1,0 +1,22 @@
+<h1>Add New Address</h1>
+$context.putPageValue("searcher", $mediaarchive.getSearcher("address"))
+$context.putPageValue("view", "address/addnew")
+<form name="submitticket" action="addnewfinish.html">
+$pages.include("$apphome/components/xml/detaileditor.html", $context)
+<input type="hidden" name="owner.value" value="$userprofile.id"/>
+<input type="hidden" name="field" value="owner"/>
+
+
+<input type="hidden" name="userprofile.value" value="$userprofile.id"/>
+<input type="hidden" name="field" value="userprofile"/>
+
+
+<input type="hidden" name="dealer.value" value="$!userprofile.dealer"/>
+<input type="hidden" name="field" value="dealer"/>
+
+
+
+<input type="hidden" name="save" value="true"/>
+
+<input type="submit"/>
+</form>

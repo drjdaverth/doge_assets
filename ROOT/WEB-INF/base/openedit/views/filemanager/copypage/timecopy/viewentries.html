@@ -1,0 +1,33 @@
+<style type="text/css">
+        #editsiteslink {color: #FFFFFF;}
+        #editsitescell {background: #CCCCF9;}
+</style>
+
+<h3>Scheduled Copies</h3>
+
+#if( $entries.size() > 0)
+<table >
+	<tr>
+		<th align="left">[[Date]]</th>
+		<th align="left">[[User]]</th>
+		<th align="left"><b>[[From]]</b></th>
+		<th  align="left"><b>[[To]]</b></th>
+		<th  align="left"><b>[[Description]]</b></th>
+		<th> </th>
+	</tr>
+	<tr>
+	#foreach( $copy in $entries )
+	<tr>
+			<td style="padding-right:3em;">$!copy.formattedDate</td>
+			<td style="padding-right:3em;">$!copy.user.userName</td>
+			<td style="padding-right:3em;">$!copy.from</td>
+			<td style="padding-right:3em;">$!copy.to</td>
+			<td style="padding-right:3em;">$!copy.description</td>
+			<td style="padding-right:3em;"><a href="remove.html?count=$velocityCount">[[remove]]</a></td>
+	</tr>
+	#end
+</table>
+#else
+<p>[[No scheduled copies]]</p>
+#end
+<p><a href="index.html">[[Add New]]</a></p>

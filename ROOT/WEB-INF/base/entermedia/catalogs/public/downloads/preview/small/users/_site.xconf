@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="missingimagepath">/${themeprefix}/images/profile75x75.jpg</property>
+</page>

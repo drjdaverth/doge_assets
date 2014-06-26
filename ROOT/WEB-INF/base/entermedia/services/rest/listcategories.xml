@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rsp stat="ok">
+#set( $mediaarchive = $entermedia.getMediaArchive($context.getRequestParameter("catalogid")) )
+#set( $parent = $mediaarchive.getCategory($context.getRequestParameter("parentcategoryid")) )
+#foreach( $child in $parent.getChildren() )
+<category id="$child.id">$child.name</category>
+#end
+</rsp>

@@ -1,0 +1,15 @@
+#
+#Tue Apr 27 17:58:59 EDT 2010
+Disabled=discapacitado
+Reload\ List\ and\ Restart=Re-cargar lista y Reiniciar
+Delay=Retraso
+repeating=repetir
+Enabled=Habilitado
+Last\ Run\ Date=Fecha de \u00FAltima ejecuci\u00F3n
+Last\ Run\ Log=Registro de la \u00FAltima ejecuci\u00F3n
+Name=Nombre
+Ran\ in=Ejecutado en
+edit=editar
+seconds.=segundos.
+run\ now=Ejecutar ahora
+Period=Per\u00EDodo

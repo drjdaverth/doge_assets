@@ -1,0 +1,21 @@
+<page>
+    	<property name='text.movesuccessful'>
+        	<value>MOVE SUCCESSFUL</value>
+    		<value locale="es">MOVIMIENTO EXITOSO</value>
+	</property>
+	<property name='text.thepage'>
+        	<value>The page or directory</value>
+    		<value locale="es">La página o directorio</value>
+    	</property>
+	<property name='text.view'>
+        	<value>VIEW</value>
+    		<value locale="es">VER</value>
+    	</property>
+	<property name='text.hasbeenmovedto'>
+        	<value>has been moved to</value>
+    		<value locale="es">ha sido movido a</value>
+    	</property>
+
+	<path-action name="Page.movePage" />
+	<page-action name="Page.constructParameter" />
+</page>

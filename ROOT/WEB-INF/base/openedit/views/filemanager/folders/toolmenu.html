@@ -1,0 +1,52 @@
+#set ( $nodeID = $context.getRequestParameter("nodeID") )
+#set( $editNode = $pageTree.getModel().getChildById($nodeID))
+
+	#set( $editPath = $editNode.getURL() )
+	#set( $editPage = $pageManager.getPage( $editPath ) )
+
+
+	#set ( $origURL = "$page.filerootpath/index.html" ) 
+
+#if( $editPage.isFolder() ) #set( $type = "folder" ) 
+#elseif ( $editPage.getMimeType().startsWith("image/")) #set ( $type = "image" )
+#else #set( $type = "file" )
+#end
+ 	
+ #if ($type == "file" || $type == "image")
+	<li>
+	 <a  href="#" onclick="openInNewPreviewTab('$nodeID','View $editNode.getName()','$editNode.getURL()');">
+	 <img src="$home$themeprefix/images/toolbar/modepreview.gif" border="0"/> [[Open Preview Tab]]</a>		
+	</li>
+	
+	#if ($type == "file")
+  	<li><a target="_blank" href="$home/system/tools/html/edit.html?editPath=$editPath"><img src="$home$themeprefix/images/toolbar/edit.gif" border="0" title="$context.getPageProperty("text.section")" /> [[Visual Editor]]</a></li>
+	<li><a target="_blank" href="$home/system/tools/text/edit.html?editPath=$editPath" ><img src="$home$themeprefix/images/toolbar/text.gif" border="0" title="$context.getPageProperty("text.edittext")" />	[[Text Editor]]</a></li>
+	#end
+	<li>
+		<a class="emdialog" href="$home/system/tools/text/edit.html?editPath=$editPage.pageSettings.path&type=text"><img src="$home$themeprefix/images/toolbar/text.gif" border="0" title="[[Edit XConf]]" />
+			[[Edit XConf]]
+		</a>
+	</li>
+	<li>
+		 <a href="#" onclick="showpath('oework','$home${page.filerootpath}/versions/index.html?editPath=$editPath',1);"><img src="$home$themeprefix/images/toolbar/history_view.gif" border="0" width="16" height="16" title="[[Versions]]" /> [[Versions]]</a>
+	</li>
+#else
+	<li>
+		<a href="#" onclick="if(!window.name)window.name='$parentName';window.open('$home/system/tools/text/edit.html?editPath=$editPage.getPageSettings().path&origURL=$origURL&type=text&parentName='+window.name, '_blank','alwaysRaised=yes,menubar=no,resizable=yes,top=100,left=130,width=830,height=550' );return false;">
+			<img src="$home$themeprefix/images/toolbar/text.gif" border="0" title="[[Edit]] XConf" /> [[Edit Site XConf]]
+		</a>
+	</li>
+#end
+  #if( $pages.canEdit($editPath) )
+	<li><a href="#" onclick="showpath('oework','$home${page.filerootpath}/settings/index.html?editPath=$editPath',1);"><img src="$home$themeprefix/images/toolbar/config.gif" border="0" width="16" height="16"/>  #if( $type == "file") [[Page Properties]] #elseif ($type == "folder") [[Folder Properties]] #elseif ($type == "image") [[Image Properties]] #end </a></li>
+	<li>
+	 <a href="#" onclick="showpath('oework','$home${page.filerootpath}/permissions/index.html?editPath=$editPath',2);">
+	 	<img src="$home$themeprefix/images/toolbar/config.gif" border="0" width="16" height="16"/> [[Set Permissions]]
+	 </a>
+	</li>
+	#if($context.getPageProperty("usemultiplelanguages") && "true" == $context.getPageProperty("usemultiplelanguages") && $user.hasPermission("translations") )	
+	<li>
+	 <a  href="$home/${applicationid}/views/filemanager/translations/translate.html?path=$!{editPath}"><span>[[Translate]] $type</span></a>		
+	</li>
+	#end
+#end

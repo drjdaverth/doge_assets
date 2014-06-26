@@ -1,0 +1,93 @@
+#if( $context.siteRoot )
+	#set( $baselink = "$context.siteRoot")
+#else
+	#set($baselink = $url_util.siteRoot() )	
+#end
+#set( $path = $context.getRequestParameter('path') )
+
+<p>Drag and drop multiple files or folders into the box below:</p>
+
+<APPLET code="org.openedit.uploader.UploadApplet" width="600" height="70" MAYSCRIPT archive="$home/${applicationid}/views/filemanager/${applicationid}/views/filemanager-upload.jar?v=2009070905">
+
+<PARAM name="uploadurl" value="$baselink$home/${applicationid}/views/filemanager/upload/uploadfile-finish.html" />
+<PARAM name="cookies" value="$browser.getCookieListing()" />
+<PARAM name="savepath" value="$path" />
+
+ Put standard Browser based uploaded here
+
+</APPLET>
+<p>Note: Additional files may be added while the first uploads are in process</p>
+<br/>
+<table width="600">
+	<tbody id="uploadstatuspanelbody" style="visibility: hidden;">
+		<tr><th>Name</th><th>Speed</th><th width="200">Progress</th></tr>
+	</tbody>
+</table>
+<input id="lastId" type="hidden" value="0"/>
+
+<div id="uploadfields">
+
+</div>
+<input name="uploadappletsubmit" id="uploadappletsubmit" disabled type="submit" value="Finish" />
+
+
+<script type="text/javascript">
+uploadstatus = function(inId,inPath, inSentSoFar, inTotal, inSpeed )
+{
+    var uploadrow  = document.getElementById( "row" + inId );
+    if( uploadrow == null )
+    {
+	    var header   = document.getElementById( "uploadstatuspanelbody" );
+	    header.style.visibility = "visible";
+
+	    var lastId = document.getElementById('lastId');
+		if( lastId != null )
+		{
+			lastId.value = inId;
+			var finishbutton = document.getElementById("uploadappletsubmit");
+			finishbutton.disabled = true;
+		}
+		
+    	var row = createUpdate(inId,inPath, inSentSoFar, inTotal, inSpeed);
+		Insertion.Bottom('uploadstatuspanelbody', row);
+    }
+    else
+    {
+    	var content = createUpdate(inId,inPath, inSentSoFar, inTotal, inSpeed);
+		Element.replace("row" + inId, content);
+    }
+}
+uploadfinished = function(inId, inPath)
+{
+	new Insertion.Bottom('uploadfields', '<input id="uploadpath' + inId + '" type="hidden" name="uploadpath" value=""/>');
+	var field = document.getElementById('uploadpath'+inId);
+	field.value = inPath;
+	var lastId = document.getElementById('lastId');
+	if (lastId != null && lastId.value == inId)
+	{
+		var finishbutton = document.getElementById("uploadappletsubmit");
+		finishbutton.disabled = false;
+	}
+}
+createUpdate = function(inId,inPath, inSentSoFar, inTotal, inSpeed )
+{
+	var row = '<tr name="statusrow" id="row' + inId + '"><td>';
+	var lastSlash = inPath.lastIndexOf('/');
+	var name;
+	if (lastSlash > 0)
+		name = inPath.substring(lastSlash + 1);
+	else
+		name = inPath;
+	
+	row += name;
+	var sent = parseInt( inSentSoFar );
+	var total = parseInt( inTotal );
+	var percent = (200 * sent) / total;
+	row += "</td><td>" + inSpeed + "</td><td><div style='background-color: #555555;width:" + percent +"px; height:25px;' ></div></td>";
+	row += "</tr>";
+
+	return row;
+}
+
+
+</script>

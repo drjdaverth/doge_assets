@@ -1,0 +1,51 @@
+        #if( $asset.getId().startsWith("multiedit:") )
+		#set($multi = true)
+	#end
+
+	<ul class="emdetailactions clearfix" style="border-bottom: none; height: inherit;">
+		#if( $canpublish )
+		##$home$apphome/views/activity/publishassets.html?assetid=$asset.id
+		<li id="publish">
+			<a class="btn ajax" targetdivinner="shareOptionsContainer" href="$home$apphome/views/activity/publishassets.html?assetid=$asset.id&oemaxlevel=1">[[Publish]]</a>
+		</li>
+		#end
+		#if( $canemaillink )
+		##$home$apphome/views/activity/emailassets.html?assetid=$asset.id
+		<li id="email">
+			<a class="btn ajax" targetdivinner="shareOptionsContainer" href="$home$apphome/views/activity/emailassets.html?assetid=$asset.id&oemaxlevel=1">[[Email]]</a>
+		</li>
+		#end
+		#if( $canembedasset && !$multi)
+		##$home$apphome/components/share/embed.html?sourcepath=$asset.sourcepath&width=700&height=200
+		<li id="embed">
+			<a class="btn ajax" targetdivinner="shareOptionsContainer" href="$home$apphome/components/share/embed.html?sourcepath=$asset.sourcepath&oemaxlevel=1">[[Embed]]</a>
+		</li>
+		#end <!-- li  id="facebook"><a class="btn ajax" targetdivinner="shareOptionsContainer" href="$home$apphome/components/share/facebook.html?sourcepath=$asset.sourcepath&oemaxlevel=1">Facebook</a></li>
+		<li  id="twitter"><a class="btn ajax" targetdivinner="shareOptionsContainer" href="">Twitter</a></li>
+		<li id="google-plus"><a class="btn ajax" targetdivinner="shareOptionsContainer" href="">Google +</a></li -->
+		#if ( $canaddtoproject )
+		<li id="add-to-collection">
+			<a class="btn ajax" targetdivinner="shareOptionsContainer" href="#">[[Add to Project]]</a>
+		</li>
+		#end
+		#if ( $cansharetosocialmedia  && !$multi)
+
+		#set ( $sharelink = "$context.siteRoot$home$apphome/views/share/viewer.html?sourcepath=$asset.sourcepath&embed=true" )
+		<li id="share">
+			<!-- AddThis Button BEGIN -->
+			<div class="addthis_toolbox addthis_default_style"
+			addthis:url="$sharelink"
+			addthis:title="$asset"
+			addthis:description="#if ( $asset.longcaption ) $asset.longcaption #else Check this out! #end">
+				<a class="addthis_button_facebook"></a>
+				<a class="addthis_button_twitter"></a>
+				<a class="addthis_button_google"></a>
+				<a class="addthis_button_compact"></a>
+				<a class="addthis_counter addthis_bubble_style"></a>
+			</div>
+			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f28119b5b332dce"></script>
+			<!-- AddThis Button END -->
+		</li>
+		#end
+	</ul>
+	<div id="shareOptionsContainer"></div>

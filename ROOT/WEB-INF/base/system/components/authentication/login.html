@@ -1,0 +1,15 @@
+#if( $content.allowguestregistration == "true")
+#set( $allowguest =  true)
+#else
+#set( $allowguest =  false)
+#end
+<h1 class="page-title">[[Log in]] #if( $allowguest )[[or Create a New Account]]#end</h1>
+	<div class="form-container clearfix">
+		$pages.include("$content.loginroot/loginform.html",$context)
+		#if( $allowguest )
+			$pages.include("$content.loginroot/register.html",$context)
+		#end	
+	</div>
+
+
+

@@ -1,0 +1,40 @@
+
+        <div class="container">
+            <div id="header">
+                <div id="logo">
+                    <a class="ir" href="/manager/index.html">EnterMedia Manager</a>
+                </div>
+                <div id="user-status">
+                    
+                </div>
+            </div>
+
+
+			<div class="clearfix">
+				<div class="list-container">
+			            <h1 class="section-header">Applications</h1>
+<p class="app-title">Note: the default login is admin / admin</p>
+
+					<ul class="server-links">
+
+						#set( $catalogs = $searcherManager.getList("system","catalog") )
+						#foreach($cat in $catalogs)
+						
+						#set( $sitesearcher = $searcherManager.getSearcher($cat.getId(),"app") )
+						#set( $sites = $sitesearcher.getAllHits() )
+						
+						#foreach( $site in $sites)
+								<li ><a class="section-title" href="$site.deploypath">$site <span>($site.deploypath)</span></a></li>
+						#end
+						#end						
+					</ul>
+				</div>
+			</div>
+			
+
+            
+            <div id="footer" class="col12 clearfix">
+                <p>
+                    Powered by EnterMedia | <a href="http://www.entermediasoftware.com">www.entermediasoftware.com</a>
+                </p>
+            </div>

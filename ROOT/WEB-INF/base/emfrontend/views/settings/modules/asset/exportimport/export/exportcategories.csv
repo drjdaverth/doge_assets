@@ -1,0 +1,4 @@
+CategoryId	CategoryName	ParentCategoryId
+#foreach( $cat in $mediaarchive.getCategoryArchive().listAllCategories() )
+$cat.id	$cat.name	$!cat.getParentCategory().id
+#end

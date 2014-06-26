@@ -1,0 +1,80 @@
+#set($hitssessionid = $context.getRequestParameter("hitssessionid"))
+#set($moduleid = $context.getRequestParameter("moduleid"))
+#set( $sourcepath = $asset.getSourcePath() )
+
+#if( $parenthits )
+#set( $rootid = $parenthits.sessionId )
+#else
+#set( $rootid = $hits.sessionId )
+#end
+
+#set( $tab = $context.findValue("detailtab") )
+#set( $searcher = $searcherManager.getSearcher($catalogid,"detaileditormenu") )
+#set( $query = $searcher.createSearchQuery().append("module",$moduleid) ) 
+
+#set( $links = $searcher.cachedSearch($context,$query) )
+
+<ul id="assetmenu" class="sidebar-list">
+    #if ( $asset.id.startsWith("multiedit:") )
+        #set  ( $ismulti = true)
+    #end
+    
+    #foreach( $link in $links)
+
+    #set( $pname = "can${link.id}")
+    #set( $permission = false)
+    #set( $permission = "$!context.getPageValue($pname)")
+    #set( $inmultiok = ($link.multiedit && $link.multiedit == "true") )
+    #set( $text = $link.name)
+    #if( $permission != "false")
+	    #set($args = "id=$!data.getId()&hitssessionid=$!{hitssessionid}&searchtype=$moduleid")
+	    #if( !$ismulti || $inmultiok )
+	    #set ($href = "$apphome/views/modules/${moduleid}/${link.folder}/index.html")
+	    
+	    <li id="detaileditor-${link.id}" class="#if($tab == "$link.id") current #end $link.id">
+	        <a title="$context.getText($text)" href="$home$href?$args#if($link.useajax == 'true')&oemaxlevel=2#end" class="#if($link.useajax == 'true')ajax#end tooltip" targetdiv="detaileditor" #if($target) target="$target" #end ><span class="icon"></span><span class="text">$context.getText($text)</span></a>
+	    </li>
+	    #end
+	
+	    #end
+    #end
+    
+    #set( $expanded = $userprofile.isEnabled("expand_media_sidebar") )
+    <li class="divider"></li>
+    <li id="opener" class="#if( $expanded ) open #else closed #end">
+       <a class="tooltip propertyset" title="#if( $expanded ) Close #else Expand #end" href="$home$apphome/views/asset/$sourcepath/index.html?hitssessionid=$!{hitssessionid}"  propertyvalue=#if( $expanded )"false" #else"true" #end propertyname="expand_media_sidebar"><span class="icon"></span><span class="text">Collapse</span></a>
+    </li>
+</ul>
+
+<script>
+    $('#de-side-nav li').click(function() {
+        if ($(this).attr('id') != 'opener') {
+            $('#de-side-nav li').removeClass('current');
+            $(this).addClass('current');
+        }
+
+    })
+    $('#opener').click(function() {
+        if ($(this).hasClass('open') && $('#de-side-nav').hasClass('open')) {
+            $('#de-side-nav').removeClass('open');
+            $('#de-side-nav').addClass('closed');
+            $(this).removeClass('open');
+            $(this).addClass('closed');
+            var dtw = $('#details-title').width();
+            dtw = dtw + 108;
+            $('#details .tableholder').width(dtw);
+        } else {
+            $('#de-side-nav').removeClass('closed');
+            $('#de-side-nav').addClass('open');
+            $(this).removeClass('closed');
+            $(this).addClass('open');
+            var dtw = $('#details-title').width();
+            dtw = dtw - 106;
+            $('#details .tableholder').width(dtw);
+        }
+    }); 
+    $(document).ready(function(){
+        var dtw = $('#details-title').width();
+        $('#details .tableholder').width(dtw);
+    })
+</script>

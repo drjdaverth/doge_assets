@@ -1,0 +1,22 @@
+<page>
+	<property name='text.View Fullsize Image'>
+        	<value>View Fullsize Image</value>
+		<value locale="es">Ver Imagen en Tamaño Completo</value> 
+   	</property>
+	<property name='text.Image Preview'>
+        	<value>Image Preview</value>
+		<value locale="es">Vista Preliminar de la Imagen</value> 
+    	</property>
+	<property name='text.Last Edited By'>
+        	<value>Last Edited By</value>
+		<value locale="es">Última Edición Realizada Por</value> 
+    	</property>
+	<property name='text.Does not exist'>
+        	<value>Does not exist</value>
+		<value locale="es">No Existe</value> 
+    	</property>
+	<property name='text.Please select an item'>
+        	<value>Please select an item</value>
+		<value locale="es">Por favor Seleccione un Ítem</value> 
+    	</property>
+</page>

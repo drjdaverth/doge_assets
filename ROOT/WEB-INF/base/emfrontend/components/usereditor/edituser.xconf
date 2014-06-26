@@ -1,0 +1,4 @@
+<page>
+	<property name="oemaxlevel">1</property>
+	<page-action name="User.loadUserProperties" />
+</page>

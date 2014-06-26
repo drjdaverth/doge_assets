@@ -1,0 +1,20 @@
+<link href="$home${themeprefix}/styles/style.css" rel="stylesheet" type="text/css">
+
+#set($javascriptbase = "$home$apphome/components/javascript")
+<script type="text/javascript" src="$javascriptbase/jquery-1.3.2.js">  jQuery.noConflict(); </script>
+<script type="text/javascript" src="$javascriptbase/jquery.fancybox/jquery.fancybox-1.2.1.js">   </script>
+<script type="text/javascript" src="$javascriptbase/jquery.livequery.js">   </script>
+<script type="text/javascript" src="$javascriptbase/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="$javascriptbase/jquery.validate.js">     </script>
+<script type="text/javascript" src="$javascriptbase/prettycomments.js"></script>
+<script type="text/javascript" src="$javascriptbase/jquery.history.js"></script>
+<script type="text/javascript" src="$javascriptbase/jquery.form.js"></script>
+<script type="text/javascript" src="$javascriptbase/jquery.dropshadow.js"></script>
+<script type="text/javascript" src="$javascriptbase/entermedia.js">     </script>
+
+<div id="emcontainer">
+<div id="emcontent">
+
+$pages.includeContent()
+</div>
+</div>

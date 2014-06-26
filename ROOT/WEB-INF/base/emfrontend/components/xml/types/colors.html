@@ -1,0 +1,158 @@
+	
+	#set($gradienthi = $data.get("${detail.id}gradienthi") )
+	##$gradienthi
+	#if (!$gradienthi)
+		#set($gradienthi = "" )
+	#end
+	#set($gradientlo = $data.get("${detail.id}gradientlo") )
+	##$gradientlo
+	#if (!$gradientlo)
+		#set($gradientlo = "")
+	#end
+	
+	<style>
+		.${detail.id}-style {
+			#if ($val)
+			background: $val; /* Old browsers */ 
+			#end
+			#if($!gardienthi!="" && $gradientlo!="")
+			background: -moz-linear-gradient(top, $gradienthi 0%, $gradientlo 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$gradienthi), color-stop(100%,$gradientlo));
+			background: -webkit-linear-gradient(top, $gradienthi 0%,$gradientlo 100%);
+			background: -o-linear-gradient(top, $gradienthi 0%,$gradientlo 100%);
+			background: -ms-linear-gradient(top, $gradienthi 0%,$gradientlo 100%);
+			background: linear-gradient(top, $gradienthi 0%,$gradientlo 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gradienthi', endColorstr='$gradientlo',GradientType=0 );
+			#end
+		}
+	</style>
+	
+	<table>
+		<tr>
+			<td>
+				<table style="width:342px; ">
+					<tr>
+						<th><label>Solid Color</label></th>
+						<th><label>Gradient Top</label></th>
+						<th><label>Gradient Bottom</label></th>
+					</tr>
+					<tr>
+						<td style="vertical-align:middle;">
+							<input id="${detail.id}-fontcolor" type="text" class="fontcolor" data-control="hue" data-defaultValue="#000000" value="$!val" rel="${detail.id}-target">
+						</td>
+						<td style="vertical-align:middle;">
+							<input id="${detail.id}-fontcolor-gradienthi" type="text" class="fontcolor" data-control="hue" data-defaultValue="$!gradienthi" value="$!gradienthi" rel="${detail.id}-target">
+						</td>
+						<td style="vertical-align:middle;">
+							<input id="${detail.id}-fontcolor-gradientlo" type="text" class="fontcolor" data-control="hue" data-defaultValue="$!gradientlo" value="$!gradientlo" rel="${detail.id}-target">
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table style="width:249px;">
+					<tr>
+						<td >
+							<div id="${detail.id}-target" class="${detail.id}-style" style="border:0.5px solid;border-radius:5px;">&nbsp;</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+	<input name="${detail.getId()}.value" id="${detail.id}" value="$!val" type="hidden" />
+	
+	<input type="hidden" name="field" value="${detail.id}gradienthi" /> 
+	<input name="${detail.getId()}gradienthi.value" id="${detail.id}gradienthi" value="$!gradienthi" type="hidden" />
+	<input type="hidden" name="field" value="${detail.id}gradientlo" /> 
+	<input name="${detail.getId()}gradientlo.value" id="${detail.id}gradientlo" value="$!gradientlo" type="hidden" />
+	
+	<script type="text/javascript">
+	$(function() {
+		$("#${detail.id}-fontcolor").minicolors({
+				control: 'hue',
+				defaultValue: $(this).attr('data-defaultValue') || '',
+				letterCase: 'lowercase',
+				change: function(hex, opacity) {
+					try {
+						var c = hex ? hex : 'transparent';
+						var target = $(this).attr('rel');
+						$("#"+target).css('background',c);
+						$("#${detail.id}").attr('value',c);
+					} catch(e) {console.log(e);}
+				},
+				theme: 'default'
+			});
+		$("#${detail.id}-fontcolor-gradienthi").minicolors({
+			control: 'hue',
+			defaultValue: $(this).attr('data-defaultValue') || '',
+			letterCase: 'lowercase',
+			change: function(hex, opacity) {
+				var target = $(this).attr('rel');
+				if (hex){
+					try {
+						var color1 = hex;
+						var color2 = $("#${detail.id}-fontcolor-gradientlo").attr('value');
+						var str = "-moz-linear-gradient(top, "+color1+" 0%, "+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "-webkit-gradient(linear, left top, left bottom, color-stop(0%,"+color1+"), color-stop(100%,"+color2+"))";
+						$("#"+target).css('background',str);
+						str = "-webkit-linear-gradient(top, "+color1+" 0%,"+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "-o-linear-gradient(top, "+color1+" 0%,"+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "-ms-linear-gradient(top,"+color1+" 0%,"+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "linear-gradient(top, "+color1+" 0%,"+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "progid:DXImageTransform.Microsoft.gradient( startColorstr='"+color1+"', endColorstr='"+color2+"',GradientType=0 )";
+						$("#"+target).css('filter',str);
+						$("#${detail.id}gradienthi").attr('value',hex);
+					} catch(e) {console.log(e);}
+				} else {
+					var c = $("#${detail.id}").attr('value');
+					$("#"+target).css('background',c);
+					$("#${detail.id}gradienthi").attr('value',c);
+					$("#${detail.id}gradientlo").attr('value',c);
+				}
+			},
+			theme: 'default'
+		});
+		$("#${detail.id}-fontcolor-gradientlo").minicolors({
+			control: 'hue',
+			defaultValue: $(this).attr('data-defaultValue') || '',
+			letterCase: 'lowercase',
+			change: function(hex, opacity) {
+				var target = $(this).attr('rel');
+				if (hex){
+					try {
+						var color1 = $("#${detail.id}-fontcolor-gradienthi").attr('value');
+						var color2 = hex;
+						var str = "-moz-linear-gradient(top, "+color1+" 0%, "+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "-webkit-gradient(linear, left top, left bottom, color-stop(0%,"+color1+"), color-stop(100%,"+color2+"))";
+						$("#"+target).css('background',str);
+						str = "-webkit-linear-gradient(top, "+color1+" 0%,"+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "-o-linear-gradient(top, "+color1+" 0%,"+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "-ms-linear-gradient(top,"+color1+" 0%,"+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "linear-gradient(top, "+color1+" 0%,"+color2+" 100%)";
+						$("#"+target).css('background',str);
+						str = "progid:DXImageTransform.Microsoft.gradient( startColorstr='"+color1+"', endColorstr='"+color2+"',GradientType=0 )";
+						$("#"+target).css('filter',str);
+						$("#${detail.id}gradientlo").attr('value',hex);
+					} catch(e) {console.log(e);}
+				} else {
+					var c = $("#${detail.id}").attr('value');
+					$("#"+target).css('background',c);
+					$("#${detail.id}gradienthi").attr('value',c);
+					$("#${detail.id}gradientlo").attr('value',c);
+				}
+			},
+			theme: 'default'
+		});
+	});
+	</script>

@@ -1,0 +1,28 @@
+<properties>
+
+	<property id="2009wi">2009WI</property>
+	<property id="2009sp">2009SP</property>
+	<property id="2009su">2009SU</property>
+	<property id="2009fa">2009FA</property>
+
+	<property id="2010wi">2010WI</property>
+	<property id="2010sp">2010SP</property>
+	<property id="2010su">2010SU</property>
+	<property id="2010fa">2010FA</property>
+	
+	<property id="2011wi">2011WI</property>
+	<property id="2011sp">2011SP</property>
+	<property id="2011su">2011SU</property>
+	<property id="2011fa">2011FA</property>
+
+	<property id="2012wi">2012WI</property>
+	<property id="2012sp">2012SP</property>
+	<property id="2012su">2012SU</property>
+	<property id="2012fa">2012FA</property>
+	
+	<property id="2013wi">2013WI</property>
+	<property id="2013sp">2013SP</property>
+	<property id="2013su">2013SU</property>
+	<property id="2013fa">2013FA</property>
+	
+</properties>

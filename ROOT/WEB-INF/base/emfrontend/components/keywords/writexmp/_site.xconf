@@ -1,0 +1,10 @@
+<page>
+	<path-action name="AssetEditModule.writeXmpData"/>
+	<inner-layout>/${themeprefix}/entermedia/layouts/asseteditor.html</inner-layout>
+	<path-action name="AssetEditModule.getAsset"  />
+	<permission name="view">
+		<not>
+			<pagevalue name="caneditasset" equals="false"/>
+		</not>
+	</permission>
+</page>

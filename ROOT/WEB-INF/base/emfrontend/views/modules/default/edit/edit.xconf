@@ -1,0 +1,6 @@
+<page>
+	<page-action name="DataEditModule.loadData" >
+			<searchtype>${module}</searchtype>
+    </page-action>
+	<property name="searchtype" />
+</page>

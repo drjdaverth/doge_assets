@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="text.Edit Tags">
+    <value>Edit Tags</value>
+    <value locale="es">Editar etiquetas</value>
+  </property>
+  <property name="text.Tags">
+    <value>Tags</value>
+    <value locale="es">Etiquetas</value>
+  </property>
+
+	<property name="text.menulabel">
+		<value>Tags</value>
+	</property>
+
+  <property name="show">assetkeywords</property>
+  <layout />
+  <inner-layout />
+</page>

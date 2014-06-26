@@ -1,0 +1,7 @@
+<properties>
+  <property id="transmissionnumber"/>
+  <property id="insertnumber"/>
+  <property id="offer"/>
+  <property id="quantity"/>
+  <property id="datemailed"/>
+</properties>

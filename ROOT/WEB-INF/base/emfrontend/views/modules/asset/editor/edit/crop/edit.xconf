@@ -1,0 +1,24 @@
+<page>
+	<page-action name="ImageEditor.getImageSession" />
+<property name='text.height'>
+        <value>height</value>
+    </property>
+<property name='text.width'>
+        <value>width</value>
+    </property>
+    <layout />
+	<inner-layout />
+	<property name='text.Image Crop'>
+        	<value>Image Crop</value>
+		<value locale="es">Crop de Imagen</value>
+    	</property>
+	<property name='text.Save and close'>
+        	<value>Save and close</value>
+		<value locale="es">Guardar y cerrar</value>
+    	</property>
+	<property name='text.Help'>
+        	<value>Help</value>
+		<value locale="es">Ayuda</value>
+    	</property>
+    
+</page>

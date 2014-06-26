@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+
+  <property id="viewassetpreviewhistory" path="/views/modules/asset/editor/historypreviews/index.html" >Views</property>
+  <!-- property id="viewassetpreviewhistory" path="/views/modules/asset/editor/historypreviews/index.html" >Orders</property -->
+  <property id="converthistory" path="/views/modules/asset/editor/converthistory/index.html" >Conversions</property>
+  <property id="exporthistory" path="/views/modules/asset/editor/historyexports/index.html" >Transfers</property>
+  <property id="viewassetedithistory" path="/views/modules/asset/editor/historyedits/index.html" >Edits</property>
+
+</properties>

@@ -1,0 +1,9 @@
+
+<query name="Pending Approval">
+ <term id="editstatus" val="1" op="matches"/>
+  <inputs>
+    <input key="editstatus">
+      <value>1</value>
+    </input>
+  </inputs>
+</query>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<page>
+	<property name="title">Settings Editor - OpenEdit</property>
+	<property name="editable">false</property>
+	<property name="showToolbar">false</property>
+	<property name="subtab">settingtab</property>
+	<property name='showcontent'>true</property>
+	
+</page>

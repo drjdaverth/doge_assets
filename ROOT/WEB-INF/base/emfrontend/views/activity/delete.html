@@ -1,0 +1,22 @@
+<div class="em-rounded">
+	#set($owner = $userManager.getUser($order.userid))	
+	<h3>Discard</h3>
+	<p>Are you sure you would like to discard this order?</p>
+	
+<form id="usereditform" method="post" action="$home$apphome/views/activity/delete/index.html">
+
+#set( $sourcepath = $context.getRequestParameter("sourcepath"))	
+#set( $asset = $mediaarchive.getAssetBySourcePath($sourcepath))
+
+#set( $deleterecord = $context.getRequestParameter("deleterecord"))	
+
+<input type="hidden" name="sourcepath" value="$sourcepath" />
+<input type="hidden" name="deleterecord" value="$deleterecord" />
+
+<input class="btn small" type="submit" name="submit" value="Discard"/> 
+
+	
+</form>
+
+
+</div>

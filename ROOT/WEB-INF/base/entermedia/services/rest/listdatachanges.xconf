@@ -1,0 +1,4 @@
+<page>
+	<path-action name="DistributedDataModule.listRecentDataChanges" alltypes="true" />
+	<generator name="velocityGenerator" />
+</page>

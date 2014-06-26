@@ -1,0 +1,6 @@
+<page>
+ <layout />
+  <inner-layout />
+  <page-action name="DataEditModule.loadData"  />
+
+</page>

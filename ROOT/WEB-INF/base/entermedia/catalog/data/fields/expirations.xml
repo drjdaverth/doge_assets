@@ -1,0 +1,7 @@
+
+<properties>
+  <property id="expirationstype" editable="true" list="true" index="true" stored="true">Expiration Type</property>
+  <property id="expirationsnegotiator" editable="true" index="true" stored="true">Negotiator/Agency</property>
+  <property id="expirationsdate"  datatype="date"  format="MM/dd/yyyy" editable="true" index="true" stored="true">Expiration Date</property>
+  <property id="assetid" editable="true" index="true" stored="true">Asset ID</property>
+</properties>

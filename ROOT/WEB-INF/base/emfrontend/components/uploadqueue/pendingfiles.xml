@@ -1,0 +1,6 @@
+<assets>
+#set( $asset = $pendingassets.first() ) ##this is only one file to work on at a time
+#if( $asset ) 
+<asset sourcepath="$asset.sourcepath" catalogid="$asset.catalogid" localpath="$asset.localpath" offset="$!asset.uploadprogress" size="$asset.filesize"/>
+#end
+</assets>

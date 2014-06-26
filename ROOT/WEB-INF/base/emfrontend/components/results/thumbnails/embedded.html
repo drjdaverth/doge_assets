@@ -1,0 +1,3 @@
+		#set ($mime = $mediaarchive.getMimeTypeIcon($hit.fileformat))
+		#set( $thumbpath =  "$themeprefix/images/mimetypes/${mime}.png" )
+		<img class="mimethumb" style="height:64px" src="$home$thumbpath" border="0"/>

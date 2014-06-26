@@ -1,0 +1,10 @@
+<page>
+	<path-action name="Admin.autoLogin" alltypes="true"/>
+	<path-action name="ProfileModule.loadUserProfile" alltypes="true"></path-action>
+	<path-action name="MultiSearchModule.getEnterMedia"  alltypes="true" />
+	<path-action name="AssetSyncModule.searchForPendingAssets" alltypes="true"/>
+	
+	<generator name="velocity"/>
+		<property name="oemaxlevel">1</property>
+	
+</page>

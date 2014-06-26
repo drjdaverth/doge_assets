@@ -1,0 +1,41 @@
+<h2>[[Import]]</h2>
+#set($importhome = "${home}/${catalogid}/settings/exportimport/import")
+<div style="margin:20px;">
+<p>[[Use the exported files as examples that can be imported again]].</p>
+
+<fieldset>
+	<form name="csvassetupload" method="post" enctype="multipart/form-data" action="$importhome/uploadassets.html">
+		<input type="file" size="25" name="file"> 
+		<input type="hidden" size="20" name="path" value="/${catalogid}/import/assets.csv" />
+		<div class="embutton"><input type=submit value="[[Import Assets]]" /></div>
+	</form>
+</fieldset>
+<br><br>
+<fieldset>
+	<form name="csvtagupload" method="post" enctype="multipart/form-data" action="$importhome/uploadtags.html">
+	 <input type="file" size="25" name="file">
+		<input type="hidden" size="20" name="path" value="/${catalogid}/import/tags.csv" />
+		<div class="embutton"><input type=submit value="[[Import Asset Tags]]" /></div>
+	</form>
+</fieldset>
+<br><br>
+<fieldset>
+	<form name="csvcategoryupload" method="post" enctype="multipart/form-data" action="$importhome/uploadcategory.html">
+	 <input type="file" size="25" name="file">
+		<input type="hidden" size="20" name="path" value="/${catalogid}/import/categories.csv" />
+		<div class="embutton"><input type=submit value="[[Import Categories]]" /></div>
+	</form>
+</fieldset>
+<br><br>
+<fieldset>
+	<form name="csvassetcategoryupload" method="post" enctype="multipart/form-data" action="$importhome/uploadassetcategory.html">
+	<input type="file" size="25" name="file">
+		<input type="hidden" size="20" name="path" value="/${catalogid}/import/assetcategories.csv" />
+		<div class="embutton"><input type=submit value="[[Assets Categories]]" /></div>
+	</form>
+</fieldset>
+
+<p>[[After imports are complete make sure to reindex]].</p>
+	<div class="embutton"><a href="$home$cataloghome/settings/events/edit/edit.html?eventpath=$cataloghome/events/reindex.html">[[Reindex Assets]]</a></div>
+
+</div>

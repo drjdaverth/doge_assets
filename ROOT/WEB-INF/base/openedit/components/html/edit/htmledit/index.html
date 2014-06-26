@@ -1,0 +1,125 @@
+#if($editPage.isBinary())
+<div class="oeheader">Content: $editPath $editPage.getMimeType()</div>
+	#if($editPage.isImage())
+		<img class="img img-responsive" src="$editPath">
+		<!-- TODO: Add cropping tool. -->
+	#end
+	#if($editPage.isVideo())
+		
+		<video width="50%"  controls>
+		  	<source src="$editPath" >
+		</video>
+		
+
+		<!-- TODO: Add cropping tool. -->
+	#end
+
+
+#else
+
+#set ( $editPath = $editorSession.getEditPath() )
+#set ( $origURL = $context.getRequestParameter("origURL") )
+#set ( $parentName = $editorSession.getParentName() )
+<div class="oeheader">Currently editing: $editPath</div>
+$context.putPageValue("origURL",$origURL)
+$context.putPageValue("editPath",$editPath)
+$context.putPageValue("parentName",$parentName )
+
+
+
+<script type="text/javascript" src="../../ckeditor/ckeditor.js"></script>
+
+#set( $catalogid = $editPage.get('uploadcatalog') )
+
+<a href="$home$oehome/html/browse/index.html?editorid=content" class="emdialog" id="oebrowsedialog" ></a>
+
+<form id="" name="contentForm" method="post" action="$home/openedit/components/html/edit/htmledit/save.html" style="margin-bottom:0;">
+
+
+
+
+$context.putPageValue("height","100%" )
+	<input type="hidden" name="editPath" value="$editPath" />
+	<input type="hidden" name="savepath" value="$editPath" />
+	#if($origURL)
+	<input type="hidden" name="origURL" value="$origURL" />
+	#else
+	<input type="hidden" name="origURL" value="$editPath" />
+	#end
+	<input type="hidden" name="parentName" value="$parentName" />
+
+	<textarea class="oeeditor" cols="80"  id="content" name="content" rows="10">$editorSession.getEscapedSource()</textarea>
+<div class="clear-both"/>
+#if(!$editPage.isHtml())
+
+<input type="submit" value="Save changes" class="btn btn-default"/>
+#end
+
+</form>
+
+#if($editPage.isHtml())
+
+<script type="text/javascript">   
+        
+		    var savingnow = false;
+			var origSource;
+
+			function allowclose()
+			{
+				if ( !savingnow && isModified() )
+				{
+					var ok = confirm("[[Your changes are not saved]].");
+					return ok;
+				}
+				return true;			
+			}
+
+			#foreach( $path in $editPage.getStylePaths() )
+				#if( $css )
+					#set( $css = "$css,'$path'" )
+				#else
+					#set( $css = "'$path'" )
+				#end
+			#end
+
+		jQuery(document).ready(function () {
+			
+			var curheight  = jQuery(parent).height();
+		
+			curheight = curheight * 0.65;
+			
+			
+		CKEDITOR.replace( 'content', {
+#if( $editorSession.isFullPage() )
+			fullPage : true, 
+#end
+
+			height : curheight,
+			#if($css)
+			contentsCss: [$css] ,
+			contentsCss: [$css] ,
+			#end
+			entities : false,
+			basicEntities : false,
+			
+			saveSubmitURL:'$home/openedit/components/html/edit/htmledit/save.html?editPath=$editPath',
+			filebrowserBrowseUrl : '$home/openedit/components/html/browse/index.html?editPath=$editPath',
+		    filebrowserUploadUrl : '$home/openedit/components/html/edit/actions/imageupload-finish.html',
+		    filebrowserImageBrowseUrl : '$home/openedit/components/html/browse/index.html?editPath=$editPath',
+			filebrowserImageUploadUrl : '$home/openedit/components/html/edit/actions/imageupload-finish.html',
+		    filebrowserWindowWidth  : 1000,
+		    filebrowserWindowHeight : 800,
+		    on: {
+		       savecontentdone: function( event )    {
+             refreshFileMenu();
+              }  
+           	 }      
+			});
+		});
+		</script>
+		
+		#end
+		
+		
+		
+		#end

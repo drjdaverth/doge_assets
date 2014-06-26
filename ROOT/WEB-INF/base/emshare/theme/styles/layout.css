@@ -1,0 +1,150 @@
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Screen layout for YAML examples
+ * (de) Bildschirmlayout für YAML-Beispiele
+ *
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision: 466 $
+ * @lastmodified    $Date: 2010-09-14 21:19:30 +0200 (Di, 14 Sep 2010) $
+ */
+
+  .page_margins { text-align:left; margin: 0 auto; }
+
+  /* (en) Layout: width, background, borders */
+  .page { margin: 0; padding: 0 5px;  }
+  #header, #header, #nav, #main, #extended, #footer {  min-width: 720px; }
+  #application {
+	  background: #fff;
+	  max-width: 1120px;
+	  margin: 0 auto;
+	  padding: 0 0px 10px 0px;
+	  border: 1px solid #c5c5c5;
+	}
+  #emuploadcontainer {
+	  max-width: 450px;
+	  margin: 0 auto;
+	  background-color: #f6f1eb;
+	}
+  /* (en) Designing main layout elements */
+  #header .page { 
+  	overflow:hidden;
+    }
+	
+  #header span.navlinks { 
+  	float:right;
+   }
+
+  #header .page {
+    padding: 0px 0px 10px 0px;
+  }
+
+  .emhomecontent
+  {
+  	margin-top: 100px;
+  	margin-left: 200px;
+  	margin-right: 200px;
+  }
+  #extended .subc  { padding: 0 10px; }
+  #extended .subcl { padding: 0 10px 0 0; }
+  #extended .subcr { padding: 0 0 0 10px; }
+
+  #main, #extended { padding-top: 0; padding-bottom: 0; }
+  #footer .page { padding: 10px 0px; }
+
+	#header {
+		height: 25px;
+		padding-right: 10px;
+	}
+	#footer {
+		border-top: 4px #90002a;
+	}
+	#header a {
+		font-family: Verdana, Geneva, sans-serif;
+		font-size:11px;
+		font-weight: normal;
+		color:#666;
+		background: transparent;
+		text-decoration: none;
+	}
+	#header a:focus,#header a:hover,#header a:active {
+		text-decoration: underline;
+		background-color: transparent;
+		color:#39578a;
+	}
+
+
+
+ /**
+  * @section base layout | Basis Layout
+  * @see     http://www.yaml.de/en/documentation/css-components/base-stylesheet.html
+  *
+  * |-------------------------------|
+  * | #header                       |
+  * |-------------------------------|
+  * | #col1   | #col3     | #col2   |
+  * | 200 px  | flexible  | 200px   |
+  * |-------------------------------|
+  * | #footer                       |
+  * |-------------------------------|
+  */
+
+  #col1 { float:left; width:200px; }
+  #col2 { float:right; width:200px; }
+  #col3 { width:auto; margin:0 200px; }
+
+  /* (en) Preparation for absolute positioning within content columns */
+  /* (de) Vorbereitung für absolute Positionierungen innerhalb der Inhaltsspalten */
+  #col1_content, #col2_content, #col3_content { position:relative; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section subtemplates
+  * @see     http://www.yaml.de/en/documentation/practice/subtemplates.html
+  */
+  .subcolumns { width:100%; }
+
+  /* (en) alternative class for optional support of old Mozilla/Netscape browers */
+  /* (de) Alternative Klasse zur optionalen Unterstützung alter Mozilla/Netscape-Brower */
+  .subcolumns_oldgecko { width:100%; float:left; }
+
+  .c20l, .c25l, .c33l, .c40l, .c38l, .c50l, .c60l, .c62l, .c66l, .c75l, .c80l { float:left; }
+  .c20r, .c25r, .c33r, .c40r, .c38r, .c50r, .c60r, .c66r, .c62r, .c75r, .c80r { float:right; margin-left:-5px; }
+
+  .c20l, .c20r { width:20%; }
+  .c40l, .c40r { width:40%; }
+  .c60l, .c60r { width:60%; }
+  .c80l, .c80r { width:80%; }
+  .c25l, .c25r { width:25%; }
+  .c33l, .c33r { width:33.333%; }
+  .c50l, .c50r { width:50%; }
+  .c66l, .c66r { width:66.666%; }
+  .c75l, .c75r { width:75%; }
+  .c38l, .c38r { width:38.2%; }
+  .c62l, .c62r { width:61.8%; }
+
+  .subc  { padding:0 0.5em; }
+  .subcl { padding:0 1em 0 0; }
+  .subcr { padding:0 0 0 0; }
+
+  .equalize, .equalize .subcolumns { overflow:visible; display:table; table-layout:fixed; }
+
+  .equalize > div {
+    display:table-cell;
+    float:none; 
+    margin:0; 
+    overflow:hidden;
+    vertical-align:top;
+  }
+  
+  .emdetaileditorbox
+  {
+  	margin-bottom: 10px;
+  }
+

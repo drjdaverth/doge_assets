@@ -1,0 +1,4 @@
+<page>
+	<path-action name="MediaArchiveModule.getAsset"  />
+	<path-action name="AssetControlModule.loadAssetPermissions"/>
+</page>

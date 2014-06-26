@@ -1,0 +1,72 @@
+/* Set up IE the link size, color and borders */
+#oepopup ul a, #oepopup ul a:visited 
+{
+	width:15em; /* Fixes IE 6 but breaks others */
+	position: absolute;
+	z-index: 999;
+	display: block;
+	height: 20px;
+}
+
+/** This is used in IE. It kicks in the hover ability **/
+#oepopup   ul li a:hover {
+border-width: 0px;	
+}
+
+#oepopup ul li ul li 
+{
+	height: 20px;
+	margin: 0px;
+}
+
+#oepopup ul li ul 
+{
+padding-top: 13px;
+}
+
+
+/* This lot is for IE5.5 and IE6 ONLY and is necessary to make the sublevels appear */
+
+/* change the drop down levels from display:none; to visibility:hidden; */
+* html #oepopup ul li ul {visibility:hidden; display:block; position:absolute; top:-11px; left:80px; padding:0px 30px 30px 30px; }
+
+/* keep the third level+ hidden when you hover on first level link */
+#oepopup ul li a:hover ul ul{
+visibility:hidden;
+}
+/* keep the fourth level+ hidden when you hover on second level link */
+#oepopup ul li a:hover ul a:hover ul ul{
+visibility:hidden;
+}
+/* keep the fifth level hidden when you hover on third level link */
+#oepopup ul li a:hover ul a:hover ul a:hover ul ul{
+visibility:hidden;
+}
+/* keep the sixth level hidden when you hover on fourth level link */
+#oepopup ul li a:hover ul a:hover ul a:hover ul a:hover ul ul {
+visibility:hidden;
+}
+
+/* make the second level visible when hover on first level link and position it */
+#oepopup ul li a:hover ul {
+
+visibility:visible; left:-30px; top:24px; lef\t:-31px; to\p:15px;
+}
+
+/* make the third level visible when you hover over second level link and position it and all further levels */
+#oepopup ul li a:hover ul a:hover ul{ 
+visibility:visible; top:-11px; left:80px;
+}
+/* make the fourth level visible when you hover over third level link */
+#oepopup ul li a:hover ul a:hover ul a:hover ul { 
+visibility:visible;
+}
+/* make the fifth level visible when you hover over fourth level link */
+#oepopup ul li a:hover ul a:hover ul a:hover ul a:hover ul { 
+visibility:visible;
+}
+/* make the sixth level visible when you hover over fifth level link */
+#oepopup ul li a:hover ul a:hover ul a:hover ul a:hover ul a:hover ul { 
+visibility:visible;
+}
+

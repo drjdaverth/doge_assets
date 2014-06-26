@@ -1,0 +1,4 @@
+<event operation="assettype/edit" user="admin" id="photo" details="name: Photos -&gt; Images, extensions: jpg png -&gt; jpg jpeg png gif tif ani bmp psd tiff ai svg raw" catalogid="media/catalogs/public" date="2014-04-28 17:05:06 +0000" indexed="false"/>
+<event operation="assettype/edit" user="admin" id="audio" details="extensions: mp3 wav -&gt; mp3 wav flac" catalogid="media/catalogs/public" date="2014-04-28 17:05:26 +0000" indexed="false"/>
+<event operation="assettype/edit" user="admin" id="video" details="extensions: mp4 mov avi flv -&gt; mp4 mov avi flv mkv" catalogid="media/catalogs/public" date="2014-04-28 17:05:38 +0000" indexed="false"/>
+<event operation="assettype/edit" user="admin" id="none" details="name: None -&gt; Misc, extensions:  -&gt; stl" catalogid="media/catalogs/public" date="2014-04-28 17:06:16 +0000" indexed="false"/>

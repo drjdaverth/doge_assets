@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head>
+	<title>EnterMedia Manager | Wizard</title>
+
+#foreach( $script in $content.getScriptPaths() )
+	<script type="text/javascript" src="$home$script">  </script>
+#end
+
+#foreach( $style in $content.getStylePaths() )
+	<link rel="stylesheet" type="text/css" href="$home$style" />
+#end
+
+</head>
+	<body  showadmintoolbar="$canshowadmintoolbar">
+	$pages.includeContent()
+	</body>
+</html>

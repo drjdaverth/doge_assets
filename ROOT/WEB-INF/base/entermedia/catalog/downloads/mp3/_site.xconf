@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                                                                                                                                   
+<page>
+	<property name="virtual">true</property>
+	<property name="assetrootfolder">/${catalogid}/downloads/mp3</property>
+
+	<property name="sourcepathhasfilename">true</property>
+	<generator name="convertArchiveDocument"/>
+	<path-action name="AssetControlModule.loadAssetPermissions" alltypes="true" />
+	<property name="bitrate">64</property>
+</page>
+
+

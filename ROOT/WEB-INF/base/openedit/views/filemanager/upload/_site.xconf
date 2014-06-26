@@ -1,0 +1,8 @@
+<page>
+  <page-action bean="pageManager" name="PageValue.loadPageVariable"/>
+
+   	<view-requirements>
+		<permission name="oe.edit.upload"/>
+	</view-requirements>
+	<inner-layout/>
+</page>

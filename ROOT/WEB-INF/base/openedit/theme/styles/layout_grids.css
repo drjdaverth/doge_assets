@@ -1,0 +1,31 @@
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) central stylesheet - layout example "3col_standard"
+ * (de) Zentrales Stylesheet - Beispiellayout "3col_standard"
+ *
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision: 466 $
+ * @lastmodified    $Date: 2010-09-14 21:19:30 +0200 (Di, 14 Sep 2010) $
+ */
+
+/* import core styles | Basis-Stylesheets einbinden */
+@import url(../yaml/core/base.css);
+
+/* import screen layout | Screen-Layout einbinden */
+@import url(../yaml/navigation/nav_shinybuttons.css);
+@import url(../yaml/navigation/nav_vlist.css);
+
+
+@import url(basemod_grids.css);
+
+/* import print layout | Druck-Layout einbinden */
+@import url(../yaml/print/print_draft.css);
+
+@import url("pages/results.css");
+@import url("theme.css");

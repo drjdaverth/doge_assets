@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <preset id="cropinput" guid="cropinput" outputfile="cropinput.jpg" fileexportformat="cropinput.jpg" type="imagemagick" extension="jpg" onimport="true" ordering="05" name="Cropping  Crop"/>
+  <data name="Custom 1" inputtype="image" outputfile="image_c1.jpg" fileexportformat="${asset.title}_cv1.jpg" type="imagemagick" guid="1381933072475" id="1381933373095" display="true"/>
+  <preset id="largeimage" guid="imagepreview" outputfile="image1024x768.jpg" fileexportformat="${filename}1024x768.jpg" type="imagemagick" extension="jpg" inputtype="image" onimport="true" display="true" ordering="02" name="Image Large"></preset>
+</root>

@@ -1,0 +1,7 @@
+<page>
+	<property name="eventname">Clear Generated + re-Import</property>	
+
+	<path-action name="Script.run" allowduplicates="true" >
+		<script>/${catalogid}/events/scripts/conversions/generateall.groovy</script>
+	</path-action>
+</page>

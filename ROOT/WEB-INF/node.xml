@@ -1,0 +1,17 @@
+<node id="cburkeynode" name="Default Single Node">
+
+    <property id="cluster.name">entermediacburkey</property>
+
+     <property id="index.mapping._id.indexed">true</property>
+
+     <property id="gateway.fs.snapshot_lock">false</property>
+     <!-- 
+     <property name="index.store.type">mmapfs</property>
+     <property name="index.store.fs.mmapfs.enabled">true</property>
+     <property name="index.merge.policy.merge_factor">20</property>
+      -->
+     <property id="path.data">./elastic/data</property>
+     <property id="path.logs">./elastic/logs</property>
+     <property id="path.work">./elastic/work</property>
+
+</node>

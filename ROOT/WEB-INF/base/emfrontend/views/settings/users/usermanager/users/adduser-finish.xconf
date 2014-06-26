@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<page>
+	<path-action name="Script.run" >
+		<script>./scripts/addmember.groovy</script>
+	</path-action>
+<property name='text.edit'>
+        <value>EDIT</value>
+    </property>
+<property name='text.user'>
+        <value>User</value>
+    </property>
+<property name='text.added'>
+        <value>has been added</value>
+    </property>
+<property name='text.notadded'>
+        <value>has not been added</value>
+    </property>
+<property name='text.useradded'>
+        <value>USER ADDED</value>
+    </property>
+<property name='text.usernotadded'>
+        <value>USER NOT ADDED</value>
+    </property>
+</page>

@@ -1,0 +1,12 @@
+#set( $viewtype = $detail.viewType )
+#if (!$viewtype)
+	#set ($viewtype = $detail.dataType)
+#end
+#if (!$viewtype)
+	#set ($viewtype = "default")
+#end
+#if ($pages.doesExist("${content.typespath}/${viewtype}.html"))
+	$pages.include("${content.typespath}/${viewtype}.html", $context)
+#else
+	$pages.include("${content.typespath}/default.html", $context)
+#end

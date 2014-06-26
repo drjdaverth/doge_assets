@@ -1,0 +1,23 @@
+#set ( $sourcePath = $context.getRequestParameter( "path" ) ) 
+#if($sourcePath ) 
+#set ( $destinationPath = "$pathutil.extractDirectoryPath($sourcePath)/")
+
+
+<form name="wizard" method="post" action="$home$apphome/components/html/edit/actions/movepage-leaf/movepage-finish.html">
+<input type="hidden" name="param-part" value="${page.filerootpath}/showfile.html?textheight=400px&path="/>
+<input type="hidden" name="param-part" value="req.destinationPath"/>
+<input type="hidden" name="param-name" value="origURL"/>
+
+<input type="hidden" 	name="sourcePath" value="$sourcePath">
+<p>$context.getPageProperty('text.fullpath'):<br>
+<input type="text" size="40" name="destinationPath" value="$destinationPath">
+
+
+</p>
+<p>
+<input
+	type="submit" name="MOVE"
+	value="[[Move]]" >
+	</form>
+</p>
+#else $context.getPageProperty('text.selectafile') #end

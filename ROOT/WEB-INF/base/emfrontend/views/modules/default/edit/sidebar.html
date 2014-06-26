@@ -1,0 +1,38 @@
+#set( $moduleid = $context.findValue("module") )
+#set($viewid = $context.findValue("viewid"))
+#set($viewpath = $context.findValue("viewpath"))
+#set( $origURL = $context.getRequestParameter("origURL" ) )
+    
+#set($viewsearcher = $searcherManager.getSearcher($catalogid, "view"))
+#set($query = $viewsearcher.createSearchQuery().append("module",$moduleid).append("systemdefined","false") )
+$!query.addSortBy("ordering")   
+#set($views = $viewsearcher.search($query))
+
+##if( !$viewid && $views.size() > 0)               
+    ##set( $viewid = $views.first().getId() )
+    ##set( $viewpath = "${moduleid}/$viewid" )
+##end
+$context.putPageValue("view", $viewpath)
+	#set($hitssessionid = $context.findValue("hitssessionid"))
+    #set ($lastselected = $content.module )
+    #if(!$lastselected)
+        #set($lastselected = $userprofile.last_selected_module )
+    #end
+    #set($module = $searcherManager.getData($catalogid, "module", $lastselected ) )
+<ul id="assetmenu" class="sidebar-list">
+      
+              #foreach( $target in $views)       
+                   
+                  <li class="#if($viewid == $target.id) current #end projects-$target.id" byassettype="$!target.byassettype">
+                  		
+                  	#if( $target.rendertable )
+			        	 <a class="tab" href="$home${searchhome}/edit/moduletable.html?id=$!{data.id}&viewid=$target.id&viewpath=$moduleid/$target.id&hitssessionid=${hitssessionid}&searchtype=$moduleid">
+	                     <span class="icon"></span><span class="text"> $target</span></a>
+                  	#else
+                      	<a class="tab" href="$home${searchhome}/edit/edit.html?id=$!{data.id}&viewid=$target.id&viewpath=$moduleid/$target.id&hitssessionid=${hitssessionid}&searchtype=$moduleid">
+                        	<span class="icon"></span><span class="text"> $target</span></a>
+                    #end
+                  </li>
+              #end
+       
+</ul>

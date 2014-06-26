@@ -1,0 +1,10 @@
+<page>
+	<property name="eventname">Publish Assets</property>	
+	<property name="delay">50</property>
+	<property name="period">5m</property>
+	<path-action name="Script.run"  allowduplicates="true">
+		<script>/${catalogid}/events/scripts/publishing/publishassets.groovy</script>
+	</path-action>
+	
+	
+</page>

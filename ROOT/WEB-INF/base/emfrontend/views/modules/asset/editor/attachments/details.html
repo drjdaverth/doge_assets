@@ -1,0 +1,70 @@
+#set( $attachmentroot = $content.attachmentroot )
+#if( $file )	
+	#set( $parentsourcepath = "${file.parentsourcepath}" )
+	#set( $name = $file.name)
+#end
+	
+	#set( $generated = "/WEB-INF/data/${catalogid}/generated/$parentsourcepath/${file.name}200x200.jpg" )
+		#if ( $file.folder == "false" )
+		<a class="emdialog" href="$home/${applicationid}/views/modules/asset/downloads/preview/extralarge/${parentsourcepath}/${file.name}/preview.jpg">
+			<img src="$home/${applicationid}/views/modules/asset/downloads/preview/thumb/${parentsourcepath}/${file.name}/thumb.jpg" />
+		#else
+			<div class="preview folder"></div>
+		#end
+		
+		<p class="name">#if ( $name ) $name #else  Click on a file name to view details about that file #end</p>
+		
+		#if ( $file.folder == "false" )
+		</a>
+		#end
+
+	</a>
+$context.putPageValue("data",$file)	
+$context.putPageValue("searcher",$mediaarchive.getAssetSearcher() )	
+	
+			#if( $asset.assettype && $archive.viewExists("asset/assettype/$asset.assettype/general") )
+			  #set ($view = "asset/assettype/$asset.assettype/general")
+			#else
+			  #set ($view = "asset/assettype/default/general")
+			#end
+			$context.putPageValue("view",$view)	
+			$pages.include("/$applicationid/components/xml/detailviewer.html", $context)
+			
+#if ( $file.folder != "false" )
+
+#else
+<div id="primary-options" style="margin-top: 0; margin-bottom: 10px;">
+<a href="$home$apphome/views/modules/asset/editor/attachments/changeattachment.html?filename=${file.name}&assetid=$asset.id" 
+	class="btn flatright tooltip" title="Set this asset as the primary download." style="width: 60px; text-align: center;" >Primary</a>
+<a href="$home$apphome/views/modules/asset/editor/attachments/changeattachment.html?imagefilename=${file.name}&assetid=$asset.id" 
+	class="btn flatleft tooltip" title="Set this asset as the primary thumbnail." style="width: 60px; text-align: center;" >Thumbnail</a>
+</div>
+#end
+
+#set( $editPath = "/WEB-INF/data/$catalogid/originals/$parentsourcepath/${file.name}" )
+
+$pages.include("./revisionslink.html?editPath=$editPath&parentsourcepath=$parentsourcepath", $context)
+
+#if( $asset.assettype && $archive.viewExists("asset/assettype/$asset.assettype/fileproperties") )
+  #set ($view = "asset/assettype/$asset.assettype/fileproperties")
+#else
+  #set ($view = "asset/assettype/default/fileproperties")
+#end
+$context.putPageValue("view",$view)	
+
+$pages.include("/$applicationid/components/xml/detailviewer.html", $context)
+
+<script>
+	$('#primary-options .btn').click(function(){
+		if ( $(this).hasClass('selected') ) 
+		{
+		}
+		else
+		{	
+			$(this).addClass('selected')
+			var image =	jQuery("#emthumbholder img:first")
+			image.attr('src', $(image).attr('src')+'?'+Math.random());;		
+		}
+	});
+</script>
+

@@ -1,0 +1,8 @@
+<page>
+
+	<property name="assettab">viewmediaviewer</property>
+	<property name="showpreviewpage">true</property>
+
+	<property name="scrollable">true</property>
+	
+</page>

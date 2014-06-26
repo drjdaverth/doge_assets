@@ -1,0 +1,8 @@
+<properties>
+  
+  <property id="user" index="true" stored="true" keyword="true" viewtype="list" listcatalogid="system" searchtype="user">Posted By</property>
+  <property id="date" type="date" format="yyyy-MM-dd'T'HH:mm:ss.SSSZ" index="true" stored="true">Date </property>
+  <property id="message" index="true" stored="true" keyword="true" editable="true">Message</property>
+  
+  <property id="status" type="list" viewtype="list" stored="true" index="true" editable="true" >Status</property>
+</properties>

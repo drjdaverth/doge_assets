@@ -1,0 +1,41 @@
+#set( $droot = "$home$content.dataroot" )
+#set( $searchtype = $context.getRequestParameter("searchtype") )
+#if( !$searchtype )
+	#set( $searchtype = "asset")
+#end
+#set( $catalogid = $context.getRequestParameter("catalogid") )
+<form name="picktype" action="index.html">
+	Types: <select name="searchtype" id="searchtype" onchange="loadPropertyEdit()">
+		<option id=""></option>
+		<option id="_new">Add New Type</option>
+		#foreach( $type in $searchtypes )
+			#if($type != "CVS" && !$type.startsWith("_") && !$type.startsWith("."))
+				<option id="$type" #if( $searchtype == $type) selected #end >$type</option>
+			#end
+			
+		#end
+	</select> 
+
+</form>
+
+<div id="propertyEditPanel">
+
+$pages.include("$droot/fields/index.html?catalogid=$catalogid&searchtype=$searchtype")
+
+</div>
+
+<script type="text/javascript">
+	loadPropertyEdit = function() 
+	{
+		var selected = jQuery("#searchtype option:selected");
+		var selectedid = selected.val();
+		if( selectedid == "_new")
+		{
+			jQuery("#propertyEditPanel").load("$droot/list/addnew.html?catalogid=$catalogid");
+		}
+		else
+		{
+			jQuery("#propertyEditPanel").load("$droot/fields/index.html?catalogid=$catalogid&searchtype=" + selectedid);
+		}
+	}
+</script>

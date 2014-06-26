@@ -1,0 +1,4 @@
+<page>
+	<property name="editable">false</property>
+	<property name="showdebug">false</property>
+</page>

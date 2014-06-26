@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <path-action alltypes="true" name="MediaArchiveModule.forceDownload" cancel="true"/>
+
+  <property name="text.Assets">
+    <value>Assets</value>
+    <value locale="es">Assetos</value>
+  </property>
+  <property name="text.Categories">
+    <value>Categories</value>
+    <value locale="es">Categorías</value>
+  </property>
+  <property name="text.Export">
+    <value>Export</value>
+    <value locale="es">Exportación</value>
+  </property>
+  <property name="text.Assets and Categories">
+    <value>Assets and Categories</value>
+    <value locale="es">Assetos y Categorías</value>
+  </property>
+</page>

@@ -1,0 +1,5 @@
+<page>
+
+	<inner-layout>/${themeprefix}/layouts/dialoglayout.html</inner-layout>
+
+</page>

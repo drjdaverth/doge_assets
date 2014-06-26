@@ -1,0 +1,11 @@
+<form name="adder" class="ajaxform" targetdiv="left-col-libraries" action="$home$apphome/components/libraries/addchildfinish.html"> 
+	<input type="hidden" name="save" value="true"  />
+	<input type="hidden" name="searchtype" value="librarycollection"  />
+	<input type="hidden" name="field" value="name"  />
+	<input type="text" name="name.value"  class="initialtext" data-initialtext="enter name"  value="enter name" />
+	<input type="hidden" name="field" value="library"  />
+	<input type="hidden" name="library.value" value="$context.getRequestParameter('libraryid')"  />
+	<input type="hidden" name="field" value="owner"  />
+	<input type="hidden" name="owner.value" value="$!context.getUserName()"  />
+	<input class="btn small" type="submit" value="[[Add]]" />
+</form>

@@ -1,0 +1,7 @@
+<page>
+	<property name="themename">Base EM</property>
+	<property name="oetextfilter">translation</property>
+	<property name="editable">false</property>
+	<property name="themeprefix">/themes/baseem</property>
+	<inner-layout>${themeprefix}/layouts/layout.html</inner-layout>
+</page>

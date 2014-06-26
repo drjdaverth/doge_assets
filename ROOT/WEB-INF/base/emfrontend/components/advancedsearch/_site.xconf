@@ -1,0 +1,6 @@
+<page>
+		<property name="xmledithome">/${applicationid}/components/xml</property>
+
+		<property name="usestartswith">true</property>
+		
+</page>

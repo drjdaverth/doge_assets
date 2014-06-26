@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="text.ASSETS">
+    <value locale="es">ARTÍCULOS</value>
+  </property>
+  <property name="text.EnterMedia">
+    <value locale="es">EnterMedia</value>
+  </property>
+</page>

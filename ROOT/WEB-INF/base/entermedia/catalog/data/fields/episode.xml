@@ -1,0 +1,10 @@
+
+<properties>
+  <property id="id" index="true" stored="true">Id</property>
+  <property id="title" type="list" viewtype="list" editable="true" index="true" stored="true">Title</property>
+  <property id="name" editable="true" index="true" stored="true">Name</property>
+  <property id="season" type="list" listid="title/seasons" editable="true" index="true" stored="true">Season</property>
+  
+
+
+</properties>

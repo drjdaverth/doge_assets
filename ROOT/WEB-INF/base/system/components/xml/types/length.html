@@ -1,0 +1,28 @@
+#if($context.getRequestParameter("viewonly") == true)
+	#esc($val)
+#else
+	<input type="text" style="width: 65px;" size="30" value="#esc($!val)"  id="${detail.id}.value" name="${detail.id}.value"  onblur="if( typeof validate == 'function' ) validate('$searcher.getCatalogId()','$searcher.getSearchType()','$view','$detail.getId()');" /> <span class="small grey">cm</span> 
+	<em>or</em>
+	<input type="text" style="width: 65px;" size="30" value=""  id="${detail.id}_inches" /> <span class="small grey">in</span>
+
+<script type="text/javascript">
+	// Conversion functions
+	cm_to_in = function(cm_value){ return(parseFloat(cm_value) / 2.54);};
+	in_to_cm = function(in_value){ return(parseFloat(in_value) * 2.54);};
+	
+	// Setup listeners for the change event on the inputs to run the conversions for cm - in and kg - lb
+	$j('#${detail.id}_inches').change(function(){
+	  n = parseInt($j(this).val());
+	  if(!isNaN(n)){$j('input[id="${detail.id}.value"]').val(in_to_cm(n).toFixed(1));}
+	});	
+	$j('input[id="${detail.id}.value"]').change(function(){
+	  n = parseInt($j(this).val());
+	  if(!isNaN(n)){$j('#${detail.id}_inches').val(cm_to_in(n).toFixed(1));}
+	});
+		
+	// Populate the inches and lbs fields by triggering a change and running the conversions
+	$j('input[id="${detail.id}.value"]').trigger('change');
+	 
+	
+</script>
+#end

@@ -1,0 +1,10 @@
+#
+#Tue Apr 27 17:06:24 EDT 2010
+Forward=Adelante
+records\ found\ since\ =encontrados desde
+Page=P\u00E1gina
+records\ found=art\u00EDculos encontrados
+CSV\ Export=Exportar a CSV
+of=de
+Back=Atr\u00E1s
+Searched\ By=B\u00FAsqueda por

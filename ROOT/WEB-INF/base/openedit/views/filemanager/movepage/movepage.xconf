@@ -1,0 +1,39 @@
+<page>
+	<path-action name="PageValue.loadPageVariable"  bean="pathutil" class="com.openedit.util.PathUtilities"/>
+
+    	<property name='text.finish'>
+        	<value>FINISH</value>
+		<value locale="es">FINALIZAR</value>
+    	</property>
+	<property name='text.fullpath'>
+        	<value>Full path to the new page</value>
+		<value locale="es">La ruta completa a la nueva página</value>
+    	</property>
+	<property name='text.selectafile'>
+        	<value>Select a file to alter</value>
+		<value locale="es">Seleccione un archivo a modificar</value>
+    	</property>
+	<property name='text.originalpage'>
+        	<value>Original page</value>
+		<value locale="es">Página Original</value>
+    	</property>
+	<property name='text.cancel'>
+        	<value>CANCEL</value>
+		<value locale="es">CANCELAR</value>
+    	</property>
+	<property name='text.original'>
+        	<value>Original</value>
+    	</property>
+	<property name='text.new'>
+        	<value>New</value>
+		<value locale="es">Nuevo</value>
+    	</property>
+	<property name='text.moverename'>
+        	<value>MOVE / RENAME PAGE OR DIRECTORY</value>
+		<value locale="es">MOVER / RENOMBRAR PÁGINA O DIRECTORIO</value>
+    	</property>
+	<property name='text.Move'>
+        	<value>Move</value>
+		<value locale="es">Mover</value>
+    	</property>
+</page>

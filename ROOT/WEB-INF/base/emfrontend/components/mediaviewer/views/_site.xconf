@@ -1,0 +1,8 @@
+<page>
+	<property name="hitsname">loghits</property>
+	<property name="sortby">dateDown</property>
+	<path-action name="LogSearchModule.fieldSearch"/>
+	<path-action name="LogSearchModule.loadPageOfSearch" />
+	<inner-layout>${themeprefix}/layouts/dialoglayout.html</inner-layout>
+	
+</page>

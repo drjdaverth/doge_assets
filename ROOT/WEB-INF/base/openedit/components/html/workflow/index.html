@@ -1,0 +1,101 @@
+<form name="approve" action="approveall-finish.html" type="post" onsubmit="return confirm('$context.getPageProperty('text.confirm')');">
+
+<table class="oemenuback">
+<tr>
+	<td class="oe-module-title">$context.getPageProperty('text.workflowreport')</td>
+	<td class="oe-module-actions">
+  <input class="oestandard-button" type="submit" name="$context.getPageProperty('text.approveall')" value="$context.getPageProperty('text.approveall')" >
+  #if( $user.hasPermission("oe.usermanager") )
+  <input class="oestandard-button" type="button" name="Settings" value="Edit Settings" onclick="if(!window.name)window.name='$parentName';window.open('$home/openedit/editors/text/edit.html?editPath=/openedit/workflow/settings.xml&origURL=$content.path&parentName='+window.name, 'htmleditor','alwaysRaised=yes,menubar=no,resizable=yes,top=100,left=130,width=830,height=550' );">
+  #end
+  </td>
+</tr>
+</table>
+<br>
+
+<p>$context.getPageProperty('text.listapprovalfiles')</p>
+
+#if ( $drafts.size() > 0 )
+
+<input type="hidden" name="origURL" value="$content.path" />
+</form>
+#end
+
+#if( $workflow.getLevelCount() > 0 )
+	<p>Pages require $workflow.getLevelCount() levels of approval.</p> 
+#end
+
+
+<table width="100%" cellpadding="0" cellspacing="0" style="border: 1pt">
+<tr>
+<th align="left">Level</th>
+<th align="left">$context.getPageProperty('text.page')</th>
+<th align="left" >$context.getPageProperty('text.title')&nbsp;</th>
+<th align="left" >$context.getPageProperty('text.message')&nbsp;</th>
+<th align="left" >$context.getPageProperty('text.author')&nbsp;</th>
+<th align="left">$context.getPageProperty('text.modified')&nbsp;&nbsp;</th>
+<th width="10%">&nbsp;</th>
+</tr>
+#set( $even = "true" )
+#foreach( $page in $drafts )
+	#if ( $even == "false" )
+		<tr style="background-color: #EEEEEE;">
+		#set( $even = "true" )
+	#else
+		<tr>
+		#set( $even = "false" )
+	#end
+	<td>
+	#if( $workflow.getLevelCount() > 0 )
+		#if( $page.get("approve.level") )
+		Ready			
+		#else
+		Draft
+		#end	
+	#else
+		Final
+	#end
+	</td>
+	##Need to get the original page to get the path and do a diff
+	##Need to get the last version of this draft
+	##need to add Reason for edit: to editor box
+	
+	#set( $orig = $workflow.getOriginalPage($page) )
+
+	<td style="leftlinned" ><a href="$home$orig.path" >$orig.path</a></td>
+	<td>$!orig.title</td>
+	#set( $version = $workflow.getLastVersion($page) )
+	<td>$!version.message</td>
+	<td>$!workflow.getUserDescription($version.author)</td>
+	<td style="leftlinned" >$page.getLastModified("M/dd/yy h:mm a")</td>
+	<td nowrap >
+	#set ( $origURL=$url_util.getOriginalUrl() )
+	
+	<a href="#"
+	onclick="if(!window.name)window.name='editor_parent';window.open( '$home/openedit/editors/revisions/index.html?path=$page.getPath()&editPath=$orig.getPath()&origURL=$origURL&parentName='+window.name, 'editor','alwaysRaised=yes,menubar=no,scrollbars=yes,width=800,height=600,top=100,left=130,resizable=yes' );return false;">
+	<img src="$home/openedit/images/toolbar/history_view.gif" border="0" width="16" height="16" title="$context.getPageProperty('text.viewrevisions')" /></a>
+
+	$context.putPageValue("editPage",$page )
+	$pages.stream("/openedit/workflow/approvetoolbar.html",$context )
+	
+	<a href="#" onclick="if(!window.name)window.name='editor_parent';window.open('$home/openedit/editors/html/edit.html?editPath=$orig.getPath()&origURL=$origURL&parentName='+window.name, 'editor','alwaysRaised=yes,menubar=no,resizable=yes,x=10,y=10,width=830,height=550' );return false;">
+	<img src="$home/openedit/images/toolbar/edit.gif" border="0" title="$context.getPageProperty('text.editpage')" /></a>
+	</td>
+	<td></td>
+	</tr>
+
+#end
+
+</table>
+#if ( $userEmailList.size() > 0 )
+		    <p>Edit notifications are emailed automatically to these people:</p>
+		      <ul>
+				#foreach( $email in $userEmailList )
+					      <li>$email.getEmail()
+				#end
+				      </ul>
+
+		#else
+	      	<p>No users are configured for notification</p>
+       	    <p>To add more groups to this list please set the Notify of Changes permission for each group.</p>
+		#end

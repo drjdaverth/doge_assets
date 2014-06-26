@@ -1,0 +1,34 @@
+
+<style>
+/* Custom Icons */
+.addthis_toolbox .custom_images a {
+    width: 64px;
+    height: 64px;
+    margin: 0;
+    padding: 0;
+}
+.addthis_toolbox .custom_images a img {
+    opacity: 1.0;
+}
+.addthis_toolbox .custom_images a:hover img {
+    opacity: 0.75;
+}       
+</style>
+
+#set( $sharecaption = $context.getRequestParameter("sharecaption") )
+
+
+#set( $link = "$context.siteRoot$home$apphome/views/assets/$asset.sourcepath/index.html?categoryid=$!context.getRequestParameter('categoryid')")
+#set( $link2 = $url_util.encode($link) )
+<h2>Share Media</h2>
+<p>Choose your platform:</p>
+<div class="addthis_toolbox"  addthis:title="$!sharecaption" addthis:description="$!asset.caption" addthis:url="$link2" >
+      <a class="addthis_button_facebook"><img src="$home$themeprefix/images/buttons/share/facebook.png" width="64" height="64" alt="Share to Facebook" /></a>
+      <a class="addthis_button_twitter"><img src="$home$themeprefix/images/buttons/share/twitter.png" width="64" height="64" alt="Share to Twitter" /></a>
+      <a class="addthis_button_myspace"><img src="$home$themeprefix/images/buttons/share/myspace.png" width="64" height="64" alt="Share to MySpace" /></a>
+      <a class="addthis_button_reddit"><img src="$home$themeprefix/images/buttons/share/reddit.png" width="64" height="64" alt="Share to Reddit" /></a>
+      <a class="addthis_button_delicious"><img src="$home$themeprefix/images/buttons/share/delicious.png" width="64" height="64" alt="Share to Delicious" /></a>
+      <a class="addthis_button_more"><img src="$home$themeprefix/images/buttons/share/addthis_64.png" width="64" height="64" alt="More..." /></a>
+   </div>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>

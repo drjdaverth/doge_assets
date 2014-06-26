@@ -1,0 +1,3 @@
+<page>
+	<inner-layout>${themeprefix}/layouts/settingssubtablayoutnomargin.html</inner-layout>
+</page>

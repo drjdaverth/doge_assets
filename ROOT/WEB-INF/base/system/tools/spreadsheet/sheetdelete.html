@@ -1,0 +1,14 @@
+#set( $deleteok = $context.getRequestParameter("deleteok"))
+#if( $deleteok )
+$pages.include("index.html")
+#else
+<form name="newname" action="sheetdelete.html" >
+
+<p>Are you sure you want to delete this spreadsheet?</p>
+<input name="deleteok" type="hidden" value="true" />
+<input type="submit" value="Delete" />
+<input type="hidden" name="jobid" value="$job.id" />
+<input type="hidden" name="sspostfix" value="$context.getRequestParameter('sspostfix')" />
+<input type="hidden" name="sheet" value="${context.getRequestParameter("sheet")}" />
+</form>
+#end

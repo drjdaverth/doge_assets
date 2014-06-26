@@ -1,0 +1,4 @@
+<page>
+	<property name="enabled">true</property>
+	<path-action name="AssetEditModule.writeXmpData"/>
+</page>

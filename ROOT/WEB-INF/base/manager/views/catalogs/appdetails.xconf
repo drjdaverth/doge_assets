@@ -1,0 +1,6 @@
+<page>
+	 <path-action name="DataEditModule.loadData">
+	 	<property name="catalogid">system</property>
+	 	<property name="searchtype">frontend</property>
+	 </path-action>
+</page>

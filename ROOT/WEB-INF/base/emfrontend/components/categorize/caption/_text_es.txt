@@ -1,0 +1,4 @@
+#
+#Thu Aug 12 21:31:14 EDT 2010
+Edit\ Caption=Editar Leyenda
+Add\ Caption=A\u00F1adir Leyenda

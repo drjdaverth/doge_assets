@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+    <property name="title">Workflow - OpenEdit </property>
+
+	
+	<view-requirements>
+	<permission name="oe.edit.approves" />
+	</view-requirements>
+		
+</page>

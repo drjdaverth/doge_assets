@@ -1,0 +1,6 @@
+<page>
+
+	<path-action name="Script.run">
+		<script>/${catalogid}/events/scripts/convertrelatedassets.groovy</script>
+	</path-action>
+</page>

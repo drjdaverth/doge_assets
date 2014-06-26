@@ -1,0 +1,20 @@
+  <form name="wizard" method="post" >
+
+		<table class="oemenuback">
+		<tr>
+			<td class="oe-module-title">[[view]]</td>
+			<td class="oe-module-actions">
+ 			</td>
+		</tr>
+    	</table>
+
+
+    <div class="border-table">
+
+          #if ($error)
+          	[[file exists]]
+          #else
+          	[[Page has been created]]: <b>$request.getParameter( 'destinationPath' )</b>
+          #end
+           </div>
+</form>

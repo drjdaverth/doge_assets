@@ -1,0 +1,41 @@
+#set($viewid = $context.getRequestParameter("viewid"))
+#set($viewsearcher = $searcherManager.getSearcher($catalogid, "view"))
+#set ( $systemdefined = "false" )
+#set ( $systemdefined = $context.findValue("systemdefined") )
+
+
+#set ( $moduleid = $context.findValue("module") )		
+
+#set($query = $viewsearcher.createSearchQuery().append("module",$moduleid).append("systemdefined",$systemdefined) )
+$!query.addSortBy("ordering")
+#set($views = $viewsearcher.search($query))
+
+#set( $viewsroot = $content.viewsroot )
+
+<ul data-path="$home$viewsroot/moveviews.html?searchtype=view&field=ordering" class="listsort" data-searchtype="view" data-field="ordering">
+		
+				<li class="header no-sort">Editing Boxes</li>
+				#if ($systemdefined && $systemdefined != "true")
+				<li class="no-sort" id="addeditbox" ><a class="ajax" targetdivinner="addeditbox" href="$home$viewsroot/addneweditingbox.html?oemaxlevel=1">Add New</a></li>
+                #end
+              
+			#foreach( $target in $views)
+                
+                
+                		#set($sortid = $target.id.replaceAll("_", "||"))
+				<li id="view_$sortid" data-ordering="${view.ordering}" class="#if($viewid == $target.id) current #end " byassettype="$!target.byassettype">
+				   
+					#if( ($target.byassettype && $target.byassettype == "true") )
+						#set( $viewpath = "${moduleid}/assettype/default/$target.id")
+					#else
+						#set( $viewpath = "${moduleid}/$target.id")
+					#end
+					<a href="$home$viewsroot/index.html?viewid=$target.id&viewpath=$viewpath">
+					<span class="drag-and-drop"></span>$target</a>
+					<a class="ajax delete-row" targetdiv="" href="./deleteview.html?searchtype=${moduleid}&id=${target.id}&viewpath=$viewpath"></a>
+
+                </li>
+			
+			#end			
+								
+			</ul>

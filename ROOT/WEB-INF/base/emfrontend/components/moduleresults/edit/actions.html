@@ -1,0 +1,37 @@
+        #set( $moduleid = $context.findValue("module") )
+        
+        #set($viewid = $context.getRequestParameter("viewid"))
+        #set($viewpath = $context.getRequestParameter("viewpath"))
+        
+        #set($hits = $context.getPageValue($content.hitsname))
+        #set($hitssessionid = $context.findValue("hitssessionid"))
+        #if($hitssessionid)
+            #set($hits = $context.getSessionValue($hitssessionid))
+        #end
+       
+    
+        <div id="eml-tab-subnav">
+     
+        <ul style="text-align: center;">
+                   #set($indexOf = $hits.indexOfId($data.id))
+        #set($showIndex = $indexOf + 1)
+        #set($previous = $hits.previous($indexOf))
+        #set($next = $hits.next($indexOf))
+            #if( $hits )
+           
+            #set( $thispage = $content.getDirectoryName() )
+            
+                    #if($previous)
+                         <li><a  #if( $caneditdata )  href="$home$content.searchhome/edit/edit.html?id=${previous.id}&hitssessionid=${hitssessionid}&viewid=${viewid}&viewpath=${viewpath}&assettype=$!type&searchtype=$moduleid" #else href="$home$content.searchhome/view/view.html?id=${previous.id}&hitssessionid=${hitssessionid}&$viewid=${viewid}&viewpath=${viewpath}&assettype=$!type&searchtype=$moduleid" #end><<</a></li>
+                    #end
+                      
+                    #if($next)
+                        $context.putPageValue("hits", $hits)
+                        <li style="float: right;"><a  #if( $caneditdata )  href="$home$content.searchhome/edit/edit.html?id=${next.id}&hitssessionid=${hitssessionid}&viewid=${viewid}&viewpath=${viewpath}&assettype=$!type&searchtype=$moduleid" #else href="$home$content.searchhome/view/view.html?id=${next.id}&hitssessionid=${hitssessionid}&viewid=${viewid}&viewpath=${viewpath}&assettype=$!type&searchtype=$moduleid" #end>>></a></li>
+                    #end
+                    
+            #end    
+        </ul>
+&nbsp;
+        </div>
+        

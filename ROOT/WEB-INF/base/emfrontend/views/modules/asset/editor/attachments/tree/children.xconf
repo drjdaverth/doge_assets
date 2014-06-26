@@ -1,0 +1,8 @@
+<page>
+	<layout />
+	<inner-layout />
+	<page-action name="PageValue.loadPageVariable" bean="sizer" class="org.openedit.links.FileSize" />
+	<page-action name="PageValue.loadPageVariable" bean="dateformat" class="java.text.SimpleDateFormat" />
+	<page-action name="AttachmentModule.findAssetAttachments"/>
+
+</page>

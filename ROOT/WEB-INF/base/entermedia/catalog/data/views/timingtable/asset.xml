@@ -1,0 +1,6 @@
+
+<properties>
+  <property id="effectivedate"/>
+  <property id="innactivedate"/>
+  <property id="deactivationreason"/>
+</properties>

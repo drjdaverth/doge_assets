@@ -1,0 +1,5 @@
+<page>
+	<inner-layout>${themeprefix}/layouts/settingssubtablayout.html</inner-layout>
+	<property name="tab">settingslanding</property>
+	<property name="subsettingslist">settingsappsetup</property>
+</page>

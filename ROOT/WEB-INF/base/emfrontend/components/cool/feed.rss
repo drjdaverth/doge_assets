@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
+      xmlns:atom="http://www.w3.org/2005/Atom">
+      <channel>
+          <title>Feed title</title>
+          <description>Feed Description</description>
+          <link>http://www.example_url.com</link>
+          <item>
+               <title>Picture A</title>
+               <media:description> This one's my favorite.</media:description>
+               <link>pl_images/A.jpg</link>
+               <media:thumbnail url="$siteRoot$home$applicationsid/views/modules/asset/downloads/preview/thumb/users/admin/IMG_0170.JPG/thumb.jpg"/>
+               <media:content url="$siteRoot$home$applicationsid/views/modules/asset/downloads/preview/medium/users/admin/IMG_0170.JPG/medium.jpg"/>
+          </item>
+          <item>
+              <title>Video B</title>
+              <link>http://example.com/pl_images/B.jpg</link>
+               <media:thumbnail url="$siteRoot$home$applicationsid/views/modules/asset/downloads/preview/thumb/users/admin/IMG_0170.JPG/thumb.jpg"/>
+              <media:content type="video/x-flv"
+              url="http://example.com/pl_images/B.flv"/>
+          </item>
+      </channel>
+</rss>

@@ -1,0 +1,32 @@
+<properties>
+	
+	<!--  An asset can be viewed by the owner and the administrators-->
+	<property id="catalogassetviewispublic" value="true">Default Assets To Public (true/false)</property>
+	<property id="catalogassetviewusers" value="${asset.owner}">Admin Catalog Asset View Users</property>
+	<property id="catalogassetviewgroups" value="administrators">Admin Catalog Asset View Groups</property>
+
+	<property id="catalogasseteditusers" value="${asset.owner}">Catalog Asset Edit Users</property>
+	<property id="catalogasseteditgroups" value="administrators users">Catalog Asset Edit Groups</property>
+
+
+	<property id="catalogassetforcewatermarkusers" value="">Admin Catalog Asset View Users</property>
+	<property id="catalogassetforcewatermarkgroups" value="">Admin Catalog Asset View Groups</property>
+	<property id="projectassetupload" value="users/${user.id}/${formatteddate}">Project Upload Path</property>
+	<property id="catalogassetupload" value="${formatteddate}">Default Catalog Upload Path</property>
+
+	<property id="server_log_location" value="/opt/apache-tomcat/logs/catalina.log">Web Server Logs</property>
+
+
+	<!--   <property id="catalogassetdefaultlibrary" value="public">Default Asset Library</property>
+	-->
+	<property id="events_notify_app" value="emshare">Email Notify App</property>
+	<property id="events_conversion_error_grace_period" value="1h">Conversion Error Asset Delete</property>
+	
+	<!--  system email settings -->
+	<property id="system_from_email" value="noreply@entermediasoftware.com">System From Email</property>
+	<property id="system_from_email_name" value="EnterMedia">System From Email Name</property>
+	
+	<!--  upload flow, next page -->
+	<property id="uploadflow_nextpage" value="default">Next page in upload flow</property>
+
+</properties>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.15" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.2.2.v20071218-1951 Build &lt;2.2.2.v20071218-0630></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <method name="initialize"><![CDATA[importPackage( Packages.javax.swing );
+
+	reportContext.setPersistentGlobalVariable("frame", null);
+	reportContext.setPersistentGlobalVariable("jtAreaOutput", null);
+	
+function showmsg(msg){
+	frame=reportContext.getPersistentGlobalVariable("frame");
+	jtAreaOutput=reportContext.getPersistentGlobalVariable("jtAreaOutput");
+
+	if (jtAreaOutput == null) {
+		jtAreaOutput = new JTextArea(5, 20);
+		jtAreaOutput.setLineWrap(true);
+		reportContext.setPersistentGlobalVariable("jtAreaOutput", jtAreaOutput);
+	}
+
+	if (frame == null) {
+		frame = new JFrame( "Debug message:");  
+		frame.add(jtAreaOutput);
+		frame.setSize( 310, 220); 
+		reportContext.setPersistentGlobalVariable("frame", frame);
+	}
+	jtAreaOutput.append(msg);	
+	jtAreaOutput.append("\n");
+	frame.show( );
+}
+
+reportContext.setPersistentGlobalVariable("showmsg", showmsg);]]></method>
+    <text-property name="displayName">Blank Report</text-property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="6">
+            <text-property name="displayName"></text-property>
+            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
+            <property name="odaURL">jdbc:classicmodels:sampledb</property>
+            <property name="odaUser">ClassicModels</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="7">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">CUSTOMERNAME</property>
+                    <property name="displayName">CUSTOMERNAME</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CUSTOMERNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="rowFetchLimit">0</property>
+            <property name="dataSource">Data Source</property>
+            <method name="beforeOpen"><![CDATA[//showmsg("Run Data Set");]]></method>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CUSTOMERNAME</property>
+                    <property name="nativeName">CUSTOMERNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select customername
+from customers
+order by 1</property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab" id="4">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="list-detail" id="182">
+            <property name="textIndent">0px</property>
+            <property name="lineHeight">normal</property>
+            <property name="display">inline</property>
+            <property name="canShrink">true</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <list id="150">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">CUSTOMERNAME</property>
+                    <expression name="expression">dataSetRow["CUSTOMERNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <detail>
+                <grid id="183">
+                    <property name="marginTop">0pt</property>
+                    <property name="width">25%</property>
+                    <column id="184"/>
+                    <row id="185">
+                        <cell id="186">
+                            <data id="181">
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">1px</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">1px</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">1px</property>
+                                <property name="borderTopColor">#000000</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">1px</property>
+                                <property name="marginTop">0pt</property>
+                                <property name="paddingTop">5pt</property>
+                                <property name="paddingLeft">5pt</property>
+                                <property name="paddingBottom">5pt</property>
+                                <property name="paddingRight">5pt</property>
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">CUSTOMERNAME</property>
+                            </data>
+                        </cell>
+                    </row>
+                </grid>
+            </detail>
+        </list>
+    </body>
+</report>

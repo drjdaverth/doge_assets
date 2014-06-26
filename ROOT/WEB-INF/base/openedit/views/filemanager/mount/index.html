@@ -1,0 +1,46 @@
+#set ($path = $context.getRequestParameter('path'))
+#set ($nodeID = $context.getRequestParameter('nodeID'))
+
+<h2>[[Mounted Folders]]</h2>
+
+<table cellspacing="6" 	>
+<tr>
+	<th>[[Filter]]</th>
+	<th>[[Settings]]</th>
+</tr>
+#foreach( $mount in $mounts)
+</tr>
+<td>
+#if ($mount.getFilter())
+	$mount.getFilter()
+#else
+	[[None]]
+#end
+</td>	
+</td>
+<td valign="top">
+
+<div style="background-color: #EEEEEE; padding:5px;">
+#if( $mount.getExternalPath() )
+	<p>[[External Path]]: <b>$mount.getExternalPath()</b><br></p>
+#else
+	<p>[[Internal Path]]: <b>/</b></p>
+#end
+
+#if( $mount.isUseVersionControl() ) <p>[[Version control enabled]].</p> #end
+
+<p >
+<a href="$home${page.filerootpath}/mount/remove.html?mountid=$mount.getId()&origURL=$page.filerootpath/index.html&editPath=$path" onclick="return confirm('[[Remove this entry?]]');">[[Remove]]</a>	
+	&nbsp;&nbsp;&nbsp;
+<a href="$home/${applicationid}/views/filemanager/update/mounts/edit.html?mountid=$mount.getId()">[[Edit]]</a>	
+</p>
+</div>
+
+</td>
+</tr>
+
+#end
+</table>
+
+<a href="#" onclick="showpath('oework', '$home${page.filerootpath}/mount/addnew.html?path=$!path',1);"><span> [[Add New]] </span></a>		
+

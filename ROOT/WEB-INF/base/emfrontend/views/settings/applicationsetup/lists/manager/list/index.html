@@ -1,0 +1,76 @@
+	<form name="search" method="post" action="$home$content.dataroot/list/index.html">
+	$context.putPageValue("hits",$datalist)	
+	#set( $details = $searcher.getSearchProperties($user) )
+	$context.putPageValue("details",$details)	
+	<div class="oesearchformflat">
+		$pages.include("/${applicationid}/components/xml/searchfields.html",$context)
+		<input type="hidden" name="catalogid" value="$!searcher.catalogId" />
+		<input type="hidden" name="searchtype" value="$!searcher.searchType" />
+		<input style="margin-left: 100px;" type="submit" value="Search" />
+	</div>
+	
+	</form>
+	<br>
+	
+	<div id="emselectable">
+	<table width="85%" class="standard-table">
+	<tr>
+	#foreach( $detail in $details )
+	<th align="left" nowrap >$detail.getText($context)</th>
+	#end
+	</tr>	
+	#set( $origURL = $context.getRequestParameter("origURL" ) )				
+		
+	#foreach ( $hit in $datalist.getPageOfHits() )
+		<tr rowid="$hit.id">
+		#foreach( $detail in $details )
+			#set( $newval = "$!hit.get($detail.getId())")
+			#if($newval && $newval != "" && $detail.isList())
+				#set( $newval = $searcherManager.getListData($detail,$newval) )
+			#end			
+			<td nowrap>$newval</td>
+		#end
+##		<td><a href="catalogid=$searcher.getCatalogId()&searchtype=$searcher.getSearchType()&id=${hit.id}&origURL=$!origURL">Edit</a></td>
+##		<td><a href="$home$content.dataroot/list/delete.html?catalogid=$searcher.getCatalogId()&searchtype=$searcher.getSearchType()&id=${hit.id}&origURL=$!origURL">Delete</a></td>
+		</tr>
+	#end
+	</table>
+		<form name="editrow" action="$home$content.dataroot/edit/edit.html">
+			<input type="hidden" name="id" id="emselectedrow" />
+			<input type="hidden" name="origURL" id="$!origURL" />
+			<input type="hidden" name="searchtype" value="$searcher.getSearchType()" />
+		</form>
+	</div>
+	
+	<div style="text-align: left; padding-left: 20px; padding-top: 5px;">
+	
+		#if ( $datalist.totalPages == 0 )
+		#elseif( $datalist.totalPages == 1 )
+		#elseif( $datalist )
+			#set($thispage = $datalist.getPage())
+			[[Page]] <b>$thispage</b> [[of]] $datalist.totalPages  
+			&nbsp;&nbsp;
+			
+			#if( $datalist.prevPage() )
+			<a href="$home$page.path?page=$datalist.prevPage()&hitssessionid=$datalist.sessionId&origURL=$!origURL&catalogid=$searcher.catalogId&searchtype=$searcher.searchType" ><b>&lt;&lt;  [[Back]]</a>
+			#end
+			
+			
+			#if ( $datalist.nextPage() )
+			<a href="$home$page.path?page=$datalist.nextPage()&hitssessionid=$datalist.sessionId&origURL=$!origURL&catalogid=$searcher.catalogId&searchtype=$searcher.searchType" ><b> [[Forward]] &gt;&gt; </a>
+			#end
+		#end
+	</div>
+		<h2>[[Found]] $datalist.size() [[Records]]</h2>
+	
+	
+	#set( $thispage = $datalist.getPage()+-1)
+	#set( $start = $datalist.getHitsPerPage() * $thispage )
+	#set( $end = $start + $datalist.getPageOfHits().size() )
+	#set( $start = $start + 1)
+	
+	<div class="embutton">
+	<a href="$home$content.dataroot/edit/addnew.html?catalogid=$searcher.catalogId&searchtype=$searcher.searchType&origURL=$!origURL">[[Add New Record]]</a>
+	</div>
+<br><br><br>
+	

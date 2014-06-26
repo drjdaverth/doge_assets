@@ -1,0 +1,7 @@
+#
+#Tue Apr 27 11:02:36 CLT 2010
+Anyone=Cualquiera
+Nobody=Nadie
+Please\ select\ the\ permission\ to\ edit\ or\ remove.=Por favor seleccione el permiso a editar o eliminar.
+Permissions=Permisos
+

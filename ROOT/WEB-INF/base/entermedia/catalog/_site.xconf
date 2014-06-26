@@ -1,0 +1,51 @@
+<page>
+  <property name="nopadding">true</property>
+  <property name="showmaillink">true</property>
+  <property name="matttabstabid">browse</property>
+		
+  <path-action alltypes="true" name="MediaArchiveModule.getMediaArchive"/>
+
+  <property name="profilemanagerid">${catalogid}</property>
+  <path-action name="ProfileModule.loadUserProfile" />	 
+
+  <path-action name="LinkTree.setSelectedLinkByUrl">
+    <linktreename>archivemenu</linktreename>
+    <linkpath>/${catalogid}/links.xml</linkpath>
+  </path-action>
+  <property name="linktreename">archivemenu</property> <!-- Used for crumbs -->
+
+<!--END OF PAGE ACTIONS-->
+
+<!--PROPERTIES-->
+
+  <property name="typespath">/${applicationid}/search/types</property>
+  
+  
+  <property name="tree-name">catalogTree</property>
+  
+  <property name="catalogTreeroot">index</property>
+  <property name="iconhome">${themeprefix}/images/tree/</property>
+  <property name="hitsname">hits</property>
+  <property name="defaultresultsview">table</property>
+  <property name="usefilters">true</property>
+  <property name="showsubcategories">false</property>
+  <property name="metadataimport">true</property>
+  <property name="usestartswith">true</property>
+
+  <property name="showhover">true</property>
+  <property name="showresultdetaillink">true</property>
+
+  <property name="singledownloads">true</property>
+  <property name="toplevelcategory">index</property>
+  
+	<!--Catalog PERMISSIONS--> 
+	<permission name="view"><boolean value="true"/></permission>
+	<permission name="browsecategories"><boolean value="true"/></permission>
+	<permission name="upload">
+		<or>
+			<group id="administrators"/>
+			<group id="uploaders"/>
+		</or>	
+	</permission>
+
+</page>

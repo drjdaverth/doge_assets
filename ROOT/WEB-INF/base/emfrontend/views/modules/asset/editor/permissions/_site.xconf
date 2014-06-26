@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="sectiontitle"><value>Asset Permissions</value></property>
+  <property name="assettab">assetpermissions</property>
+  <property name="fallbackdirectory">/WEB-INF/base/emfrontend/components/assetpermissions</property>
+  <property name="permissionrootpath">/${applicationid}/views/modules/asset/editor/permissions</property>
+  <property name="permissiontype">permissionsassets</property>  
+  
+</page>

@@ -1,0 +1,6 @@
+<properties beanname="folderSearcher">
+  <property id="id" editable="true" index="true" stored="true">Id</property>
+  <property id="parameterdata" editable="true" index="true" stored="true">Preset Data</property>
+  <property id="name"  editable="true" index="true" stored="true">Parameter Name</property>
+  <property id="value"  editable="true" index="true" stored="true">Parameter Value</property>
+</properties>

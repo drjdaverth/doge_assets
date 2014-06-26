@@ -1,0 +1,5 @@
+<properties>
+	<property id="id" index="true" stored="true"  keyword="true" >ID</property>
+	<property id="selected" stored="true" editable="true" datatype="boolean">Default</property>
+	<property id="listingurl" stored="true" editable="true" >URL</property>
+</properties>

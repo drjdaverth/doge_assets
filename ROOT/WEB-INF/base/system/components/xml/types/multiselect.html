@@ -1,0 +1,57 @@
+##required: catalogid, searchtype, view, fieldname
+##optional: value, foreignkeyid and foreignkeyvalue
+
+#set ($catalogid = $context.getRequestParameter('catalogid'))
+#set ($searchtype = $context.getRequestParameter('searchtype')) ##product
+#set ($view = $context.getRequestParameter('view')) 
+#if( !$values )
+#set($values = $data.getValues($detail.id))
+#end
+##we need to load up the existing detail object
+
+#set( $originalsearcher = $searcherManager.getSearcher($catalogid, $searchtype))
+#if( !$detail) ##this is new. To reduce complexity we want to just load up the detail all the time
+	#set( $detail = $originalsearcher.getDetailForView($view, $fieldname, $user) )
+#end
+
+#set( $listid = $detail.getListId())
+#set( $lsearcher = $searcherManager.getSearcher( $detail.getListCatalogId(), $listid ))	
+
+#set ($squery = $detail.query )
+
+#set ($query = $lsearcher.createSearchQuery())
+#set ($o = $query.addMatches("id", "*"))
+
+#if ($detail.sort)
+	$query.setSortBy($detail.sort)
+#end
+#set ($types = $lsearcher.search($query))
+
+#set( $valueid = $detail.getId() )
+
+#if($types)
+
+	<select id="${valueid}.value" multiple name="$!detailprefix${valueid}.values" 
+		class="select2 #if($detail.isRequired() && !$multiedit) required #end" 
+		listid="$listid" 
+		data-listid="$listid" 
+		data-placeholder=" "
+		data-searchtype='$searchtype'
+	>
+	#if ($detail.blankoption != false)
+	<option value=""></option>
+	#end
+	#foreach( $type in $types )
+		#set( $key = $type.id)
+		<option value="$key" #if($values.contains($key)) selected #end>#esc($type.name)</option>
+	#end
+
+   </select>		
+   
+#else
+	<p class="info">No properties found in ../configuration/lists/#esc(${listid}).xml</p>
+#end
+
+
+
+

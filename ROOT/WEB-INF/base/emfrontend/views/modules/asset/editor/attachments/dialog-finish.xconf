@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<path-action name="Page.uploadFile" />
+	<permission name="view">
+		<userprofile property="viewupload" equals="true" />
+	</permission>
+	
+	<property name="allowspecifiedpath" >true</property>
+	
+	<path-action name="AssetEditModule.checkHasPrimary" />
+	
+	<property name='text.uploadsuccessful'>
+		<value>UPLOAD SUCCESSFUL</value>
+		<value locale="es">CARGA EXITOSA</value>
+	</property>
+	<property name='text.uploadheader'>
+		<value>Upload Successful</value>
+		<value locale="es">Carga Exitosa</value>
+	</property>
+	
+	<property name="virtual">true</property>
+	
+	<inner-layout>${themeprefix}/layouts/dialoglayout.html</inner-layout>
+	
+</page>

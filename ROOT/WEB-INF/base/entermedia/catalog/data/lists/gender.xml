@@ -1,0 +1,4 @@
+<properties>
+	<property id="male">Male</property>
+	<property id="female">Female</property>
+</properties>

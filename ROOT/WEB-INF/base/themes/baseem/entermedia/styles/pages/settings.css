@@ -1,0 +1,138 @@
+#emcontainer .settings_index_link
+{
+	display:table-cell;
+	text-align:center;
+	padding: 0 10px 0 10px;
+}
+#emcontainer .catalogs_menu_item
+{
+	width:200px;
+}
+#emcontainer .catalogs_menu_item a
+{
+	font-weight:bold;
+	text-decoration: none;
+	color:#555252;
+	display: block;
+}
+#emcontainer .catalogs_menu_item .spiffyfgthree a
+{
+	color:white;
+}
+#emcontainer .catalogs_menu_item img
+{
+	vertical-align:middle;
+	align:left;
+	padding:3px 10px 3px 10px;
+}
+
+#emcontainer .catalogs_menu_settings
+{
+	margin: 50px 0px 0px 80px;
+	display: block;
+	width: 100px;
+	height: 50px;
+	text-decoration: none;
+	background: url(../../images/settings/settingsbutton.png) no-repeat right top;
+} 
+#emcontainer .catalogs_menu_settings span
+{
+	text-decoration: none;
+}
+#emcontainer .catalogs_menu_settings span
+{
+	display: block;
+	padding: 14px 0px 0px 38px;
+	color: white;
+	font-size: 1.2em;
+	font-weight: bold;
+} 
+
+
+#emcontainer #catalogSettingsPanel
+{
+	padding:10px;
+	background-color:white;
+	min-height:540px;
+	
+}
+
+/*********************************
+	Used for menu background 
+*********************************/
+#emcontainer .spiffy{display:block}
+#emcontainer .spiffy *{
+  display:block;
+  height:1px;
+  overflow:hidden;
+  font-size:.01em;
+  background:#e4ffe3}
+#emcontainer .spiffy1{
+  margin-left:3px;
+  margin-right:3px;
+  padding-left:1px;
+  padding-right:1px;
+  border-left:1px solid #f3fff2;
+  border-right:1px solid #f3fff2;
+  background:#eaffea}
+#emcontainer .spiffy2{
+  margin-left:1px;
+  margin-right:1px;
+  padding-right:1px;
+  padding-left:1px;
+  border-left:1px solid #fcfffc;
+  border-right:1px solid #fcfffc;
+  background:#e9ffe8}
+#emcontainer .spiffy3{
+  margin-left:1px;
+  margin-right:1px;
+  border-left:1px solid #e9ffe8;
+  border-right:1px solid #e9ffe8;}
+#emcontainer .spiffy4{
+  border-left:1px solid #f3fff2;
+  border-right:1px solid #f3fff2}
+#emcontainer .spiffy5{
+  border-left:1px solid #eaffea;
+  border-right:1px solid #eaffea}
+#emcontainer .spiffyfg{
+  background:#e4ffe3;
+  width:200px;
+  height:600px;}
+
+
+
+/*********************************
+	used for highlighting selected tab
+*********************************/
+#emcontainer .spiffythree{display:block}
+#emcontainer .spiffythree *{
+  display:block;
+  height:1px;
+  overflow:hidden;
+  font-size:.01em;
+  background:#353A35}
+#emcontainer .spiffythree1{
+  margin-left:3px;
+  padding-left:1px;
+  border-left:1px solid #98aa98;
+  background:#606b60}
+#emcontainer .spiffythree2{
+  margin-left:1px;
+  padding-left:1px;
+  border-left:1px solid #d2ebd1;
+  background:#565f56}
+#emcontainer .spiffythree3{
+  margin-left:1px;
+  border-left:1px solid #565f56;}
+#emcontainer .spiffythree4{
+  border-left:1px solid #98aa98;}
+#emcontainer .spiffythree5{
+  border-left:1px solid #606b60;}
+#emcontainer .spiffyfgthree{
+ 	background:#353A35}
+
+#emcontainer .emasseteditorarea
+{
+	background-color: white;
+	padding: 20px;
+}

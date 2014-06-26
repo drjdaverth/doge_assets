@@ -1,0 +1,28 @@
+#set( $view = "asset/advancedsearch")
+#set( $searcher = $mediaarchive.getAssetSearcher())
+
+#set ($alldetails = $searcher.getDetailsForView("asset/searchselect", $user))
+<div id="newtermedit">
+
+<form id="searchaddfield" name="editform"  class="ajaxform" targetdiv="newtermedit" action="$home$apphome/views/search/edit/add/newtermedit.html">
+
+<div  class="ui-widget" style="overflow: hidden;">
+	<div class="ui-widget-header">Add New Term</div>
+	<div  class="ui-widget-content emselectmenu">
+
+
+	<input type="hidden" name="oemaxlevel" value="1"/>
+	<input name="queryid" value="$query.id" type="hidden" />
+	
+	<select name="detailid" onChange="jQuery('#searchaddfield').submit();">
+		<option value=""></option>
+			<option value="description">&nbsp;&nbsp;&nbsp;&nbsp;All Fields</option>
+		#foreach( $detail in $alldetails)
+			<option value="$detail.id">&nbsp;&nbsp;&nbsp;&nbsp;$detail.getText($context)</option>
+		#end	
+	</select>
+	
+</div></div>
+</form>
+
+</div>	

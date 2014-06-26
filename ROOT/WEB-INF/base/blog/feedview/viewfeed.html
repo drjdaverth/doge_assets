@@ -1,0 +1,7 @@
+Feed Description: $rss.description<br>
+Feed Author: $rss.author<br>
+#foreach($entry in $rss.entries)
+
+$entry.description.value
+#end
+

@@ -1,0 +1,21 @@
+#set( $rootpath = "${apphome}/components/categorize")
+
+#set( $targetdiv = $context.getRequestParameter("targetdiv") )
+<div id="assetdetailscategorylist">
+
+<div id="emcategorypicker" >
+<div id="empickerbody">
+	<form name="savednodes" class="ajaxform"  data-userparent="true" targetdiv="parent.${targetdiv}" action="$home$apphome/components/xml/types/category.html?oemaxlevel=1">
+	<div id="treescroller">
+        $pages.include("$apphome/components/emtree/index.html?tree-name=categorySearchPickerTree&showchecks=true&editabletree=$caneditcategories&allowselections=true",$context)
+    </div>
+		<input type="hidden" name="save" value="true" />
+		<div style="margin:20px;">
+		      <input type="submit" class="btn"  value="[[Save]]" /> <a class="btn small" style="float: right;" href="#" onclick="parent.jQuery.fancybox.close();" >[[Cancel]]</a>
+		      
+		      ##TODO add clear button for selections
+	    </div>
+	 </form>   
+</div>
+</div>
+</div>

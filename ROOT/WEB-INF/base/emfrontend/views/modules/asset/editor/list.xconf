@@ -1,0 +1,7 @@
+<page>
+	<layout/>
+	<inner-layout/>
+	<path-action name="DataEditModule.saveData"/>
+	<property name="save">true</property>
+	<path-action name="DataEditModule.deleteData"/>
+</page>

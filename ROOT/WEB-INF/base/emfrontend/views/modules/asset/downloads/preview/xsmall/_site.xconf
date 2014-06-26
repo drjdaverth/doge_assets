@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                                                                                                                                   
+<page>
+	<property name="assetrootfolder">/${applicationid}/views/modules/asset/downloads/preview/xsmall</property>
+	<generator name="convertArchiveDocument"/>
+	<property name="prefwidth">115</property>
+	<property name="prefheight">115</property>
+</page>
+
+

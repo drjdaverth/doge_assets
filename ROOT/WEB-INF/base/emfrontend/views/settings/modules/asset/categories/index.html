@@ -1,0 +1,22 @@
+<div id="finisharea">
+<div class="ui-widget">
+	<div  class="ui-widget-header">Categories</div>
+	<div  class="ui-widget-content categories-widget no-padding-for-real of-visible">
+		<div id="attachments-container">
+
+<div id="category-tree">
+
+#set( $treename = $content.get("tree-name") )
+
+    $pages.include("$apphome/components/emtree/index.html?tree-name=$treename&editabletree=true&allowselections=false",$context)
+
+</div>
+   
+		</div>
+	</div>
+	<a class="btn ajax" title="Sorts all categories alphanumerically" data-confirm="[[Are you sure]]?" targetdiv="finisharea" href="$home$apphome/components/categories/edit/sort.html?oemaxlevel=1">Sort Tree</a>
+	<a class="btn ajax" title="Cleans out empty nodes with no assets in them" data-confirm="[[Are you sure]]?" targetdiv="finisharea" href="$home$apphome/components/categories/edit/trim.html?oemaxlevel=1">Trim Category Tree</a>
+</div>
+</div>
+
+ 

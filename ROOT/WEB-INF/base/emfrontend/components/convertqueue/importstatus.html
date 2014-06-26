@@ -1,0 +1,55 @@
+
+#if ( !$hit )
+    #set( $hit = $asset )
+#end
+
+#if (!$thumbsize )
+    #set($thumbsize = $context.getRequestParameter("thumbsize") )
+#end
+#if(!$thumbsize)
+    #set( $thumbsize = $content.thumbsize )
+#end
+
+#if($conversionerrors && $conversionerrors.size() >0)
+    <span style="color:red; font-size: 10px; position: relative; top: -2px;">Conversion Error</span>
+#elseif($publisherrors && $publisherrors.size() >0)
+    <span style="color:red; font-size: 10px; position: relative; top: -2px;">Publish Error</span>
+#elseif( $hit.importstatus && $hit.importstatus == "complete")
+    $context.putPageValue("hit",$hit)
+    
+    
+    #if($thumbsize == "thumb")
+    $pages.include("$apphome/components/results/thumbnails/image.html",$context)
+    #else
+    $pages.include("$apphome/components/results/thumbnails/small.html",$context)
+    #end        
+
+
+#elseif($conversionsremaining && $conversionsremaining.size()  > 0)
+   
+    <div id="status$hit.id" class="ajaxstatus loadingborder"  ajaxpath="$home$apphome/components/convertqueue/importstatus.html?assetid=$hit.id&thumbsize=$thumbsize" >
+        #set( $remaining = $conversions.size() - $conversionsremaining.size() )
+        #set( $totalcount = $conversions.size() + 2 )
+        #set( $total = 94 * $mathutil.getPercentage($remaining , $totalcount))
+        <div class="uiinfo  tooltip" title="Converting"><div class="loadingbar" style="width:${total}px;"></div></div> 
+    </div>
+    
+#elseif($publish && $publish.size() >0 )
+    <div id="status$hit.id"  class="ajaxstatus loadingborder"  ajaxpath="$home$apphome/components/convertqueue/importstatus.html?assetid=$hit.id&thumbsize=$thumbsize" >
+    <div class="uiinfo">Publishing Proxy $publish.size()</div>
+    <img src='$home$themeprefix/images/ajax-loader.gif'/></div>
+#elseif($conversions && $conversions.size() == 0)
+    <div id="status$hit.id" class="ajaxstatus"  ajaxpath="$home$apphome/components/convertqueue/importstatus.html?assetid=$hit.id&thumbsize=$thumbsize" >
+        #set( $remaining = $conversions.size() - $conversionsremaining.size() + 2 )
+        #set( $totalcount = $conversions.size() + 2 )
+        #set( $total = 94 * $mathutil.getPercentage($remaining , $totalcount))
+        <div class="uiinfo tooltip" title="Adding to Queue" ><div class="loadingbar" style="width:${total}px;"></div></div> 
+    </div>
+#else
+    <div id="status$hit.id" class="ajaxstatus loadingborder"  ajaxpath="$home$apphome/components/convertqueue/importstatus.html?assetid=$hit.id&thumbsize=$thumbsize" >
+        #set( $remaining = $conversions.size() - $conversionsremaining.size() + 2 )
+        #set( $totalcount = $conversions.size() + 2 )
+        #set( $total = 94 * $mathutil.getPercentage($remaining , $totalcount))
+        <div class="uiinfo tooltip" title="Completing" ><div class="loadingbar" style="width:${total}px;"></div></div> 
+    </div>
+#end

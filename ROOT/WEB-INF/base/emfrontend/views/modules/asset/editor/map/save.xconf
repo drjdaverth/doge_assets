@@ -1,0 +1,9 @@
+<page>
+	<path-action name="DataEditModule.saveData"/>
+	<property name="searchtype">asset</property>
+	<permission name="view">
+		<pagevalue name="caneditasset" equals="true"/>
+	</permission>
+	<property name="showinfo">false</property>
+	
+</page>

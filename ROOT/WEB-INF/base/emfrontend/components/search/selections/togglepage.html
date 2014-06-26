@@ -1,0 +1,51 @@
+	#set($resultsPage = "$home$content.searchhome/results.html")
+<table>
+<tr>
+<td>&nbsp;</td>
+<!--
+<td nowrap>
+		 
+		<form  style="margin-bottom:0;padding-right:15px;" target="_parent" name="changesort"  action="$resultsPage" valign="middle">
+			<input type="hidden" name="oe-action" value="DataEditModule.changeSort" />
+		<input type="hidden" name="hitssessionid" value="$hits.getSessionId()" />
+		
+		
+		<b>[[Sort by: ]]</b>: <select name="sortby" onchange="document.changesort.submit()"><option value=""></option>
+		
+			#foreach( $searchItem in $searcher.getDataProperties("$content.searchtype/orderby", $user))
+			<option value="${searchItem.getId()}Up" #if( $hits.getOrdering() && $hits.getOrdering() == "${searchItem.getId()}Up" ) selected #end >${searchItem.getText($context)}
+			#if($searchItem.isDate()) [[[Oldest First]]] #elseif($searchItem.getDataType() == "number") [[Smallest First]] #else [[[A-Z]]]#end</option>
+			<option value="${searchItem.getId()}Down" #if( $hits.getOrdering() && $hits.getOrdering() == "${searchItem.getId()}Down" ) selected #end >${searchItem.getText($context)}#if($searchItem.isDate()) [[[Newest First]]] #elseif($searchItem.getDataType() == "number") [[Largest First]]  #else [[[Z-A]]]#end</option>
+			#end
+					
+			</select> 
+		</form>
+	</td>
+	<td nowrap>
+		<form action="$resultsPage" style="margin-bottom:0;" target="_parent" name="changeview"  valign="middle">
+		
+		<input type="hidden" name="hitssessionid" value="$hits.sessionId" />
+		
+		
+		<b>[[Show]]</b> <select name="hitsperpage" onchange="this.form.submit()">
+			#foreach( $item in $membership.getProperties("hitcount") ) 
+			
+			<option value="$item.id" #if( $item.id == "$hits.getHitsPerPage()" ) selected #end>$item</option>
+			#end
+		</select> 
+		</form>
+		
+    </td>
+    -->
+    <td>&nbsp;</td>
+    #if($content.isPropertyTrue("showselections"))
+ <td>       <b>Selections: </b> ($!hits.getSelections().size()):  <a class="actionlink" href="#page" onclick="togglehits('page');return false;">  This Page  </a>|  <a class="actionlink" href="#all" onclick="togglehits('all');">  All $!hits.size()  </a> | <a  class="actionlink" href="#none" onclick="togglehits('none');return false;">Clear</a></td>
+ #end
+    #if($content.isPropertyTrue("showactions"))
+    <td>&nbsp;</td>
+    #end
+ <td>       <b>Actions: </b> <a href="$home${content.searchhome}/actions/reindex.html">Reindex</a>
+<a href="$home${content.searchhome}/import/index.html">Import Data</a>
+<a href="$home${content.searchhome}/edit/addnew.html">Add New Data</a> </td>
+    </tr>
+    </table>

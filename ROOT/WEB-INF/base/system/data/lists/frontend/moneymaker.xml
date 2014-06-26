@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+<!-- 
+  <property id="blog"  ordering="99" module="blog" path="/WEB-INF/base/blog/components/deploy" caption="Automated Sync Tool" longdescription="Allows you to push assets and thumbnails from an internal server to a cloud server">Blog Module</property>
+--> 
+</properties>

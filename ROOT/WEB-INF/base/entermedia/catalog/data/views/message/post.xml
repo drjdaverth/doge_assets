@@ -1,0 +1,4 @@
+<properties>
+  <property id="message" index="true" stored="true" editable="true" >Message</property>
+   
+</properties>

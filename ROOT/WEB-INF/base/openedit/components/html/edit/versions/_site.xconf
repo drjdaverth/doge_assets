@@ -1,0 +1,6 @@
+<page>
+	<property name="section">versions</property>
+	<property name="revisioneditorhome">/openedit/components/html/edit/versions</property>
+	<page-action name="PageValue.loadPageVariable" bean="userManager"  />
+	<page-action name="PageValue.loadPageVariable" bean="dateformat" class="java.text.SimpleDateFormat" />
+</page>

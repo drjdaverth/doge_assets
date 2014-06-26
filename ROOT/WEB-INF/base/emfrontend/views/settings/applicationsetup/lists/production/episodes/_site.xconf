@@ -1,0 +1,24 @@
+<page>
+	<property name="searchtype">episode</property>
+	<property name="searchhome">/${applicationid}/views/settings/lists/production/episodes</property>
+	<property name="showsearch">false</property>
+	<property name="searchheader">Episodes</property>
+	<property name="showactions">true</property>
+	<property name="showselections">false</property>
+
+	<property name="resultspage">${searchhome}/search/results.html</property>
+	<property name="editable">false</property>
+	<property name="hitsname">hits</property>
+	<property name="showsearch">false</property>
+	<property name="searchfields">advancedsearch</property>
+	
+	 <path-action allowduplicates="true" bean="searcherManager" name="PageValue.loadPageVariable"/>
+	
+	 <permission name="delete">
+	 	<group name="administrators"/>
+	 </permission>
+	 <permission name="editdata">
+	 	<group name="administrators"/>
+	 </permission>
+			
+</page>

@@ -1,0 +1,58 @@
+ 	  	<table class="oemenuback">
+		<tr>
+			<td class="oe-module-title">[[Schedule File or Directory Copy]]</td>
+			<td class="oe-module-actions">
+</td>
+</tr>
+</table>
+
+
+<style type="text/css">
+        #editsiteslink {color: #FFFFFF;}
+        #editsitescell {background: #CCCCF9;}
+</style>
+
+<script language="javascript" type="text/javascript" src="$home/${applicationid}/components/javascript/datetimepicker.js">
+
+</script>
+
+<form name="inputForm" method="post" action="finish.html">
+	<h3>[[Input the date of the copy, and the from and to files]].</h3>
+	<table>
+		<tr><td align="right">[[Path]]:</td><td><input type="text" size="23" name="from" value="$!context.getRequestParameter('path')"/>
+		<a href="#"
+onclick="topicker = false; if(!window.name)window.name='admin_parent';window.open( '$home/system/tools/filepicker/index.html?parentName='+window.name, 'pickerwindow','alwaysRaised=yes,menubar=no,scrollbars=yes,width=1000,x=100,y=100,height=600,resizable=yes' );return false;">
+<img src="$home$themeprefix/images/toolbar/history_view.gif" border="0" width="16" height="16" title="[[Pick A Directory]]" /></a>	                
+		</td></tr>
+		<tr>
+			<td align="right">[[When]]:</td>
+			<td>
+				<input type="text" class="datepicker" id="dateboxwhen" name="when"  size="23"/>
+			</td>
+		</tr>
+		<tr><td align="right"> [[To]]:</td><td><input type="text" size="23" name="to" />
+				<a href="#"
+onclick="topicker = true; if(!window.name)window.name='admin_parent';window.open( '$home/system/tools/filepicker/index.html?parentName='+window.name, 'pickerwindow','alwaysRaised=yes,menubar=no,scrollbars=yes,width=1000,x=100,y=100,height=600,resizable=yes' );return false;">
+<img src="$home$themeprefix/images/toolbar/history_view.gif" border="0" width="16" height="16" title="[[Pick A Directory]]" /></a>	                
+		</td></tr>
+		<tr><td align="right">[[Description]]:</td><td><textarea cols="23" rows="5" name="description"></textarea></td></tr>
+		<tr><td></td><td><input type="submit" value="[[Submit]]" /> <br><b>$!message</b></td></tr>
+	</table>
+	</div>
+</form>
+
+<script language="javascript">
+	var firstpicker = true;
+	function SetPath( inUrl )
+	{
+		var form = document.inputForm;
+		if (topicker == true)
+		{
+			form.to.value = inUrl;
+		}
+		else
+		{
+			form.from.value = inUrl;
+		}
+	}
+</script>

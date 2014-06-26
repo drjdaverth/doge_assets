@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<page-action name="EditModule.claimEditLock" />
+	<page-action name="HtmlEditor.loadView" />
+	<property name='text.Save and close'>
+        	<value>Save and close</value>
+		<value locale="es">Guardar y cerrar</value>
+    	</property>
+	<property name='text.Edit CSS'>
+        	<value>Edit CSS</value>
+		<value locale="es">Editar CSS</value>
+    	</property>
+	<property name='text.Editor Settings'>
+        	<value>Editor Settings</value>
+		<value locale="es">Configuración del Editor</value>
+    	</property>
+	<property name='text.Help'>
+        	<value>Help</value>
+		<value locale="es">Ayuda</value>
+    	</property>
+	<property name='text.auto save'>
+        	<value>Auto save has detected edits. Would you like to auto save?</value>
+		<value locale="es">El guardado automático ha detectado cambios. ¿Desea guardar automáticamente?</value>
+    	</property>
+	<property name='text.changes'>
+        	<value>You have unsaved changes to $editPath.\nClick \"Cancel\" to discard your changes or \"Ok\" to save.</value>
+		<value locale="es">Usted tiene cambios sin guardar en $editPath. \nHaga Click en \"Cancel\" para descartar los cambios o \"Ok\" para guardarlos.</value>
+    	</property>
+
+</page>

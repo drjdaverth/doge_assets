@@ -1,0 +1,13 @@
+#set( $assetid = $context.getRequestParameter("assetid") )
+
+#set( $id = $!url_util.getPathUtilities().extractId($assetid) )
+<div id="assettoggle$id" class="assettoggle$id">
+
+<a class="updatebasket" targetdiv="assettoggle$id" href="$home$apphome/components/basket/detoggleitem.html?assetid=$assetid">
+#if($orderManager.isAssetInOrder($catalogid, $order, $assetid) )
+    [[Remove From Basket]]
+#else
+    [[Add To Basket]]
+#end
+</a>
+</div>

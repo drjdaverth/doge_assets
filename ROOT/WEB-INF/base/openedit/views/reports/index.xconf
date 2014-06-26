@@ -1,0 +1,4 @@
+<page>
+	<path-action name="DataEditModule.loadPageOfSearch"/>
+	<property name="searchtype">asset</property>
+</page>

@@ -1,0 +1,185 @@
+#set( $root = "$home$apphome/components/upload/types/swfupload")
+<div id="swfuploadarea">
+<script type="text/javascript" src="$root/swfupload.js"></script>
+<script type="text/javascript" src="$root/swfupload.queue.js"></script>
+<script type="text/javascript" src="$root/plugins/swfupload.cookies.js"></script>
+
+<script type="text/javascript" src="$root/fileprogress.js"></script>
+<script type="text/javascript" src="$root/handlers.js"></script>
+<script type="text/javascript">
+		var swfu;
+		var oktosubmit = false;
+		var queuecompleted = false;
+	
+		
+		function loadsettings() 
+		{
+			var settings = 
+			{
+				flash_url : "$root/swfupload.swf",
+				upload_url: "$root/receivefile.html",
+				post_params: {
+					"entermedia.key" : "$entermediakey"
+				},
+				file_size_limit : 0,
+				file_types_description : "All Files",
+				file_upload_limit : 100,
+				file_queue_limit : 0,
+				prevent_swf_caching : true, 
+				custom_settings : {
+					progressTarget : "fsUploadProgress",
+					cancelButtonId : "btnCancel"
+				},
+				debug: false,
+				use_query_string : true, 
+
+				// Button settings
+				
+				button_image_url: "$home$themeprefix/images/buttons/assets/button93.png",
+				button_width: "93",
+				button_height: "25",
+				button_placeholder_id: "spanButtonPlaceHolder",
+				button_text: '<span class="embuttonfont">Add Files</span>',
+				button_text_style: ".embuttonfont { color: #633108;font-size: 14px; font-family: Helvetica, sans-serif;}",
+				button_text_left_padding: 12,
+				button_text_top_padding: 3,
+				
+				file_queued_handler : fileQueued,
+				upload_progress_handler : uploadProgress,
+				upload_success_handler : uploadSuccess,
+				queue_complete_handler : queueComplete	// Queue plugin event
+				
+				// The event handler functions are defined in handlers.js
+				/*
+				file_queue_error_handler : fileQueueError,
+				file_dialog_complete_handler : fileDialogComplete,
+				upload_start_handler : uploadStart,
+				upload_error_handler : uploadError,
+				upload_success_handler : uploadSuccess,
+				upload_complete_handler : uploadComplete,
+				queue_complete_handler : queueComplete	// Queue plugin event
+				*/
+			};
+
+			swfu = new SWFUpload(settings);
+	     }
+	     
+	     function queueComplete(numFilesUploaded) 
+	     {
+		    queuecompleted = true;
+		    if(oktosubmit )
+		    {
+				jQuery("#uploadqueueform").submit();
+			}
+		 }
+	     
+	    function fileQueued(file) 
+	    {
+		    queuecompleted = false;
+			try 
+			{
+				var link = "$root/uploadrow.html?id=" + file.id + "&name=" + file.name + "&size=" + file.size;
+				jQuery.get(link, 
+					function (data) 
+					{
+						jQuery("#emfilelist > tbody:last").append(data);
+						swfu.startUpload(file.id);
+						jQuery(".enabledwithpick").css("visibility","visible");
+					});		
+			}
+			catch (ex) 
+			{
+				alert( ex);
+			}
+			return true;
+		}
+	     
+	     
+		function uploadProgress(file, bytesLoaded, bytesTotal) 
+		{
+			try 
+			{
+				var progress = Math.ceil((bytesLoaded / bytesTotal) * 150);
+				jQuery("#progress" + file.id + " .emuploadprogress").width(progress);
+			} 
+			catch (ex) 
+			{
+				alert(ex);
+			}
+		}
+		function removeUpload(inId) 
+		{
+			swfu.cancelUpload(inId,false);
+			jQuery("#emfilelist #row" + inId).html("");
+			jQuery("#temppathholder" + inId ).append("");
+			
+		}	   
+	   	function showProgressAndSubmit()
+	    {
+	     		oktosubmit = true;
+
+	     		if(queuecompleted)
+		        {
+					jQuery("#uploadqueueform").submit();
+				}	
+				else
+				{
+					jQuery(".emshowupload").css("visibility","visible");
+	     			jQuery("#submitbutton").html("Uploading..."); //TODO: Replace with cancel link
+				}
+				     		
+	     }
+	     function uploadSuccess(file, serverData) 
+	     {
+				try {
+					##append serverData as a sourcepath
+					var html = '<input type="hidden" name="' + file.id + '.temppath" value="' + serverData + '"' + '/>'; 
+					//html = html + '\n<input type="hidden" name="assettype.value" value="' + serverData + '"' + '/>'; 
+					jQuery("#temppathholder" + file.id ).append(html);
+					jQuery("#progress" + file.id).parent().html('<img align="center" src="$home/system/images/toolbar/check.gif" />');
+					
+					//add .class for progress indicators
+				} 
+				catch (ex)
+				{
+					alert( ex);
+				}			
+		}
+			
+		jQuery(document).ready(
+			function() 
+			{ 
+				loadsettings();
+			}
+		); 
+	</script>
+
+	<form id="uploadqueueform" class="ajaxform" targetdiv="emuploadcontainer" action="$root/finish.html" method="post">
+		<table id="emfilelist" style="width: 600px;">
+				<tr class="enabledwithpick"><th></th><th style="min-width: 150px;">File Name</th><th>Size</th><th>Description</th><th>Asset Type</th>
+				</tr>
+				<tbody>
+				</tbody>
+		</table>
+		<table>
+		<tr>
+		<td>
+			<div id="flashHolder" >	
+					<div id="spanButtonPlaceHolder" ></div>	
+			</div>
+		</td>
+		<td style="padding-top: 2px;">
+			<div class="enabledwithpick" id="submitbutton" >
+				<ul class="embuttons">
+					<li><a href="#" onClick="showProgressAndSubmit(); return false;"><span>Next</span></a></li>
+				</ul>
+			</div>
+		</td>
+		</tr>
+		</table>
+		<input type="hidden" name="hitsname" value="hits" />
+		<input type="hidden" name="field" value="assettitle" />
+		<input type="hidden" name="field" value="assettype" />
+	</form>
+
+	</div>

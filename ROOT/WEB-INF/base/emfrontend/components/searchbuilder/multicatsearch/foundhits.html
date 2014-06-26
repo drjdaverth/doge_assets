@@ -1,0 +1,20 @@
+#$pages.include("/$applicationid/components/searchbuilder/multicatsearch/foundhits.html", $context)
+
+
+
+
+#if($hits)
+#set ($numtotalhits = $hits.size())
+#set ($numfoundcats = 0)
+#foreach ($catalog in $hits.getHitTrackers().keySet())
+	#set( $cathit = $hits.getSubTracker($catalog))
+	#if ($cathit.size() > 0)
+		#set ($numfoundcats = $numfoundcats + 1)
+	#end
+#end
+
+#set ($numtotalhits = $hits.size())
+#if ( $numtotalhits > 0 )
+	[[Found $numtotalhits hit(s) from $numfoundcats catalog(s)]]
+#end
+#end

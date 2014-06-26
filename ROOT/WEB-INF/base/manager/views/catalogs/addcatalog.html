@@ -1,0 +1,22 @@
+		<div class="wizard clearfix">
+			<div class="wizard-top">
+				<h1>Add Catalog Wizard</h1>
+			</div>
+			<form id="catalog" name="savecatalog" method="post" action="$home$apphome/views/catalogs/savecatalog.html">
+
+			<div class="wizard-body">
+				<h2>Catalog Name</h2>
+					<center>
+					<input class="field" type="text" name="name" id="catalog-name" value="New Catalog"/>
+				<h2>Catalog ID:</h2> <input name="appcatalogid" value="media/catalogs/newcatalog" >
+	<input name="fallbackfolder" value="/media/catalog" type="hidden">
+
+				</center>
+				<input name="reloadprofile" value="true" type="hidden">
+			</div>
+			<div class="wizard-bottom">
+				<input class="btn-blue build-your-own-app" value="[[Save]]" type="submit"/>	
+			</div>
+				</form>
+		</div>
+

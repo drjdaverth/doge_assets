@@ -1,0 +1,23 @@
+##if we have search children, then we are temporarily filtering the results, so we still want to show the header
+#if( $hits && ($hits.total > 0 || $hits.searchQuery.children.size() > 0) && $hits.searchQuery )
+	<div class="emcatalogheader">
+		<table width="100%">
+			<tr>
+				<td width="100%" nowrap="true" style="padding-top: 2px; padding-right: 20px;">
+					$pages.include("${cataloghome}/crumbs/categories.html", $context)
+					#if(!$album)
+					$pages.include("$cataloghome/results/navigate/optionsmenu.html", $context)
+					#if( $canviewclipboards )
+					$pages.include("$cataloghome/results/navigate/select/select.html", $context)
+					#end
+					$pages.include("/${applicationid}/tools/lightbox/index.html", $context)
+					#end
+				</td>				
+				<td align="right" style="padding-right: 20px;">
+					$pages.include("${cataloghome}/results/navigate/pages.html", $context)
+				</td>
+
+			</tr>
+		</table>
+	</div><!-- end #catalogheader -->
+#end

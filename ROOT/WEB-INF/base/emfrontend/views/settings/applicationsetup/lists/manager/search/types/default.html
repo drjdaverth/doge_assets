@@ -1,0 +1,19 @@
+#set( $inputname = "${detail.id}" )
+#if( $usestartswith)
+	<input name="operation" value="startswith" type="hidden">						
+#else
+	<input name="operation" value="matches" type="hidden">
+#end
+
+#if (!$inputed)
+#if( $hits && !$query)
+	#set( $query =  $hits.searchQuery )
+#end
+#if( $query )	
+	#set( $inputed = $query.getInput($detail.id) )
+#else
+	#set( $inputed = $context.getRequestParameter("${detail.id}.value") )
+#end
+#end
+<input name="${inputname}.value" value="$!inputed"	size="15" type="text">
+<br>		

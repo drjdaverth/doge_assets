@@ -1,0 +1,12 @@
+<page>
+	<path-action name="UpdateModule.createNewApp" />
+	<property name='text.Your New Application Is Ready'>
+        	<value>Your New Application Is Ready</value>
+		<value locale="es">Su nueva Aplicación está Lista</value>
+    	</property>
+	<property name='text.Try out the application at this server location'>
+        	<value>Try out the application at this server location</value>
+		<value locale="es">Pruebe la aplicación en esta ubicación del servidor</value>
+    	</property>
+
+</page>	

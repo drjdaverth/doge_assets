@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <path-action name="User.findAllGroups" alltypes="true"/>
+  <layout />
+  <inner-layout/>
+  <generator name="velocityGenerator" />
+  <property name="hitsname">datalist</property>
+  
+</page>

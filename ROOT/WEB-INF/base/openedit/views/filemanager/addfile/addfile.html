@@ -1,0 +1,31 @@
+#set ( $editingPath = $context.getRequestParameter( 'path' ) )
+#if( $editingPath.indexOf(".") > -1 )
+	#set ( $slashPos = $editingPath.lastIndexOf( '/' ))
+	#if ( $slashPos != -1 )
+		#set( $basePath = $editingPath.substring( 0, $slashPos) )
+	#else
+		#set( $basePath = "" )
+	#end
+	
+#else
+		#set( $basePath = "$!{editingPath}" )
+#end
+
+#if (!$basePath.endsWith("/"))
+	#set( $basePath = "$basePath/" )
+#end
+<form class="ajaxform" targetdiv="oetabarea" method="post" action="$home${page.filerootpath}/addfile/addfile-finish.html">
+	<input type="hidden" name="param-part" value="req.path" />
+	<input type="hidden" name="param-name" value="newpath" />
+	<input type="hidden" name="path" value="$basePath"/>
+	
+	<h2>[[CREATE FILE]]</h2>
+
+<p>
+        <description>[[Enter the name of the file to create]]: 
+        </description>
+        <input type="text" name="newname" size="50" value="">
+		
+		<input type="submit" value="[[Add]]"/>
+</p>
+</form>

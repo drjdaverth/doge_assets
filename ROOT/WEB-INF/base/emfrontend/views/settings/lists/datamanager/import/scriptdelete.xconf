@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+<path-action name="DataImportModule.deleteScript"/>
+<path-action name="DataImportModule.listImportScripts"/>
+
+</page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="sectiontitle">
+    <value>Libraries</value>
+  </property>
+	<property name="tab">asseteditorlibraries</property>
+  	<property name="assettab">asseteditorlibraries</property>
+  	
+</page>

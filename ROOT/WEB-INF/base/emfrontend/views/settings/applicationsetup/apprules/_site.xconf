@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="permissiontype">permissionsapp</property>
+  <property name="permissionrootpath">/${applicationid}/views/settings/applicationsetup/apprules/xml</property>
+  <property name="editPath">/${applicationid}/_site.xconf</property>
+  <property name="tab">permissions</property>
+  <property name="subtab">apprules</property>
+  
+</page>

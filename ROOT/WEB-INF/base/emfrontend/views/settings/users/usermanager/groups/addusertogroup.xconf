@@ -1,0 +1,4 @@
+<page>
+	<page-action name="User.addUsersToGroup"/>
+	<property name="oemaxlevel">1</property>
+</page>

@@ -1,0 +1,20 @@
+#if( $added )
+	Thank You. You have been added.
+#else
+
+<p>Please sign up for our newsletter.</p>
+<form name="emailsignup" method="post" >
+	
+	Email: <input type="text" size="30" name='email' value="$!context.getParam("email")" /> $!errors.get("email")
+
+ #if( !$user && !$answer )
+ 	<br>
+User test: $question.description <input type="text" name="answerid" size=2 />$!errors.get("answerid")
+$!oe-error $!error
+#end
+<br>
+	<input type="submit" value="add" />
+	
+</form>
+
+#end

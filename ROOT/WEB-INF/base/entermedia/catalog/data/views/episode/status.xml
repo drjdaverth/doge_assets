@@ -1,0 +1,10 @@
+
+<properties>
+  <property id="id" datatype="number" index="true" stored="true">Id</property>
+  <property id="episodejobid" editable="true" list="true" index="true" stored="true">Settings</property>
+  <property id="episodesettingspath" editable="true" list="true" index="true" stored="true">Settings</property>
+  <property id="episodestatus" editable="true" list="true" index="true" stored="true">Status</property>
+  <property id="episodeprogress" editable="true" list="true" index="true" stored="true">Progress</property>
+  <property id="episodelastchecked" editable="true" datatype="date" dateformat="yyMMddHHmmssZ" >Last Checked</property>
+  <property id="assetid" editable="true" index="true" stored="true">Asset ID</property>
+</properties>

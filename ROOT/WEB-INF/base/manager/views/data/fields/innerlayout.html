@@ -1,0 +1,38 @@
+#set($detailid = $context.getRequestParameter("id"))
+
+<div class="subcolumns">
+          <div class="c33l">
+            <div class="subcl">
+<br>
+<br><br><br>
+
+</div>
+</div>
+
+</div>
+          </div>
+          <div class="c66r">
+            <div class="subcr" >
+            
+$pages.includeContent()
+
+
+<script type="text/javascript">
+	loadPropertyEdit = function() {
+		var selected = jQuery("select option:selected");
+		var selectedid = selected.val();
+		jQuery("#propertyedit").load("$home$apphome/views/settings/metadata/fields/index.html?id=" + selectedid + "&oemaxlevel=1&catalogid=${mediaarchive.getCatalogId()}&searchtype=${searcher.getSearchType()}");
+	}
+	
+	removeProperty = function() {
+		var selected = jQuery("select option:selected");
+		var selectedid = selected.val();
+		jQuery("#modifyproperties").load("$home$apphome/views/settings/metadata/fields/removeproperty.html?id=" + selectedid + "&catalogid=${mediaarchive.getCatalogId()}&searchtype=${searcher.getSearchType()}");
+	}
+	
+	createProperty = function() {
+		jQuery("#modifyproperties").load("$home$apphome/views/settings/metadata/fields/addproperty.html?catalogid=${mediaarchive.getCatalogId()}&searchtype=${searcher.getSearchType()}");
+	}
+</script>
+
+</div></div></div>

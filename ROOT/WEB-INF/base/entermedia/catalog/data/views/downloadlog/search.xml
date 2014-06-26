@@ -1,0 +1,5 @@
+<properties>
+	<property id="user"/>
+	<property id="result"/>
+	<property id="date"/>
+</properties>

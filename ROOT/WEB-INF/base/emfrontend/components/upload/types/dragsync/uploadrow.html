@@ -1,0 +1,80 @@
+#set( $id=$context.getRequestParameter("id")) 
+#set( $name=$context.getRequestParameter("name")) 
+#set( $localpath=$context.getRequestParameter("localpath")) 
+#set( $parentpath=$context.getRequestParameter("parentpath")) 
+#set( $size=$context.getRequestParameter("size"))
+<tr id="row$id">
+   
+#set( $defaultassettype = $mediaarchive.getDefaultAssetTypeForFile($name))
+
+#set( $searcher = $mediaarchive.getAssetSearcher() )
+$context.putPageValue("searcher",$searcher)
+
+
+#if( $asset.assettype && $archive.viewExists("asset/assettype/$defaultassettype}/multipleupload") )
+	#set( $view = "asset/assettype/$defaultassettype}/multipleupload")
+#else
+	#set( $view = "asset/assettype/default/multipleupload")
+#end
+$context.putPageValue("view",$view)
+
+#set($details =  $searcher.getDetailsForView($view, $user))
+<td>
+	<a href="#" onclick='removeUpload("$id")'><img	align="top" src="$home$themeprefix/images/navigation/deletesm.png" />
+			<input type="hidden" name="sourcepath"  id="${id}sourcepath" value="users/$!{user.userName}/$formatteddate/$name" />
+			<input type="hidden" name="name" value="$name" />
+			<input type="hidden" name="uploadprefix" value="${id}." />
+			<input type="hidden" name="localfilepath" value="$localpath" />
+			<input type="hidden" name="${id}.editstatus.value" value="1" />
+			<input type="hidden" name="parentpath" value="$parentpath" />
+			<input type="hidden" name="filesize" value="$size" />
+
+</td>
+<td valign="top">
+	<table>
+	<tr class="emsearchfieldrow">
+		<td valign="middle" class="emsearchfield" nowrap="true">
+			[[File Name]]
+		</td>
+		<td>$name</td>
+    </tr>		
+	#foreach($detail in $details)
+	<tr class="emsearchfieldrow">
+		<td valign="middle" class="emsearchfield" nowrap="true">
+			$!detail.getText($context) 
+		</td>
+		<td id="detail_${detail.id}" align="left" valign="middle" class="emsearchfieldvalue" nowrap >
+			#set( $viewtype = false )
+			#set( $viewtype = $detail.viewType )
+			#if (!$viewtype)
+				#set ($viewtype = $detail.dataType)
+			#end
+			#if (!$viewtype)
+				#set ($viewtype = "default")
+			#end
+			#set( $value = false )
+			#if( $detail.id == "name" )
+				#set( $value = $name )
+			#elseif( $detail.id == "assettype" )
+				#set( $value = "$!{defaultassettype.id}" )
+			#elseif( $detail.id == "filesize" )
+				#set( $value = $size )
+			#end
+			$context.putPageValue("val",$value)
+			$context.putPageValue("value",$value)
+			$context.putPageValue("detail",$detail)
+			$context.putPageValue("detailprefix","${id}.")
+						
+			#if( $detail.isEditable() )
+				$pages.include("/${applicationid}/components/xml/types/${viewtype}.html", $context)
+			#else
+				$pages.include("/${applicationid}/components/xml/typesreadonly/${viewtype}.html", $context)
+			#end
+			
+		</td>
+	</tr>
+	#end
+	</table>
+</td>	
+</tr>
+

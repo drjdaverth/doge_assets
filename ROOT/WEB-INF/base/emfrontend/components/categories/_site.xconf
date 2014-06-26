@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<page>
+	<property name="subtab">assetcategories</property>  	 
+
+	<property name="iconwidth">16</property>
+	<inner-layout />
+		<layout />
+	<property name="iconhome">${themeprefix}/images/tree/select</property>
+</page>

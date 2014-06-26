@@ -1,0 +1,8 @@
+<page>
+	<path-action name="DataEditModule.loadViewTypes" />
+	<inner-layout>${dataroot}/innerlayout.html</inner-layout>
+
+	<property name="dataroot">/${applicationid}/views/settings/metadata/views</property>
+		<property name="subtab">views</property>
+	
+</page>

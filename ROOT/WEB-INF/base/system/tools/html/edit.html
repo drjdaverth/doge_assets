@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+#set ( $editPath = $editorSession.getEditPath() )
+#set ( $origURL = $editorSession.getOriginalUrl() )
+#set ( $parentName = $editorSession.getParentName() )
+
+$context.putPageValue("origURL",$origURL)
+$context.putPageValue("editPath",$editPath)
+$context.putPageValue("parentName",$parentName )
+	<head>
+		<title>$editPath - OpenEdit</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="$home/system/admin.css"/>
+	</head>
+<body marginwidth="0" marginheight="0" TOPMARGIN="0" LEFTMARGIN="0" RIGHTMARGIN="0" BOTTOMMARGIN="0" onUnload="checkSave()" >
+
+<form id="contentForm" name="contentForm" target="$parentName" method="post" action="$home/system/tools/html/save.html" onsubmit="updateOrig();" style="margin-bottom:0;">
+	<table width="100%" class="oeeditortoolbar" border="0" cellpadding="0" cellspacing="0" >
+	<tr>
+	<td >
+	<div class="imagebutton" id="save"><a href="javascript:save();"><img border=0 class="image" src="$home/system/images/toolbar/saveandclose.gif" title="[[Save and close]]" ></a></div>
+	</td>
+	<td style="padding-left: 4px; padding-right: 4px;"><img src="$home/system/images/toolbar/vbr.gif" width="2" height="19" /></td>
+	<td> <input type="text" size="35" name="message" class="oemessageinput" value="reason for your change" onclick="if ( value=='reason for your change') value='';" /> </td>
+	<td style="padding-left: 4px; padding-right: 4px;"><img src="$home/system/images/toolbar/vbr.gif" width="2" height="19" /></td>
+#if( $user.hasPermission("oe.edit.editor.advanced") )
+	<td align="left" >
+	<div class="imagebutton" id="showCss" style="padding-top: 3px;"><a href="#" onclick="window.open('$home/system/tools/text/edit.html?editPath=/layout/_styles.css&origURL=$origURL&type=text&parentName=$parentName', 'texteditor','alwaysRaised=yes,menubar=no,resizable=yes,top=100,left=130,width=830,height=550' );return false;"><img border=0 class="image" src="$home/system/images/toolbar/css.gif" alt="_styles.css" title="[[Edit CSS]]"></a></div>
+	</td> 
+	<td align="left" >
+	<div class="imagebutton" id="showSettings" style="padding-top: 3px;"><a href="#" onclick="window.open('$home/system/tools/text/edit.html?editPath=/system/tools/html/styles.xml&origURL=$origURL&type=text&parentName=$parentName', 'texteditor','alwaysRaised=yes,menubar=no,resizable=yes,top=100,left=130,width=830,height=550' );return false;"><img border=0 class="image" src="$home/system/images/toolbar/xml.gif" alt="[[Editor Settings]]" title="[[Editor Settings]]"></a></div>
+	</td> 
+#end	
+	<td align="left" >
+	<div class="imagebutton" id="showHelp" ><a href="http://www.openedit.org/contentmanagement/Html_Editor.html" target="_newwindow"><img border=0 class="image" src="$home/system/images/toolbar/helpsm.gif" alt="[[Help]]" title="[[Help]]"></a></div>
+	</td> 
+	<td align="right" width="100%" ><div id="marketing-logo-editor"><img src="$home/system/images/editor_logo.gif" /></div></td>
+	</tr>
+	</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+<tr><td width="100%" background="$home/system/images/b-shadow.gif"><img border="0" src="$home/system/images/b-shadow.gif"/></td></tr>	
+</table>
+
+$context.putPageValue("height","93%" )
+
+$pages.stream("./embedded.html", $context)
+</form>
+        <script type="text/javascript">        
+        	//fix onLoad
+			//			var oldLoad =         	
+        	if(typeof window.addEventListener != 'undefined')
+			{
+				//.. gecko, safari, konqueror and standard
+				window.addEventListener('load', initCheck, false);
+			}
+			else if(typeof window.attachEvent != 'undefined')
+			{
+				//.. win/ie
+				window.attachEvent('onload', initCheck);
+			}
+			function initCheck()
+			{
+				//this is not ready yet so...
+				window.setTimeout("loadedOk()",2000); 
+				window.setTimeout("checkForMod()",1000 * 60 * 15); 				
+			}
+			function loadedOk()
+			{
+				//For some reason this is not initied until later
+				var oEditor = FCKeditorAPI.GetInstance('content') ;
+				origSource = oEditor.GetXHTML(false);
+				//alert("original " + origSource);				
+				unsaved = true;
+			}
+			function checkForMod()
+			{
+				//Do not do this while they are in source view mode. Causes reloading of page
+				var oEditor = FCKeditorAPI.GetInstance('content') ;
+				if(  oEditor.EditMode  != 1 )
+				{
+					var newSource = oEditor.GetXHTML(false);
+					if ( origSource != newSource )
+					{
+						//var ok = confirm("[[auto save]]");
+						//if( ok )
+						//{	
+						//	var form = document.getElementById("contentForm");
+						//	form.submit();						
+						//}
+						//else
+						//{
+							document.title = "(Modified) $editPath - OpenEdit";
+							updateOrig();
+						//}
+					}
+					else
+					{
+						document.title = "$editPath - OpenEdit";
+					}
+				}
+				//window.setTimeout("checkForMod()",1000 * 60 * 15); 				
+			}
+		    var unsaved = false;
+			var origSource;
+		    
+			function checkSave()
+			{
+				if ( unsaved )
+				{
+					var oEditor = FCKeditorAPI.GetInstance('content') ;
+					var newSource = oEditor.GetXHTML(false);
+					if ( origSource != newSource )
+					{
+						var okToClose = confirm("[[changes]]");
+						if ( okToClose )
+						{
+							save();
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}			
+			function save()
+			{
+				unsaved = false;
+				var oEditor = FCKeditorAPI.GetInstance('content') ;
+				var form = document.getElementById("contentForm");
+				form.submit();
+				window.close();
+			}
+			function updateOrig()
+			{
+				var oEditor = FCKeditorAPI.GetInstance('content') ;
+				origSource = oEditor.GetXHTML(false);			
+			}
+		</script>
+	</body>
+</html>

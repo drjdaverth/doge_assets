@@ -1,0 +1,31 @@
+<div class="ui-widget emdetaileditorbox commentbox no-top-margin">
+    <div class="ui-widget-header">New Asset Type
+    </div>  
+    <div class="ui-widget-content" id="editlayout">
+<div id="editlayout">
+#set( $origURL = $context.getRequestParameter("origURL" ) )
+#set( $view = $context.findValue("editview") )
+$context.putPageValue("view", $view)
+
+<form id="dataeditor" name="dataeditor" method="post" action="$home$content.dataroot/edit/save.html" >
+	<input name="save" type="hidden" value="true" />
+	<input name="id" type="hidden" value="$!data.id" />
+	<input name="catalogid" type="hidden" value="$searcher.catalogId" />
+	<input name="searchtype" type="hidden" value="$searcher.searchType" />
+	<input name="origURL"  type="hidden" value="$!origURL" />
+$pages.include("/${applicationid}/components/xml/detaileditor.html", $context)
+
+<input class="btn" type="submit" value="Save" />
+<a class="btn red" href="./delete.html?searchtype=$searcher.searchType&id=$data.id">Delete</a>
+<div id="messagearea">$!message
+</div>
+</form>
+
+#if( $savedok && $origURL )
+	<a href="$origURL">[[Go Back]]</a>	
+#end
+
+
+</div>
+</div>
+</div>

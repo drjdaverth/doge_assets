@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                                                                                                                                   
+<page>
+	<property name="assetrootfolder">/${applicationid}/views/modules/asset/downloads/preview/crop</property>
+	<generator name="convertArchiveDocument"/>
+	<property name="crop">true</property>
+	<property name="prefwidth">110</property>
+	<property name="prefheight">62</property>
+	<property name="x1">0</property>
+	<property name="y1">0</property>
+	<property name="uselegacythumbimages">false</property>
+	<property name="sourcefile">image</property>
+</page>
+
+

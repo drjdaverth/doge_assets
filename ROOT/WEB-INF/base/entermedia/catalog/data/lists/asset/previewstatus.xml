@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties> 
+	<property id="0">Unknown</property>
+	<property id="1">Exif Stub Created</property>
+	<property id="mime">MIME Icon</property>
+	<property id="converting">Converting</property>
+	<property id="2">Conversions Complete</property>
+	<property id="3">Error</property>
+	<property id="generated">Generated (old)</property>
+</properties>

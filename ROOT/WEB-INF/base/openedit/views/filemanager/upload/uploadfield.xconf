@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+  	<layout/>
+  	<inner-layout/>
+	<property name='text.uploadfile'>
+        	<value>UPLOAD FILE</value>
+		<value locale="es">CARGAR ARCHIVO</value>
+    	</property>
+	<property name='text.unziponserver'>
+        	<value>Unzip On Server (replacing existing files)</value>
+		<value locale="es">Descomprimir En Servidor (reemplazando archivos existentes)</value>
+    	</property>
+	<property name='text.finish'>
+        	<value>Finish</value>
+		<value locale="es">Finalizar</value>
+    	</property>
+	<property name='text.pickadir'>
+        	<value>Pick A Dir</value>
+		<value locale="es">Escoja un Directorio</value>
+    	</property>
+	<property name='text.filetoupload'>
+        	<value>File to upload</value>
+		<value locale="es">Archivo a Cargar</value>
+    	</property>
+	<property name='text.howtoprocess'>
+        	<value>How to process .zip files after uploading?</value>
+		<value locale="es">¿Cómo procesar archivos .zip después de la carga?</value>
+    	</property>
+	<property name='text.filehandling'>
+        	<value>File Handling</value>
+		<value locale="es">Manejo de Archivos</value>
+    	</property>
+	<property name='text.selectdestination'>
+        	<value>Select the destination directory or path</value>
+		<value locale="es">Seleccione el directorio de destino o ruta</value>
+    	</property>
+	<property name='text.For zip files'>
+        	<value>For zip files</value>
+		<value locale="es">Para archivos zip</value>
+    	</property>
+	<property name='text.Unzip files after uploading'>
+        	<value>Unzip files after uploading</value>
+		<value locale="es">Descomprimir archivos luego de la carga</value>
+    	</property>
+
+</page>

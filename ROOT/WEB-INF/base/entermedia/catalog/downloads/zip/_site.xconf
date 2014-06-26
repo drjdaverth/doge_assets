@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                                                                                                                                   
+<page>
+	<property name="assetrootfolder">/${catalogid}/downloads/zip</property>
+	<generator name="downloadZipGenerator"/>
+	<property name="virtual">true</property>
+	<property name="sourcefile">original</property>
+</page>
+
+

@@ -1,0 +1,60 @@
+
+#foreach($term in $query.getTerms())
+	#set($detail = $term.getDetail())
+	<b>$!detail.getText($context):</b>
+	#if($detail.isList())
+		#set( $foundrow = $searcherManager.getListData($detail,$term.value)) 
+		#if( $foundrow )
+			$context.getText($foundrow.name)
+		#else
+			$!term.value
+		#end
+	#elseif ( $term.operation == "lessthannumber" )
+		[[less than]] $term.getValue()
+	#elseif ( $term.operation == "greaterthannumber" )
+		[[more than]]  $term.getValue()
+	#elseif ( $term.operation == "beforedate" )
+		[[before ]]  $term.getValue()
+	#elseif ( $term.operation == "afterdate" )
+		[[after]]  $term.getValue()
+	#else
+		$term.getValue()
+	#end
+	#if($velocityCount != $query.getTerms().size())
+		#if($query.isAndTogether())
+			[[and]]
+		#else
+			[[or]]
+		#end
+	#end
+	<br>
+#end
+#foreach( $child in $query.children )
+#foreach( $term in $child.getTerms() )
+	#if( $detail )
+	<b>$detail.getText($context):</b>
+	#end
+	#if($detail.isList())
+		#set( $foundrow = $searcherManager.getData($detail.getListCatalogId(),$detail.getListId(),$term.value)) 
+		#if( $foundrow )
+			$!foundrow.name	
+		#else
+			$term.value 
+		#end
+	#else
+		$term.getValue()
+	#end
+	#if($velocityCount != $child.getTerms().size())
+		#if($child.isAndTogether()) 
+			[[and]]
+		#else
+			[[or]]
+		#end
+	#end
+<br>
+#end
+#end
+
+#if($query.getCatalogs() && $query.getCatalogs().size() >0 )
+[[in]] $query.getCatalogs().size() [[catalogs]]
+#end

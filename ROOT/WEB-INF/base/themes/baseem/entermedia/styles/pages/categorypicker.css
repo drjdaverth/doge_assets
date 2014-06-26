@@ -1,0 +1,71 @@
+#emcategorypicker
+{
+padding-bottom: 14px;
+}
+
+#empickerbody
+{
+	width: 324px;
+
+}
+
+#empickerbody .dtree a
+{
+	color: #666666;
+	line-height: 18px;
+	
+}
+
+#empickerbody .emtreehover
+{
+	background-color: #333333;
+}
+
+#empickerbody .emtreehover .emnodeeditarea
+{
+	display:inline;
+}
+#empickerbody .emnodeeditarea
+{
+	display: none;
+	float: right; 
+	padding-right: 10px;
+}
+
+
+#empickerbody #emnodeeditor
+{
+	background-color: #333333;
+	color: white;
+} 
+#empickerbody #emnodeeditordata
+{
+	padding: 4px 40px 4px 0px;
+} 
+
+#empickerbody .emtreehover a
+{
+	color: #666666;
+}
+
+#empickerbody .treerowinside
+{
+
+	margin-left: 15px;
+}
+
+
+#empickerbody .treerow a
+{
+	min-width: 50px;
+}
+#empickerbody .dtree {
+	white-space: nowrap;
+}
+#empickerbody .dtree img {
+	border: 0px;
+	vertical-align: top;
+}
+#empickerbody .dtree a {
+	text-decoration: none;
+}

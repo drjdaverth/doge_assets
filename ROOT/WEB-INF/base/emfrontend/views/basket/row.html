@@ -1,0 +1,45 @@
+<tr class="assetrow" id="assetrow_${assetid}" >
+	<td class="imagepad" align="center">
+		#set( $catalogid = $asset.catalogId )
+	   	#set( $mediaarchive = $enterMedia.getMediaArchive($catalogid) )
+	   	#set( $sourcepath = $asset.sourcePath )
+	   	#set( $assetpath = $mediaarchive.getLinkToAssetViewer($sourcepath) )
+		#set( $thumbend = $mediaarchive.getLinkToSize($sourcepath, "thumb") )
+		#set( $medend = $mediaarchive.getLinkToSize($sourcepath, "medium") )
+		#set( $tsize = "$home$thumbend" )
+		#set( $msize = "$home$medend" )
+		
+		#if( $asset.name )
+      		#set( $name = $asset.name )
+      	#elseif ( $asset.title )
+      		#set( $name = $asset.title )
+      	#else
+      		#set( $name = "(No name)" )
+      	#end
+		
+		#if( $parenthits )
+			#set( $rootid = $parenthits.sessionId )
+		#else
+			#set( $rootid = $hits.sessionId )
+		#end
+		#set( $click = "$home$apphome/views/assetdialog/index.html?width=600&height=500&sourcepath=${asset.sourcepath}&hitssessionid=$rootid" )
+	
+		<a href="$click" class="emdialog" alt="$asset.name" name="$asset.name" style="text-decoration: none;">
+			#set( $type = $mediaarchive.getMediaRenderType($asset.fileFormat))
+			$context.putPageValue("cell", $asset)
+			$context.putPageValue("showdetails", "false")
+			$pages.include("${apphome}/components/results/thumbnails/${type}.html", $context)
+		</a>
+		</td>
+		<td>
+		<span style="font-weight: bold;">[[Name]]:</span> $name
+		
+	</td>
+	<td>
+		<button onclick='removeRow("$asset.sourcepath");' >[[Remove]]</button>
+	</td>
+ </tr>	  
+
+  
+ 
+   

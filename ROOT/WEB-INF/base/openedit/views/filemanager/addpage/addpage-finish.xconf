@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<page>
+	<page-action name="Page.copyPage" />
+	<page-action name="Page.jumpToPage" />
+
+	<property name='text.Page has been created'>
+        <value>The page has been created</value>
+        <value loacle="es">La página ha sido creada</value>
+    </property>
+	<property name='text.fileexists'>
+        <value>That file already exists.</value>
+        <value locale="es">Ya existe el archivo.</value>
+    </property>
+	<property name='text.view'>
+        <value>VIEW</value>
+        <value locale="es">VISTA</value>
+    </property>
+</page>

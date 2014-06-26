@@ -1,0 +1,7 @@
+<page>
+	<inner-layout>/${applicationid}/views/settings/modules/asset/assettypes/innerlayout.html</inner-layout>
+	<property name="subtab">assettypes</property>
+	<property name="searchtype">assettype</property>
+	<property name="dataroot">/${applicationid}/views/settings/modules/asset/assettypes/</property>
+	<property name="tab">assettypes</property>
+</page>

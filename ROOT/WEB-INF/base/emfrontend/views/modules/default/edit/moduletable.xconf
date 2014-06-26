@@ -1,0 +1,3 @@
+<page>
+	<inner-layout>${searchhome}/edit/innerlayout.html</inner-layout>
+</page>

@@ -1,0 +1,3 @@
+<page>
+	<inner-layout>${themeprefix}/layouts/settingssubtablayout.html</inner-layout>
+</page>

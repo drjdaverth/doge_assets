@@ -1,0 +1,33 @@
+<page>
+	<property name='text.revisionsfor'>
+		<value>REVISIONS FOR</value>
+	</property>
+	<property name='text.version'>
+		<value>Version</value>
+	</property>
+	<property name='text.close'>
+		<value>Close</value>
+	</property>
+	<property name='text.showcomparison'>
+		<value>Compare Draft</value>
+	</property>
+	<property name='text.nonversioning'>
+		<value>Non-versioning repository</value>
+	</property>
+	<property name='text.author'>
+		<value>Author</value>
+	</property>
+	<property name='text.message'>
+		<value>Message</value>
+	</property>
+	<property name='text.date'>
+		<value>Date</value>
+	</property>
+	<property name='text.deleteAll'>
+		<value>Delete All</value>
+	</property>
+	<property name='text.Are you sure you want to remove old versions?'>
+		<value>Are you sure you want to remove old versions?</value>
+		<value locale="es">¿Está seguro que desea eliminar las versiones antiguas?</value>
+	</property>
+</page>

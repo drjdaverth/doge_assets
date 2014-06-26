@@ -1,0 +1,29 @@
+      
+       	#set ($lastselected = $content.appmodule )
+
+		#set($module = $searcherManager.getData($catalogid, "module", $lastselected ) )
+
+       
+      <span class="site-title"><a href="$home$apphome/index.html">$module</a></span>
+      
+
+<span class="navlinks" style="position: relative;"> #if( $user )
+    #if( $canviewmyaccount ) <a href="$home$apphome/views/myaccount/myassets/index.html">My Account</a> |
+    #end <a href="$home$apphome/authentication/logout.html">Logout</a> #else <a href="$home$apphome/authentication/login.html">Login</a> #end
+
+    #if($canviewsettings)
+    | <a href="$home$apphome/views/settings/index.html">Settings</a> 
+    | <a href="$home/manager/views/catalogs/edit.html?appcatalogid=$catalogid">Manager</a> 
+    
+    <div class="select-dropdown-open down" style="position: relative; top: -2px; left: -0; margin: -5px; display: inline-block; width: 20px; height: 20px;"></div>
+    <ul id="top-bar-select" class="select-dropdown" style="display: none;">
+		#set( $sitesearcher = $searcherManager.getSearcher($catalogid,"app") )
+		#set( $sites = $sitesearcher.getAllHits($context) )
+		#foreach( $site in $sites)
+			<li ><a href="$site.deploypath">$site <span>($site.deploypath)</span></a></li>
+		#end
+    </ul> 
+    #end 
+ </span>
+
+

@@ -1,0 +1,5 @@
+<page>
+
+	<property name="packageroot">${dataroot}/import/scripts</property>
+
+</page>

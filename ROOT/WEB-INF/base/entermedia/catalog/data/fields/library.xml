@@ -1,0 +1,22 @@
+
+<properties beanname="dataSearcher" prefix="library">
+  <property id="id" index="true" editable="true"  stored="true">Id</property>
+  <property id="name" editable="true" sortable="true"  index="true" stored="true">Name</property>
+  <property id="description">Description</property>
+  <property id="folder" editable="true" index="true" stored="true" note="Relative Folder hotfolder/sub1/song123">Hot Folder Path</property>
+  <property id="giturl" editable="true" index="true" stored="true" note="ssh://servername/vol1/git/song123.git">Git URL</property>
+
+  <property id="division" type="list" viewtype="list" editable="true" index="true"  sort="name" stored="true" >Division</property>
+  <!--  property id="gitprojectname" editable="true" index="true" stored="true" note="Just the name">Git Project Name</property  -->
+  <property id="startdate" index="true" stored="true" editable="true" sortable="true" type="date" viewtype="date" searchtype="library" internalfield="false" datatype="date">Start Date</property>
+  <property id="projectstatus" index="true" stored="true" editable="true" type="list" viewtype="list" searchtype="library" internalfield="false" datatype="list">Project Status</property>
+  <property id="url" index="true" stored="true" editable="true" searchtype="library">URL</property>
+  <property id="projecttype" index="true" stored="true" editable="true" type="list" viewtype="list" searchtype="library" internalfield="false" datatype="list">Project Type</property>
+  <property id="projectdescription" index="true" stored="true" editable="true" viewtype="html" searchtype="library" internalfield="false">Project Description</property>
+  <property id="duedate" index="true" stored="true" editable="true" type="list" viewtype="list" searchtype="library" internalfield="false" datatype="list">Due Date</property>
+  <property id="thumbnail" index="true" stored="true" editable="true" type="list" viewtype="asset" searchtype="library" internalfield="false" listid="assetid" datatype="list">Thumbnail</property>
+  
+  
+  
+  
+</properties>

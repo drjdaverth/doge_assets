@@ -1,0 +1,54 @@
+#set( $dataroot = $context.findValue("dataroot"))
+
+<div id="scriptlist">
+<h3 style="margin: 20px 0 5px 0;">Choose Import Script</h3>
+<div>
+	<select style="margin: 8px 5px 20px 0;" name="scriptname" onchange='loadscript(this.value)'>
+	##loop over scripts
+		<option value="none">- Choose Import Script -</option>
+		#foreach( $script in $scripts)
+			<option value="$script.getName()">$script.getName()</option>
+			
+		#end
+	</select> 
+	<a id="editlink" class="btn ajax" targetdivinner="scriptarea" style="display:none" href="">Edit</a>
+</div>
+<div id="scriptarea">
+
+</div>
+
+
+<script>
+
+$('#editlink').click(function()
+{
+	$('#submit').hide();
+	$('#scriptarea').show();
+})
+
+
+loadscript = function(inValue) 
+{	
+	$('#scriptarea').empty();
+	if( inValue == "new")
+	{
+		$("#submit").hide();
+		$("#editlink").hide();
+		$("#scriptarea").load("$home$dataroot/import/scripteditor.html?oemaxlevel=1&filename=" + inValue);
+		
+	}	
+	else if (inValue == "none" ) 
+	{
+		$("#submit").hide();
+		$("#editlink").hide();
+	}
+	else
+	{
+		$("#editlink").attr("href","$home$dataroot/import/scripteditor.html?oemaxlevel=1&filename=" + inValue).show();
+		$("#submit").show()
+	}	
+}
+
+</script>
+
+</div>

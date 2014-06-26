@@ -1,0 +1,61 @@
+#set($query = $hits.getSearchQuery())
+[[Search Results for: ]]
+#foreach($term in $query.getTerms())
+    #set($detail = $term.getDetail())
+    #if($detail.getText())
+        <b>$detail.getText() : </b>
+    #else
+        <b>$detail :</b>
+    #end 
+    #if($detail.isList())
+        #set( $foundrow = $searcherManager.getListData($detail,$term.value)) 
+        #if( $foundrow )
+            $foundrow.name  
+        #else
+            $!term.value 
+        #end
+    #else
+        $term.getValue()
+    #end
+    #if($velocityCount != $query.getTerms().size())
+        #if($query.isAndTogether())
+            [[and]]
+        #else
+            [[or]]
+        #end
+    #end
+#end
+#foreach( $child in $query.children )
+#foreach( $term in $child.getTerms() )
+    #set($detail = $term.getDetail())
+    <b>$detail.getText() : </b> 
+    #if($detail.isList())
+        #set( $foundrow = $searcherManager.getData($detail.getListCatalogId(),$detail.getListId(),$term.value)) 
+        #if( $foundrow )
+            $!foundrow.name 
+        #else
+            $term.value 
+        #end
+    #else
+        $term.getValue()
+    #end
+    #if($velocityCount != $child.getTerms().size())
+        #if($child.isAndTogether()) 
+            [[and]]
+        #else
+            [[or]]
+        #end
+    #end
+#end
+#end
+
+
+
+#if($query.getCatalogs() && $query.getCatalogs().size() >0 )
+in
+#set( $catsearcher = $searcherManager.getSearcher(${applicationid}, "catalogs") )
+ #foreach($catalogid in $query.getCatalogs())
+  #set( $item = $catsearcher.searchById($catalogid) )
+   $item #if($velocityCount != $query.getCatalogs().size()) and #end
+ #end
+#end

@@ -1,0 +1,9 @@
+<page>
+	<path-action name="DataEditModule.loadData" >
+		<property name="searchtype">${appmodule}</property>
+	</path-action>
+
+	<property name="detailtab">${appmodule}git</property>
+	<property name="detailsubtab">${appmodule}git</property>
+
+</page>

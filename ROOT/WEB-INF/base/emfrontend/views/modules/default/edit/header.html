@@ -1,0 +1,69 @@
+#set($viewid = $context.getRequestParameter("viewid"))
+#set($viewpath = $context.getRequestParameter("viewpath"))
+#set( $moduleid = $context.findValue("module") )
+#set($searchtype = $context.getRequestParameter("searchtype"))
+#if( !$searchtype)
+	#set( $searchtype = $moduleid)
+#end
+<div id="default-top" class="clearfix" style="margin: -20px 0 20px 0; border-top: 1px solid #ddd;">
+    <!--  
+        <div class="thumbnail">
+            <img src="" style="width: 91px; height: 91px;" />
+        </div>
+        
+        <div class="main-info">
+            <div class="primary">
+                $firstName $lastname <span style="font-weight: normal; color: #999">($userid)</span>
+            </div>
+            <div class="secondary">
+                $role
+            </div>
+        </div>
+    -->
+<!-- 
+     <div class="main-info" style="padding-bottom: 30px;">
+        <div class="primary">
+           $!data.first_name $!data.last_name
+        </div>
+        <div class="secondary">
+           #if ($data.company)
+             $searcherManager.getData($catalogid, "company", $data.company)
+           #end
+        </div>
+    </div>
+-->
+    #set($module = $searcherManager.getData($catalogid, "module", $moduleid ) )
+	#set($searcher = $searcherManager.getSearcher($catalogid,$module))
+	#set($details = $searcher.getDetailsForView("${moduleid}/${module.id}headerdetail"))
+    
+    
+    
+      <div class="main-info" style="padding-bottom: 20px; margin-top: 20px;">
+      	#foreach($detail in $details)     	
+        	#set($val = $data.get($detail.id))
+        	
+        	#if($detail.isList())
+        	      #set($val = $searcherManager.getData($catalogid, "${detail.id}", $val).getName())
+            #end
+	        #if($velocityCount == 1)
+		        <div class="primary">
+		          $module / $!val
+		        </div>
+			#else        
+	        	<div class="secondary">
+	        		$!val         
+	        	</div>
+	   		 #end
+	   		 #set($val = "")
+	    #end
+      	</div>
+      	#if( $data && $data.getId().startsWith("multiedit:") && $hits )
+			<h3>Editing  $hits.getSelectionSize() records</h3>
+		#end	
+</div>
+
+<div class="editholder">
+              <img style="padding-left: 15px;" src="$apphome/theme/images/toggle.png" class="sidetoggle" data-target="left-col">
+
+<a id="editboxlink" class="ir" href="$home$apphome/views/settings/modules/$moduleid/metadata/views/index.html?viewid=${viewid}&viewpath=${viewpath}&assettype=$!type&searchtype=$searchtype">Edit</a>
+</div>

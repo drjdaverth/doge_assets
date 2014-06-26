@@ -1,0 +1,4 @@
+<page>
+	<inner-layout>${filerootpath}/treelayout.html</inner-layout>
+
+	</page>

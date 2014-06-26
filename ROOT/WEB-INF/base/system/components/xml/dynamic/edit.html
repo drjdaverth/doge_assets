@@ -1,0 +1,11 @@
+#set( $xmledithome = $context.getPageProperty("xmledithome"))
+<form name="${detail.id}_save" id="${detail.id}_save" action="$home$xmledithome/dynamic/saveupdate.html?$context.rewriteParams()"/>
+$pages.include("$xmledithome/detailedit.html", $context)
+
+<input type="hidden" value="$data.id" name="id"/>##productid, userid, etc
+<input type="hidden" value="$searcher.getCatalogId()" name="catalogid"/>##archive, etc
+<input type="hidden" value="$searcher.getSearchType()" name="searchtype"/>##productid, userid, etc
+<input type="hidden" value="true" name="save"/>
+<input type="button" value="Cancel" onclick="${detail.id}_cancel()"/>
+<input type="button" value="Save" onclick="${detail.id}_submitSave('row_${detail.id}','${detail.id}_save');"/>
+</form>

@@ -1,0 +1,6 @@
+<page>
+	<layout/>
+			<inner-layout>/${themeprefix}/layouts/largearea.html</inner-layout>
+	
+</page>
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="fallbackdirectory">/WEB-INF/base/emfrontend</property>
+
+	<property name="filerootpath">/${applicationid}/views/filemanager</property>
+
+  <property name="applicationid">/${module}</property>
+  <property name="themeprefix">/${applicationid}/theme</property>
+
+  <path-action name="MediaArchiveModule.loadApplicationId" />
+  <path-action name="ProfileModule.loadUserProfile" />
+  <path-action alltypes="true" name="MediaArchiveModule.getMediaArchive"/>
+
+	<path-action name="Admin.loadPermissions"/>
+	<path-action name="Admin.allowViewing" />
+
+	<path-action bean="searcherManager" name="PageValue.loadPageVariable" allowduplicates="true" />
+	<path-action bean="userManager" name="PageValue.loadPageVariable" allowduplicates="true" />
+
+	<path-action name="TranslationModule.loadBrowserLanguage" />
+
+	<permission name="view">
+		<or>
+			<group id="administrators"/>
+		</or>
+	</permission>
+
+	<permission name="edit"> 
+			<not />
+	</permission>
+
+  <property name="allowspecifiedpath">true</property>
+
+  <property name="title">OpenEdit</property>
+  <property name="applicationid">openedit</property>
+  <property name="catalogid">media/catalogs/public</property>
+  <property name="parentapplicationid">media</property>
+<property name="jquery-theme">ui-lightness</property>
+  <property name="mastergroup">video</property>
+  	<property name="showaddselections">true</property>
+	<property name="showremoveselections">false</property>
+	<property name="editable">false</property>
+	<!--
+  <generator mimetypes="text/html" name="velocityGenerator"/>
+	-->
+  <property name="section" >activity</property>
+  
+	<path-action name="MediaSearchModule.searchCategories" cancel="true"/>
+
+	
+	
+	<!-- style id="openedit" href="/openedit/components/html/theme/style.css" / -->
+	<style id="tools" href="${themeprefix}/styles/filemanager/tools.css" />
+
+	<property name="login-path">/${applicationid}/authentication/login.html</property>
+
+	<path-action bean="pageManager" name="PageValue.loadPageVariable" allowduplicates="true" />
+
+	
+	
+	 <script id="jquery" src="/${applicationid}/bootstrap/js/jquery.js" />
+ <script id="bootstrap" src="/${applicationid}/bootstrap/js/bootstrap.js" />
+ <script id="bootstrap-select" src="/${applicationid}/bootstrap/select/bootstrap-select.min.js" />
+ <script id="bootstrap-validate" src="/${applicationid}/bootstrap/validate/jquery.validate.min.js" />
+ <script id="bootstrap-validation" src="/${applicationid}/bootstrap/validation/jqBootstrapValidation.js" />
+ <style id="bootstrap" href='/${applicationid}/bootstrap/css/bootstrap.min.css' />
+ <style id="bootstrap-theme" href='/${applicationid}/bootstrap/css/bootstrap-theme.css' />
+ <style id="bootstrap-select" href='/${applicationid}/bootstrap/select/bootstrap-select.min.css' />
+ <style id="bootstrap-validate" href='/${applicationid}/bootstrap/validate/jquery.validate.css' />
+	 <style id="ortree" href='/${applicationid}/bootstrap/validate/jquery.validate.css' />
+	
+	  	<inner-layout>${themeprefix}/layouts/application.html</inner-layout>	
+
+<style id="openedit-tree" href="/${applicationid}/theme/styles/dtree.css"/>
+	<script id="entermedia" src="/${applicationid}/components/javascript/tabs.js">     </script>
+
+
+</page>

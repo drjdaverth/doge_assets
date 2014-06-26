@@ -1,0 +1,13 @@
+<div style="text-align: center;">
+	<img id="pdfpreview" src="$home/${applicationid}/views/modules/asset/downloads/preview/cache/${asset.sourcepath}/preview.jpg" alt="[[Preview Image]]"/>
+</div>
+#set($pdfpages = $numberutils.toInt($asset.pages))
+#if( $pdfpages > 1 )
+	<input type="hidden" name="field" value="currentpage"/>
+	Jump To Page:
+	<select name="currentpage.value" onchange="document.getElementById('pdfpreview').src='$home/${applicationid}/views/modules/asset/downloads/preview/cache/${asset.sourcepath}/preview.jpg?pagenum='+this.value;">
+	#foreach( $pagenum in [1..$pdfpages] )
+		<option value="$pagenum">$pagenum</option>
+	#end
+	</select>
+#end

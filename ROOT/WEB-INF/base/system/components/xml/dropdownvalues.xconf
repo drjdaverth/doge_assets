@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	
+	<property name="editable">false</property>
+	<page-action name="PageValue.loadPageVariable"  bean="searcherManager" />
+	<inner-layout/>
+	<layout/>
+</page>

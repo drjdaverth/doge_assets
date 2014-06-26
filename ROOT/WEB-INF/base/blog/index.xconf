@@ -1,0 +1,5 @@
+<page>
+	<page-action name="BlogSearch.searchBlogEntries" />
+	<property name ="showcount">5</property>
+	<property name ="randomposting">false</property>
+</page>

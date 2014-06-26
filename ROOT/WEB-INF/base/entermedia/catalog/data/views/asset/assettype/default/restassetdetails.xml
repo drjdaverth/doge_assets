@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties usagelabel="REST API Asset details">
+  <property id="id" />
+  <property id="sourcepath" />
+  <property id="assettitle" />
+  <property id="longcaption" />
+  <property id="importstatus"/>
+  <property id="editstatus"/>
+
+  <property id="name" editable="true"/>
+  <property id="height"/>
+  <property id="width"/>
+  <property id="colortype" />
+  <property id="assetcreationdate"/>
+  <property id="assetmodificationdate"/>
+  <property id="mediatype" />
+  <property id="primarymarketsegment"/>
+  <property id="secondarymarketsegment"/>
+  <property id="language"/>
+  <property id="scope"/>
+  <property id="usedby"/>
+  <property id="purpose"/>
+  <property id="associatedprogram"/>
+  <property id="originalrequestfrom"/>
+  <property id="whorequested"/>
+  <property id="datatype"/>
+  <property id="imageorientation"/>
+  <property id="length"/>
+  <property id="framerate"/>
+  <property id="xresolution"/>
+  <property id="yresolution"/>
+  
+  <property id="royaltyfree"/>
+  <property id="emotion"/>
+</properties>

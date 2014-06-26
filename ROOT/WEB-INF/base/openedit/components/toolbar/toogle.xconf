@@ -1,0 +1,4 @@
+<page>
+	<path-action name="Admin.toogleAdminToolbar" />
+	<property name="virtual">true</property>
+</page>

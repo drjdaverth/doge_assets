@@ -1,0 +1,38 @@
+<page>
+    	<property name='text.Schedule File or Directory Copy'>
+        	<value>Schedule File or Directory Copy</value>
+		<value locale="es">Programar la Copia de un Archivo o Directorio</value>
+    	</property>
+    	<property name='text.Input the date of the copy, and the from and to files'>
+        	<value>Input the date of the copy, and the from and to files</value>
+		<value locale="es">Ingrese la fecha de la copia, y los archivos de origen y destino</value>
+    	</property>
+    	<property name='text.Path'>
+        	<value>Path</value>
+		<value locale="es">Ruta</value>
+    	</property>
+    	<property name='text.Pick A Directory'>
+        	<value>Pick A Directory</value>
+		<value locale="es">Escoja un Directorio</value>
+    	</property>
+    	<property name='text.When'>
+        	<value>When</value>
+		<value locale="es">Cuándo</value>
+    	</property>
+    	<property name='text.Pick a date'>
+        	<value>Pick a date</value>
+		<value locale="es">Escoja una fecha</value>
+    	</property>
+    	<property name='text.To'>
+        	<value>To</value>
+		<value locale="es">Hacia</value>
+    	</property>
+    	<property name='text.Description'>
+        	<value>Description</value>
+		<value locale="es">Descripción</value>
+    	</property>
+    	<property name='text.Submit'>
+        	<value>Submit</value>
+		<value locale="es">Enviar</value>
+    	</property>
+</page>

@@ -1,0 +1,64 @@
+import java.io.*;
+import java.util.Iterator;
+import org.openedit.entermedia.util.*;
+import org.openedit.*;
+import com.openedit.page.*;
+import org.openedit.entermedia.*;
+
+String path = context.getRequestParameter("path");
+
+Page input = pageManager.getPage(path);
+
+if ( input.exists() )
+{
+	log.info( "Starting import..." );
+	ImportFile file = new ImportFile( '	' );
+	file.read( input.getReader() );
+	int processed = 0, skipped = 0, added = 0;
+	Row row = null;
+	while ( ( row = file.getNextRow() ) != null )
+	{
+		processed++;
+		//CategoryId	CategoryName	ParentCategoryId
+		String catid = row.get( "CategoryId" );
+		String categoryName = row.get( "CategoryName" );
+		Category category = null;
+		if ( catid == null || "".equals( catid.trim() ) )
+		{
+			skipped++;
+			continue;
+		}
+		category = mediaarchive.getCategory( catid );
+		if ( category == null )
+		{
+			added++;
+			category = new Category( catid, categoryName );
+			category = mediaarchive.getCategoryArchive().addChild( category );
+		}
+		else
+		{
+			category.setName( categoryName );
+		}
+		mediaarchive.getCategoryArchive().cacheCategory(category);
+
+		String parentid = row.get( "ParentCategoryId" );
+
+		if ( parentid != null && !"".equals( parentid.trim() ) )
+		{
+			Category parentCategory = mediaarchive.getCategory( parentid );
+			if ( parentCategory == null )
+			{
+				log.error(parentid + " parent not defined, invalid import");
+				return;
+			}
+			else
+			{
+				parentCategory.addChild( category );
+			}
+		}
+	}
+	mediaarchive.getCategoryArchive().saveAll();
+	log.info( "Processed " + processed + " categories" );
+	log.info( "Skipped " + skipped + " categories" );
+	log.info( "Added " + added + " new categories" );
+}

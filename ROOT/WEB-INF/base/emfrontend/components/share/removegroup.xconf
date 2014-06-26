@@ -1,0 +1,4 @@
+<page>
+	<inner-layout></inner-layout>
+	<path-action name="AssetControlModule.revokeGroupAccess" />
+</page>

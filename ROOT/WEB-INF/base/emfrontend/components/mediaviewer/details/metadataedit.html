@@ -1,0 +1,56 @@
+<div id="emdataeditor">
+#set($viewsearch = $searcherManager.getSearcher("$catalogid", "assetviews"))
+
+#set($views = $viewsearch.fieldSearch("userdefined","true","ordering" )
+
+#set($searcher = $mediaarchive.getAssetSearcher())
+#set($sourcepath = $context.getRequestParameter("sourcepath"))
+#set($asset = $mediaarchive.getAssetBySourcePath($sourcepath))
+
+#set ($isediting = ($context.getRequestParameter("edit") == "true") )
+#if ($caneditasset && $isediting == true)
+	#set ($detaileditsuffix = "")
+<div class=metaform>
+<form method="post" action="$home$apphome/views/assets/save.html">
+	<input type="hidden" name="catalogid" value="$searcher.catalogId"/>
+	<input type="hidden" name="sourcepath" value="${asset.sourcepath}"/>
+	<input type="hidden" name="save" value="true"/>	
+	<input type="hidden" name="id" value="$asset.id"/>
+#else
+	#set ($detaileditsuffix = "?detailsreadonly=true")
+#end
+
+#foreach( $target in $views)
+<h3>$target</h3>
+$context.putPageValue("searcher", $searcher)  
+#if($asset.assettype && $asset.assettype.length() > 0)
+$context.putPageValue("view", "asset/assettype/$asset.assettype/$target.id")
+#else
+
+$context.putPageValue("view", "assettype/default/$target.id")
+
+#end 
+$context.putPageValue("data", $asset)
+$pages.include("$apphome/components/xml/detaileditor.html$detaileditsuffix", $context)
+#end
+<br/>
+
+#if ($isediting == true)
+<p>
+	<input type="submit" value="Save"/> &nbsp; <a class="ajax" targetdiv="emdataeditor" href="$home$apphome/components/mediaviewer/details/index.html?sourcepath=$asset.sourcepath&hitssessionid=$hits.sessionId&oemaxlevel=1">cancel</a>
+</p>
+
+</form>
+#end
+#if( $caneditasset )
+<ul class="embuttons">
+<li>
+	#if ($isediting)
+		
+	#else
+		<a href="$home$apphome/views/assets/index.html?sourcepath=${asset.sourcepath}&edit=true"><span>Edit</span></a>
+	#end
+</li>	
+</ul>
+#end	
+</div></div>

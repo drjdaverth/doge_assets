@@ -1,0 +1,84 @@
+
+#set( $tab = $context.findValue("tab") )
+
+<div class="subcolumns">
+          <div class="c25l" id="left-col">
+          	
+     		#set ($lastselected = $content.module )
+ 			#if(!$lastselected)
+ 				#set($lastselected = $userprofile.last_selected_module )
+ 			#end
+			#set($module = $searcherManager.getData($catalogid, "module", $lastselected ) )
+			#if ( !$module)
+				#set ($module = $searcherManager.getData($catalogid, "module", "asset") )
+			#end
+			#set($userprofile.last_selected_module = $module.id)
+			#if($module)
+			<div class="ui-widget" >
+				<div  class="ui-widget-header">$module [[Settings]]</div>
+				<div  class="ui-widget-content categories-widget no-padding-for-real">
+					<ul id="settings-menu" class="sidebar-list">
+						#set( $searcher = $searcherManager.getSearcher($catalogid,"settingsmenumodule") )
+						#set( $query = $searcher.createSearchQuery() )
+						#set( $null = $query.addExact("type","toplevel") )
+						#set( $null = $query.addExact("module",$module.id) )
+						$!query.addSortBy("ordering")
+						#set($screens =  $searcher.search($query))
+						#foreach($screen in $screens)
+
+						<li id="$screen.id" #if( $tab == "$screen.id" ) class="current" #end>
+							<a href="$home$apphome${screen.path}">$screen</a>
+						</li>
+						#end
+					</ul>
+				</div>
+			</div>
+			#end
+			<div class="ui-widget" >
+				<div  class="ui-widget-header">System Settings</div>
+				<div  class="ui-widget-content categories-widget no-padding-for-real">
+					<ul id="settings-menu" class="sidebar-list">
+						
+						#set( $searcher = $searcherManager.getSearcher($catalogid,"settingsmenumodule") )
+						#set( $query = $searcher.createSearchQuery() )
+						#set( $null = $query.addExact("type","toplevel") )
+						#set( $null = $query.addExact("module","system") )						
+						$!query.addSortBy("ordering")
+						#foreach($screen in $searcher.search($query) )
+						<li id="$screen.id" #if( $tab == "$screen.id" ) class="current" #end>
+							<a href="$home$apphome${screen.path}">$screen</a>
+						</li>
+						#end
+					</ul>
+				</div>
+			</div>
+
+
+         </div>
+         <div id="right-col">	
+			<div class="liquid-sizer settings">
+				$pages.includeContent()
+			</div>
+         </div>
+</div>
+
+		<script type="text/javascript">
+		jQuery(document).ready(function () 
+		{ 
+			#set( $tab = $context.findValue("tab") )
+			#if( $tab )
+				jQuery("#$tab").attr("class", "current");
+			#end	
+//			jQuery("#eml-tabs a").live('click',function()
+			jQuery("#settings-menu a").click(function(){
+				jQuery("#settings-menu li").removeClass("current")
+				jQuery(this).parent().addClass("current");
+			});
+		});
+		
+		</script>
+		
+
+		
+		
+		

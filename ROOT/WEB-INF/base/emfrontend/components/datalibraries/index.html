@@ -1,0 +1,30 @@
+#set( $searchtype = $context.getRequestParamer("searchtype") )
+#set( $catalogid = $context.getRequestParamer("catalogid") )
+#set( $datacatalogid = $content.catalogid )
+
+
+<div id="emvalueeditor">
+	<div id="valuelist" class="emtable clearfix">
+	#set( $libraries = $data.getValues("libraries") )
+	#if( !$libraries || $libraries.size() == 0)
+		No additional libraries added 
+	#end
+	#foreach($library in $libraries)		  
+		 #set( $librarydata = $searcherManager.getData($datacatalogid,"library",$library) )
+		 #set( $division = $searcherManager.getData($datacatalogid,"division",$library.division ) )
+		 
+		<a class="row tag">$division / $librarydata</a>
+
+		#if($caneditlibraryaccess)
+			<a style="display:inline;" class="ajax delete-row" targetdiv="emvalueeditor" href="$home$apphome/components/datalibraries/remove.html?fieldname=libraries&id=${data.id}&libraries.value=$library&searchtype=$searchtype&catalogid=$catalogid"></a>
+		#end
+		</a>
+	#end
+	</div>
+#if($caneditlibraryaccess)
+	<div id="valueadd" style="margin: 20px 0 10px 0;">
+	<a class="ajax btn small" targetdiv="valueadd" href="$home$apphome/components/datalibraries/add.html?oemaxlevel=1&id=${data.id}&searchtype=$searchtype&catalogid=$catalogid">[[Add Library]]</a>
+	</div>
+#end
+
+</div>

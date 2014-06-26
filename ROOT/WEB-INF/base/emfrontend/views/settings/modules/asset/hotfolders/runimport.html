@@ -1,0 +1,5 @@
+[[Import is complete. $numrecords records were added.]]
+
+#set ($catalogid = $context.getRequestParameter('catalogid'))
+#set ($args = "catalogid=$catalogid&searchtype=asset&hitssessionid=$hits.sessionId")
+$pages.include("/${catalogid}/results/catresults.html?$args", $context)

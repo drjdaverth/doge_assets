@@ -1,0 +1,29 @@
+#set ( $editPath = $editPage.path )
+
+#set ($mode = $user.get("oe.edit.mode"))
+#if($mode && $mode == "debug")
+<div class="openeditdebug" data-editpath="$editPath"> ##end div in footer
+
+#else
+
+<div class="openeditinline" data-editpath="$editPath"> ##end div in footer
+
+#end
+
+
+<div class="openedittoolbar"><div class="openedittoolbarcontent">
+	<a href="$home/openedit/components/html/edit/htmledit/index.html?editPath=$editPath&path=$editPath&width=1000&height=680&textheight=480px&origURL=$content.path"  >
+		<img border="0" src="$home/openedit/components/html/theme/images/seo.png" title="[[View]] $editPath" /></a>
+	<a class="oeinlineedit" href="$home/openedit/views/filemanager/showfile.html?path=$editPath&editPath=$editPath&textheight=600px&width=1000&height=680">
+		<img border="0" title="[[Inline Edit]]" src="$home/openedit/components/html/theme/images/htmledit.png"/></a>
+
+	#if( $editPage.isDraft() ) $pages.include("/openedit/components/html/workflow/approvetoolbar.html", $context) #end
+		
+##	#if($debugmode && $debugmode == "true")
+##		<a class="openeditdialog"  href="$home/openedit/views/filemanager/showfile.html?path=$editPage.getContentItem().getActualPath()&textheight=600px&width=1000&height=680">
+##		<img border="0" title="[[Base]] $editPath" src="$home/openedit/components/html/theme/images/seo.png"/></a>
+##	#end
+</div></div>
+<div class="openediteditcontent">
+
+

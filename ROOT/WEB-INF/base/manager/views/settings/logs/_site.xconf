@@ -1,0 +1,9 @@
+<page>
+	<property name="sectiontitle">
+    	<value>Data Logs</value>
+  	</property>
+	<property name="logroot">/${applicationid}/settings/logs</property>
+	<property name="defaultsort">date</property>
+	<property name="tab">datalogs</property>
+	<inner-layout>${themeprefix}/layouts/reportslayout.html</inner-layout>
+</page>

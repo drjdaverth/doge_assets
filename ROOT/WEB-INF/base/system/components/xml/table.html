@@ -1,0 +1,155 @@
+##Why is this here? Looks like a duplicate of types/table.html
+
+#set( $xmledithome = $context.getPageProperty("xmledithome"))
+
+#set( $searchtype = $context.getRequestParameter("searchtype")) ##jointable
+#set( $candelete = $context.getRequestParameter("candelete")) 
+
+
+#set( $viewid = $context.getRequestParameter("viewid"))
+#set( $viewpath = $context.getRequestParameter("viewpath"))
+#if( !$viewpath )
+	#set( $viewpath = $context.getRequestParameter("view"))
+#end
+#if( !$viewpath )
+	#set( $viewpath = $view)
+#end
+
+#set( $editpath = $context.getRequestParameter("editpath"))
+#set( $fieldexternalid = $context.getRequestParameter("fieldexternalid"))
+#set( $fieldexternalvalue = $context.getRequestParameter("fieldexternalvalue"))
+#set ($hitssessionid = $context.getRequestParameter("hitssessionid"))
+#set( $moduleid = $context.findValue("module") )
+
+#set ($catalogId = $context.getRequestParameter("catalogid") )
+			
+#set( $joinsearcher = $searcherManager.getSearcher($catalogId, $searchtype))
+#if(!$existingrecords)
+
+	##set ($existingrecords = $joinsearcher.fieldSearch($fieldexternalid,$fieldexternalvalue))
+	
+	#set ($query = $joinsearcher.createSearchQuery().append($fieldexternalid, $fieldexternalvalue) )
+	#set ( $sortby = $context.findValue("sortby"))
+	$!query.addSortBy($sortby)
+	#set( $existingrecords = $joinsearcher.search($query) )
+     
+	
+#end
+
+#set ($id = $context.getRequestParameter("id"))
+
+#set( $details = $joinsearcher.getDataProperties($viewpath,$user) )
+#set( $passalong = $context.getRequestParameter("passalong"))
+#set( $passalongdec = $url_util.decode($passalong) )
+#set( $passalong = $url_util.encode($passalongdec) )
+#set( $args = "id=$id&module=$moduleid&hitssessionid=$hitssessionid&catalogid=$catalogId&searchtype=$searchtype&fieldexternalid=$fieldexternalid&fieldexternalvalue=$fieldexternalvalue&candelete=$!candelete&viewpath=$viewpath&viewid=$viewid&editpath=$editpath#if( $passalong )&$passalongdec&passalong=$passalong#end")
+<div id="${searchtype}_table" class="tableholder">
+    
+#if($candelete != "false")
+<div id="emselectable" class="emselectable" data-view="$viewpath" data-searchtype="$searchtype" data-editpath="$home$editpath?$args&edit=true&oemaxlevel=1" data-targetdiv="${viewid}editor">
+#end
+
+#set($selectedid = $context.getRequestParameter("selectedid"))
+
+#if( $existingrecords && $existingrecords.size() > 0 )
+<table id="main-results-table" class="emdata striped greytxt table tbl-responsive"  data-hitssessionid="$!existingrecords.sessionId">
+	<thead>
+	<tr id="tableheader">
+	#foreach( $detail in $details )
+	<th class="sortable #if( $edit)editcolumnheader #end #if( $sortby.startsWith($detail.getId() ) ) currentsort #if( $sortby.endsWith("Up") ) up #else down #end #end" id="$detail.id">$detail.text</th>
+	#end
+	#if($candelete && $candelete == true && $showdelete == "true")
+	<th></th>
+	#end
+	</tr>
+	</thead>
+	<tbody>
+	#foreach ( $hit in $existingrecords )
+		<tr #if($candelete != "false") rowid="$hit.id" #end #if($selectedid == $hit.id) class="emhighlight" #end>
+		#foreach( $detail in $details )
+			<td style="padding:4px;">
+				#set( $val = "$!hit.get($detail.id)" )
+				#if($detail.render)
+					#set( $val = $searcherManager.getValue($catalogid, $detail.render, $hit.properties))
+				#end
+				$context.putPageValue("detail",$detail)
+				$context.putPageValue("val",$val)
+				$pages.include("$xmledithome/detailreadonly.html", $context)
+			</td>
+		#end
+		
+		#if($candelete && $candelete == true && $showdelete == "true")
+			<td>
+			<a href="#" onclick="if(confirm('Delete Item?')) { showpath('${searchtype}_table', '$home/system/components/xml/table-deleterow.html?delete=true&$editargs'); } return false;">
+				[[delete]]
+			</a>
+			</td>
+		#end		
+		</tr>
+	#end
+	</tr>
+	</tbody>
+</table>
+
+
+    <script>
+        $('th.sortable').on({
+            click: function(){
+                var id = $(this).attr('id');
+                var path = "$home$apphome/components/xml/columnsort.html?oemaxlevel=1&$args&sortby="
+                if ( $(this).hasClass('currentsort') ) {
+                    if ( $(this).hasClass('up') ) {
+                        jQuery('#${viewid}editor').load( path + id + 'Down');
+                    } else {
+                        jQuery('#${viewid}editor').load( path + id + 'Up');
+                    }
+                } else {
+                    $('th.sortable').removeClass('currentsort');
+                    $(this).addClass('currentsort');
+                    jQuery('#${viewid}editor').load( path + id + 'Down');
+                }
+            }
+        });
+    </script>
+
+
+#end
+
+#if( !$existingrecords || $existingrecords.size() == 0 )
+	<p class="info" style="margin: 20px;">#text("No records found")</p>
+#end
+
+#set($link = $context.getRequestParameter("selectlink"))
+#if($link)
+	#set($jumptomodule = $context.getRequestParameter("jumptomodule"))
+	#if( $jumptomodule && $jumptomodule == "true")
+		<form name="editrow" method="post" action="$home$link?$passalongdec">
+		#set($fieldname = "id" )
+		#set($fieldname = $context.getRequestParameter("fieldname"))
+		<input type="hidden" id="emselectedrow" name="$fieldname" />	
+		<input type="hidden"  name="edit" value="true" />
+		<input type="hidden" name="searchtype" value="${searchtype}" />
+		
+	</form>
+	
+	#else
+	
+	<form name="editrow" method="post" class="ajaxform" targetdiv="${viewid}editor" action="$home$link?$passalongdec">
+	#set($fieldname = "id" )
+	#set($fieldname = $context.getRequestParameter("fieldname"))
+		<input type="hidden" id="emselectedrow" name="$fieldname" />	
+		<input type="hidden"  name="edit" value="true" />
+		<input type="hidden"  name="oemaxlevel" value="1" />
+		<input type="hidden" name="searchtype" value="${searchtype}" />
+	</form>
+	#end
+#else
+	<div id="$editlink" targetdiv="${viewid}editor" link="$home$editpath?$args&edit=true&oemaxlevel=1"></div>
+#end
+
+
+#if($candelete != "false")
+</div>
+#end
+
+</div>

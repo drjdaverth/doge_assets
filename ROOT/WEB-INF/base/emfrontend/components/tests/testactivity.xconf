@@ -1,0 +1,5 @@
+<page>
+	<path-action name="Script.run">
+		<script>./testactivity.groovy</script>
+	</path-action>
+</page>

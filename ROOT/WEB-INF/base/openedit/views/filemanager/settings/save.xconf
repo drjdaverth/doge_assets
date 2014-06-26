@@ -1,0 +1,5 @@
+<page>
+	<property name="virtual">true</property>
+	<path-action name="EditModule.releaseEditLock" />
+	<path-action name="Config.saveConfigChanges" />
+</page>

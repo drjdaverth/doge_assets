@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+<!--
+  	<path-action name="MediaArchiveModule.getAsset" alltypes="true"/>
+	<path-action name="Admin.loadPermissions" alltypes="true"/>
+-->
+	<property name="sourcepathhasfilename">true</property>
+	<property name="virtual">true</property>
+	<property name="title">
+		<value>Archive Preview</value>
+		<value locale="es">Vista Previa</value>
+	</property>
+	<property name="encoding">UTF-8</property>
+	<inner-layout>${themeprefix}/layouts/preview.html</inner-layout>
+</page>

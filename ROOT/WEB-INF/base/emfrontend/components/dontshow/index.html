@@ -1,0 +1,84 @@
+<div class="ui-widget uipanel" id="left-col-search" >
+			<div  #if($userprofile.minimizefilterscontent == "false" && $cantogglesidebar) class="ui-widget-header sidetoggle expanded" #elseif($cantogglesidebar) class="ui-widget-header sidetoggle" #else class="ui-widget-header" #end data-target="filterscontent">
+				<span class="widget-header-title">[[Filters]]</span>
+			</div>
+<div  class="ui-widget-content" id="filterscontent" #if($userprofile.minimizefilterscontent == "true" && $cantogglesidebar) style="display: none;" #end>
+ 
+ <ul id="filters-sidebar-selected">
+ #if( $hits.getSearchQuery().hasFilters() )
+ ##<h4>Selected</h4>
+	#foreach( $selectedfilter in $hits.getSearchQuery().getFilters() )
+			#set( $detail = $searcher.getDetail($selectedfilter.getId() ) )
+		<li><a class="ajax" title="$detail.getText($context)" targetdivinner="main" 
+				href="$home$apphome/views/search/filter.html?removefilter=$selectedfilter.getId()&hitssessionid=$!hits.sessionId&searchtype=$searcher.searchType&oemaxlevel=2" >$selectedfilter
+				 <span style="float: right; margin-top: -2px; margin-right: 5px;" class="ui-icon ui-icon-closethick"></span></a></li>
+	#end
+#end	
+</ul>
+
+#set($facets = $hits.getFilterOptions())
+
+<form class="ajaxform" targetdiv="searchlayout" action="$home$apphome/views/search/filter.html" target="_parent" name="dontshow" id="dontshow" valign="middle">
+
+#foreach($type in $facets )
+<h4>$type</h4>
+	     <ul class="filters-sidebar">
+	     
+	#foreach($entry in $type.children)
+			
+			#if( $velocityCount == 10 )
+			</ul>
+			<a class="toggle-visible morelink" href="#" data-targetdiv="showmore${type.getId()}" data-showlabel="Show More" data-hidelabel="Show Less"><span>Show More</span></a>
+			<ul id="showmore${type.getId()}" class="filters-sidebar morefilters">
+			
+			#end
+			
+	<li>
+	<a class="addfilter" data-filtertype="$type.getId()" data-filtervalue="$entry.getId()" data-filterlabel="$entry" href="#"><span> $entry ($entry.count)</span></a>
+	</li>
+	#end
+
+</ul>
+
+#end
+    <input type="hidden" name="catalogid" value="$!catalogid" />
+    <input type="hidden" name="searchtype" value="$searcher.searchType" />
+    <input type="hidden" id="filtertype" name="filtertype" value="" />
+    <input type="hidden" id="filtervalue" name="filtervalue" value="" />
+    <input type="hidden" id="filterlabel" name="filterlabel" value="" />
+    <input type="hidden" name="oemaxlevel" value="2" />
+    <input type="hidden" name="hitssessionid" value="$!hits.sessionId" /> ##TODO: reload on ajax reloads
+</form>
+
+</div></div>
+	
+
+
+<script type="text/javascript">
+
+
+jQuery(document).ready(function() 
+{ 
+
+	jQuery('.addfilter').bind('click',function(e)
+	{	
+		e.preventDefault();
+		//TODO: Why not update the results with new data like VD does?
+			var link = $(this);
+			var picked = link.data("filtertype");
+			jQuery('#filtertype').val(picked);
+			var value = link.data("filtervalue");
+			jQuery('#filtervalue').val(value);
+			var label = link.data("filterlabel");
+			jQuery('#filterlabel').val(label);
+
+			jQuery('#dontshow').submit();
+			
+	});
+
+});
+
+
+
+</script>
+

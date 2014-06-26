@@ -1,0 +1,122 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="$home/system/admin.css"/>
+  <title>$context.getPageProperty('text.errorpage') $version</title> 
+  <meta name="robots" content="noindex, nofollow"/>
+
+	<script type="text/javascript">
+		toggleMenu = function(currMenu)  	
+		{                 
+			thisMenu = document.getElementById("mored").style;
+			if (thisMenu.display == "block")  
+			{ 
+				thisMenu.display = "none";
+			}
+			else 
+			{
+				thisMenu.display = "block";
+			} 
+			return false;
+		}
+
+		showWindow = function()
+		{
+			if(window.name == null)
+				window.name='editor_parent';
+			window.open(
+					"$home/system/tools/text/edit.html?editPath=$!editPath" + String.fromCharCode(38) + "origURL=$!origURL" + String.fromCharCode(38) + "type=text" + String.fromCharCode(38) + "parentName="+window.name,
+					'_blank',
+					'alwaysRaised=yes,menubar=no,resizable=yes,top=100,left=130,width=830,height=550'
+					);
+			return false;
+		}
+	</script>
+	<style type="text/css">
+		.hidden  {display:none; margin-left:20px}
+	</style>
+
+</head>
+
+<body leftmargin="0" topmargin="0" rightmargin="0"  marginwidth="0" marginheight="0">
+#set ( $origURL=$url_util.getOriginalPath() )
+#set ( $editPath = $url_util.getPathWithoutContext( $home, $request.requestURI ) )
+#set( $ipaddress = $request.getRemoteAddr() )
+#set( $referer = $request.getHeader("REFERER") )
+#set( $exception = $context.getPageValue( "oe-exception") )
+
+<table  cellpadding="10" width="100%" height="100%">
+	<tr>
+		<td valign="top">
+			<div>
+			$pages.stream( "/system/display/whitearea-top.html" )
+				<table cellspacing="9">
+				<tr>
+					<td colspan="2" >
+						<b>$!url_util.xmlEscape( $exception.getMessage() )</b>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<b>$context.getPageProperty('text.broswer'):</b>
+					</td>
+					<td>
+						$!url_util.xmlEscape($request.getHeader("User-Agent")) #if( $ipaddress ) $!url_util.xmlEscape($ipaddress) #end
+					</td>
+				</tr>
+				#if( $version )
+				<tr>
+					<td align="right">
+						<b>$context.getPageProperty('text.version'):</b>
+					</td>
+					<td>
+						$version
+					</td>
+				</tr>
+				#end
+				#if( $referer )
+				<tr>
+					<td align="right">
+						<b>$context.getPageProperty('text.from'):</b>
+					</td>
+					<td>
+						$!url_util.xmlEscape($referer)
+					</td>
+				</tr>
+				#end
+				<tr>
+					<td align="right" valign="top">
+						<b>$context.getPageProperty('text.details'):</b>
+					</td>
+					<td>
+						<a onclick="return toggleMenu()" href="#">
+							$context.getPageProperty('text.showdetails')
+						</a>
+						<div class="hidden" id="mored">
+						<nobr>
+<pre>
+$!url_util.xmlEscape($exception.toStackTrace())
+</pre>
+						</nobr>
+						</div>
+
+					</td>
+				</tr>
+			</table>
+			#if ( $user.hasPermission("oe.edit" ) )
+			<p>
+				$context.getPageProperty('text.toeditthispage'):
+				<a href="#" onclick="return showWindow();">
+				<img src="$home/system/images/toolbar/text.gif" border="0" title="[[text.edittext]]" />
+				</a>
+			</p>	
+			#end
+			
+			<p>$context.getPageProperty('text.administratorreceived')</p>
+			
+			$pages.stream( "/system/display/whitearea-bottom.html" )
+			</div>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

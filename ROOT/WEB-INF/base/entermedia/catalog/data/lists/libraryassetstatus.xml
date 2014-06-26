@@ -1,0 +1,9 @@
+<properties>
+
+	<property id="pending">Pending Review</property>
+	<property id="rejected">Rejected</property>
+	<property id="approved">Approved For user</property> <!-- This means our server has finished it's job -->
+	 
+
+</properties>
+	

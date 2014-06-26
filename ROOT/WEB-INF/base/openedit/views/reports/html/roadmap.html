@@ -1,0 +1,32 @@
+<h2>Generate Road Export</h2>
+<p>This will generate an HTML page suitable for pasting into a spreadsheet. Choose the fields you are interested in and select Export.</p>
+Select All: <input id="select_all" type="checkbox" /> Deselect All: <input id="deselect_all" type="checkbox" />
+
+<hr/>
+<form name="customexport" action="showreport.html">
+
+	#set( $details = $mediaarchive.getAssetSearcher().getDetailsForView("asset/details",$context.getUserProfile()) )
+#foreach($detail in $details)
+	<input class="selectbox" type="checkbox" name="detail" value="$detail.id"> $detail.getText() <br/>
+
+#end
+<input type="hidden" name="hitssessionid" value="$context.getRequestParameter('hitssessionid')"/>
+<input type="submit" name="export" value="Export"/>
+</form>
+
+<script type="text/javascript">
+jQuery('#select_all').click(function(){
+	jQuery('input[type="checkbox"]').each(function(){this.checked = true;});
+
+	
+	return false;
+});
+jQuery('#deselect_all').click(function(){
+	jQuery('input[type="checkbox"]').each(function(){this.checked = false;});
+
+	
+	return false;
+});
+
+
+</script>

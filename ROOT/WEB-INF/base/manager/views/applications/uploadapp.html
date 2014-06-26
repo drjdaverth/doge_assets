@@ -1,0 +1,22 @@
+#set( $appcatalogid = $context.getRequestParameter("appcatalogid"))
+#set ($catalog = $searcherManager.getData("system","catalog",$appcatalogid))
+		<div class="wizard clearfix">
+			<div class="wizard-top">
+				<h1>Import Application: $catalog</h1>
+			</div>
+			<div class="wizard-body">
+			    <div class="wizard-content">
+    				<form name="uploader" action="./uploadappfinish.html" method="post" enctype="multipart/form-data">
+    					<label>Select EnterMedia Workspace File</label>
+    					<input type="file" name="file.1" />
+    					<input type="hidden" name="path" value="/WEB-INF/temp/importapp.zip" />
+    					<input type="hidden" name="appcatalogid" value="$appcatalogid" />
+    					<label>Application Path</label>
+    					<input type="text" name="destinationappid" value="/newpath" /> i.e. /emshare 
+    					
+    					<br><br><input type="submit" value="Submit" class="btn" />
+    				</form>
+    			</div>
+			</div>
+			<div class="wizard-bottom"></div>
+		</div>

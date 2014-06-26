@@ -1,0 +1,18 @@
+<page>
+	<property name='text.Text Area Properties'>
+        	<value>Text Area Properties</value>
+		<value locale="es">Propiedades de Área de Texto</value>
+    	</property>
+	<property name='text.Name'>
+        	<value>Name</value>
+		<value locale="es">Nombre</value>
+    	</property>
+	<property name='text.Columns'>
+        	<value>Columns</value>
+		<value locale="es">Columnas</value>
+    	</property>
+	<property name='text.Rows'>
+        	<value>Rows</value>
+		<value locale="es">Filas</value>
+    	</property>
+</page>

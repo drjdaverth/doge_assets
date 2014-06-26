@@ -1,0 +1,6 @@
+
+<properties beanname="dataSearcher" prefix="libraryusers">
+  <property id="id" index="true" stored="true">Id</property>
+  <property id="userid" type="list" listid="user" listcatalogid="system" editable="true" index="true" stored="true">User</property>
+  <property id="libraryid" type="list" listid="library" editable="true" index="true" stored="true">Library</property>
+</properties>

@@ -1,0 +1,79 @@
+/* Reset used by all themes */
+html{color:#000;height: 100%;}
+/* Explain @ www.clagnut.com/blog/348/ */
+body {margin:0;padding:0;height: 100%;font:62.5% helvetica,arial,clean,sans-serif;font-size:small;font:x-small;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym {border:0;font-variant:normal;}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+input,textarea,select{font-size:100%;}
+legend{color:#000;}
+
+
+table {font-size:inherit;font:100%;border-collapse:collapse;}
+table td {vertical-align: top;}
+pre,code,kbd,samp,tt{font-family:monospace;font-size:108%;line-height:100%;} 	
+
+	
+/* Util classes */	
+#emcontainer .normal {font-variant: normal; font-weight: normal; text-transform: none;}
+#emcontainer .caps   {text-transform: uppercase;}
+#emcontainer .bold   {font-weight: bold;}
+#emcontainer .italic {font-variant: italic;}
+	
+#emcontainer .left   {text-align: left;}
+#emcontainer .center {text-align: center;}
+#emcontainer .right  {text-align: right;}
+
+#emcontainer .middle {vertical-align: middle;}
+
+#emcontainer .centermiddle {text-align: center; vertical-align: middle;}
+#emcontainer .rightmiddle {text-align: right; vertical-align: middle;}
+
+#emcontainer .float_left  {float: left;}
+#emcontainer .float_right {float: right;}
+#emcontainer .clear       {clear: both;}
+#emcontainer .hidden		 {display: none;}
+
+/* Tags */
+
+#emcontainer .odd  { background-color: #E0E0E0; }
+
+#emcontainer .striped { border: 2px solid #E0E0E0; }
+#emcontainer .striped th { padding: 4px; text-align: left; font-weight: bold; }
+#emcontainer .striped td { padding: 4px; text-align: left; font-weight: bold; }
+
+
+#emcontainer
+{
+	color: #555; 
+	font-family: "Lucida Grande","Lucida Sans Unicode","Arial","Verdana","sans-serif";
+	font-size: 9pt;	
+	padding: 4px 10px 0px 10px;
+	min-height: 100%;	
+}
+
+#emcontainer H1
+{
+	color: #444444;
+	font-size: 1em;
+	margin: 5px;
+}
+#emcontainer H2
+{
+	color: #444444;
+	font-size: 1.2em;
+	margin-top: 4px;
+	margin-bottom: 16px;
+	
+}
+
+

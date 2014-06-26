@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rsp stat="ok">
+#if( $asset )
+	<asset id="$asset.id" sourcepath="$asset.sourcePath"/>
+#end
+</rsp>

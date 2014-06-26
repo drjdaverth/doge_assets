@@ -1,0 +1,43 @@
+<div id="usereditproperties">
+	#set($selectedUser = $userManager.getUser($userName))
+
+				#if ($saved)
+				<div class="common-success fader">
+					Saved 
+				</div>
+			#end
+
+<div class="ui-widget commentbox columns-2" style="margin: 0 20px 0 0;">
+<div class="ui-widget-header">[[Profile]]</div>
+<div  class="ui-widget-content" > 
+	#set ($userSearcher = $searcherManager.getSearcher("system", "user"))
+		<form class="ajaxform validate" id="usereditform" targetdiv="usereditproperties" name="usereditform" action="$home$usermanagerhome/user/editdata.html">
+			<input type="hidden" name="userid" value="$selectedUser.id"/>
+			<input type="hidden" name="save" value="true"/>
+			<input type="hidden" name="username" value="$selectedUser.id"/> ## so the page loads after we save
+			<input type="hidden" name="method" value="edituser"/>
+			
+			$context.putPageValue("searcher", $userSearcher)	 
+			$context.putPageValue("view", "user/useredit")	
+			$context.putPageValue("data", $selectedUser)	
+			<div class="clearfix">
+			$pages.include("/${applicationid}/components/xml/detaileditorcss.html", $context)
+			</div>
+
+
+			#if( $message || $errors)
+				<div class="common-success">
+					$context.getText($message)  $!errors
+				</div>
+			#end
+
+
+			<a href="#" class="btn" onclick="$('#usereditform').submit();" >[[Save Changes]]</a>
+			<a class="btn red" style="float: right;" href="./removeuser.html?groupid=$content.mastergroup&usertodelete=$selectedUser.id">[[Delete User]]</a>
+			<a href="$home$content.usermanagerhome/user/setuserpassword.html?username=$selectedUser.id" class="btn" >[[Edit Password]]</a>
+			
+		</form>
+</div>	
+</div>
+
+</div>

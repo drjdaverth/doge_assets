@@ -1,0 +1,7 @@
+<page>
+	<property name="virtual">true</property>
+	<page-action name="RevisionEditor.getRevisionContent" />
+	<page-action name="RevisionEditor.writeRevisionContent" />
+	<page-action name="AssetEditModule.removeAssetImages" />
+	<page-action name="EditModule.redirectToOriginal" />
+</page>

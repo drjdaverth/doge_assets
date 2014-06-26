@@ -1,0 +1,7 @@
+<page>
+	<layout/>
+	<inner-layout>${themeprefix}/entermedia/layouts/dialoglayout.html</inner-layout>
+	<property name="editview">events/edit</property> 
+	<property name="searchtype">event</property>
+	<path-action name="PathEventModule.loadPathEvent"/>
+</page>

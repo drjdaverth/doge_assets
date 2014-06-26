@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<page>
+	<page-action name="SpellCheck.checkAllSpellings" />
+	<generator name="velocityGenerator" />
+	
+</page>

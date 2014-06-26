@@ -1,0 +1,8 @@
+#set( $editPath = $context.getRequestParameter("editPath"))
+
+<form action="$home$content.permissionrootpath/addnewpermissionfinish.html" name="addnewcondition">
+	<label>[[Permission Name]]:</label> <input name="name" />
+	<input type="hidden" name="editPath" value="$editPath" />
+	
+	<input type="submit" value="ok" />
+</form>

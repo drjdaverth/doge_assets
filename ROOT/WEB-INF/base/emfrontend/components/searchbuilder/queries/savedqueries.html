@@ -1,0 +1,20 @@
+<div class="emsidecontent">
+<div id="emsidecontentheader">
+[[Saved Queries]]
+</div>
+<div class="emsidecontentbody">
+<div class="emsidecontentbodyinner">
+
+<ul class="emactions">
+#foreach($q in $querylist)
+
+<li><a href="$home/${applicationid}/search/queries/loadquery.html?queryid=$q.id">#esc($q.name)&nbsp;</a></li>
+#end
+</ul>
+
+<div class="emsearchmanagequeries"><a href="$home/${applicationid}/tools/savedqueries/index.html">[[Manage Saved Queries]]</a></div>
+
+</div>
+</div>
+
+</div>

@@ -1,0 +1,576 @@
+#oebody
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	background-color: #ffffff;
+	font-size: 8pt;
+	margin: 0px;
+	padding: 0px;
+}
+.oebody
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	background-color: #ffffff;
+	font-size: 8pt;
+	margin: 0px;
+	padding: 0px;
+}
+#oeadmintopspacer
+{
+	margin: 32px 0px 0px 0px;
+}
+
+#oeshadow
+{
+	height: 12px;
+	width: 100%;
+	padding:0px;
+	background-image: url(./images/b-shadow.gif); 
+}
+
+/* Fixed weird space on table images with XHTML DTD */
+table img {
+	vertical-align:bottom;
+}
+
+
+form
+{
+	margin: 0px;
+}
+
+.oetab {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	text-decoration: none;
+    white-space: nowrap; /* Mozilla honors this, IE doesn't */
+	background-color: white;
+	padding: 4px;
+	border: 1px solid black;
+
+}
+
+.oetab a:link, .oetab a:visited {
+	color: black;
+	font-size: 8pt;
+	text-decoration: none;
+}
+
+.oetab a:hover {
+	color: white;
+}
+
+
+.oeeditcell {
+	background-color: #FFFFFF;
+    border: #000000 0px solid;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	padding: 3px; width: 100%;
+}
+
+.oedatacell {
+	background-color: #FFFFFF;
+	/* border: #000000 0px solid; */
+	width: 90%;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	padding: 3px;
+}
+
+.oedatacell-header {
+	/* border: #000000 0px solid; */
+	text-align: left;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px;
+}
+
+.oecomment {
+	/* border: #000000 0px solid; */
+	text-align: left;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	color: green;
+	padding: 3px;
+}
+
+.oetextcell-header {
+    /* border: #000000 4px solid; */
+	text-align: right;
+	vertical-align: top;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	padding: 3px;	
+}
+
+.oetext-header-selected {
+	background-color: #FFFFAA;
+	border: #000000 0px solid;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+	vertical-align: top;
+	padding: 3px;
+}
+
+
+.oefloatDialog {
+	background-color: #cccccc;
+	border-right: 2px solid gray;
+	border-bottom: 2px solid gray;
+	border-left: 2px solid white;
+	border-top: 2px solid white;
+	font-family: verdana, arial, helvetica, sans-serif; 
+	padding: 0px;
+	font-size: 10px;
+	position: absolute; top:30%; left: 30%; 
+}
+
+
+.oeselectedTable {
+	background-color: #FFFFAA;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	width: 100%;
+}
+
+.oeselectedAttributes {
+	text-align: right;
+	background-color: #FFFFAA;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.oenormalTable {
+	margin-left: 15px; 
+	margin-bottom: 5px;
+	margin-right: 5px;
+	
+}
+
+.oehide {
+	display: none;
+}
+
+.oebasic {
+	
+}
+
+.oeadmin-area-title
+{
+	padding: 5px; 
+	font-weight: bold; 
+	text-align: left;
+	text-transform: uppercase;
+	color: #8AC36B;
+	text-shadow: #666666 3px 3px;
+	background-color: white;
+	border-style: inset;
+	border-color: #8AC36B;
+}
+
+.oelist-box
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+
+	padding: 5px; 
+	color: black;
+	background-color: white;
+}
+
+.oeblue-list-box
+{
+	padding: 15px; 
+	color: black;
+	background-color: #CCCCF9;
+}
+
+.oesubmit-button 
+{
+	padding: 4px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-align: left;
+	color: #FFFFFF;
+	background-color: #646492;
+	text-decoration: underline;
+	border-style: none;
+	margin: 1px;
+}
+
+#oeadd-button
+{
+	color: #8AC36B;
+	background-color: white; 
+}
+
+.oeedit-link 
+{
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-align: left;
+	color: black;
+	text-decoration: none;
+}
+
+.oeedit-link:hover 
+{
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-align: left;
+	color: #FFBF3F;
+	text-decoration: underline;
+}
+
+.oe-module-title
+{
+	font-weight: bold; 
+	text-align: left;
+	color: #8AC36B;
+	font-size: 10pt;
+	color: white;
+	padding-left: 10px;
+	white-space: nowrap;
+	
+}
+.oe-module-actions
+{
+	padding-right: 20px;
+	width: 90%;
+	text-align: right;
+}
+.oe-module-actions A
+{
+	margin-right: 10px;
+}
+.oe-module-actions input
+{
+	margin-right: 10px;
+}
+
+.oe-module-title A
+{
+	color: #8AC36B;
+}
+
+.oemodule-select
+{
+	font-weight: bold; 
+	text-align: left;
+	color: white;
+	font-size: 14pt;
+	color: #8AC36B;
+}
+
+.oegreen-box
+{
+	padding: 5px; 
+	color: #FFFFFF;
+	background-color: #8AC36B;
+}
+
+.oewhite-box
+{
+	padding: 5px; 
+	color: #8AC36B;
+	background-color: #FFFFFF;
+}
+
+.oedivided-box
+{
+	padding: 0px; 
+	margin-bottom: 10px; 
+	border-spacing: 0px; 
+	width: 100%;
+	border: 1px solid #666666;
+	 
+}
+
+.oedivided-box-title
+{
+	padding-left: 18px;
+	padding-top: 5px;
+	padding-bottom: 5px; 
+	color: #FFFFFF;
+	background-color: #666666;
+	font-weight: bold;
+	font-style: italic;
+}
+.oemenuback
+{
+	background-color: #666666;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 35px;
+}
+.oemenuback td
+{
+	padding: 4px;
+}
+
+.oedivided-box-white
+{
+	padding: 10px;
+	 
+	color: black;
+	background-color: #FFFFFF;
+	width: 33%;
+	border-right: 1px solid #666666;
+	
+}
+
+.oedivided-box-blue
+{
+	color: #FFFFFF;
+	background-color: #646492;
+	text-align: left;
+	padding: 10px;
+	white-space: nowrap;
+}
+.oedivided-box-blue  A
+{
+	padding-left: 10px;
+}
+
+.oestandard-button
+{
+	padding: 3px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-align: left;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	background-color: #8AC36B;
+	text-decoration: none;
+	text-align: center;
+	border-style: outset;
+	border-color: #8AC36B;
+}
+/* 8AC36B  138,195,107 */
+.oestandard-button:hover
+{
+	background-color: #FFE400;
+}
+
+.oestandard-button:active
+{
+	border-style: inset;
+	border-color: #FFE400;
+}
+
+.oeicon-button
+{
+	padding: 0px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.oelink-button
+{
+	font-weight: bold;
+	font-size: 8pt; 
+	text-align: left;
+	color: #FFFFFF;
+	text-decoration: none;
+
+}
+
+.oelink-button:hover
+{
+	text-decoration: underline;
+
+}
+
+.oelink-button:active
+{
+	text-decoration: underline;
+}
+
+.oeradio-button
+{
+	padding: 3px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-align: left;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.oestandard-table
+{
+	padding: 0px; 
+    margin: 0px;
+    border: 0px;
+    border-spacing: 0px;
+	border-style: none;
+}
+
+.oeborder-table
+{
+	padding: 0px; 
+    margin: 0px;
+    border-style: inset;
+	border-color: #8AC36B;
+	width: 100%;
+}
+
+
+.oetab-table
+{
+	margin: 0px;
+	padding: 3px; 
+	background-color: #646492;
+	border: 1px solid white;
+
+}
+
+.oetab-title
+{
+    padding: 3px;
+	font-size: 10pt;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	color: #646492;
+	background-color: #8AC36B;
+}
+
+.oedetail-box
+{
+    padding: 3px;
+	font-size: 8pt;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: black;
+	
+	background-color: white;
+}
+
+.oefieldlabel
+{
+	color:white;
+}
+
+.oewhite-divider
+{
+	color: white;
+	border-top: 1px solid white;
+	width: 100%;
+}
+
+.oewspgreen
+{
+	color: #8AC36B;
+}
+
+.oewspblue
+{
+	color: #646492;
+}
+
+.oewspblue_bg
+{
+	background-color: #646492;
+	font-size: 12.5pt;
+}
+
+
+.oewhite-on-grey
+{
+	background-color: grey;
+	color: white;
+	font-weight: bold;
+	font-style: italic;
+	padding: 4px;
+	margin: 4px;
+	border: thick solid white;
+}
+
+.oewhite
+{
+	color: white;
+}
+
+/* For the HTML editors */
+
+.oeimagebutton, .oeimageButtonClick 
+{
+	height: 20px;
+	width: 21px;
+	padding: 1px;
+	background-color: #CCCCF9
+}
+
+.oeimagebuttonHover 
+{
+	height: 20px; 
+	width: 21px; 
+	border: outset 1px; 
+	background-color: #EEEEEE
+}
+
+.oeimagebuttonDown 
+{
+	height: 20px; 
+	width: 21px; 
+	border: inset 1px; 
+	background-color: #CCCCF9
+}
+
+.oeinputbox
+{
+	background-color: #CCCCF9;
+	font-family: verdana, arial, helvetica, sans-serif; 
+	padding: 1px;
+	font-size: 8pt;
+	margin: 0px;
+}
+.oemessageinput
+{
+	background-color: #CCCCF9;
+	font-family: verdana, arial, helvetica, sans-serif; 
+	padding: 1px;
+	font-size: 8.5pt;
+	margin: 0px;
+}
+
+.oeeditortoolbar 
+{
+	color: black;
+	background-color: #CCCCF9;
+	font-family: verdana, arial, helvetica, sans-serif; 
+	margin: 0px;
+	padding-left: 10px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.oeproplabel
+{
+	font-family: verdana, arial, helvetica, sans-serif; 
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+	width: 130px;	
+}
+
+/* This is where you can customize the appearance of the tooltip */
+div#tipDiv {
+  position:absolute; visibility:hidden; left:0; top:0; z-index:10000;
+  background-color:#fff; border:1px solid #000; 
+  padding:6px;
+  color:#000; font-size:11px; line-height:1.3;
+}
+/* These are used in the wrapTipContent function */
+div#tipDiv div.img { text-align:center }
+div#tipDiv div.txt { text-align:center; margin-top:4px }

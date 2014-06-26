@@ -1,0 +1,23 @@
+#
+#Tue Apr 27 11:46:53 CLT 2010
+Retype\ Password=Reingrese contrase\u00F1a
+Password=Contrase\u00F1a
+Home\ Page=P\u00E1gina de Inicio
+Change\ Password=Cambiar Contrase\u00F1a
+USER=USUARIO
+No\ users\ found.=Ning\u00FAn usuario encontrado.
+Search=B\u00FAsqueda
+Page=P\u00E1gina
+View\ Group=Ver Grupo
+Select\ a\ user.=seleccione un usuario.
+Permission\ Groups=Grupos de Permisos
+Create\ New\ User=Crear Nuevo Usuario
+Reload\ Search\ Index=Recargar Índice de Búsqueda
+Add=Agregar
+User\ Search=B\u00FAsqueda de Usuarios
+Remove=Quitar
+Back=Atrás
+Save\ Changes=Guardar Cambios
+Delete\ User=Eliminar Usuario
+Forward=Adelante
+

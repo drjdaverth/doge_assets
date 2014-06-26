@@ -1,0 +1,10 @@
+#if($content.titleprefix)
+	#if($content.titleplural.equals("true"))
+	 	<h2>$content.titleprefix $!page.savedqueriesname</h2>
+	#else
+		<h2>$content.titleprefix $!page.savedqueryname</h2>
+	#end
+#else 
+	<h2>$!page.savedqueriesname</h2>
+#end
+$pages.includeContent()

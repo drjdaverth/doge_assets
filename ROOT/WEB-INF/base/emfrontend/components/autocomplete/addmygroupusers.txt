@@ -1,0 +1,11 @@
+#set( $q = $searchstring)
+[
+#foreach ($res in $suggestions)
+#if( $velocityCount > 1 ),#end
+#if(!$res.get('lastName') || !$res.get('firstName'))
+{"label": "$res.get('id')", "value": "$res.get('id')", "display": "$res.get('id')"}
+#else
+{"label": "$res.get('lastName'), $res.get('firstName')", "value": "$res.get('id')", "display": "$res.get('firstName') $res.get('lastName')"}
+#end
+#end
+]

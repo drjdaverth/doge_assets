@@ -1,0 +1,9 @@
+<page>
+	<property name="eventname">Clear Empty Category Nodes</property>	
+	<property name="eventdescription">Check each category and see if there are assets using it</property>	
+		<path-action name="Script.run" allowduplicates="true" >
+		<script>/${catalogid}/events/scripts/categories/clearemptycategories.groovy</script>
+	</path-action>
+		<property name="period">5h</property>
+	
+</page>

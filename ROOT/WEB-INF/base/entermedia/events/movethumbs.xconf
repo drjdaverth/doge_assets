@@ -1,0 +1,6 @@
+<page>
+	<property name="eventname">Move thumbs to /WEB-INF/data</property>
+	<path-action name="Script.run"  allowduplicates="true">
+		<property name="script">./scripts/movethumbs.bsh</property>
+	</path-action>
+</page>

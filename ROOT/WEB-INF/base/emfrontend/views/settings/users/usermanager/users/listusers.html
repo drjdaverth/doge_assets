@@ -1,0 +1,33 @@
+#set( $datalist = $userTracker)
+
+$context.putPageValue("hits",$datalist)
+$context.putPageValue("details",$searcher.getDetailsForView("usernormalsearch", $user))	
+
+<h2><img src="$home$themeprefix/images/usermanager/usericon.png" align="middle">[[User Search]]</h2>
+
+<form class="ajaxform" id="usersearchform" name="search" targetdiv="usersearchresultspanel" action="$home$usermanagerhome/users/results.html">
+	<input type="hidden" name="hitsperpage" value="12"/>
+	<div style="float: left; padding: 5px;">
+$pages.include("/${applicationid}/components/xml/searchfields.html",$context)
+	</div>
+	<table><tr><td>
+		<div class="embutton">
+		<a href="#" onclick='jQuery("#usersearchform").submit();'>[[Search]]</a>
+		</div>
+	</td></tr></table>
+</form>
+<br/>
+<br/>
+<br/>
+<div id="usersearchresultspanel" style="background-color:white;border-collapse:separate;border:1px solid lightgray;"">
+$pages.include("./results.html", $context)
+</div>
+<div style="text-align:right;float:right;">
+<ul class="emactions">
+<li><a class="thickbox" href="$home$usermanagerhome/users/adduser.html?iframe=true&height=200&width=300">[[Create New User]]</a></li>
+
+<li><a href="$home$usermanagerhome/users/reindex.html">[[Reload Search Index]]</a></li>
+</ul>
+</div>
+
+

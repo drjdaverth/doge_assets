@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<path-action name="DataImportModule.createTable"/>
+	<path-action name="DataEditModule.loadSearchTypes" />
+	<inner-layout>${dataroot}/list/innerlayout.html</inner-layout>
+	
+</page>

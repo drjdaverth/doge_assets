@@ -1,0 +1,54 @@
+
+#set( $parent = $searcherManager.getData($catalogid,"mediaalbum",$data.mediaalbum_id ))
+#set( $appmodule = $context.findValue("appmodule"))
+<div class="table">
+    <div class="module-sidebar-actions tcell">
+        <ul>
+        #set( $libraryid = $data.library )
+        #if( !$libraryid )
+    	    #set( $libraryid = "song${data.id}" )
+        #end
+        #set( $library = $searcherManager.getData($catalogid,"library",$libraryid ))
+        
+        #if( $library)
+            #set( $size = $mediaarchive.getAssetSearcher().fieldSearch("libraries",$libraryid).size() )
+      		#if( $size > 0)            
+            <li><a href="$home$apphome/views/search/search.html?field=libraries&operation=exact&libraries.value=$libraryid">View Song Files ($size)</a></li>
+            #end
+           	<li><a href="$home$apphome/view/git/index.html?id=${data.id}">Download Song Folders</a></li>
+        #end  
+           	#if( $canviewsettings )
+            <li><a href="$home$apphome/views/modules/library/edit/edit.html?id=${libraryid}&viewid=librarygeneral&viewpath=library/librarygeneral&searchtype=library">Folder Settings</a></li>
+            #end            
+            <li><a class="confirm" confirm="Are you sure?" href="$home$apphome/views/modules/song/edit/delete.html?id=${data.id}&searchtype=song&viewid=songmasters&viewpath=song/songmasters">Delete Song</a></li>
+        </ul>
+    </div>
+    <div class="module-details-main tcell">
+        <div class="module-details-header clearfix">
+            <div class="md-thumbnail">
+            
+              $context.putPageValue('data',  $parent )
+              $context.putPageValue('val',  $parent.thumb )
+              $context.putPageValue('detail',  $searcher.getDetail("thumb") )
+              $pages.include("$apphome/components/moduleresults/cell.html", $context)    
+            
+            
+            </div>
+            <div class="md-header-info">
+                <span class="md-title">$data.name</span>
+                <span class="md-sub-title">$!data.artist</span>
+                <span class="md-sub-title">$parent.name ($!parent.releasedate)</span>
+            </div>
+            <div class="md-player"></div>
+        </div>
+        <div class="md-details-content-holder">
+   
+              $context.putPageValue('data',  $data )
+            $pages.include("$apphome/components/detaileditor/moduleeditboxes.html?module=$appmodule&searchhome=$apphome/view",$context)
+   
+            <div class="md-content">
+            	$pages.includeContent()
+            </div>
+        </div>
+    </div>
+</div>

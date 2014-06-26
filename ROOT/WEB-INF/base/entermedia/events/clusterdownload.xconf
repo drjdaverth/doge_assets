@@ -1,0 +1,6 @@
+<page>
+	<property name="eventname">Download Latest Data</property>
+	<path-action name="ClusterModule.checkForChanges" />
+	<property name="period">30m</property>
+	<property name="enabled">false</property>
+</page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout />
+	<inner-layout />
+	<path-action name="PageValue.loadPageVariable" bean="sizer" />
+	<path-action name="Date.now"  >
+	<format>yyMM</format>
+	</path-action>
+</page>

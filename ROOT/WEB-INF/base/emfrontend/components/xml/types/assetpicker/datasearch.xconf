@@ -1,0 +1,12 @@
+<page>
+	<layout/>
+	<inner-layout/>
+	<path-action bean="replacer" name="PageValue.loadPageVariable" class="com.openedit.util.Replacer" alltypes="true" allowduplicates="true"/>
+	
+	<page-action name="DataEditModule.search" alltypes="true">
+		<property name="hitsname">autocomplete</property>
+	</page-action>
+	<property name="searchtype">asset</property>
+	<generator name="velocityGenerator" />
+	
+</page>

@@ -1,0 +1,55 @@
+#set( $parent = "$content.parenttype")
+#set( $child = "$content.childtype")
+
+<div class="ui-widget" >
+<div class="ui-widget-header">$content.parentlabel</div>
+<div  class="ui-widget-content" > 
+
+<div id="editlayout">
+#set( $origURL = $context.getRequestParameter("origURL" ) )
+
+#if( !$view )				
+	#set( $view = "default/edit" )
+#end
+$context.putPageValue("view", $view)
+
+<form id="dataeditor" name="dataeditor" method="post" action="$home$content.searchhome/edit/save.html" >
+	<input name="save" type="hidden" value="true" />
+	<input name="id" type="hidden" value="$!data.id" />
+	<input name="catalogid" type="hidden" value="$searcher.catalogId" />
+	<input name="searchtype" type="hidden" value="$searcher.searchType" />
+	<input name="origURL"  type="hidden" value="$!origURL" />
+	<input name="${parent}.value"  type="hidden" value="$data.id" />
+
+<div id="division" class="list-adder">
+	$pages.include("/system/components/xml/detaileditorcss.html", $context)
+	
+	<a class="btn" href="#" onclick="jQuery(this).closest('form').submit();">Save</a>
+	##<a class="btn"  href='$home$content.searchhome/index.html'><span>Cancel</span></a>
+	<a class="btn red" href='$home$content.searchhome/edit/delete.html?searchtype=$searcher.searchType&id=$!data.id'>Delete</a>
+</div>
+
+#if( $savedok)
+<p class="fader save">Saved</p>
+#end
+
+</form>
+
+
+#if( $savedok && $origURL )
+	<a href="$origURL">[[Go Back]]</a>	
+#end
+
+
+</div>
+
+
+##set( $candelete = $context.getRequestParameter("candelete")) 
+##set( $view = $context.getRequestParameter("view"))
+
+#if( $data.id )
+$pages.include("./children.html", $context)
+#end
+
+</div>
+</div>

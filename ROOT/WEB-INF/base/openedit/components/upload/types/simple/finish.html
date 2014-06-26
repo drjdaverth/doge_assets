@@ -1,0 +1,16 @@
+<h2>[[Media Uploaded]]</h2>
+
+#if( $hits && $hits.size() == 1 )
+[[Your media has been uploaded]]
+#set( $hit = $hits.get(0) )
+<a target="_blank" href="$home$apphome/views/assets/$hit.sourcepath/index.html">$hit.name</a> [[uploaded]]. 
+
+<div class="embutton">
+<a  href="$home$apphome/components/upload/index.html">Upload Another</a>
+</div>
+#elseif( $hits && $hits.size() > 0 )
+<a href="$home$apphome/views/results.html?hitssessionid=$hits.sessionsId">[[Multiple assets were created]]</a>
+#else
+[[No assets were uploaded or there was an error uploading your files.]]
+[[Please try again or contact the site administrator.]]
+#end

@@ -1,0 +1,127 @@
+#oeselector
+{
+	
+	width: 20px;
+	height: 20px;
+
+	position:absolute; 
+	z-index:2001;
+    top: 0px;
+    right: 0px;
+	border: 1px solid white;
+
+	display: block;
+	background-color: rgba(6,6,6,.2);
+	
+}
+#oeadmintoolbarlocation
+{
+	position:absolute; 
+	z-index:2001;
+	width: 160px;
+    height:0px;
+    top: 0px;
+    right: 0px;
+	border: 0px;
+}
+.oeminimaladmintoolbar
+{
+	position:absolute;
+	z-index:2001;
+    height:0px;
+    top: 0px;
+    right: 17px;
+	text-align: right;
+	border: 0px;
+}
+
+#oeadmintop-menu-container { height:24px; }
+#oeadmintop-menu-containerfirst  {  width: 3px; padding-right:8px; background: url(../images/menu/menu-container-left.gif) no-repeat;}
+#oeadmintop-menu-containermiddle {  background: url(../images/menu/menu-container-bk.gif) repeat-x top; }
+#oeadmintop-menu-containerlast { width: 11px; background: url(../images/menu/menu-container-right.gif) no-repeat top;}
+#oeadmintop-menu-container a.oepluginheader 
+{ 
+	vertical-align: top;
+	display:block;  
+	white-space:nowrap; 
+	height:20px; 
+	padding:4px 28px 0px 0px;
+	text-align:left;color:#678d8b; 
+	font-size:12px; 
+	font-weight:bold; 
+	text-decoration:none; 
+	background: url(../images/menu/top-menu-break.gif) no-repeat top right;
+}
+
+#oeadmintop-menu-container a.oepluginheader img { vertical-align: top; }
+
+
+
+.oeglossymenu
+{
+	list-style-type: none;
+	margin: 1px 0;
+	padding: 0;
+	border: 1px solid #9A9A9A;
+}
+
+.oeplugindivider
+{
+	border-top: #DDDDDD 1px solid;	
+}
+
+.oeglossymenu li a{
+background-color: #f7f7f7;
+font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+display: block;
+width: auto;
+padding: 4px 0px 4px 10px;
+text-decoration: none;
+border-top: 1px solid white;
+text-align:left;
+}
+style="position:relative;  height:-2px; top: 0px;"><div style="position:absolute;top:-20px;"
+
+* html .oeglossymenu li a{ /*IE only. Actual menu width minus left padding of A element (10px) */
+width: 160px;
+}
+
+.oeglossymenu li a:visited, .oeglossymenu li a:active{
+}
+
+.oeglossymenu li a:hover{
+background-color: #DDDDDD;
+}
+
+.openedittoolbar 
+{
+	position:relative;  height:-2px; top: 0px;	
+}
+
+.openedittoolbarcontent 
+{
+	position:absolute;
+	top:-20px;
+}
+div.openeditinline
+{
+	border:1px dashed #aaa;
+	padding: 0px 1px 1px 1px;
+	margin: 18px;
+}
+
+.openediteditcontent
+{
+	min-height: 20px;
+}
+div.openeditdebug
+{
+	border:1px dashed #aaa;
+	padding: 0px 1px 1px 1px;
+	margin: 18px;
+}
+.oeglossymenu li a.oeglossyselected
+{
+	font-weight: bold;
+	background-color: #aaa;
+}

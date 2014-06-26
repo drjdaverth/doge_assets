@@ -1,0 +1,4 @@
+<page>
+	<property name="editable">false</property>
+	<inner-layout>${bloghome}/layout/innerlayout.html</inner-layout>	
+</page>

@@ -1,0 +1,36 @@
+<p>A new order has been placed.</p>
+
+ 
+Order Number: $order.getId()
+
+#set ($hostName = $page.getProperty("hostName"))
+#if(!$hostName || $hostName == "")
+#set($hostName = $url_utl.siteRoot())
+#end
+
+
+<p>
+<h2>Customer: $user</h2>
+#set($usersearcher = $searcherManager.getSearcher("system", "user"))
+$context.putPageValue("searcher", $usersearcher)	 
+$context.putPageValue("view", "user/useredit")	
+$context.putPageValue("data", $user)	
+
+$pages.include("/${content.parentapplicationid}/components/xml/detaileditor.html?detailsreadonly=true", $context)
+</p>
+
+
+<h2>Items</h2>
+
+
+#foreach( $item in $orderitems )
+	
+	 #set( $asset = $mediaarchive.getAssetBySourcePath($item.assetsourcepath))
+   $asset.getName()  <br>
+
+#end
+                                                                                                               
+
+<a href="${context.siteRoot}${home}$apphome/views/activity/details/vieworder.html?orderid=${order.getId()}">To review this order, click here</a> 
+
+

@@ -1,0 +1,4 @@
+<page>
+	<path-action name="OrderModule.updateOrder"/>
+	<path-action name="OrderModule.findOrderItems"/>
+</page>

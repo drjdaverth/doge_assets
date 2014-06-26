@@ -1,0 +1,6 @@
+<page>
+	<path-action name="AssetSyncModule.createAssetFromLocalPaths"/>
+	<inner-layout>/${themeprefix}/layouts/searchlayout.html</inner-layout>
+	
+</page>
+

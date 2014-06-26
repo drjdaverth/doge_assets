@@ -1,0 +1,5 @@
+<page>
+	<path-action name="Script.run">
+		<script>/${catalogid}/events/scripts/fatwire/queueasset.groovy</script>
+	</path-action>
+</page>

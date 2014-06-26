@@ -1,0 +1,32 @@
+<h2>Share Media</h2>
+<br>
+<form name="shareform" action="./socialfinish.html" style="padding-left: 10px;">
+	<input type="hidden" name="sourcepath" value="$asset.sourcepath" />
+	<input type="hidden" name="categoryid" value="$!context.getRequestParameter("categoryid")" />
+
+	<h2>$asset - $content.title</h2>
+
+	#set( $type = $mediaarchive.getMediaRenderType($asset.fileFormat))
+	$pages.include("$apphome/components/results/thumbnails/${type}.html", $context)	
+<br>
+
+#set( $title = "$!asset.assettitle" ) 
+#set( $title = "$title $!asset.caption" )
+#if( $title.length() < 4 )
+#set( $title = "$!asset.toString()" )
+#end
+<input  name="sharecaption" type="hidden" value="$title"  />
+<br>
+<table>
+<tr><td style="padding-right: 10px;">
+	<div  class="embutton"><input  type="submit" value="&nbsp;[[Share]]&nbsp;&nbsp;" /></div>
+	</td><td><div  class="embutton" style="padding-left: 10px;"><input type="button" value="Cancel" onclick="self.parent.jQuery.fn.fancybox.close()" /></div>
+</td>
+</tr></table>
+#if( !$mediaarchive.getAssetSecurityArchive().hasAnonymousViewAsset($asset) )
+<br><br><br><p>[[Note: Sharing enables access to anonymous visitors]]</p>
+#end
+
+</form>
+<br>
+

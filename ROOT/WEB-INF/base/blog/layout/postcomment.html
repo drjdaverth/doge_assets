@@ -1,0 +1,34 @@
+#if( $user || $blog.getAllowAnonymous())
+<form name="posting2" method="post">
+	#if( $user )
+		<p>Add your comment as $user.shortDescription:</p>				
+	#elseif (  $blog.getAllowAnonymous())
+		<p><a href="$home$bloghome/blogLogin.html?loginokpage=$content.getPath()">Log in</a> or post as Anonymous:</p>
+	#end
+	<textarea name="content" rows="14" cols="70"></textarea>
+	
+	$context.putPageValue("height","250" )
+	$context.putPageValue("editPath",$content.getPath())
+	$pages.stream("/system/tools/html/textarea.html?htmltextarea=content", $context)
+
+	<p>
+ #if( !$user && !$answer )
+		Submission test: $question.description <input type="text" name="answerid" size=2 />
+#end
+		<input type="submit" name="Submit" value="Submit">
+		<input name="entryId" value="$entry.id" type="hidden" />
+		#if( $user )
+			<input name="username" value="$user.getUserName()" type="hidden" />
+		#else
+			<input name="username" value="anonymous" type="hidden" />
+		#end        	
+	</p>
+	#if ( !$blog.isAutoPublishingComments())
+		<p>
+			Note: This blog is moderated, so your comment will not
+			appear until it is approved.
+		</p>
+	#end
+</form>
+#end
+

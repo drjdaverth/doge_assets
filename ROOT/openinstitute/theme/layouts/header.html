@@ -1,0 +1,20 @@
+      
+     <!-- <a href="$home$apphome/index.html"><img class="logo" src="/emshare/theme/images/logo.png" alt="EnterMedia Share" /></a> -->
+      
+      <a href="$home$apphome/index.html"><img class="logo" src="$home$themeprefix/images/logo.png" alt="EnterMedia Share" /></a>
+      
+      <span class="navlinks">
+       
+
+#if( $user )
+	<a href="$home$apphome/authentication/logout.html">Logout</a>
+#else
+	<a href="$home$apphome/authentication/login.html">Login</a>
+#end	 
+ 			
+ #if($canviewsettings)
+|	<a href="$home$apphome/views/settings/applicationsetup/apprules/index.html">Settings</a>
+|	<a href="$home/manager/index.html">Manager</a>
+#end
+ 			
+        </span>

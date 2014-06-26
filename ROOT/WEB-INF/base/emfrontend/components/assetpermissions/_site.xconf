@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="oeuseradmintabid">securitytab</property>
+  <property name="permissiontype">permissions</property>
+  <property name="permissionrootpath">/${applicationid}/tools/permissions/xml</property>
+    
+</page>

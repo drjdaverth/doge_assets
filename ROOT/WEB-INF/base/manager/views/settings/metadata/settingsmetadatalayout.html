@@ -1,0 +1,31 @@
+<table>
+<tr>
+<td class="emsidemenu">
+
+#set( $screens = $searcherManager.getList($catalogid,"settingsmetadata") )
+
+#foreach($screen in $screens)
+<div #if( $content.subtab == "$screen.id" ) class="emsidemenuselected" #end>
+	<div class="emsideeditbuttonwrapper">
+	<div class="emsideeditbutton">
+		<a  href="$home$apphome${screen.path}"><img  src="$home$themeprefix/images/icons/${screen.icon}.png">$screen </a>
+	</div>
+	</div>
+</div>
+#end
+
+</td>
+
+<td width="100%	">
+
+<div class="emsideeditwrapper">
+		<div class="emsideedit">	
+$pages.includeContent()
+	</div>
+</div>		
+
+
+</td>
+</tr>
+</table>
+

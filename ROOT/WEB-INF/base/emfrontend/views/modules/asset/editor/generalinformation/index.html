@@ -1,0 +1,16 @@
+#set ($print = $context.getRequestParameter("print"))
+
+#if( $print && $print == "true")
+  <h2 class="section">General Information</h2>
+#end  
+
+<div id="de-metadata">
+#foreach( $viewpath in $views.keySet() )
+	#set( $target = $views.get($viewpath) )
+	#if( !$target.rendertable )
+		#displaydetails("generic.html" $target.name "$asset.id" $viewpath $print)
+	#end
+#end
+
+$pages.include("/$applicationid/views/modules/asset/editor/edit/metadata/assetreadmetadata.html")
+ </div>

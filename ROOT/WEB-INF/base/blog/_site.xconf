@@ -1,0 +1,37 @@
+<page>	
+	   <edit-requirements>
+	           <and>
+					<permission name="oe.blog"/>
+	                <not><page-property name="editable" equals="false" /></not>
+	           </and>
+	   </edit-requirements>
+	<property name="usecomments">true</property>
+	<path-action name="BlogModule.getBlog" />
+<path-action bean="searcherManager" name="PageValue.loadPageVariable" allowduplicates="true" />
+	<property name="editable">true</property>
+	
+	<!-- Optional -->
+	<!--
+	<property name="showUserType">true</property>
+	<property name="usertypelink">users/</property>
+	-->
+	<property name="usesummary">true</property>
+
+
+	<property name="blogarchivename">BlogArchive</property>
+	<property name="bloghome">/blog</property> 
+	<property name="catalogid">blog</property> 
+
+	<property name="editable">false</property>
+
+		<inner-layout>/${catalogid}/layout/innerlayout.html</inner-layout>
+
+  <property name="oeplugintype">openedit-blog</property>
+  <property name="oeplugintitle">
+  	<value>Blogging</value>
+  	<value locale="es">Blogs</value>
+  </property>
+  <property name="oepluginbean">BlogModule</property>
+  <property name="plugin">true</property>
+  
+</page>

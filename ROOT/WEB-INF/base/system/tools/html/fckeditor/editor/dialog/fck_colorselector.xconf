@@ -1,0 +1,10 @@
+<page>
+	<property name='text.Highlight'>
+        	<value>Highlight</value>
+		<value locale="es">Destacado</value>
+    	</property>
+	<property name='text.Selected'>
+        	<value>Selected</value>
+		<value locale="es">Seleccionado</value>
+    	</property>
+</page>

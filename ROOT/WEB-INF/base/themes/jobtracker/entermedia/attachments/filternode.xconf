@@ -1,0 +1,5 @@
+<page>
+	<permission name="viewallattachments">
+		<group name="administrators"/>
+	</permission>
+</page>

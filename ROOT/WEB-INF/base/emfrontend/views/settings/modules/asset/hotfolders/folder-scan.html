@@ -1,0 +1,18 @@
+<div id="folders" class="fwlist manual">
+	<div class="folder">
+		<div class="name">
+			<div class="alias" title="Alias">$data.name</div>
+			<div class="path" title="$folder.externalpath">$data.externalpath</div>
+			<div class="last-activity">Last Scanned: $!context.getDateTime($data.lastscanstart)</div>
+		</div>
+		<div class="delete">
+			<a class="btn red" href="$home$apphome/views/settings/modules/asset/hotfolders/remove.html?id=$data.id" confirm="Are you sure?">Delete</a>
+		</div>
+	</div>
+	<div class="fields">
+		
+		<h3>Scan Complete</h3>
+		
+		<p>Imported $found.size() assets</p>
+	</div>
+</div>

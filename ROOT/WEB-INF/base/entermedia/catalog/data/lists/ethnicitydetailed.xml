@@ -1,0 +1,12 @@
+
+<ethnicities>
+  <ethnicity id="1" ethnicity="1">European</ethnicity>
+  <ethnicity id="2" ethnicity="1">Eastern Europe</ethnicity>
+  <ethnicity id="3" ethnicity="1">Scandinavian</ethnicity>
+
+  <ethnicity id="4" ethnicity="2">African Descent</ethnicity>
+  <ethnicity id="5" ethnicity="2">Asian Descent</ethnicity>
+  <ethnicity id="6" ethnicity="2">Indian Descent</ethnicity>
+  <ethnicity id="7" ethnicity="2">Latin American</ethnicity>
+  <ethnicity id="8" ethnicity="2">Native American</ethnicity>
+</ethnicities>

@@ -1,0 +1,11 @@
+Refreshing... <img src="/${applicationid}/theme/images/ajax-loader.gif">
+
+#set($redirecturl = $context.getRequestParameter("redirecturl"))
+#if($redirecturl)
+<script>
+	setTimeout(function(){
+		var url = "$redirecturl";
+		window.open(url,"_self");
+	}, 2500);
+</script>
+#end

@@ -1,0 +1,52 @@
+  
+
+
+<div class="tab-actions clearfix">
+        <a class="btn ajax" targetdivinner="datamanager-workarea" href="$home$content.dataroot/edit/addnew.html?catalogid=$searcher.catalogId&searchtype=$searcher.searchType&origURL=$!origURL&oemaxlevel=1">[[Add New Record]]</a>
+        <a class="btn" href="$home$content.dataroot/list/reindex.html?catalogid=$searcher.catalogId&searchtype=$searcher.searchType&origURL=$!origURL">[[Reindex]]</a>
+        <a class="btn ajax" targetdivinner="datamanager-workarea" href="$home$content.dataroot/import/index.html?catalogid=$searcher.catalogId&searchtype=$searcher.searchType&origURL=$!origURL&oemaxlevel=1">[[Import]]</a>
+        <a class="btn" href="$home$content.dataroot/export/${searcher.searchType}.csv?catalogid=$searcher.catalogId&searchtype=$searcher.searchType&origURL=$!origURL&hitssessionid=${datalist.getSessionId()}">[[Export]]</a>
+        <a class="btn confirm" href="$home$content.dataroot/list/deleteall.html?catalogid=$searcher.catalogId&searchtype=$searcher.searchType&origURL=$!origURL" confirm="Delete All Records?" >[[Delete Records]]</a>
+	<a class="btn confirm" href="$home$content.dataroot/list/deletetable.html?searchtype=$searcher.searchType" confirm="Delete Table?" >[[Delete Table]]</a>
+        <a class="btn right flat-left up" id="advanced-dm-search-btn">\/</a>
+        <script>
+            $('#advanced-dm-search-btn').click(function(){
+                if ( $('#advanced-dm-search-btn').hasClass('flat-left') ) {
+                    $('#simple-dm-search').hide();
+                    $('#advanced-dm-search').show();
+                    $('#advanced-dm-search-btn').removeClass('flat-left');
+                    $('#advanced-dm-search-btn').html('/\\');
+                } else {
+                    $('#simple-dm-search').show();
+                    $('#advanced-dm-search').hide();
+                    $('#advanced-dm-search-btn').addClass('flat-left');
+                    $('#advanced-dm-search-btn').html('\\/');
+                }
+            });
+        </script>
+        <form id="simple-dm-search" style="float: right;" name="search" method="post" action="$home$content.dataroot/list/index.html">
+        
+        <input type="text" class="field" name="description.value" value='$!datalist.getInput("description")'/>
+        <input type="hidden" name="field" value="description"/>
+        <input type="hidden" name="catalogid" value="$!searcher.catalogId" />
+        <input type="hidden" name="searchtype" value="$!searcher.searchType" />
+        <input type="hidden" name="operation" value="startswith" />
+        <input type="hidden" name="view" value="$!view" />
+        
+        <input class="btn flat-right" type="submit" value="Search" />
+        </form>
+        
+        
+    
+         
+        <div id="advanced-dm-search" style="display: none;">
+            <form id="simple-dm-search" style="width: 100%" name="search" method="post" action="$home$content.dataroot/list/index.html">
+                    $pages.include("/${applicationid}/components/xml/searchfields.html",$context)
+                    <input type="hidden" name="catalogid" value="$!searcher.catalogId" />
+                    <input type="hidden" name="searchtype" value="$!searcher.searchType" />
+                    <input type="hidden" name="view" value="$!view" />
+                    <input class="btn right" type="submit" value="Search" />
+            </form>
+        </div>
+        
+</div>

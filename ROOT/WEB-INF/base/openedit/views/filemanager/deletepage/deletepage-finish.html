@@ -1,0 +1,3 @@
+#set ($newpath = $context.getRequestParameter("newpath"))
+
+$pages.include("${page.filerootpath}/tab.html?path=$!newpath", $context)

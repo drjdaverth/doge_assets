@@ -1,0 +1,13 @@
+#set ( $urlutils = $context.getPageValue("url_util"))
+#if (!$urlutils)
+	#set ($urlenc = $asset.sourcepath)
+#else
+	#set ( $urlenc = $urlutils.encode($asset.sourcepath))
+	#set ( $urlenc = $urlenc.replace("%2F", "/") )
+#end
+#set( $link = "/${applicationid}/views/modules/asset/downloads/preview/extralarge/$urlenc/preview.jpg")
+<a class="thickbox" href="$home$link" target="_parent"	
+	title="[[$asset]]">
+<img id="main-media" class="emdropshadow" src="$home/${applicationid}/views/modules/asset/downloads/preview/mediumplus/$urlenc/thumb.jpg" alt="$!asset.name"/>
+<link rel="image_src" type="image/jpeg" href="/${applicationid}/views/modules/asset/downloads/preview/mediumplus/$urlenc/thumb.jpg" />
+</a>

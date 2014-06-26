@@ -1,0 +1,66 @@
+#set( $applicationid = $context.findValue("applicationid") )
+#set( $rootsearchpath = $content.rootsearchpath)
+#if($query)
+#foreach( $catalogid in $query.getCatalogs())
+	#if( $catalogids)
+		#set( $catalogids = "$catalogids&catalogid=$catalogid" )
+	#else
+		#set( $catalogids = "catalogid=$catalogid")
+	#end
+#end
+#end
+
+#if( $query.getCatalogs().size() >0 )
+<h2>[[Search Terms]]:</h2>
+<p>[[Pick the search terms you want to include]]:</p>
+
+<div id="selectedtermslist" >
+$pages.include("/$applicationid/components/searcheditor/selectedterms.html?$catalogids")
+</div>
+
+##Views and search terms list 
+<div id="termslist" class="emsearchtermslist">
+$pages.include( "/$applicationid/components/searcheditor/termslist.html?$catalogids")
+</div>
+<!-- This is for posting the form with ajax! -->
+<div id="nulldiv" style="display:none;"> </div>
+
+#end
+<script type="text/javascript">
+
+addTerm = function(termpath)
+{
+	var parts = termpath.split(':');
+	var catalogid = parts[0];
+	var viewname = parts[1];
+	var fieldid = parts[2];
+	//var searchForm = document.getElementById('searchform');
+	//searchForm.action = '$home$rootsearchpath/savequery.html';  //In case they had typed in some text
+	//postForm('nulldiv', 'searchform');
+	//searchForm.action = '$home$page.searchformaction';
+	
+	jQuery('#selectedtermslist').load('$home/$applicationid/components/searcheditor/termadd.html', { 
+		oemaxlevel: 1, 
+		catalogid: catalogid,
+		fieldid: fieldid,
+		view: viewname
+		});
+		
+	return false;
+}
+
+removeTerm = function (termid)
+{
+    //	var searchForm = document.getElementById('searchform');
+    //	searchForm.action = '$home$rootsearchpath/savequery.html';
+	//postForm('nulldiv', 'searchform');
+    //	searchForm.action = '$home$page.searchformaction';
+	jQuery('#selectedtermslist').load('$home/$applicationid/components/searcheditor/termremove.html', {
+			oemaxlevel: 1, 
+			termid: termid
+		}
+	);
+	return false;
+}
+
+</script>

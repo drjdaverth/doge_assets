@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+#if( $assets.size() > 0 )
+<rsp stat="ok">
+#foreach( $asset in $assets )
+	<asset id="$asset.id" sourcepath="$!asset.sourcePath"/>
+#end
+#else
+<rsp stat="fail">
+Login failed
+#end
+</rsp>

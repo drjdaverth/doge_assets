@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+These should match your stylesheet located in /_styles.css
+Example:<Style name="Custom Ruler" element="hr">
+		<Attribute name="size" value="1" />
+		<Attribute name="color" value="#ff0000" />
+		</Style>
+
+-->
+
+<Styles>
+
+	<Style name="Normal" element="p" />
+	<Style name="3rd Header" element="h3" />
+	<Style name="2nd Header" element="h2" />
+	<Style name="Header" element="h1" />
+
+	<Style name="Call-out Box" element="div">
+		<Attribute name="class" value="calloutbox" />
+	</Style>
+
+	<Style name="Strong Text" element="span">
+		<Attribute name="style" value="font-weight: bold;" />
+	</Style>
+	
+	<Style name="Image on Left" element="img">
+		<Attribute name="style" value="padding: 5px; margin-right: 5px" />
+		<Attribute name="border" value="2" />
+		<Attribute name="align" value="left" />
+	</Style>
+	<Style name="Image on Right" element="img">
+		<Attribute name="style" value="padding: 5px; margin-left: 5px" />
+		<Attribute name="border" value="2" />
+		<Attribute name="align" value="right" />
+	</Style>
+</Styles>

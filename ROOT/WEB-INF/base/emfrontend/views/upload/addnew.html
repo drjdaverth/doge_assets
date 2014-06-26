@@ -1,0 +1,26 @@
+<script type="text/javascript">
+	selectCatalog = function(assettype)
+	{
+		if (assettype)
+		{
+				
+			var loc = "$home$apphome/views/upload/createnew.html?assettype=" + assettype;
+			//alert( loc );
+			document.location = loc;
+			//new Ajax.Updater('uploadform' , '$home/$content.applicationid/upload/upload.html',  {evalScripts:true, parameters: { catalogid: catalogid , oemaxlevel: 1 } } );
+		}
+	}
+</script>
+
+#set ($types = $searcherManager.getSearcher($catalogid, "assettype").getAllHits())
+
+<h2>Add New Record</h2>
+<p>Please select a catalog you would like to add to:</p>
+
+<select onchange="selectCatalog(this.options[selectedIndex].value);">
+<option></option>
+#foreach ($type in $types)
+	<option value="$type.id">$type</option>
+
+#end
+</select>

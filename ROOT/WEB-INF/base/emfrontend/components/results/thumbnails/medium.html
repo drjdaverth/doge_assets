@@ -1,0 +1,22 @@
+
+##Show the thumbnail	
+#set( $sourcepath = $asset.sourcePath )
+
+   	#set( $assetpath = $mediaarchive.getLinkToAssetViewer($sourcepath) )
+	#set( $thumbend = $mediaarchive.getLinkToSize($sourcepath, "thumb") )
+	#set( $medend = $mediaarchive.getLinkToSize($sourcepath, "medium") )
+	#set( $tsize = "$home$thumbend" )
+	#set( $msize = "$home$medend" )
+		
+	#if( $asset.name )
+   		#set( $name = $asset.name )
+   	#elseif ( $asset.title )
+   		#set( $name = $asset.title )
+   	#else
+   		#set( $name = "(No name)" )
+   	#end
+	#if( $thumbend )
+		<a href="$home$apphome/views/assets/$asset.sourcepath/index.html">
+		<img src="$tsize" class="emdropshadow" align="middle" border="0" title="${name}" style="margin-right: 5px;"/>
+		</a>
+	#end

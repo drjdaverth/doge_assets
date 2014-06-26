@@ -1,0 +1,21 @@
+<page>
+	
+	<path-action name="UpdateModule.upgradeFromZip" />
+	<property name='text.Here is the upgrade log'>
+        	<value>Here is the upgrade log</value>
+		<value locale="es">Aquí se presenta el log de la actualización</value>
+    	</property>
+	<property name='text.cancel'>
+        	<value>cancel</value>
+		<value locale="es">cancelar</value>
+    	</property>
+	<property name='text.refresh'>
+        	<value>refresh</value>
+		<value locale="es">refrescar</value>
+    	</property>
+	<property name='text.go back'>
+        	<value>go back</value>
+		<value locale="es">volver</value>
+    	</property>
+	
+</page>

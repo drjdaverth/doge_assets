@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+
+<property name="fallbackdirectory">/WEB-INF/base/emfrontend/views/modules/default</property>
+  <property name="module">userprofile</property>
+  <property name="searchtype">userprofile</property>
+</page>

@@ -1,0 +1,5 @@
+<page>
+	<path-action name="Page.uploadFile" alltypes="true"/>
+	<path-action name="AssetEditModule.createAssetFromUploads" alltypes="true"/>
+	<property name="hitsname">assets</property>
+</page>

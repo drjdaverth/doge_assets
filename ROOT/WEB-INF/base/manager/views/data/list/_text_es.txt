@@ -1,0 +1,12 @@
+#
+#Tue Apr 27 10:47:13 CLT 2010
+Forward=Adelante
+Data\ Search=B\u00FAsqueda de Datos
+Back=Atr\u00E1s
+Add\ New\ Record=Agregar Nuevo Registro
+Found=Encontrados
+Data\ Type=Tipo de Datos
+of=de
+Records=Registros
+Page=P\u00E1gina
+

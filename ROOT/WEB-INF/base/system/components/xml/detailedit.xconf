@@ -1,0 +1,10 @@
+<page>
+	<property name='text.Pick a date'>
+    	<value>Pick a date</value>
+		<value locale="es">Escoja una Fecha</value>
+	</property>
+	<property name='text.Pick a File'>
+    	<value>Pick a date</value>
+		<value locale="es">Escoja un Archivo</value>
+	</property>
+</page>

@@ -1,0 +1,20 @@
+#set($viewid = $context.getRequestParameter("viewid"))
+#set($viewsearcher = $searcherManager.getSearcher($catalogid, "view"))
+#set ( $systemdefined = "false" )
+#set ( $systemdefined = $context.findValue("systemdefined") )
+
+
+#set ( $moduleid = $context.findValue("module") )		
+
+#set($query = $viewsearcher.createSearchQuery().append("module",$moduleid).append("systemdefined",$systemdefined) )
+$!query.addSortBy("ordering")
+#set($views = $viewsearcher.search($query))
+
+#set( $viewsroot = $content.viewsroot )
+
+
+	<div id="table-container">
+		<div id="workarea">
+		$pages.include("./index.html")
+		</div>
+	</div>

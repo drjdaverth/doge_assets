@@ -1,0 +1,1270 @@
+/*********************************
+	Top Level Stuff
+*********************************/
+
+#emcontainer h2
+{
+	color: #666666;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+#emcontainer img {
+	border: none;
+	border-style:none;
+}
+
+#emcontainer #emcontentwithside {
+	padding: 0px 10px 0px 0px;
+	background: #FFFFFF;
+	min-height:566px; /*ff*/
+	height: auto !important; /*ie7 */
+}
+
+//Used in various menus
+#emcontainer .empopupsection
+{
+	width:130px;
+	visibility:hidden;
+}
+
+#emcontainer .emcatalogheadericon
+{
+	display: inline;
+	padding: 6px 16px 0 0;
+	font-size: 11px;
+	color: #666666;
+}
+#emcontainer .emcatalogheadericon img
+{
+	vertical-align: middle;	
+}
+#emcontainer .emcatalogheadericon a
+{
+	font-size: 11px;
+	text-decoration: none;
+	color: #666666;
+}
+
+#emcontainer .emcatalogheadericon label
+{
+	display: block;
+}
+#emcontianer .emcatalogheadericon a img
+{
+	text-align: center;	
+}
+
+
+
+#emcontainer div.embutton
+{
+	display: table-cell;
+	cursor: pointer;
+	min-height: 16px;
+	min-width: 70px;
+	max-width: 300px;
+	border: 0px;
+	color: white;
+	font-weight: bold;
+	padding: 0px 4px 0px 4px;
+	margin: 5px;	
+}
+#emcontainer div.embutton input
+{
+	cursor: pointer;
+	border: 0px;
+	background-color: transparent;
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+}
+#emcontainer div.embutton a
+{
+	display: block;
+	width: 100%;
+}
+
+#emcontainer div.embuttoninside
+{
+	padding: 4px 4px 4px 0px;
+}
+
+#emcontainer .embox
+{
+	padding: 20px;
+}
+/*********************************
+	Used for main content panel
+*********************************/
+#emcontainer .spiffytwo{display:block;}
+#emcontainer .spiffytwo *{
+  display:block;
+  height:1px;
+  overflow:hidden;
+  font-size:.01em;
+  background:#353A35}
+#emcontainer .spiffytwo1{
+  margin-left:3px;
+  margin-right:3px;
+  padding-left:1px;
+  padding-right:1px;
+  border-left:1px solid #a8aaa8;
+  border-right:1px solid #a8aaa8;
+  background:#676b67}
+#emcontainer .spiffytwo2{
+  margin-left:1px;
+  margin-right:1px;
+  padding-right:1px;
+  padding-left:1px;
+  border-left:1px solid #eaebea;
+  border-right:1px solid #eaebea;
+  background:#5b5f5b}
+#emcontainer .spiffytwo3{
+  margin-left:1px;
+  margin-right:1px;
+  border-left:1px solid #5b5f5b;
+  border-right:1px solid #5b5f5b;}
+#emcontainer .spiffytwo4{
+  border-left:1px solid #a8aaa8;
+  border-right:1px solid #a8aaa8}
+#emcontainer .spiffytwo5{
+  border-left:1px solid #676b67;
+  border-right:1px solid #676b67}
+#emcontainer .spiffyfgtwo{
+	padding: 20px;
+	min-width:800px;
+	min-height:500px;
+  	background:#353A35;}
+
+/*********************************
+	used for buttons 
+*********************************/
+#emcontainer .spiffyfgfour{
+	background:#353A35;
+	padding: 0 10px 0px 10px;
+	}
+#emcontainer .spiffyfgfour a{
+	text-decoration:none;
+	color:white;
+	display:block;
+	}
+#emcontainer .spiffyfgfour a:hover
+{
+	color: #E4FFE3;
+}
+
+
+/*********************************
+	Thumbnails
+*********************************/
+#emcontainer img.thumbicon  
+{
+	padding: 3px;
+}
+
+/*********************************
+	Navigation Menu
+*********************************/
+.embody #nav .emtable .row .menulink
+{
+	text-decoration: none;
+	text-transform:uppercase;
+	color: white;
+	font-weight: bold;
+	padding-right: 8px;
+	font-size: 8pt;
+}
+
+.embody #nav .emtable .row .menulink:hover
+{
+	color: #CC0717;
+}
+
+/*------------*/
+/* pages.html */
+/*------------*/
+#emcontainer #navbox
+{
+	
+	text-align: center;
+	padding-right: 5px;	
+
+}
+#emcontainer #navbox A 
+{
+	background-color: #666666;
+	color:           #FFFFFF;
+	text-decoration: none;
+	display:block;
+	width: 28px;
+	border: 1px solid #666666;
+}
+#emcontainer #navbox A:hover 
+{
+	color:           #666666;
+	background-color: #FFFFFF;
+	border: 1px solid #666666;
+}
+#emcontainer #navbox A:visited
+{
+	color:           #FFFFFF;
+	text-decoration: none;
+}
+#emcontainer #navboxselected
+{
+	text-align: center;
+	padding-right: 5px;	
+}
+#emcontainer #navboxselected A
+{
+	border: 1px solid #666666;
+	text-decoration: none;
+	display:block;
+	width: 28px;
+	color:           #666666;
+	background-color: #FFFFFF;
+	height: 17px;
+	
+}
+#emcontainer #navboxselected A:visited
+{
+	text-decoration: none;
+}
+
+/*********************************
+	Comments
+*********************************/
+#emcontainer .emcomment {
+	margin-bottom: 5px;
+	background-color: #EEEEEE;
+	width: 400px;
+	display: table;
+	color: #333333;
+	padding: 5px;
+}
+#emcontainer .emcommentuser {
+	font-weight: bold;
+	
+}
+#emcontainer .emcommenttext {
+}
+#emcontainer .emcommentdate
+{
+	display: block;
+	color: #888888;
+}
+
+/*********************************
+	Download Results View
+*********************************/
+#emcontainer .emdownloadlisting
+{
+	width: 100%;
+	margin-bottom: 10px;
+	
+}
+#emcontainer .emdownloadlisting .borderedcell
+{
+	border-right: 1px dotted #666;	
+}
+#emcontainer .emdownloadlisting th
+{
+	text-align: center;
+}
+#emcontainer .emdownloadlisting .imagepad
+{
+	text-align: center;
+	vertical-align: middle;
+	padding: 5px;
+}
+#emcontainer .oddrow
+{
+	background-color: #EEEEEE;
+}
+#emcontainer .resultshoverholder
+{
+	padding: 1px; 
+	background-color: #FFF; 
+	border: 1px solid #888;
+}
+#emcontainer .resultshoverdetail
+{
+	text-align: center;
+	padding: 8px 2px 2px 2px;
+}
+
+/*********************************
+	Drop Down Menus
+*********************************/
+//Actions Menu
+#emcontainer .emactionsheader
+{
+	text-align: center;
+}
+#emcontainer .emactionsheader a
+{
+	text-decoration: none;
+	color: #666666;
+	font-size: 11px;
+}
+#emcontainer .emactionsheader a:visited
+{
+	text-decoration: none;
+	color: #666666;
+	font-size: 11px;
+}
+#emcontainer .emactionsheadermenu
+{
+	z-Index:600;
+	position:absolute;
+	list-style-type: none;
+	margin: 1px 0;
+	padding: 0;
+	width: 170px;
+	border: 1px solid #9A9A9A;
+	text-decoration: none;
+	color: #666666;
+}
+#emcontainer .emactionsheadermenu li a
+{
+	background-color: #f7f7f7;
+	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+	display: block;
+	width: auto;
+	padding: 6px 0px 4px 10px;
+	text-decoration: none;
+	border-top: 1px solid white;
+	text-align:left;
+	color: #666666;
+}
+#emcontainer .emactionsheadermenu li a img
+{
+	padding-top:0px;	
+}
+
+
+#emcontainer .emactionsheadermenu li a:visited, #emcontainer #emcatalogheader .emactionsheadermenu li a:active
+{
+}
+#emcontainer .emactionsheadermenu li a:hover
+{
+	background-color: #DDDDDD;
+}
+
+#emcontainer .dtree a
+{
+	text-decoration: none;
+	color: #555;
+}
+
+//* html .mattactionsheadermenu li a{ /*IE only. Actual menu width minus left padding of A element (10px) */
+//width: 160px;
+//}
+
+/*********************************
+	Table Results
+*********************************/
+#emactiontopmenu a
+{
+	padding-right: 10px;
+}
+#emcontainer .emdarktable
+{
+	empty-cells: show;
+}
+#emcontainer .emdarktable th
+{
+   white-space: nowrap;
+   padding-left: 8px;
+	
+}
+
+/*********************************
+	Thumbnail Results
+*********************************/
+#emcontainer #slidesheet
+{
+	padding-top: 10px;
+}
+
+
+.emthumbbox {
+	margin-bottom: 4px;
+	float:left;
+	padding: 0 30px 0 0;
+}
+
+.emthumbimage
+{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	overflow:hidden;
+	padding: 0 0 4px 0;
+}
+.emthumbimage *
+{
+	vertical-align:middle;
+}
+
+/** Sizes **/
+.emboxthumbsmall
+{
+	width: 150px;
+	height: 150px;
+}
+.emthumbsmall
+{
+	width: 150px;
+	height: 150px;
+}
+
+.emboxthumb
+{
+	width: 200px;
+	height: 250px;
+}
+.emthumb
+{
+	height:200px;
+	width: 200px;
+}
+
+.emboxthumblarge
+{
+	height:300px;
+	width: 300px;
+}
+.emthumblarge
+{
+	height:300px;
+	width: 300px;
+}
+
+.emthumbboxicon
+{
+	margin: 10px 0 0 0;
+}
+.emthumbboxtext
+{
+	margin: 10px 0 0 0;
+	height: 50px;
+}
+#emcontainer .emthumbboxtext .emtitle 
+{
+	padding: 4px 0px 0px 0px;
+	text-align: left;
+	font-weight: bold;
+}
+
+#emcontainer .emthumbboxtext .emcaption 
+{
+	padding: 2px 4px 0px 0px;
+	text-align: left;
+	width: 200px;
+}
+
+
+#emcontainer .thumbitem, .seriesitem {
+	margin: 0;
+}
+#emcontainer .thumbitem .removelink{
+	left:90%;
+	top:-5px;
+	position: absolute;
+}
+
+
+#emcontainer .resultdetails
+{
+	text-align: center;
+	padding:1px;	
+}
+#emcontainer .resultdata a
+{
+	padding-left: 8px;
+	text-decoration: none;
+	display: block;
+	color: #444444;
+}
+#emcontainer .resultdata a:hover
+{
+   	background-color: #C0D2EC;
+}
+//currently no style added but it's in the code
+#emcontainer .downloadlink{}
+
+#emhover {
+	border: 1px solid lightgray;	 
+	background-color: white;
+	z-index : 666;
+	min-height:200px;
+	min-width:150px;
+	max-width:300px;
+	position: absolute;
+	padding: 6px;
+	color: #666666;
+	display: table;
+	
+}
+
+#emhover a {
+	font-size: 11px;
+	text-decoration: none;
+	color: #666666;
+}
+
+.emthumbzoomimage a
+{
+	display: block;
+	text-align: center;
+}
+
+/*********************************
+	Results Header
+*********************************/
+#emcontainer .emselectionbox{
+	border: 2px solid transparent;
+}
+#emcontainer .emselectionbox a{
+	display: block; 
+	line-height: 18px;
+}
+#emcontainer .emselectionbox a img
+{
+	vertical-align: top;
+}
+#emcontainer #emcatalogheader {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+#emcontainer #emcatalogheader h1 {
+	font-size: 105%;
+	font-weight: bold;
+}
+#emcontainer #emcatalogheader .togglearrow {
+	float:none;
+	width:auto;
+	height:1em;
+	width:1em;
+}
+.ui-effects-transfer {
+	border: 2px solid blue;
+}
+
+/*********************************
+	Results View Actions
+*********************************/
+#emcontainer #emviewactions
+{
+	line-height: 18px;
+}
+#emcontainer #emviewactions a
+{
+	padding-right: 8px; 
+	
+	
+}
+#emcontainer #emviewactions img
+{
+	vertical-align:top; 
+	margin-right:3px;
+}
+
+
+
+/*********************************
+	Content headers
+*********************************/
+#emcontainer .emsidecontent
+{
+	padding:0px 15px 20px 8px;
+}
+
+#emcontainer #emsidecontentheader
+{
+	background-color: #dadada;
+	background: white url(../images/bkgd_bar2.png) repeat-x center;
+	color: white;
+	padding: 2px 4px 1px 4px;
+}
+#emcontainer  #emsidecontentheader a
+{
+	text-decoration: none;
+	font-size: 13px; 
+	color: #FFFFFF;  
+	display: block;
+}
+
+#emcontainer .emsidecontentbody
+{
+	margin:0px;
+	border: 1px solid #dadada;
+	background: transparent url(../images/layout/sidebox_bggradient.gif) repeat-x;
+}
+#emcontainer .emsidecontentbodyinner
+{
+	padding: 6px 0px 10px 10px;
+}
+#emcontainer #showbrowser .emsidecontentbodyinner
+{
+	padding: 0px;
+}
+
+/*********************************
+	Detail Viewer
+*********************************/
+
+#emcontainer #emactions
+{
+	padding:4px;
+	list-style-type: none; padding-left: 0;
+	margin-left: 0;
+   	text-decoration: none;
+}
+#emcontainer #emactions A 
+{
+	text-decoration: none;
+	display: block;
+	padding: 1px 4px 1px 8px;
+	white-space:nowrap; 
+	color: #68323b;
+}
+#emcontainer #emactions A:hover 
+{
+   	background-color: #c1c9b0;
+   	white-space:nowrap; 
+}
+
+#emcontainer #emactionsselected
+{
+	margin:  0px;   	
+	list-style-type: none;    
+   	text-decoration: none;
+   	background-color: #c1c9b0;
+   	padding: 2px 2px 2px 2px;
+}
+#emcontainer #emactionsselected A
+{
+	text-decoration: none;
+	white-space:nowrap; 
+}
+#emcontainer .emsiderightcontent
+{
+	border-bottom: 1px #AAAAAA solid;
+	border-top: 1px white solid;
+	border-right: 1px white solid;	
+	padding: 10px;
+    background-color: #e0e0e0;
+	
+}
+
+#emcontainer .emrightmenu .leftside
+{
+    width: 100%;
+    padding: 10px;
+    vertical-align:top;
+}
+#emcontainer .emrightmenu .rightside
+{
+    width: 100%;
+    vertical-align:top;
+    padding: 10px;
+}
+
+/*********************************
+	Search Area and Media Viewer
+*********************************/
+#emcontainer #emrelatedsuggestions
+{
+	display: inline;
+}
+
+#emcontainer #emmediaviewer .emphotocount 
+{
+	display: inline;
+	padding-right: 10px;
+	margin-bottom: 20px;
+}
+#emcontainer #emmediaviewer .embackto
+{
+	display: inline;	
+	float: left;
+	padding-right: 10px;
+	margin-bottom: 20px;
+}
+#emcontainer #emmediaviewer .emprevnext
+{
+	display: inline;
+	float: right;
+
+}
+#emcontainer #emmediaviewer
+{
+	margin-left: auto;
+	margin-right: auto;
+	diplay: table;
+}
+#emcontainer #emmediaviewer .emrow
+{
+	diplay: table-row;
+}
+#emcontainer #emmediaviewer .emcell
+{
+	diplay: table-cell;
+}
+
+#emcontainer #emmediaviewer .emmenuarea
+{
+	margin-bottom: 12px;
+	height: 12px;
+}
+
+
+#emcontainer .emcalloutcontent
+{
+	background-color: #eeeeee;
+	padding: 20px;
+	margin: 0px 0px 10px 0px;
+}
+
+/*********************************
+	Search Area
+*********************************/
+#emcontainer .emsearchcontainer
+{
+	height: auto;
+}
+#emcontainer .emsearchcontent
+{
+	width: 100%;
+	height: auto;
+	background-color: white;
+}
+#emcontainer .emsearchcontent h1
+{
+	font-size: 14pt;
+	width: 400px;
+	border-bottom: 1px solid gray;
+	margin: 5px;
+}
+#emcontainer .emsearchcontent h2
+{
+	font-size: 10pt;
+	color: gray;
+}
+#emcontainer .emsearchrightmenu
+{
+	width: 190px;
+	height: auto;
+	background-color: gray;
+	text-align: center;
+	border: 1px solid gray;
+}
+#emcontainer .emsearchrightmenu h1
+{
+	background-color: red;
+	color: white;
+	font-size: 14pt;
+	margin: 10px;
+	text-align: center;
+	padding: 5px;
+}
+#emcontainer .emsearchrightmenu table
+{
+	padding: 5px;	
+}
+#emcontainer .emsearchsidecontent
+{
+	border-bottom: 10px solid #e0e0e0;
+	background-color: #e0e0e0;
+}
+#emcontainer .emsearchsidecontent table
+{
+	border-collapse:collapse;
+	width: 100%;
+	margin-bottom: 10px;
+
+}
+#emcontainer .emsearchsidecontent td
+{
+	border-bottom: 1px solid #ffffff;
+}
+#emcontainer .emsearchsidecontent a
+{
+	text-decoration: none;
+	color: #666666;
+}
+#emcontainer .emsearchcurrentquery
+{
+	font-weight: bold;
+}
+#emcontainer .emsearchquerylist
+{
+	padding: 5px 0px 5px 5px;
+}
+#emcontainer .emsearchmanagequeries
+{
+	align: right;
+}
+#emcontainer .emsearchcataloglist
+{
+	padding-left: 50px;
+}
+#emcontainer .emsearchcatalogselect
+{
+	padding-left: 50px;
+	padding-top: 10px;
+}
+#emcontainer .emsearchtermslist
+{
+	padding-left: 50px;
+}
+#emcontainer .emsearchfieldrow td
+{
+	padding: 2px;
+}
+
+#emcontainer .emsearchfield
+{
+	white-space: nowrap;
+	padding-right: 5px;
+	text-align: left;
+	vertical-align: middle;
+}
+#emcontainer .emsearchfieldvalue
+{
+	white-space: nowrap;
+	padding-right: 5px;
+	text-align: left;
+	vertical-align: middle;
+}
+#emcontainer .emsearchfieldvalue input
+{
+	margin-left: 2px;
+}
+
+/** Data entry **/
+#emcontainer .emdataeditor td
+{
+	padding: 2px;
+}
+#emcontainer .emdatafield
+{
+	white-space: nowrap;
+	padding-right: 5px;
+	text-align: left;
+	vertical-align: middle;
+}
+#emcontainer .emdatafieldvalue
+{
+	white-space: nowrap;
+	padding-right: 5px;
+	text-align: left;
+	vertical-align: middle;
+}
+#emcontainer .emdatafieldvalue input
+{
+	margin-left: 2px;
+}
+
+
+/*********************************
+	Actions Menu
+*********************************/
+#emcontainer .emactionsheader
+{
+	text-align: center;
+	padding-left: 20px;
+}
+#emcontainer .emactionsheader a
+{
+	text-decoration: none;
+	color: #666666;
+	font-size: 11px;
+}
+#emcontainer .emactionsheader a:visited
+{
+	text-decoration: none;
+	color: #666666;
+	font-size: 11px;
+}
+#emcontainer ul.emactions
+{
+	width: 160px;
+	padding: 10px;
+	list-style-type: none; padding-left: 0;
+	margin-left: 0;
+   	text-decoration: none;
+}
+#emcontainer .emactions li a 
+{
+	text-decoration: none;
+	display: block;
+	padding: 1px 4px 1px 8px;
+	white-space: nowrap; 
+	padding: 3px;
+	border-bottom: 1px solid #aaaaaa; 
+}
+#emcontainer .emactions li a:hover 
+{
+   	white-space: nowrap;
+   	background: #dddddd; 
+}
+
+#emcontainer .emselectionlist
+{
+	text-align: left;
+   	white-space: nowrap;
+}
+
+#emcontainer .emselectionlist a
+{
+   	white-space: nowrap;
+
+}
+#emcontainer .emcut10
+{
+	display: block;
+	width: 10em;
+    overflow:hidden;
+}
+#emcontainer .emselectionlist img
+{
+	vertical-align: top;
+}
+/*********************************
+	Content Box used by albums and activity
+*********************************/
+#emcontainer .emcontentbox {
+	background: #F7F7F7 none repeat scroll 0 0;
+	border: 1px solid #BBBBBB;
+	padding: 10px;
+}
+
+/*********************************
+	Album Results
+*********************************/
+#emcontainer .emalbumresults {
+	padding: 15px;
+}
+#emcontainer .emalbumtools {
+	float: left;
+	width: 500px;
+}
+#emcontainer .emalbumdetails {
+	padding: 10px;
+	margin-top: 30px;
+}
+#emcontainer .resultthumb
+{
+	position:relative;
+}
+#emcontainer .resultthumb span
+{
+	display: block;
+	position:absolute;
+	top:5px;
+	left:80%;
+	content:url(../images/cart-add.gif) no-repeat;
+}
+
+/*********************************
+	Album List Results
+*********************************/
+#emalbumcontent {
+	width: 100%;
+}
+
+#emalbumcontent ul.emthumbnails {
+	list-style-type: none;
+	margin: 0 auto !important;
+	padding: 0 !important;
+}
+
+#emalbumcontent .emthumbnails li {
+	list-style-type: none;
+	margin: 0 auto;
+	float: left;
+	background-color: #EEEEEE; 
+	margin-right: 10px;
+	width: 160px;
+	height: 220px;
+	margin-bottom: 10px;
+}
+
+#emalbumcontent .emthumbnails img {
+	display: block;
+	text-align: center;
+	margin: 0 auto !important;
+}
+
+#emalbumcontent .emthumbnail
+{
+	font-size: 1.1em;
+	
+}
+
+#emalbumcontent .emthumbnail .emh2sub
+{
+	color: #999999;
+	font-size: .8em;
+}
+
+/*********************************
+	User Home Page
+*********************************/
+#emcontainer #emuserhome {
+	float: left;
+	padding-right: 10px;
+}
+
+#emcontainer #emuseralbumslist {
+	float: left;
+}
+
+/*********************************
+	Home activity page
+*********************************/
+#emcontainer .emrecentactivity {
+	margin-left: 20px;
+}
+
+#emcontainer #emactivitybox {
+	width: 600px;
+	margin: 3px;
+}
+
+#emcontainer #emactivitybox .emactivityspecifics {
+	padding-left: 10px;
+}
+
+#emcontainer #emactivitybox .emactivityuserlink {
+	font-weight: bold;
+}
+
+#emcontainer #emactivitybox .emactivitydate {
+	font-size: 80%;
+}
+
+/*********************************
+	CSS tables Does not work in IE7
+*********************************/
+div.emtable
+{
+	display: table;
+}
+
+div.emtable div.row
+{
+	display: table-row;
+}
+
+div.emtable div.row span,
+div.emtable div.row div
+{
+	display: table-cell;
+	padding: 3px;
+}
+
+div.emtable div.row div div
+{
+	display: block;
+}
+
+.emdatatable
+{
+
+}
+
+/*********************************
+	Logs Area
+*********************************/
+#emcontainer .oesearchform
+{
+	border: 1px solid lightgray;
+	padding: 5px;
+	text-align: right;
+	width: 225px;	
+}
+#emcontainer .oesearchform h2
+{
+	text-align: center;
+	margin-bottom: 5px;
+	font-size: 1.1em;
+}
+/*********************************
+	Sync Tool
+*********************************/
+#emcontainer .synctable
+{
+		
+}
+#emcontainer .synctable th
+{
+	padding:1px 5px 1px 5px;
+	text-align:center;
+	border-left: 1px dotted gray;
+}
+#emcontainer .synctable td
+{
+	padding:1px 5px 1px 5px;
+	border-left: 1px dotted gray;
+}
+
+/*********************************
+	Tabs
+*********************************/
+#emcontainer .oetabcontent
+{
+	padding-top: 5px;
+	padding-left: 15px;
+}
+#emcontainer .catalogadmintabselected
+{
+	background: url(/system/images/tabs/navlh.gif) left top no-repeat 	!important;
+	background-color: #31578d !important;
+}
+#emcontainer .catalogadmintabselected span
+{
+	background: url(/system/images/tabs/navrh.gif) right top no-repeat !important;
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+
+}
+#emcontainer .catalogadmintabselected span a
+{
+	color: #fff !important;
+	
+}
+#emcontainer .oetabselected
+{
+	background: url(/system/images/tabs/navlh.gif) left top no-repeat 	!important;
+	background-color: #31578d !important;
+}
+#emcontainer .oetabselected span
+{
+	background: url(/system/images/tabs/navrh.gif) right top no-repeat !important;
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+#emcontainer .oetabselected span a
+{
+	color: #fff !important;
+	
+}
+#emcontainer .tabnavigation
+{
+	margin-left: 10px;
+	margin-top: 5px;
+	border-collapse: collapse;
+}
+#emcontainer .tabnavigation td 
+{
+   	white-space:nowrap;
+	padding: 0px;
+	color: #000;
+	background: #e6e7e9 url(../images/tabs/navl.gif) left top no-repeat;
+}
+#emcontainer .tabnavigation td a
+{
+	text-decoration: none;
+}
+#emcontainer .tabnavigation td span
+{
+	background: url(../images/tabs/navr.gif) right top no-repeat;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+/* Hide from IE5-Mac \*/
+#emcontainer .tabnavigation a, .tabnavigation a span
+{
+}
+/* End hide */
+
+#emcontainer .tabnavigation td:hover 
+{
+	color: #fff;
+	background: #31578d url(/system/images/tabs/navlh.gif) left top no-repeat;
+}
+#emcontainer .tabnavigation td:hover A
+{
+	text-decoration: none;
+	color: white;
+}
+#emcontainer .tabnavigation td:hover span
+{
+	background: url(/system/images/tabs/navrh.gif) right top no-repeat;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/*********************************
+	Others
+*********************************/
+#uploadtool
+{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100px;
+	height: 50px;
+	background-color: silver;
+	text-align: center;
+}
+
+#uploadtool a
+{
+	position: relative;
+	top: 40%;
+	
+}
+
+#emoptionshovermenu {
+	border: 1px solid lightgray;	 
+	background-color: white;
+	z-index : 666;
+	position: absolute;
+	padding: 6px;
+	color: #666666;
+}
+
+#emcontainer #emselectable table { border: 2px solid #E0E0E0; }
+#emcontainer #emselectable table th { padding: 4px; text-align: left; font-weight: bold; }
+#emcontainer #emselectable table tr {	cursor:pointer; border-bottom: 1px solid #999999;   }
+#emcontainer #emselectable table tr td {	padding: 4px;   }
+#emcontainer #emselectable table tr.emhighlight {	cursor:pointer; background: #ff6; }
+#emcontainer #emselectable table tr.emborderhover {	 background: #eeeeee;   }
+#emcontainer #emselectable .emselectabledetails { padding-left: 20px; }
+
+#emcontainer .emdatatable { border: 2px solid #E0E0E0; }
+#emcontainer .emdatatable th { padding: 4px; text-align: left; font-weight: bold; }
+#emcontainer .emdatatable tr {	 border-bottom: 1px solid #999999;   }
+#emcontainer .emdatatable tr td {	padding: 4px;   }
+
+/*****************
+ * User Manager **
+ *****************/
+#emcontainer .usermanagercontentpanel { background-color: #f1f4e9; }
+
+/*-----------------------*/
+/* CLEARFIX              */ 
+/*-----------------------*/
+.clearFix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearFix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearFix {height: 1%;}
+.clearFix {display: block;}
+/* End hide from IE-mac */
+

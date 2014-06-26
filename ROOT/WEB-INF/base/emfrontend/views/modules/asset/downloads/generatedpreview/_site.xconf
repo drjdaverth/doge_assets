@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                                                                                                                                   
+<page>
+	<property name="virtual">true</property>
+	<generator name="generatedMediaGenerator"/>
+	<property name="assetrootfolder">/${applicationid}/views/modules/asset/downloads/generatedpreview</property>
+
+	<permission name="view">
+		<pagevalue name="canviewasset" equals="true"/>
+	</permission>	
+	
+</page>
+
+

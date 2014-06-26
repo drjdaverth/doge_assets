@@ -1,0 +1,33 @@
+#emcontainer .emtreehover
+{
+	background-color: #E0E0E0;
+}
+#emcontainer .treerow a
+{
+	min-width: 50px;
+}
+
+#emcontainer .treerowtext
+{
+	padding-bottom: 4px;
+}
+
+#emcontainer .dtree {
+	white-space: nowrap;
+}
+#emcontainer .dtree img {
+	border: 0px;
+	vertical-align: top;
+}
+#emcontainer .dtree a 
+{
+	color: #444444;
+	font-size: 12px;
+	margin-bottom: 5px;
+	text-decoration: none;
+}
+#emcontainer .dTreeNodeSel
+{
+	background-color: #C0D2EC;
+	
+}

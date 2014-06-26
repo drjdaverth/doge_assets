@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  	<property name="editable">false</property>
+  	<page-action name="MountModule.loadMountsForPath" />
+	<property name='text.Mounted Folders'>
+        	<value>Mounted Folders</value>
+		<value locale="es">Carpetas Montadas</value> 
+    	</property>
+	<property name='text.Filter'>
+        	<value>Filter</value>
+		<value locale="es">Filtro</value> 
+    	</property>
+	<property name='text.Settings'>
+        	<value>Settings</value>
+		<value locale="es">Configuraciones</value> 
+    	</property>
+	<property name='text.None'>
+        	<value>None</value>
+		<value locale="es">Ninguno</value> 
+    	</property>
+	<property name='text.External Path'>
+        	<value>External Path</value>
+		<value locale="es">Ruta Externa</value> 
+    	</property>
+	<property name='text.Internal Path'>
+        	<value>Internal Path</value>
+		<value locale="es">Ruta Interna</value> 
+    	</property>
+	<property name='text.Version control enabled'>
+        	<value>Version control enabled</value>
+		<value locale="es">Control de Versiones Habilitado</value> 
+    	</property>
+	<property name='text.Remove this entry?'>
+        	<value>Remove this entry?</value>
+		<value locale="es">¿Eliminar esta entrada?</value> 
+    	</property>
+	<property name='text.Remove'>
+        	<value>Remove</value>
+		<value locale="es">Borrar</value> 
+    	</property>
+	<property name='text.Edit'>
+        	<value>Edit</value>
+		<value locale="es">Editar</value> 
+    	</property>
+	<property name='text.Add New'>
+        	<value>Add New</value>
+		<value locale="es">Agregar Nuevo</value> 
+    	</property>
+  
+</page>

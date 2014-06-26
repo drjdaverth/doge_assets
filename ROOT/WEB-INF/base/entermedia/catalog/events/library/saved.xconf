@@ -1,0 +1,11 @@
+<page>
+	<property name="eventname">Library Saved</property>	
+	<property name="virtual">true</property>
+		<property name="reloadprofile">true</property>
+
+<!--- Removed this since it is too complicated. Just write a script to check in or create new libraries
+	<path-action name="Script.run" allowduplicates="true" >
+		<script>/${catalogid}/events/scripts/library/saved.groovy</script>
+	</path-action>
+-->	
+</page>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+  	<path-action name="Page.uploadFile" />
+  	<page-action name="Page.constructParameter" />
+	<property name='text.uploadsuccessful'>
+        	<value>UPLOAD SUCCESSFUL</value>
+		<value locale="es">CARGA EXITOSA</value>
+    	</property>
+	<property name='text.uploadheader'>
+        	<value>Upload Successful</value>
+		<value locale="es">Carga Exitosa</value>
+    	</property>
+	<property name='text.Success: Uploaded'>
+        	<value>Success: Uploaded</value>
+		<value locale="es">Éxito: Se cargó</value>
+    	</property>
+</page>

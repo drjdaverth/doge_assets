@@ -1,0 +1,7 @@
+<page>
+	<property name="eventname">Re-Generate All Media</property>	
+
+	<path-action name="Script.run">
+		<script>/${catalogid}/events/scripts/editall.groovy</script>
+	</path-action>
+</page>

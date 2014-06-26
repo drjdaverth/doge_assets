@@ -1,0 +1,42 @@
+#set( $moduleid = $context.findValue("module") )
+#set($viewid = $context.getRequestParameter("viewid"))
+#set($viewpath = $context.getRequestParameter("viewpath"))
+
+
+        <div  class="module-inner">
+                
+            <div id="resultsdiv">
+                <div id="emresultscontent">
+                    
+                    <div id="resultsarea">
+                        <div id="resultslist">
+
+				#if(!$hits)
+				        #set($hitsname = $context.getRequestParameter('hitsname'))
+				        #set($hits = $context.getPageValue($hitsname))
+				#end
+				
+				#if(!$hits)
+				        #set($hitssessionid = $context.getRequestParameter('hitssessionid'))
+				        #if($hitssessionid)
+				            #set($hits = $context.getSessionValue($hitssessionid))
+				        #end
+				#end
+				#if(!$hits)
+				#set($hits = $context.getPageValue($content.hitsname))
+				#end
+				
+				$context.putPageValue("hits", $hits)
+				#set( $moduleid = $context.findValue("module") )
+				
+				$pages.include("/$applicationid/views/modules/${moduleid}/edit/actions.html", $context)
+				$pages.include("/$applicationid/views/modules/${moduleid}/edit/header.html", $context)
+  
+                              $pages.includeContent()
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+

@@ -1,0 +1,10 @@
+<page>
+
+	<path-action name="User.loadQuestion" />
+	<path-action name="BlogModule.loadPermalink" />
+	<path-action name="BlogModule.addNewComment" />	
+	<property name="oe.edit.directedits">true</property>
+	<property name="virtual">true</property>
+	<inner-layout>${bloghome}/layout/comments.html</inner-layout>
+	
+</page>

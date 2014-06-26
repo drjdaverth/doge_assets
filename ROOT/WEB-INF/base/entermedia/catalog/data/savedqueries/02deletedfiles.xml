@@ -1,0 +1,9 @@
+
+<query name="Deleted Files">
+ <term id="editstatus" val="7" op="matches"/>
+ <inputs>
+    <input key="editstatus">
+      <value>7</value>
+    </input>
+  </inputs>
+</query>

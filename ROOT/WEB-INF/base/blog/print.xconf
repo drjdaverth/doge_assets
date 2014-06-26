@@ -1,0 +1,6 @@
+<page>
+
+	<path-action name="BlogModule.getEntry" />
+	<layout />
+	<inner-layout />
+</page>

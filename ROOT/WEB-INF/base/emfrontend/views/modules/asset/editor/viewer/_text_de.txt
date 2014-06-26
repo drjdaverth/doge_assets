@@ -1,0 +1,6 @@
+#
+#Thu Apr 08 15:48:22 EDT 2010
+Next=n\u00E4chste
+Slideshow=Diashow
+Previous=Voriger
+Go\ Back=zur\u00FCckgehen

@@ -1,0 +1,7 @@
+<page>
+
+	<path-action name="BlogModule.changeEntryVisibility" />
+	<path-action name="Admin.redirectToOriginal" />
+	<property name="virtual">true</property>
+
+</page>

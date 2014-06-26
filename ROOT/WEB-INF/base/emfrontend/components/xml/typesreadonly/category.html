@@ -1,0 +1,16 @@
+#if( $data )
+	#set($values = $data.getValues($detail.id) )
+#end
+
+
+#set( $searcher = $searcherManager.getSearcher($detail.getListCatalogId(), $detail.getListId() ))
+
+	<div class="tageditor-viewer">
+		#foreach( $type in $values )
+			#set( $row = false )
+			#set( $row = $searcher.searchById($type) )
+		    #if( $row )
+		      <a href="$home$apphome/views/categories/${row.getId()}.html">#esc($row.getName())</a> 
+		    #end 
+		#end	
+	</div>

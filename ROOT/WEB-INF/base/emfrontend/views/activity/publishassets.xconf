@@ -1,0 +1,6 @@
+<page>
+<path-action name="OrderModule.createOrderWithItems"/>
+<path-action name="OrderModule.findOrderItems"/>
+<property name="sectiontitle">Publish to Server</property>
+
+</page>

@@ -1,0 +1,62 @@
+<ul id="folders" class="fwlist">
+	
+	#foreach($folder in $folders )
+	<li class="auto">
+		<a href="$home$apphome/views/settings/modules/asset/hotfolders/folder-setup.html?id=$folder.id" class="folder">
+			<div class="name">
+				<div class="alias" title="Alias">$folder.name</div>
+				#if( $folder.externalpath )
+				<div class="path" title="$folder.externalpath">$folder.externalpath</div>
+				#end
+				<div class="last-activity">Fully Scanned: $!context.getDateTime($folder.lastscanstart)</div>
+			</div>
+		</a>
+	</li>
+	#end
+	
+	<li class="add">
+			<div class="folder"></div>
+
+			<a class="btn right" href="$home$apphome/views/settings/modules/asset/hotfolders/add-new-folder.html">Add Hot Folder</a>
+			
+			#set( $pathEventManager = $moduleManager.getBean($catalogid,"pathEventManager") )
+			#set( $event = $pathEventManager.getPathEvent("/$catalogid/events/importing/importfolders.html") )
+			#if( $event.isRunning() )
+				<a class="btn right">Scan in Progress</a>
+			#else
+				<a class="btn right" href="$home$apphome/views/settings/events/triggers/edit/edit.html?eventpath=/$catalogid/events/importing/importfolders.html">Schedule Importing</a>
+			#end
+	</li>
+	
+	<!-- 
+	<li class="auto">
+		<a href="$home$apphome/views/folders/folder-setup.html" class="folder">
+			<div class="name">
+				<div class="alias" title="Really Long Alias that is dumb and really long">Really Long Alias that is dumb and really long</div>
+				<div class="path" title="C:/Path/To/The/Files/Goes/Here">C:/Path/To/The/Files/Goes/Here</div>
+				<div class="last-activity">Last Scanned: 3:14 PM May 9, 2012</div>
+			</div>
+		</a>
+		<div class="scan">
+			<a class="btn">Scan</a>
+		</div>
+	</li>
+	<li class="manual">
+		<a href="$home$apphome/views/folders/folder-setup.html" class="folder">
+			<div class="name">
+				<div class="alias" title="Really Long Alias that is dumb and really long">Really Long Alias that is dumb and really long</div>
+				<div class="path" title="C:/Path/To/The/Files/Goes/Here">C:/Path/To/The/Files/Goes/Here</div>
+				<div class="last-activity">Last Scanned: 3:14 PM May 9, 2012</div>
+			</div>
+		</a>
+		<div class="scan">
+			<a class="btn">Scan</a>
+		</div>
+	</li>
+	 -->
+</ul>				
+
+
+
+
+

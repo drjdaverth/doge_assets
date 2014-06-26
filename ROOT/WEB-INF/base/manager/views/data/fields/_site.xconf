@@ -1,0 +1,4 @@
+<page>
+	<inner-layout>/${applicationid}/views/settings/metadata/fields/innerlayout.html</inner-layout>
+	<property name="subtab">fields</property>
+</page>

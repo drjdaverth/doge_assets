@@ -1,0 +1,94 @@
+#set( $revision = $revisions.selectedRevision )
+<form id="replaceRevisionForm" name="replaceRevisionForm"  method="post" action="$home/openedit/components/html/edit/versions/revert.html">
+	<input type="hidden" name="editPath" value="$revisions.editPath" />
+	
+	<input type="hidden" name="version" value="$revision.version" />
+
+</form>
+
+<br>
+
+
+	          		  
+        
+          
+<table height="100%" class="oedivided-box" cellspacing="10" cellpadding="10" >
+<tr>
+<td class="oedivided-box-title" colspan="2"><h3>$context.getPageProperty('text.oldversion'):</h3></td>
+<td class="oedivided-box-title" colspan="2"><h3>$context.getPageProperty('text.currentversion'):</h3></td>
+</tr>
+<tr>
+<td class="oedivided-box-blue" height="100%" valign="top" colspan="2">
+      <div class="oelist-box">
+  #if ( $revisions.revisionContent )
+  	#if( $revisions.editPage.isHtml() )
+          $revisions.revisionContent
+    #else
+		<pre>$url_util.xmlEscape($revisions.revisionContent)</pre>    
+    #end
+  #elseif( $revisions.editPage.isImage() )
+  	<img src="$home$revision.actualPath?cache=false" />
+  #else
+	Size: $revisions.oldPage.contentItem.length  		
+  #end
+      </div>    
+</td>
+<td class="oedivided-box-blue" height="100%" valign="top" colspan="2">
+      <div class="oelist-box">
+  #if( $revisions.editPage.isHtml() )
+	$revisions.editPage.content
+  #elseif( $revisions.editPage.isImage() )
+  	<img src="$home$revisions.editPath?cache=false" />
+  #elseif( !$revisions.editPage.isBinary() )
+		<pre>$url_util.xmlEscape($revisions.editPage.content)</pre>    
+  #else
+	Size: $revisions.editPage.contentItem.length  		
+  #end
+      </div>    
+</td>
+
+</tr>
+</table>
+
+<br>
+<table height="100%" class="oedivided-box" cellspacing="0" cellpadding="0"  >
+<tr>
+<td class="oedivided-box-title" colspan="2">$context.getPageProperty('text.revisioninfo')</td>
+</tr>
+<tr>
+<td class="oedivided-box-blue" height="100%" valign="top" colspan="2">
+          		
+	<table width="100%">
+
+	<tr>        		  
+	  <td width="25%" >[[Author]]:</td>
+	  <td bgcolor="white">$!revision.author</td>      		  
+	</tr> 
+	         		  
+	<tr>          		  
+	  <td width="25%" >[[Message]]:</td>
+	  <td bgcolor="white">$!revision.message</td>        		  
+	</tr> 
+	          		  
+	<tr>
+	  <td width="25%" >[[Version]]:</td>
+	  <td bgcolor="white">$!revision.version</td>        		  
+	</tr>          		  
+	          		
+	</table>
+
+	  <input onclick="replaceRevision()" value="$context.getPageProperty('text.usethisrevision')" name="Use This Revision" type="button" class="oestandard-button">
+          	
+</td>
+</tr>
+</table>
+  
+ 
+<script language="JavaScript">
+  function replaceRevision()
+  {
+    jQuery("#replaceRevisionForm").submit();
+	
+  }
+</script>
+    

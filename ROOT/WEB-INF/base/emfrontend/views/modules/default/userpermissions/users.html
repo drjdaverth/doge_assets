@@ -1,0 +1,48 @@
+<div id="userpermissioneditor">
+<div id="users" class="ui-widget commentbox three-up">
+<div class="ui-widget-header">[[Users]]</div>
+<div  class="ui-widget-content "> 
+
+#set( $libraryid = $context.getRequestParameter("libraryid") )
+#if( !$libraryid)
+	#set( $libraryid = $context.getRequestParameter("libraryid.value") )
+#end
+
+
+#set($libraryusersSearcher = $searcherManager.getSearcher($catalogid,"libraryusers") )
+#set( $libraryusers = $libraryusersSearcher.fieldSearch("libraryid",$libraryid) )
+
+<div class="list-adder" style="padding: 13px 20px;">
+	<form class="ajaxform" targetdiv="userpermissioneditor" name="adduserform" action="$home$apphome/views/modules/library/userpermissions/useradd.html">
+	<div class="add_person_box" style="border: none;">
+		<input id="useradd" class="userautocomplete" name="addinput" type="text" />
+	
+		<input name="searchtype" type="hidden"  value="libraryusers" />
+	
+		<input name="field" type="hidden"  value="userid" />
+		<input name="userid.value" type="hidden" id="useraddhidden" />
+	
+		<input name="field" type="hidden"  value="libraryid" />
+		<input name="libraryid.value" type="hidden"  value="$libraryid" />
+	
+		<input name="save" type="hidden"  value="true" />
+		<input class="btn right field-btn" type="submit" value="Add" />
+	</div>
+	</form>
+</div>
+
+<div id="emvalueeditor">
+	<div id="valuelist" class="emtable clearfix">
+	#foreach($libraryuser in $libraryusers) 
+		 #set( $theuser = $searcherManager.getData("system","user",$libraryuser.userid) )
+		<a class="row">#if($theuser) $theuser #elseif($libraryuser.userid) $libraryuser.userid #else   $libraryuser #end</a>
+		<a style="display:inline;" class="ajax delete-row" targetdiv="userpermissioneditor" href="$home$apphome/views/modules/library/userpermissions/userremove.html?searchtype=libraryusers&id=$libraryuser.id&libraryid=$libraryid"></a>
+		</a>
+		#set($theuser = "")
+	#end
+	</div>
+</div>
+
+
+</div></div>
+</div>

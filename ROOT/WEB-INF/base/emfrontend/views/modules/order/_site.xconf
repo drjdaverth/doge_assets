@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<property name="fallbackdirectory">/WEB-INF/base/emfrontend/views/modules/default</property>
+	<property name="searchhome">/${applicationid}/views/modules/${module}</property>
+  <property name="module">order</property>
+</page>

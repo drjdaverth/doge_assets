@@ -1,0 +1,15 @@
+<page>
+	<property name='text.Hidden Field Properties'>
+        	<value>Hidden Field Properties</value>
+		<value locale="es">Propiedades de Campo Oculto</value>
+    	</property>
+	<property name='text.Name'>
+        	<value>Name</value>
+		<value locale="es">Nombre</value>
+    	</property>
+	<property name='text.Value'>
+        	<value>Value</value>
+		<value locale="es">Valor</value>
+    	</property>
+</page>
+

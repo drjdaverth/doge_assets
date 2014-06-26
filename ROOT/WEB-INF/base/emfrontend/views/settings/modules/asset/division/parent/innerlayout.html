@@ -1,0 +1,46 @@
+#set( $parent = "$content.parenttype")
+#set( $child = "$content.childtype")
+#set($searcher = $searcherManager.getSearcher($catalogid, $parent))
+$!context.putPageValue("searcher",$searcher)		
+
+#set( $query = $searcher.createSearchQuery() )
+#set( $null = $query.addMatches("id","*") )
+$query.addSortBy("name")
+
+#set( $details = $searcher.getUserPropertyDetails() )
+
+
+<div class="subcolumns">
+          <div class="c33l">
+            <div class="subcl">
+<div class="ui-widget" style="overflow: hidden;">
+<div class="ui-widget-header">${content.parentlabel}</div>
+<div  class="ui-widget-content emselectmenu">
+
+<ul class="vlist">
+#set($current = $context.getRequestParameter("${parent}.value")) 
+##set($current = $context.getRequestParameter("id")) 
+#set( $results = $searcher.search($query) )
+#foreach($row in $results )
+ <li #if($current == $row.id) class="active" #end ><a href="$home$apphome/views/settings/modules/asset/$parent/parent/edit/edit.html?paramname=${parent}.value&${parent}.value=$row.id">$row</a></li>
+#end
+</ul>
+
+<a class="btn" href="$home$apphome/views/settings/modules/asset/$parent/parent/edit/addnew.html">Add New</a>
+
+
+</div>
+</div>
+
+</div>
+          </div>
+          <div class="c66r">
+            <div class="subcr">
+            
+$pages.includeContent()
+
+
+</div></div></div>
+
+</div>
+

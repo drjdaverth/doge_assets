@@ -1,0 +1,15 @@
+<properties>
+  <property id="newrecord" color="#638185">New Record</property>
+  <property id="newupload" color="#638585">Upload Pending</property>
+  
+  <property id="uploaded" color="#638985">Uploaded</property>
+  <property id="downloadrequested" color="#638985">Download Requested</property>
+  <property id="exportrequested" color="#638985">Export Requested</property>
+  <property id="emailrequested" color="#638985">Export Requested</property>
+  <property id="pending" color="#634985">Order Pending</property>
+  <property id="ordercomplete" color="#638985">Order Complete</property>
+
+  <property id="readyforedit" color="#a06b6b" >Ready For Edit</property>
+  <property id="approved" color="#6d4949">Approved</property>
+</properties>
+  

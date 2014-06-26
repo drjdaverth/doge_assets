@@ -1,0 +1,10 @@
+
+       
+#set ($resultview = $userprofile.get('resultview'))
+#if (!$resultview || $resultview == 'table')
+$pages.include("$apphome/components/results/table.html")
+#else
+$context.putPageValue("showcaption", true)
+$pages.include("$apphome/components/results/gallery.html", $context)
+#end
+

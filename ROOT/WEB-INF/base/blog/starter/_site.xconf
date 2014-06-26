@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page>
+	<property name="fallbackdirectory">/base/blog</property>
+	<!-- This is the name of your sub-directory -->
+	<property name="${bloghome}">/yournamehere</property>
+	
+	<!-- Comment this in to setup custom permissions -->
+	<!--
+	<edit-requirements>
+	           <and>
+					<permission name="oe.blog"/>
+	                <not><page-property name="editable" equals="false" /></not>
+	           </and>
+	</edit-requirements>
+	-->
+	
+</page>

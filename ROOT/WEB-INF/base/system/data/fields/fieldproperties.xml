@@ -1,0 +1,20 @@
+<properties>
+	
+	<property id="id" editable="true" >Id</property>
+    <property id="text" editable="true">Label</property>
+    <property id="externalid" editable="true">External Id</property>
+    <property id="stored" boolean="true" editable="true">Exportable</property>
+    <property id="index" boolean="true" editable="true">In Index</property>
+    <property id="keyword" boolean="true" editable="true">Is Keyword</property>
+    <property id="editable" boolean="true" editable="true">Editable</property>
+    <property id="filter" boolean="true" editable="true">In Filters</property>
+    <property id="boolean" boolean="true" editable="true">Is Boolean</property>
+    <property id="list" boolean="true" editable="true">Is List</property>
+    <property id="number" boolean="true" editable="true" >Is Number</property>
+    <property id="date" boolean="true" editable="true">Is Date</property>
+    <property id="html" boolean="true" editable="true">Is Html</property>
+    <property id="file" boolean="true" editable="true">Is File</property>
+    <property id="externaltype" editable="true">External Type</property>
+    <property id="format" editable="true">Date Format</property>
+	
+</properties>

@@ -1,0 +1,14 @@
+<h2>Editing Event: $pathevent.getPage().getName()</h2> 
+ 
+<form action="save.html">
+<input type="hidden" name="eventpath" value="$pathevent.getPage().getPath()"/>
+<br/>
+Period: <input name="period" value="$pathevent.getPeriod()"/>
+<br/>
+Delay: <input name="delay" value="$pathevent.getDelay()"/>
+<br/>
+Enabled: <input name="enabled"  value="true" type="checkbox" #if($pathevent.isEnabled()) checked #end/>
+<br/>
+<input type="submit"/>
+
+</form>

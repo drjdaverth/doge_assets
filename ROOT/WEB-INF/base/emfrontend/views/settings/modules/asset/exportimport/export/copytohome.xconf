@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <path-action name="MediaArchiveModule.exportResultsToHome"/>
+  <property name="text.File have been exported to">
+    <value>File have been exported to</value>
+    <value locale="es">Archivo se han exportado a</value>
+  </property>
+  <inner-layout>/${catalogid}/results/resultsinnerlayout.html</inner-layout>
+</page>

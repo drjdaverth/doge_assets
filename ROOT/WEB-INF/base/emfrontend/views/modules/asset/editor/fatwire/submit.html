@@ -1,0 +1,14 @@
+#set($fatwireidsearcher = $searcherManager.getSearcher($catalogid, "publishdestination"))
+#set($fatwirequery = $fatwireidsearcher.createSearchQuery().append("name", "FatWire"))
+#set($fatwiredata = $fatwireidsearcher.searchByQuery($fatwirequery))
+#set($fatwireid = $fatwiredata.id)
+#set($searcher = $searcherManager.getSearcher($catalogid, "publishqueue"))
+#set($query = $searcher.createSearchQuery().append("assetid", $asset.id).append("publishdestination", $fatwireid))
+#set($results = $searcher.search($query))
+
+#set($msg = "Click below to republish to FatWire.")
+
+$context.putPageValue("results",$results)
+$context.putPageValue("msg",$msg)
+$pages.include("$home$apphome/views/modules/asset/editor/fatwire/table.html", $context)
+$pages.include("$home$apphome/views/modules/asset/editor/fatwire/submitform.html", $context)

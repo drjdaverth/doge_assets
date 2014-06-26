@@ -1,0 +1,3 @@
+<page>
+	<property name="typespath">${dataroot}/search/types</property>
+</page>

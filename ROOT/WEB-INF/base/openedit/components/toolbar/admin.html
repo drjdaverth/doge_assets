@@ -1,0 +1,20 @@
+#set ( $origURL=$url_util.getOriginalUrl() )#set( $id = "admin" )
+<a  href="#" class="oepluginheader" onmouseover="OEPopUp.showPopUp(this,'${id}menu',0,22);" onmouseout="OEPopUp.hide('${id}menu');"> [[Settings]]</a>
+
+<div id="${id}menu" class="oepopupsection" onmouseover="OEPopUp.showPopUp(this,'${id}menu',0,22);" onmouseout="OEPopUp.hide('${id}menu');">
+
+<ul class="oeglossymenu">
+		<li><a>$user.getShortDescription()</a></li>
+	#if ( $pages.canView( "/media/settings/usermanager/users/index.html" ) )
+		<li><a href="$home/media/settings/usermanager/users/index.html" target="_parent"><img border="0" src="$home/openedit/components/images/toolbar/usermanager.gif" title="[[Edit Users]]" /> [[Users]]</a></li>  
+		<li><a href="$home/media/settings/usermanager/groups/index.html" target="_parent"><img border="0" src="$home/openedit/components/images/toolbar/usermanager.gif" title="[[Edit Groups]]" /> [[Groups]]</a></li>  
+	#end
+	#if ( $pages.canView( "/media/settings/index.html" ) )
+	   <li><a href="$home/media/settings/index.html" target="_parent"><img border="0" src="$home/openedit/components/images/toolbar/add.gif"  /> [[Server Maintenance]]</a></li>
+	   <li><a href="$home/media/tools/plugins/index.html" target="_parent"><img border="0" src="$home/openedit/components/images/toolbar/add.gif"  /> [[Extensions]]</a></li>
+	   
+	#end 
+	 
+	<li><a href="$home/system/components/authentication/logout.html?editingPath=$!path" target="_parent"><img border="0" src="$home/openedit/components/images/toolbar/logoutwhite.gif"  /> [[Log Out]]</a></li>
+</ul>
+</div>

@@ -1,0 +1,12 @@
+<page>
+	<path-action name="DataEditModule.loadSearchTypes" />
+	<property name="hitsname">datalist</property>
+	<property name="dataroot">/${applicationid}/views/settings/lists/datamanager</property>
+	<property name="searchhome">/${applicationid}/views/settings/lists/datamanager</property>
+	<property name="tab">datamanager</property>
+	<property name="subtab">manager</property>
+	<property name="datatab">data</property>
+	<property name="showallfiles">true</property>
+	
+	<inner-layout>/${applicationid}/views/settings/lists/datamanager/innerlayout.html</inner-layout>
+</page>

@@ -1,0 +1,6 @@
+#
+#Thu Apr 08 15:51:45 EDT 2010
+Please\ select\ an\ upload\ type\:=Bitte w\u00E4hlen Sie einen Upload-Typ\:
+You\ are\ not\ allowed\ to\ upload\ assets\ to\ any\ catalogs.=Sie sind nicht berechtigt, Assets zu einem Katalog hochzuladen.
+Add\ Media=Medien hinzuf\u00FCgen
+Please\ choose\ a\ catalog\:=Bitte w\u00E4hlen Sie einen Katalog\:

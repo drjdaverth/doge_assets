@@ -1,0 +1,4 @@
+<page>
+	<path-action name="Page.deletePage" />
+	<page-action name="Page.constructParameter" />
+</page>

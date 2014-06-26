@@ -1,0 +1,55 @@
+#set($results = $conversionUtil.getFatwirePublishQueueList($catalogid, $asset.id, $presetdata.id))
+
+#if($results && $results.size()!=0)
+<table class="emselectable striped download-table emdata" id="main-results-table" width="98%"  >
+<tbody>
+	
+	<tr id="tableheader">
+		<th>FatWire Id</th>
+	    <th>Status</th>
+	    <th>Region</th>
+	    <th>Date</th>
+	    <th>Name in FatWire</th>
+	    
+ 	</tr>
+	#foreach( $item in $results )
+		#set($assetid = $item.assetid)
+		#set($assetpath = $item.assetsourcepath)
+		#set($assetstatus = $item.status)
+		#set($errormsg = $item.errordetails)
+		#set($exportname = $item.exportname)
+		#set($statusinfo = $searcherManager.getData($catalogid,"publishing/queuestatus",$assetstatus))
+		#set($fatwireid = $item.trackingnumber)
+	<tr>
+		<td>
+			$!fatwireid
+		</td>
+		<td style="text-align:center;">
+			#if($statusinfo) 
+				$statusinfo.name 
+			#else 
+				$assetstatus 
+			#end 
+			$!errormsg
+		</td>
+		<td>
+			$!item.regionid
+		</td>
+		<td>
+			$context.getDateTime($item.date)
+		</td>
+		<td>
+			$exportname
+		</td>
+		
+		
+	</tr>
+		#set($errormsg = "")
+	#end
+	</tbody>
+</table>
+#end
+		
+	
+	
+	

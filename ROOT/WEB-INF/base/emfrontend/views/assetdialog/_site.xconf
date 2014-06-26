@@ -1,0 +1,23 @@
+<page>
+	<inner-layout>/${themeprefix}/layouts/mediaviewerdialog.html</inner-layout>
+
+	<!-- Need to check for invites, may tweak the viewasset permission -->
+	<path-action name="MediaArchiveModule.getAsset"  />
+	
+
+	<path-action name="Admin.loadPermissions"/>
+
+	<permission name="view">
+		<not><pagevalue name="viewasset"  equals="false"/></not>
+	</permission>
+
+	<!-- Recheck permissions -->
+	<path-action name="Admin.allowViewing">
+		<login-path>/${applicationid}/authentication/logon.html</login-path>
+	</path-action>
+
+	<property name="virtual">true</property>
+	<property name="assetrootfolder">/${applicationid}/views/assets</property>
+  	<path-action name="AssetStatsModule.addPreViewEvent" />
+	
+</page>

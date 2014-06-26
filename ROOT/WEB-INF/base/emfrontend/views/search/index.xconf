@@ -1,0 +1,7 @@
+<page>
+	<path-action name="DataEditModule.loadHits"/>
+	<path-action name="DataEditModule.loadPageOfSearch"/>
+	
+	<property name="virtual">true</property>
+	<property name="assetrootfolder">/${applicationid}/assets</property>
+</page>

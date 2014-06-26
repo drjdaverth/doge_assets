@@ -1,0 +1,30 @@
+
+#set( $selectedLink = $editlinks.selectedLink )
+#set( $path = $context.getRequestParameter("linkpath"))
+<br>
+<table>
+<tr>		
+<td  valign="top" width="200">
+
+$!context.putPageValue("editPage",$editlinks.getPage())
+<input style="margin-left: 25px;" type="image" title="$context.getPageProperty('text.up') "  src="$home/openedit/theme/images/toolbar/moveup.jpg"  onclick="javascript:move('up');"/><br>
+<input type="image" title="$context.getPageProperty('text.left')" src="$home/openedit/theme/images/toolbar/moveleft.jpg" onclick="javascript:move('left');" />
+<input type="image" title="$context.getPageProperty('text.right')" src="$home/openedit/theme/images/toolbar/moveright.jpg"  onclick="javascript:move('right');" /><br>	
+<input style="margin-left: 25px;" type="image" title="$context.getPageProperty('text.down')" src="$home/openedit/theme/images/toolbar/movedown.jpg"  onclick="javascript:move('down');"/>
+
+</td>
+<td align="right" valign="top">
+<form id="saveform" name="saveform" action="save.html">
+<input type="hidden" name="linkpath" value="$!path" />
+$context.getPageProperty('text.id'):&nbsp;<input type="text" size="20" name="newlinkid" value="$!selectedLink.id" /><br>
+$context.getPageProperty('text.name'):&nbsp;<input type="text" size="20" name="linktext" value="$!selectedLink.text" /><br>	
+$context.getPageProperty('text.path'):&nbsp;<input type="text" size="40" name="url" value="$!selectedLink.url" />&nbsp;<a href="#" onclick="if(!window.name)window.name='admin_parent';window.open( '$home/openedit/editors/filepicker/index.html?viewPath=/index.html&editPath=$viewPath&origURL=$origURL&parentName='+window.name, 'pickerwindow','alwaysRaised=yes,menubar=no,scrollbars=yes,width=800,height=600,resizable=yes' );return false;"><img src="$home/openedit/images/toolbar/history_view.gif" border="0" width="16" height="16" title="$context.getPageProperty('text.pickalink')" /></a><br>
+$context.getPageProperty('text.userdata'):&nbsp;<input type="text" size="20" name="userdata" value="$!selectedLink.userData" /><br>
+$context.getPageProperty('text.accesskey'):&nbsp;<input type="text" size="20" name="accesskey" value="$!selectedLink.accessKey" /><br />
+$context.getPageProperty('text.redirectpath'):&nbsp;<input type="text" size="20" name="redirectPath" value="$!selectedLink.redirectPath" /><br>
+$context.getPageProperty('text.autoloadchildren'):&nbsp;<input type="checkbox" name="autoloadchildren" value="true" #if( $selectedLink.autoLoadChildren )checked #end /><br />
+<input type="submit" value="$context.getPageProperty('text.save')"  />&nbsp;<br>
+</form>
+</td>
+</tr>
+</table>		

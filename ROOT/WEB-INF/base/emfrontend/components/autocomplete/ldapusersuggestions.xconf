@@ -1,0 +1,6 @@
+<page>
+	<layout/>
+	<inner-layout/>
+	<page-action name="LDAPModule.searchEmails" alltypes="true"/>
+	<generator name="velocityGenerator" />
+</page>

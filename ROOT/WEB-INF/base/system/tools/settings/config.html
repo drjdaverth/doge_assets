@@ -1,0 +1,64 @@
+<script language="JavaScript">
+	function savePage()
+	{
+		document.wizard.target="_self"; 
+		document.wizard.origURL.value="$content.path?editPath=$configeditsession.editPath";
+		document.wizard.submit();		
+	}
+	function saveAndClose()
+	{
+		document.wizard.target="$configeditsession.getParentName()" ;
+		document.wizard.origURL.value="$configeditsession.originalUrl";
+		document.wizard.submit();		
+		window.close();
+	}
+	
+</script>
+ 
+<form name="wizard" method="post" action="$home/system/tools/settings/save.html" >
+<input name="editPath" type="hidden" value="$configeditsession.editPath" />
+<input name="origURL" type="hidden"  />
+
+<table class="oestandard-table" width="100%" cellspacing="0" cellpadding="0" >	
+<tr>
+ <td colspan=3 bgcolor="black" align="right"><table border="0" cellspacing="5" cellpadding="5">
+   <tr>  
+	 <td class="oe-module-title" nowrap>:: $context.getPageProperty('text.pagesettings') :: $configeditsession.getEditPath()</td>
+	 <td width="50%">&nbsp;</td>
+    <td><input class="oestandard-button" type="button" name="Ok" value="$context.getPageProperty('text.ok')" onclick="saveAndClose();"></td>
+<!--    <td><input class="oestandard-button" type="button" name="Save" value="$context.getPageProperty('text.save')" onclick="savePage();"></td> -->
+    <td><input class="oestandard-button" type="button" name="Cancel" value="$context.getPageProperty('text.cancel')" onclick="window.close()"></td>
+    <td><input class="oestandard-button" type="button" name="Help" value="$context.getPageProperty('text.help')" onclick="openHelp('http://www.openedit.org/contentmanagement/Page_Settings.html');"></td>
+    </tr> </table>
+ </td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;</td>
+<td align="center">
+<br>
+  	  $pages.stream( "/system/display/whitearea-top.html" )
+<center>
+  <table width="80%" name="headline" cellpadding="0" cellspacing="0">
+  	<tr>
+   <td>
+	$pages.stream("./savedproperties.html")
+   </td>
+   </tr>   
+#if( $user.hasPermission("oe.edit.settings.advanced") )
+  	<tr>
+   <td>
+	$pages.stream("./settings.html")
+   </td>
+   </tr>   
+#end
+   </table>
+</center>
+   $pages.stream( "/system/display/whitearea-bottom.html" )  
+
+</td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+</form>
+
+  

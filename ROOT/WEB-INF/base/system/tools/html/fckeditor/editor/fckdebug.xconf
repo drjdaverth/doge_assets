@@ -1,0 +1,11 @@
+<page>
+	<property name='text.FCKeditor Debug Window'>
+        	<value>FCKeditor Debug Window</value>
+		<value locale="es">Ventana de Depuración de FCKeditor</value>
+    	</property>
+	<property name='text.Clear'>
+        	<value>Clear</value>
+		<value locale="es">Limpiar</value>
+    	</property>
+</page>
+

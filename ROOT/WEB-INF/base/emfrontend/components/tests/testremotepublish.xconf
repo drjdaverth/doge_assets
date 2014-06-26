@@ -1,0 +1,6 @@
+<page>
+	<path-action name="Script.run">
+		<script>./testremotepublish.groovy</script>
+	</path-action>
+	
+</page>

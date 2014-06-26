@@ -1,0 +1,78 @@
+<form id="eml-tab-green-container" class="validate-inputs" name="savemount" action="save.html" target="_top">
+	
+<h3>[[Hot Folder]]</h3>
+#set( $id = $context.getRequestParameter("id") )
+
+<input type="hidden" name="id" value="$id" />
+
+#set( $path = $mount.path )
+#if( !$path)
+	#set( $path = "/WEB-INF/data/$catalogid/originals/hotfolder1" )
+#end
+##TODO: Use a detail editor here
+
+<label>[[Folder Name]]</label>
+<input type="hidden" name="field" value="name" />
+<input class="field short required" name="name.value" value ="$!data.name" />
+<div class="note">[[Folder directory name, lowercase, no special characters.]] </div>
+
+<label>[[External Path]]</label>
+<input type="hidden" name="field" value="externalpath" />
+<input class="field" name="externalpath.value" value="$!data.externalpath" />
+<div class="note">[[Optional: Local disk drive, path, url, or Windows Share that will be mounted.]] f:\media</div> 
+
+
+<label>[[Modified File Check]]</label>
+<input type="hidden" name="field" value="lastscanstart" />
+<input class="field short" name="lastscanstart.value" value ="$!data.lastscanstart" />
+<div class="note">[[Most recent check for files that were edited after being initially imported]]</div>
+
+<label>[[Include Only Extensions]]</label>
+<input type="hidden" name="field" value="includes" />
+<textarea class="field" name="includes.value" cols="45" rows="3" >$!data.includes</textarea>
+<div class="note">[[comma or new line delimited]] [[jpg,pdf,mp4]]</div> 
+
+<label>[[Exclude Filter]]</label>
+<input type="hidden" name="field" value="excludes" />
+<textarea class="field" name="excludes.value" cols="45" rows="3" >$!data.excludes</textarea>
+<div class="note">[[comma or new line delimited]] [[*/.*,*/Thumb.db,*.old ]]</div> 
+
+<label>[[Attachment Filter]]</label>
+<input type="hidden" name="field" value="attachmenttrigger" />
+<textarea class="field" name="attachmenttrigger.value" cols="45" rows="3" >$!data.attachmenttrigger</textarea>
+<div class="note">[[Files in attachment folder that will trigger auto creation of attachments. Comma or New line delimited]] */Fonts */attachments.txt</div> 
+
+<div class="clearfix" style="margin-bottom: 20px;">
+	<input type="hidden" name="field" value="versioncontrol" />
+	<div class="clearfix">
+		<input type="checkbox" style="float: left;" name="versioncontrol.value" value="true" #if($data.versioncontrol) checked #end />
+		<label style="float: left; margin: 16px 0 0 10px; width: 200px;">[[Enable Version Control]]</label>
+	</div>
+	<div class="note">[[Will use extra disk space]]</div> 
+</div>
+
+
+<div class="clearfix" style="margin-bottom: 20px;">
+	<input type="hidden" name="field" value="generatedversioncontrol" />
+	<div class="clearfix">
+		<input type="checkbox" style="float: left;" name="generatedversioncontrol.value" value="true" #if($data.generatedversioncontrol) checked #end />
+		<label style="float: left; margin: 16px 0 0 10px; width: 200px;">[[Enable Version Control for generated files and cropped images]]</label>
+	</div>
+	<div class="note">[[Will use extra disk space]]</div> 
+</div>
+
+
+
+<!-- 
+#set($searcher = $searcherManager.getSearcher("system", "mount"))
+#set($details = $searcher.getPropertyDetails())
+$context.putPageValue("details", $details)
+$context.putPageValue("data", $mount)
+##$pages.include("/system/components/xml/detaileditor.html", $context)
+ -->
+
+
+<input class="btn" type="submit" value="[[Save]]" />
+
+
+</form>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <property id="name" />
+  <property id="deliverydate" />
+  <property id="notes" />
+  <property id="owner" />
+  <property id="addnotifypolicy" />
+  
+</root>

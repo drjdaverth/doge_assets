@@ -1,0 +1,7 @@
+<page>
+	  	<layout/>
+   	<inner-layout />
+  	<property name="editable">false</property>
+  	<property name="showdebug">false</property>
+  	<generator name="admintoolbarGenerator" />
+</page>

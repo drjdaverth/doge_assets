@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+  <property id="empush"  ordering="99" module="asset" path="/WEB-INF/base/empush/components/deploy" caption="Automated Sync Tool" longdescription="Allows you to push assets and thumbnails from an internal server to a cloud server">EM Push</property>
+</properties>

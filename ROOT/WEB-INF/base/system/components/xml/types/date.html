@@ -1,0 +1,17 @@
+#if($errors.get($detail.id) == "error-format")
+	#set($val = "")
+	<span style="color: red;">
+	[[Sorry - wrong format]]
+	</span><br>
+#end
+#set($idcount = $context.getRequestParameter("idcount"))
+#if(!$idcount)
+	#set($idcount = "")
+#end
+<input name="$!{detailprefix}${detail.getId()}.value" id="${detail.id}${idcount}value" value="#esc($!val)"  type="hidden" >
+ <br/>
+<input type="text" class="datepicker #if($detail.isRequired()  && !$multiedit) required #end " data-targetid="${detail.id}${idcount}value" /> 
+
+#if ($detail.picker == "false" && $detail.format)
+	<span style="color:gray;font-style:italic;font-size:.9em;">$detail.format<span>
+#end

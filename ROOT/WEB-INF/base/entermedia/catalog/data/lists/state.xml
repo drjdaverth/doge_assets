@@ -1,0 +1,56 @@
+<properties>
+    <property id="1" code="AL" country="18" >Alabama</property>
+    <property id="2" code="AK" country="18" >Alaska</property>
+    <property id="3" code="AZ" country="18" >Arizona</property>
+    <property id="4" code="AR" country="18" >Arkansas</property>
+    <property id="5" code="CA" country="18" >California</property>
+    <property id="6" code="CO" country="18" >Colorado</property>
+    <property id="7" code="CT" country="18" >Connecticut</property>
+    <property id="8" code="DE" country="18" >Delaware</property>
+    <property id="9" code="DC" country="18" >District of Columbia</property>
+    <property id="10" code="FL" country="18" >Florida</property>
+    <property id="11" code="GA" country="18" >Georgia</property>
+    <property id="12" code="HI" country="18" >Hawaii</property>
+    <property id="13" code="ID" country="18" >Idaho</property>
+    <property id="14" code="IL" country="18" >Illinois</property>
+    <property id="15" code="IN" country="18" >Indiana</property>
+    <property id="16" code="IA" country="18" >Iowa</property>
+    <property id="17" code="KS" country="18" >Kansas</property>
+    <property id="18" code="KY" country="18" >Kentucky</property>
+    <property id="19" code="LA" country="18" >Louisiana</property>
+    <property id="20" code="ME" country="18" >Maine</property>
+    <property id="21" code="MD" country="18" >Maryland</property>
+    <property id="22" code="MA" country="18" >Massachusetts</property>
+    <property id="23" code="MI" country="18" >Michigan</property>
+    <property id="24" code="MN" country="18" >Minnesota</property>
+    <property id="25" code="MS" country="18" >Mississippi</property>
+    <property id="26" code="MO" country="18" >Missouri</property>
+    <property id="27" code="MT" country="18" >Montana</property>
+    <property id="28" code="NE" country="18" >Nebraska</property>
+    <property id="29" code="NV" country="18" >Nevada</property>
+    <property id="30" code="NH" country="18" >New Hampshire</property>
+    <property id="31" code="NJ" country="18" >New Jersey</property>
+    <property id="32" code="NM" country="18" >New Mexico</property>
+    <property id="33" code="NY" country="18" >New York</property>
+    <property id="34" code="NC" country="18" >North Carolina</property>
+    <property id="35" code="ND" country="18" >North Dakota</property>
+    <property id="36" code="OH" country="18" >Ohio</property>
+    <property id="37" code="OK" country="18" >Oklahoma</property>
+    <property id="38" code="OR" country="18" >Oregon</property>
+    <property id="39" code="PA" country="18" >Pennsylvania</property>
+    <property id="40" code="RI" country="18" >Rhode Island</property>
+    <property id="41" code="SC" country="18" >South Carolina</property>
+    <property id="42" code="SD" country="18" >South Dakota</property>
+    <property id="43" code="TN" country="18" >Tennessee</property>
+    <property id="44" code="TX" country="18" >Texas</property>
+    <property id="45" code="UT" country="18" >Utah</property>
+    <property id="46" code="VT" country="18" >Vermont</property>
+    <property id="47" code="VA" country="18" >Virginia</property>
+    <property id="48" code="WA" country="18" >Washington</property>
+    <property id="49" code="WV" country="18" >West Virginia</property>
+    <property id="50" code="WI" country="18" >Wisconsin</property>
+    <property id="51" code="WY" country="18" >Wyoming</property>
+    <property id="52" code="AB" country="17" >Alberta</property>
+    <property id="53" code="NB" country="17" >Brunswick</property>
+    <property id="54" code="ON" country="17" >Ontario</property>
+</properties>

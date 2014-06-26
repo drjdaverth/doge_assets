@@ -1,0 +1,26 @@
+#set ( $editPath = $editPage.path ) #set ( $origURL = $context.getRequestParameter("origURL") )
+#if( !$origURL)
+#set ( $origURL=$url_util.getOriginalUrl() )
+#set ( $realPath = $pathUtils.createLivePath($editPath))
+#set ( $origURL = "$origURL?path=$realPath" ) ## for file manager
+#end
+<ul>
+#if( $editPage.isDraft() )
+	<li>
+	<a href="#"	onclick="if(!window.name)window.name='editor_parent';window.open( '$home/system/openedit/editors/draft/draftcomparison.html?draftpath=$editPath&origURL=$origURL&parentName='+window.name, 'editor','alwaysRaised=yes,menubar=no,scrollbars=yes,width=800,height=600,top=100,left=130,resizable=yes' );return false;">
+	<img src="$home/openedit/theme/images/toolbar/draft_comparison.gif" border="0" width="16" height="16" title="$context.getPageProperty('text.showdraftcomparison')" />
+	$context.getPageProperty('text.showdraftcomparison')</a>
+	</li>
+	
+#if( $canapprove )	
+<li>
+<a href="$home/openedit/views/workflow/approve-finished.html?editPath=$editPath&origURL=$origURL"><img src="$home/openedit/theme/images/toolbar/approve.gif" border="0" title="$context.getPageProperty("text.approve")" />
+$context.getPageProperty("text.approve")</a>
+</li>
+#end
+<li>
+	<a href="$home/openedit/views/workflow/delete.html?editPath=$editPath&origURL=$origURL"><img src="$home/openedit/theme/images/toolbar/delete.gif" border="0" title="$context.getPageProperty("text.deletedraft")" />
+	$context.getPageProperty("text.deletedraft")</a>
+</li>
+#end
+</ul>

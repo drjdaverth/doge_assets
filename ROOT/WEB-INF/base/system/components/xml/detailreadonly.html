@@ -1,0 +1,11 @@
+#set( $xmledithome = $context.getPageProperty("xmledithome"))
+
+#set ($viewtype = $detail.viewType)
+
+#if (!$viewtype)
+	#set ($viewtype = $detail.dataType)
+#end
+#if (!$viewtype || $viewtype== "text")
+	#set ($viewtype = "default")
+#end
+$pages.include("$xmledithome/typesreadonly/${viewtype}.html", $context)

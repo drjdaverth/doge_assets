@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<page>
+	<page-action name="User.loadGroup" />
+<property name='text.help'>
+        <value>Help</value>
+    </property>
+<property name='text.group'>
+        <value>GROUP</value>
+    </property>
+    
+    	<page-action name="User.findUsersInGroup" />
+    <property name='text.accountlist'>
+        <value>Listing of all accounts in this group</value>
+    </property>
+
+<property name='text.accounts'>
+        <value>Members</value>
+    </property>
+    
+    
+</page>

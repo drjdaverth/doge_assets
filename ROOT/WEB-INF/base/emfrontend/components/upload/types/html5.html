@@ -1,0 +1,74 @@
+<script src="$home$apphome/components/upload/types/html5/upload.js"></script>
+<script src="$home$apphome/components/javascript/upload/jquery.html5_upload.js"></script>
+#set( $root = "$home$apphome/components/upload/types/html5")
+
+
+<div class="subcolumns">
+    
+    <div id="right-sidebar" style="padding: 0 20px 0 0;min-width:400px;">
+        
+          <input id="upload_field" type="file" style="visibility: hidden;" multiple="multiple"  />
+
+     			<div class="uploadinstructions">
+        			        <a class="btn large" href="#" id="filePicker" style="margin-top: 0">Pick Files...</a>
+			    ##    <p>Drag media here</p>
+			    ##    <p>Or, if you prefer...</p> 
+			             <p class="hints" style="text-align: left; padding: 0 20px;" id="drag-and-drop-instructions">
+			                Upload multiple files by using the <strong>Shift</strong> key on your keyboard while selecting the files you wish to upload.
+			             </p>			             
+				</div>				
+
+				<ul id="up-files-list"	>				
+				</ul>	
+				
+				<div class="uploadinstructions">	  
+	             <div id="drop-area" >
+					<div class="drop-over"></div>
+					<div class="hints" >Drop files here!</div>
+				</div>
+				</div>	 
+				<!-- This is not shown -->
+		        <div id="progress_report_template" style="display:none;">
+			        <li class="uploadprogressrow" >
+						<span id="progress_report_barcurrentupload" style="width: 0px;" class="uploadprogress"></span>
+						<a href="#">
+							<span  id="progress_report_namecurrentupload"  class="name"></span>
+							<span id="progress_report_sizecurrentupload"  class="size"></span>
+							<span id="progress_report_statuscurrentupload"  class="uploadstatus"></span>
+						</a>	
+					</li>
+				</div>				
+					             
+        
+    </div>
+    <div id="main-area" style="vertical-align: top;">
+
+
+		<div id="uploadmetadata">
+		
+		<div class="ui-widget uipanel">
+		    <div  class="ui-widget-header">Information</div>
+		    <div  class="ui-widget-content">
+				<form id="uploaddata" name="wizard" onSubmit="return false;"
+				    action="$root/finish.html" class="validate"  >
+				
+				##Add asset id's here
+				
+						$context.putPageValue("searcher",$mediaarchive.getAssetSearcher() )	
+						$context.putPageValue("view","asset/multipleupload")	
+						$pages.include("/$applicationid/components/xml/detaileditorcss.html", $context)
+				
+				##have the cancel delete these assets?
+			        <div id="uploadinstructionsafter" style="display: none">
+				       <a class="btn" id="startbutton" href="#">Next</a>
+		        	</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	</div>
+    
+</div>
+
+
+

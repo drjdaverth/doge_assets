@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	
+	<property name="usermanagerhome">/${applicationid}/views/settings/users/usermanager</property>
+	
+  	<path-action name="User.getUserManager"/>
+
+	<property name="allowpathrequestactions">true</property>
+
+  
+</page>

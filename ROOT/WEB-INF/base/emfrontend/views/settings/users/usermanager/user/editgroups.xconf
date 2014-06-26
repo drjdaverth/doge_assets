@@ -1,0 +1,7 @@
+<page>
+	<page-action name="User.removeUsersFromGroup" />
+	<page-action name="User.addUsersToGroup" />
+	<page-action name="User.loadUserProperties" />
+	<layout />
+	<inner-layout />
+</page>

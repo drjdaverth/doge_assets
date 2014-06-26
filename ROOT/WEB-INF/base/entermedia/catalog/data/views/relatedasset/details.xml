@@ -1,0 +1,8 @@
+<properties usagelabel="Related Assets">
+	<property id="type" index="true" stored="true" type="list" listid="relatedassets/type" editable="true">Type</property>
+	
+	
+	<property id="targetid" index="true" stored="true" type="asset" editable="true" >Target Source</property>
+	<property id="notes" index="true" stored="true" editable="true" >Notes</property>
+
+</properties>

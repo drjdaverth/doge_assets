@@ -1,0 +1,150 @@
+<page>
+	<property name='text.Document Properties'>
+        	<value>Document Properties</value>
+		<value locale="es">Propiedades del Documento</value>
+    	</property>
+	<property name='text.Language Direction'>
+        	<value>Language Direction</value>
+		<value locale="es">Orientación del Idioma</value>
+    	</property>
+	<property name='text.Left to Right (LTR)'>
+        	<value>Left to Right (LTR)</value>
+		<value locale="es">De Izquierda a Derecha (LTR)</value>
+    	</property>
+	<property name='text.Right to Left (RTL)'>
+        	<value>Right to Left (RTL)</value>
+		<value locale="es">De Derecha a Izquierda (RTL)</value>
+    	</property>
+	<property name='text.Language Code'>
+        	<value>Language Code</value>
+		<value locale="es">Código del Idioma</value>
+    	</property>
+	<property name='text.Character Set Encoding'>
+        	<value>Character Set Encoding</value>
+		<value locale="es">Codificación del Conjunto de Caracteres</value>
+    	</property>
+	<property name='text.Central European'>
+        	<value>Central European</value>
+		<value locale="es">Europa Central</value>
+    	</property>
+	<property name='text.Chinese Traditional (Big5)'>
+        	<value>Chinese Traditional (Big5)</value>
+		<value locale="es">Chino Tradicional (Big5)</value>
+    	</property>
+	<property name='text.Cyrillic'>
+        	<value>Cyrillic</value>
+		<value locale="es">Cirílico</value>
+    	</property>
+	<property name='text.Greek'>
+        	<value>Greek</value>
+		<value locale="es">Griego</value>
+    	</property>
+	<property name='text.Japanese'>
+        	<value>Japanese</value>
+		<value locale="es">Japonés</value>
+    	</property>
+	<property name='text.Korean'>
+        	<value>Korean</value>
+		<value locale="es">Coreano</value>
+    	</property>
+	<property name='text.Turkish'>
+        	<value>Turkish</value>
+		<value locale="es">Turco</value>
+    	</property>
+	<property name='text.Western European'>
+        	<value>Western European</value>
+		<value locale="es">Europa Occidental</value>
+    	</property>
+	<property name='text.Other'>
+        	<value>Other</value>
+		<value locale="es">Otro</value>
+    	</property>
+	<property name='text.Other Character Set Encoding'>
+        	<value>Other Character Set Encoding</value>
+		<value locale="es">Otra Codificación del Conjunto de Caracteres</value>
+    	</property>
+	<property name='text.Document Type Heading'>
+        	<value>Document Type Heading</value>
+		<value locale="es">Tipo de Encabezado del Documento</value>
+    	</property>	
+	<property name='text.Other Document Type Heading'>
+        	<value>Other</value>
+		<value locale="es">Otro Tipo de Encabezado del Documento</value>
+    	</property>	
+	<property name='text.Include XHTML Declarations'>
+        	<value>Include XHTML Declarations</value>
+		<value locale="es">Incluir Declaraciones XHTML</value>
+    	</property>	
+	<property name='text.Background Color'>
+        	<value>Background Color</value>
+		<value locale="es">Color de Fondo</value>
+    	</property>	
+	<property name='text.Background Image URL'>
+        	<value>Background Image URL</value>
+		<value locale="es">URL de la Imagen de Fondo</value>
+    	</property>	
+	<property name='text.Browse Server'>
+        	<value>Browse Server</value>
+		<value locale="es">Buscar Servidor</value>
+    	</property>	
+	<property name='text.Nonscrolling Background'>
+        	<value>Nonscrolling Background</value>
+		<value locale="es">Fondo Fijo</value>
+    	</property>	
+	<property name='text.Text'>
+        	<value>Text</value>
+		<value locale="es">Texto</value>
+    	</property>	
+	<property name='text.Link'>
+        	<value>Link</value>
+		<value locale="es">Enlace</value>
+    	</property>	
+	<property name='text.Visited Link'>
+        	<value>Visited Link</value>
+		<value locale="es">Enlace Visitado</value>
+    	</property>
+	<property name='text.Active Link'>
+        	<value>Active Link</value>
+		<value locale="es">Enlace Activo</value>
+    	</property>
+	<property name='text.Page Margins'>
+        	<value>Page Margins</value>
+		<value locale="es">Márgenes de Página</value>
+    	</property>
+	<property name='text.Top'>
+        	<value>Top</value>
+		<value locale="es">Superior</value>
+    	</property>
+	<property name='text.Left'>
+        	<value>Left</value>
+		<value locale="es">Izquierda</value>
+    	</property>
+	<property name='text.Right'>
+        	<value>Right</value>
+		<value locale="es">Derecha</value>
+    	</property>
+	<property name='text.Bottom'>
+        	<value>Bottom</value>
+		<value locale="es">Inferior</value>
+    	</property>
+	<property name='text.Document Indexing Keywords (comma separated)'>
+        	<value>Document Indexing Keywords (comma separated)</value>
+		<value locale="es">Palabras Claves de Indexación del Documento (separar por comas)</value>
+    	</property>
+	<property name='text.Document Description'>
+        	<value>Document Description</value>
+		<value locale="es">Descripción del Documento</value>
+    	</property>
+	<property name='text.Author'>
+        	<value>Author</value>
+		<value locale="es">Autor</value>
+    	</property>
+	<property name='text.Copyright'>
+        	<value>Copyright</value>
+		<value locale="es">Derechos de Copia</value>
+    	</property>
+	<property name='text.Preview'>
+        	<value>Preview</value>
+		<value locale="es">Vista Preliminar</value>
+    	</property>
+</page>

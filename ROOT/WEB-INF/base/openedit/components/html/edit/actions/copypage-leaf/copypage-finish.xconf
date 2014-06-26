@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<page>
+	<path-action name="Page.copyPage" />
+	<path-action name="Page.constructParameter" />
+	<!-- path-action name="Admin.redirectToOriginal" /-->
+	<property name="virtual">true</property>
+	
+	<property name='text.thepage'>
+        	<value>The page</value>
+		<value locale="es">La Página</value>
+    	</property>
+	<property name='text.selectafile'>
+        	<value>Select a file or directory to work with from the directory listing</value>
+		<value locale="es">Seleccione un archivo o directorio a partir del listado de directorios, con el cual desea trabajar</value>
+    	</property>
+	<property name='text.hasbeencopiedto'>
+        	<value>has been copied to</value>
+		<value locale="es">ha sido copiado a</value>
+    	</property>
+	<property name='text.viewcopy'>
+        	<value>VIEW COPY</value>
+		<value locale="es">VER COPIA</value>
+    	</property>
+	<property name='text.copysuccessful'>
+        	<value>COPY SUCCESSFUL</value>
+		<value locale="es">COPIA EXISTOSA</value>
+    	</property>
+</page>

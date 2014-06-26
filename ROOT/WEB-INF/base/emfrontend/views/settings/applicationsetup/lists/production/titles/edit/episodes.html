@@ -1,0 +1,21 @@
+<br>
+
+#set( $xmledithome = $context.getPageProperty("xmledithome"))
+
+#set( $selectlink = "$apphome/views/settings/lists/production/episodes/edit/edit.html" )
+
+#set( $joinsearcher = $searcherManager.getSearcher($catalogid, "episode"))
+#set( $query = $joinsearcher.createSearchQuery() )
+#set( $null = $query.addExact("title",$data.id))
+#set( $null = $query.addSortBy("season") )
+#set( $null = $query.addSortBy("name") )
+
+$context.putPageValue("existingrecords",$joinsearcher.search($query))
+$pages.include("$xmledithome/table.html?searchtype=episode&fieldexternalid=title&fieldexternalvalue=$data.id&catalogid=$catalogid&view=episode/results&selectlink=$selectlink", $context)
+
+
+
+<ul class="embuttons" style="margin: 20px 0px 60px 20px">
+<li><a href="$home$apphome/views/settings/lists/production/episodes/edit/addnew.html?title.value=$data.id"><span>Add New Episode</span></a></li>
+</ul>
+

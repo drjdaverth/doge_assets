@@ -1,0 +1,64 @@
+#if($userName)
+	#set($selectedUser = $userManager.getUser($userName))
+<style type="text/css">
+ 	#${userName}-edit-link {color: #FFFFFF;}
+  	#${userName}-table-cell {background: #CCCCF9;}
+</style>
+	<div>
+	<h2>[[USER]]: $selectedUser</h2>
+	</div>
+<table>
+	<tr>	
+		#if($selectedUser.getProperty("hasportrait") == "true")
+		<td>
+			<img src="$home/$applicationid/catalogs/public/downloads/preview/thumb/users/$userName/image.jpg">
+		</td>
+		#end
+		<td colspan="2">
+			<div id="usereditarea" style="vertical-align: middle;padding: 0 0 10px 25px;" >
+				$pages.include("edituser.html", $context)
+				
+			</div>
+		</td>
+	</tr>
+
+	<tr>
+		<td> 
+			<div style="border-right:2px solid black;padding:10px;">
+				<h2>[[Permission Groups]]</h2>	
+				<div id="grouparea">
+				$pages.include("grouplist.html", $context)
+				</div>
+			</div>
+		</td>
+		<td>    
+			<div id="changepasswordarea" style="padding:10px;">
+				<h2>[[Change Password]]</h2>
+				$pages.include("setuserpassword.html", $context)
+
+				<div class="embutton" style="padding-left: 100px;">
+					<a class="ajax" targetdiv="usermessagearea" href="./sendpassword.html?username=$userName">[[Send Password To User]]</a>
+				</div>
+				<div id="usermessagearea"> </div>
+
+			</div>
+		</td>
+
+		<td style="border-left:2px solid black;padding:10px;">
+		<div class="embutton">
+			<a href="deleteuserconfirm.html?usertodelete=$userName">[[Delete User]]</a>
+		</div>
+				<br/>
+				<br/>
+				#if($pages.doesExist("$home/$applicationid/users/$userName/index.html"))
+					<div class="embutton"><a href="$home/$applicationid/users/$userName/index.html">[[View Home Page]]</a></div>
+				#end
+		</td>
+		
+	</tr>
+</table>
+
+#else
+	<br/>
+	[[Select a user.]]
+#end

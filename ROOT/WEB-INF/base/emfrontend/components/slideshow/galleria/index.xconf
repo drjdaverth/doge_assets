@@ -1,0 +1,7 @@
+<page>
+
+<script id="galleria" src="/${applicationid}/components/slideshow/galleria/galleria-1.2.3.min.js"/>
+	<script id="galleria-theme" src="/${applicationid}/components/slideshow/galleria/themes/classic/galleria.classic.min.js"/>
+	
+
+</page>

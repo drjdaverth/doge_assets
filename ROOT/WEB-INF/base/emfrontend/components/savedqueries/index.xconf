@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<page-action name="SavedQueryModule.loadSavedQueryList"/>
+	<property name="hitsname">querylist</property>
+	<property name="showsaved">true</property>
+</page>

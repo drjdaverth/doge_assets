@@ -1,0 +1,8 @@
+<page>
+	<inner-layout>./layout.html</inner-layout>
+	<layout />
+	<path-action name="MediaArchiveModule.getAsset" alltypes="true"/>
+	<path-action name="Admin.loadPermissions" alltypes="true"/>
+	<property name="virtual">true</property>
+	<property name="forcelayout">true</property>
+</page>

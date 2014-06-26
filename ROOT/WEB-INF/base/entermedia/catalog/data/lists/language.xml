@@ -1,0 +1,17 @@
+<properties>
+  
+  <property id="2">English</property>
+  <property id="10">Spanish</property>
+  <property id="1">Chinese</property>
+  <property id="6">Korean</property>
+  <property id="12">Vietnamese</property>
+  <property id="8">Polish</property>
+  <property id="3">French</property>
+  <property id="4">German</property>
+  <property id="5">Italian</property>
+  <property id="9">Russian</property>
+  <property id="11">Tagalog</property>
+  <property id="7">Mandarin</property>
+  <property id="0">Cantonese</property>
+  
+</properties>

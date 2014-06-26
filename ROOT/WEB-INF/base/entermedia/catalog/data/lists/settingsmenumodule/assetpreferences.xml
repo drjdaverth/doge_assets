@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+  <property id="preferences" type="toplevel" parentid="preferences" module="asset" path="/views/settings/modules/asset/transcoding/index.html" sublabel="Transcoding" ordering="060">Preferences</property>
+  <property id="publishing" type="sublevel" parentid="preferences" module="asset" path="/views/settings/modules/asset/publishing/index.html" ordering="610">Publishing</property>
+  <property id="presets" type="sublevel" parentid="preferences" module="asset" path="/views/settings/modules/asset/presetconfig/index.html" ordering="610">Preset Configuration</property>
+
+</properties>
+  

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<property name="text.menulabel">
+  		<value>History</value>
+  		<value locale="es">Historial</value>
+	</property>
+  
+	<property name="show">usagehistory</property>
+	<page-action name="AssetEditModule.loadUsageHistory"/>
+  
+	<property name="text.No Usage History Information Available.">
+		<value>No Usage History Information Available.</value>
+		<value locale="es">No hay información sobre Historial de Uso disponible.</value>
+	</property>
+</page>

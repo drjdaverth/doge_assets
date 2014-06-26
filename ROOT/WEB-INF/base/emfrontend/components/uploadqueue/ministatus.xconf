@@ -1,0 +1,4 @@
+<page>
+	<path-action name="AssetSyncModule.searchForPendingAssets" />
+	<inner-layout />
+</page>

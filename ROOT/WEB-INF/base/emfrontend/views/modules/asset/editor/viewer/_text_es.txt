@@ -1,0 +1,9 @@
+#
+#Thu Aug 12 21:25:16 EDT 2010
+Next=Pr\u00F3ximo
+Item=Art\u00EDculo
+Copy\ To\ Clipboard=Copiar al Portapapeles
+Slideshow=Diapositivas
+Go\ Back=Volver
+Previous=Anterior
+of=de

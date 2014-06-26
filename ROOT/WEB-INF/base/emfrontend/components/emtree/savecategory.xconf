@@ -1,0 +1,5 @@
+<page>
+<path-action name="CategoryEditModule.loadCategory"/>
+<path-action name="CategoryEditModule.saveCategory"/>
+<property name="virtual">true</property>
+</page>

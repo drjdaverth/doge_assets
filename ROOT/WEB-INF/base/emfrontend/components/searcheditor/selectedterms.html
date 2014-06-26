@@ -1,0 +1,25 @@
+#if( $query )
+	<table name="nav1" id="tableNav1"  border="0" >
+		#foreach( $term in $query.getTerms())
+			#set( $detail = $term.getDetail() )
+			#if( $detail.view || $detail.getId() == "description" )
+				$context.putPageValue("term", $term)
+				$context.putPageValue("detail", $detail)
+				$pages.include("/$applicationid/components/searcheditor/searchterms.html", $context)
+			#end
+		#end
+
+		#foreach( $child in $query.getChildren())
+		   #foreach( $term in $child.getTerms())
+			#set( $detail = $term.getDetail() )
+			#if( $detail.view )
+				$context.putPageValue("term", $term)
+				$context.putPageValue("detail", $detail)
+				$pages.include("/$applicationid/components/searcheditor/searchterms.html", $context)
+			#end			
+   		   #end
+		#end		
+
+	
+</table>
+#end

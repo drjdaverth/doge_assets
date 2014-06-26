@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties> 
+	<property id="new">New</property>
+	<property id="missinginput">Input Missing</property>
+	<property id="submitted">Processing</property>
+	<property id="complete">Complete</property>
+	<property id="retry">Retry</property>
+	<property id="error">Error</property>
+	
+</properties>

@@ -1,0 +1,9 @@
+AssetSourcePath	Tags
+#foreach( $hit in $mediaarchive.getAssetSearcher().getAllHits() )   ##hits
+#set( $asset = false )
+#set( $asset = $mediaarchive.getAssetBySourcePath($hit.sourcepath) )
+#if( $asset.getKeywords().size() > 0)
+$hit.sourcepath	#foreach( $tag in $asset.getKeywords() )$tag,#end##end row
+
+#end
+#end

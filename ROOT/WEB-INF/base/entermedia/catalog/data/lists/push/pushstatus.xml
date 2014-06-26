@@ -1,0 +1,10 @@
+<properties>
+  <property id="complete">Push Complete</property>
+  <property id="error">Upload Error</property>
+  <property id="retry">Retry (not used)</property>	
+  <property id="deleted">Deleted</property>
+  <property id="resend">Resend</property>
+  <property id="notallconverted">Waiting on Conversion</property>
+  <property id="nogenerated">No Generated Files</property>
+  
+</properties>

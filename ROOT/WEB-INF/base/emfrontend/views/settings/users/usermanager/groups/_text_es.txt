@@ -1,0 +1,8 @@
+#
+#Tue Apr 27 11:50:10 CLT 2010
+Reload\ Search\ Index=Recargar Índice de Búsqueda
+Please\ select\ a\ group=Por favor, seleccione un grupo
+Groups=Grupos
+Add\ New=Agregar Nuevo
+Group\ Name=Nombre del Grupo
+

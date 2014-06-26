@@ -1,0 +1,8 @@
+AssetSourcePath	CategoryId
+#foreach( $hit in $mediaarchive.getAssetSearcher().getAllHits() )   ##hits
+#set( $asset = false )
+#set( $asset = $mediaarchive.getAssetBySourcePath($hit.sourcepath) )
+#foreach( $cat in $asset.getCategories() )
+$hit.sourcepath	$cat.id
+#end
+#end

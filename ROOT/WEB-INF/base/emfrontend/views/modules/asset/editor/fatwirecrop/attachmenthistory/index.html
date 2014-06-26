@@ -1,0 +1,67 @@
+
+
+#set ( $editPath = $context.getRequestParameter("editPath") )
+
+<div class="oelist-box">
+#set($current = $revisions.revisions.get(0).getVersion())
+
+<table width="100%" class="striped emdata">
+	<tr class="tableheader">
+		<th class="white-on-grey">[[Download]]</th>
+		<th class="white-on-grey">[[Size]]</th>
+		<th class="white-on-grey">[[Author]]</th>
+		<th class="white-on-grey">[[Date]]</th>
+		<th class="white-on-grey"></th>
+		
+	</tr>
+	#set ( $dateformat = $classtool.newInstance( "java.text.SimpleDateFormat" ) )
+	#set($even = true)
+	#foreach ( $revision in $revisions.revisions )
+		#set($revisionNumber = $revision.getVersion())
+	<tr>
+		<td>
+		    <span style="margin-left: 20px">
+   				<a href="$home/${applicationid}/views/modules/asset/downloads/generated/$asset.sourcePath/.versions/$revisionNumber~$revision.getName()/$revision.getName()">[[Version]] $revisionNumber</a>
+    		</span>
+		</td>
+		<td class="tooltip" title="$revision.getLength() bytes" >$sizer.inEnglish($revision.getLength())	</td>
+		
+		<td>
+		#if( $revision.author )
+			$!userManager.getUser($revision.author)
+		#end	
+		</td>
+		<td>
+			#set ( $dateString = $dateformat.format( $revision.lastModified() ) )
+			$dateString.replaceAll( " ", "&nbsp;" )
+			
+		</td>
+	    <td>
+            #if($revisionNumber != $current)
+                
+                <form id="backtorev_$revisionNumber" method="post" action="$home$apphome/views/modules/asset/editor/fatwirecrop/attachmenthistory/revert.html">
+                    <input type="hidden" name="version" value="$revisionNumber"/>
+                    <input type="hidden" name="assetid" value="$asset.id"/>
+                    <input type="hidden" name="editPath" value="${revisions.getEditPage()}"/>
+                    
+                    
+                </form>
+                <p style="margin: 0;padding: 0;text-align: center;">
+                    <a class="btn" style="margin: 0;" href="#" onclick="jQuery('#backtorev_$revisionNumber').submit(); return false;">
+                        Revert
+                    </a>
+                </p>
+            #end
+        </td> 
+	</tr>
+    #end
+</table>
+</div>
+#if( $candeleteasset )
+<br>
+
+<a class="btn confirm"  confirm="Delete All Previous Revisions?" style="margin-left: 20px; margin-bottom: 20px;" href="$home$apphome/views/modules/asset/editor/fatwirecrop/attachmenthistory/deleteall.html?editPath=${revisions.getEditPage()}&assetid=${asset.id}&sourcepath=${asset.sourcePath}">Delete Old Versions</a>
+#end
+	
+
+    

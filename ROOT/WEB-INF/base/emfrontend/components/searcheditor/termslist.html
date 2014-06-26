@@ -1,0 +1,13 @@
+
++&nbsp;[[And]]&nbsp;
+<select id="terms" onchange="addTerm(this.value); $('terms').selectedIndex = 0; return false;">
+	
+    <option selected="true">&nbsp;</option>
+#foreach( $view in $allviews.keySet() )
+	<option value="">$view.name</option>
+	#set( $details = $allviews.get($view))
+	#foreach( $detail in $details.values() )
+		<option value="${detail.catalogId}:${view.id}:${detail.id}">&nbsp; &nbsp; $detail.getText($context)</option>
+	#end
+#end
+</select>

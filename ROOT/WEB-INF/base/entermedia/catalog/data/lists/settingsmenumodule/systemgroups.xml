@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+  <property  id="groups"  type="toplevel" module="system"  parentid="groups" path="/views/settings/users/usermanager/groups/index.html" ordering="020">Groups</property>
+    <property id="admin" parentid="groups" module="system" path="/views/settings/users/usermanager/admin/index.html" ordering="220">Import / Export</property>
+  
+</properties>
+

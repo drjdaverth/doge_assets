@@ -1,0 +1,11 @@
+<h2>[[Media Uploaded]]</h2>
+#if( $newasset )
+[[Your asset has been uploaded]]
+#set( $hit = $hits.get(0) )
+$pages.include("./details.html?sourcepath=$newasset.sourcepath")
+
+#else
+File not uploaded - please try again.
+
+#end
+

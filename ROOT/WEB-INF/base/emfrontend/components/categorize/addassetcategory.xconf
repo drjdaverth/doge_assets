@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<page>
+	<path-action name="CategoryEditModule.addCategoryToAsset"/>
+	<inner-layout />
+</page>

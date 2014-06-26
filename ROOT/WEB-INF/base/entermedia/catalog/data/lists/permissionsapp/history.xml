@@ -1,0 +1,11 @@
+<permissions name="Application Permissions">
+
+		
+	<permission id="converthistory" permissiontype="history" name="Conversion" description="Logs the conversion history of an asset."/>
+	<permission id="viewassetpreviewhistory" permissiontype="history" name="Preview" description="Logs the preview history of an asset."/>
+	<preference id="capturehistory" permissiontype="history" name="Save Usage" description="Logs the download history of an asset."/>
+		
+		
+</permissions>
+
+	

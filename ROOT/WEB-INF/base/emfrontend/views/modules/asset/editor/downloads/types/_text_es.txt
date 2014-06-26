@@ -1,0 +1,12 @@
+#
+#Thu Aug 12 21:27:08 EDT 2010
+Embed\ Code=C\u00F3digo de inserci\u00F3n
+Thumbnail=Miniatura
+Medium=Medio
+Preview=Vista Previa
+Desktop\ Size=Tama\u00F1o de Escritorio
+URL=URL
+Original\ Download=Descargar original
+Medium\ Plus=Adem\u00E1s Medio
+Small\ Thumbnail=Peque\u00F1as Miniatura
+Full\ Size\ JPG=Full Size JPG

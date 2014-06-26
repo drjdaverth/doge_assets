@@ -1,0 +1,6 @@
+<emailtemplates>
+  <emailtemplate id="notificationlayout">Notification Layout</emailtemplate>
+  <emailtemplate id="notificationtemplate">Notification Template</emailtemplate>
+  <emailtemplate id="orderemail">Order Email</emailtemplate>
+  <emailtemplate id="sendpasswordemail">Send Password Email</emailtemplate>
+</emailtemplates>

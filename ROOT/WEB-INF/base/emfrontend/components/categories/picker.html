@@ -1,0 +1,125 @@
+#set( $rootpath = "${apphome}/components/categories")
+
+#set ( $asset = $asseteditor.getCurrentAsset() )
+#set ( $categorylist = $asset.getCatalogs() )
+<h2>[[Select Categories]]</h2>
+<div id="emcategorypicker" >
+<div id="empickerbody">
+
+<script type="text/javascript">
+//<![CDATA[
+categoryPickerTree = new Object();
+categoryPickerTree.lastselected = "$categoryPickerTree.getTreeRenderer().getSelectedId()";
+categoryPickerTree.name = "categoryPickerTree";
+
+categoryPickerTree.saveNode = function(inNodeId, inText)
+{
+	var targetDiv = "#" + this.name + "treerow" + inNodeId;
+	targetDiv = targetDiv.replace(/\//g, "\\/");
+	jQuery(targetDiv).load('$home$rootpath/nodesave.html', {nodeID: inNodeId, edittext: inText });
+	return false;
+}
+categoryPickerTree.addNode = function(inNodeId, inText)
+{
+	var targetDiv = "#" + this.name + "treerow" + inNodeId;
+	targetDiv = targetDiv.replace(/\//g, "\\/");
+	jQuery(targetDiv).load('$home$rootpath/nodeadd.html', {nodeID: inNodeId, addtext: inText });
+	return false;
+}
+
+categoryPickerTree.removeNode = function(inNodeId)
+{
+	var targetDiv = "#" + this.name + "treerow" + inNodeId;
+	targetDiv = targetDiv.replace(/\//g, "\\/");
+	jQuery(targetDiv).load('$home$rootpath/noderemove.html', {nodeID: inNodeId });
+	return false;
+}
+
+
+categoryPickerTree.jumpToNode = function(inUrl, inNodeId)
+{
+	this.selectRow( inNodeId );
+	
+	var targetDiv = "#" + this.name + "treerow" + inNodeId;
+	targetDiv = targetDiv.replace(/\//g, "\\/");
+	jQuery(targetDiv).load('$home$rootpath/select.html', {nodeID: inNodeId, path: inUrl, origURL: "$content.path" });
+
+
+	return false;
+}
+categoryPickerTree.toggleNode = function(inUrl,inTreeId, inNodeId)
+{
+	var targetDiv = "#" + this.name + "treerow"+inNodeId;
+	targetDiv = targetDiv.replace(/\//g, "\\/");
+	jQuery(targetDiv).load('$home$rootpath/toggle.html', {nodeID: inNodeId, treeid: inTreeId, origURL: "$content.path", categoryid: inNodeId });
+
+	return false;
+}
+categoryPickerTree.jumpAndOpenNode = function(inUrl,inTreeId, inNodeId)
+{
+	this.jumpToNode( inUrl, inNodeId );
+	this.toggleNode( inUrl, inTreeId, inNodeId );
+	return false;
+}
+categoryPickerTree.selectRow = function( inNodeId )
+{
+	if( this.lastselected.length > 0 )
+	{
+		var thediv = document.getElementById(this.name + "treerow" + this.lastselected);
+		if( thediv )
+		{
+			jQuery(thediv).removeClass("dTreeNodeSel");
+			jQuery(thediv).addClass("treerow");
+		}
+		thediv = document.getElementById(this.name + "treerow" + inNodeId);
+		if( thediv )
+		{
+			jQuery(thediv).addClass("dTreeNodeSel");
+			jQuery(thediv).removeClass("treerow");
+		}
+	}
+	this.lastselected = inNodeId;
+}
+
+postCategoryToAsset = function(inFormID)
+{
+	form = document.getElementById(inFormID);
+	form.categoryid.value = categoryPickerTree.lastselected;
+	postForm('categorypicker',inFormID);
+	
+	jQuery("#assetdetailscategorylist$asset.getId()").load('$home$apphome/components/categories/index.html', {assetid: '$asset.getId()'});
+	return false; 
+}
+var checkedcategories = new Array();
+jQuery(document).ready(function() 
+{ 
+	//ui-components causes http://dev.jquery.it/ticket/9134
+	$('#emcategorypicker .dtree .treerowtext' ).livequery(
+	function()
+	{
+		jQuery(this).hover(
+			function () 
+			{
+		        $(this).addClass("emtreehover");
+		 	}, 
+			function () {
+			    $(this).removeClass("emtreehover");
+			}
+		);
+		var id = $(this).attr("nodeid");
+		$(this).prepend('<input style="float: left;" type="checkbox" name="categories" value="' + id +'" />');
+		
+		
+		var divid = $(this).attr("id");
+		$(this).prepend('<div class="emnodeeditarea"><a class="ajax" targetdiv="'+ divid + '" href="$home$rootpath/editnode.html?nodeid=' + id + '" ><img src="$home${page.iconhome}/arrowdown.png" title="[[edit]]"/></a></div>');
+		
+	});
+});
+
+</script>
+
+	<div>
+		$pages.include("$rootpath/tree.html" )
+	</div>
+</div>
+</div>

@@ -1,0 +1,33 @@
+<h2>[[Folder Mounts]]</h2>
+
+<p>[[By default all files are version controlled]]</p>
+<table class="striped">
+<tr>
+	<th>[[Path]]</th>
+	<th style="padding-left:10px;">[[External Path]]</th>
+	<th style="padding-left:10px;">[[Actions]]</th>
+</tr>
+#foreach( $mount in $mounts )
+	<tr>
+		<td>
+			<a target="_blank" href="$home/${applicationid}/settings/filemanager/index.html?path=$mount.getPath()">$mount.getPath()</a>
+		</td>
+		<td valign="top" style="padding-left:10px;">
+					<b>$mount.getExternalPath()</b>
+		</td>
+		<td><div id="action$velocityCount"><a href="remove.html?mountid=$mount.getPath()" onclick="return confirm('[[Remove this entry?]]');">[[Remove]]</a>	
+						&nbsp;&nbsp;&nbsp;
+					<a  class="thickbox" href="edit.html?mountid=$mount.getPath()">[[Edit]]</a>	
+						&nbsp;&nbsp;&nbsp;
+			</div>
+		</td>
+	</tr>
+#end
+</table>
+<div class="embutton">
+<a href="addnew.html">[[Add new entry]]</a>
+</div>
+<br><br><br>
+<div class="embutton">
+<a href="reload.html">[[Reload Mounts]]</a>
+</div>

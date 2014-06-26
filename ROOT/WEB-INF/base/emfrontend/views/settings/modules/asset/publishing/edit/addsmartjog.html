@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="/system/components/openedit/theme/style.css" /> 
+<link rel="stylesheet" type="text/css" href="$apphome/theme/styles/baseem.css" /> 
+<link rel="stylesheet" type="text/css" href="$apphome/theme/styles/theme.css" /> 
+
+<div class="em-rounded" >
+<h2>Select a SmartJog Server</h2>
+
+#set ($searcher = $searcherManager.getSearcher($catalogid, "publishing/smartjogdestination"))
+
+<ul class="vlist">
+#foreach ($item in $searcher.getAllHits())
+<li style="text-align:left;"><a target="_parent" href="addsmartjogfinish.html?catalogid=$catalogid&searchtype=publishing/publishdestination&field=publishtype&publishtype.value=smartjog&field=name&name.value=$item&field=server&server.value=$item.serverId&save=true">$item</a></li>
+#end
+</ul>
+</div>

@@ -1,0 +1,8 @@
+ 
+#set( $searchtype = "conversiontask")
+#set ($view = "conversions/status")
+$context.putPageValue("view",$view)
+#set( $args = "searchtype=$searchtype&view=$view")
+$pages.include("$apphome/views/settings/lists/datamanager/list/index.html?$args", $context)
+  
+<a class="btn thickbox"  href="$home$apphome/views/settings/events/triggers/run.html?forcerun=true&runpath=$cataloghome/events/conversions/runconversions.html&assetid=$asset.getId()">Process Conversion Queue now</a>

@@ -1,0 +1,6 @@
+<page>
+	<!--path-action name="DataEditModule.loadFields" /-->
+	<path-action name="DataEditModule.addProperty" />
+	
+	
+</page>

@@ -1,0 +1,116 @@
+<div id="gridholder">
+<table  width="100%" id="excel" cellpadding="0" cellspacing="0"  >
+	<thead>
+	<tr>
+		<td class="rowselector"></td>
+		#foreach( $col in $sheet.getColumns() )
+			#set( $id = "id_$col.getId()")				
+			#set( $velocityCount0 = $velocityCount + -1) 
+			<th id="$col.getId()" class="colcontextmenu" style="width:${col.getWidth()}px;" colIndex="$velocityCount0"  onclick="selectCol('$col.getId()')">
+$col.getText() 
+			</th>
+		#end
+	</tr>
+	</thead>
+	<tbody>
+
+	#set( $row = $sheet.getHeader() )
+	#set( $rid = $row.getId() )
+	<tr id="row_$rid" >
+	
+		<td class="rowselector" rowIndex="0" rowid="$rid" #if($row.getHeight() > -1) style="height: ${row.getHeight()}px"#end id="$rid" #if($caneditspreadsheet) onclick="selectRow('$rid') #end"> </td>
+		#foreach( $cell in $row.getCells() )
+			#set( $cid = $cell.getId() )
+			<td class="textfull textheader" id="td_${rid}_${cid}" rowid="$rid" cellid="$cid">
+				<div id="${rid}_${cid}" #if($caneditspreadsheet) onclick="startedit(event,'$rid','$cid') #end" >$!cell.getText()</div>&nbsp;
+			</td>
+				<script type="text/javascript" defer="defer">
+					var td = document.getElementById("td_${rid}_${cid}");
+					Element.observe(td, 'click', startedit); 
+				</script>
+		#end
+	</tr>
+
+	<tr>
+		<td class="rowselector"></td>
+		#foreach( $col in $sheet.getColumns() )
+		<td class="headerdivider">
+		</td>
+		#end
+	</tr>
+	
+	#foreach( $row in $sheet.getRows(1))
+		#set ($rowcolor = "")
+		#set ($rowcolor = $sheet.pickColorForRow($row))
+		<tr id="row_$row.getId()" >
+			<td class="rowselector rowcontextmenu" rowIndex="$velocityCount" rowid="$row.getId()" #if($row.getHeight() > -1) style="height: ${row.getHeight()}px"#end id="$row.getId()" #if($caneditspreadsheet) onclick="selectRow('$row.getId()')#end">$velocityCount</td>
+			#set( $rid = $row.getId() )
+			#foreach( $cell in $row.getCells() )
+				#set( $cid = $cell.getId() )
+
+				##find the color for this cell				
+				#set ($color = "")
+				#set ($color = $sheet.pickColor($cell.getText()))
+				
+				##default back to row color if it exists
+				#if ($color.length() == 0)
+					#set ($color = $rowcolor)	
+				#end
+				
+				<td class="textfull" id="td_${rid}_${cid}" rowid="$rid" cellid="$cid" #if ($color.length() > 0) style="background-color: $color;" #end > <!-- onclick="return startedit(event,'$rid','$cid')">  -->
+					<div id="${rid}_${cid}" #if ($color.length() > 0) style="background-color: $color;" #end >$!cell.getText()</div>
+				</td>
+				<script type="text/javascript" defer="defer">
+					var td = document.getElementById("td_${rid}_${cid}");
+					#if($caneditspreadsheet)
+						Element.observe(td, 'click', startedit);
+					#end 
+				</script>
+			#end
+		</tr>
+	#end
+	</tbody>
+</table>
+
+<script type="text/javascript" defer="defer">
+	
+	
+	new Resizer("excel","columns");
+	new Resizer("excel","rows");
+	
+	var myColLinks = [
+	{name: 'Insert Column On Left', callback: insertColOnLeft},
+	{name: 'Delete Column', callback: deleteCol },
+	{separator: true},
+	{name: 'Copy', callback: function(){alert('Reload function called')}},
+	{name: 'Paste', callback: function(){
+		var item = oLinks.find(function(l){return l.name == 'Disabled option'});
+		item.disabled = item.disabled == false ? true : false;
+	}}
+	];
+	new Proto.Menu({
+	selector: '.colcontextmenu', // context menu will be shown when element with class name of "contextmenu" is clicked
+	className: 'menu desktop', // this is a class which will be attached to menu container (used for css styling)
+	menuItems: myColLinks // array of menu items
+	});
+
+	var myRowLinks = [
+	{name: 'Insert Row Above', callback: insertRowAbove},
+	{name: 'Delete Row', callback: deleteRow },
+	{separator: true},
+	{name: 'Copy', callback: function(){alert('Reload function called')}},
+	{name: 'Paste', callback: function(){
+		var item = oLinks.find(function(l){return l.name == 'Disabled option'});
+		item.disabled = item.disabled == false ? true : false;
+	}}
+	];
+	new Proto.Menu({
+	selector: '.rowcontextmenu', // context menu will be shown when element with class name of "contextmenu" is clicked
+	className: 'menu desktop', // this is a class which will be attached to menu container (used for css styling)
+	menuItems: myRowLinks // array of menu items
+	});
+
+
+</script>	
+
+</div>

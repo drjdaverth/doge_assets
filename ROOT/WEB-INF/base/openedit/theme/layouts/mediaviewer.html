@@ -1,0 +1,51 @@
+$context.putPageValue("showhover", "false")
+$context.putPageValue("thumbsize", "thumb")
+$context.putPageValue("showcaption", "true")
+
+<div class="subcolumns">
+   <div class="c25l">
+            <div class="subcl">     
+  $pages.include("$apphome/components/mediaviewer/player/index.html",$context)
+  
+<h6 class="vlist">Actions</h6>
+	<ul class="vlist">
+  <li> 	<a  href="$home$apphome/views/upload/attach.html?sourcepath=$asset.sourcepath&edit=true">[[Attach Image]]</a></li> 
+ 
+ <li> 	<a  href="$home$apphome/views/assets/index.html?sourcepath=$asset.sourcepath&edit=true">[[Edit]]</a></li> 
+ <li> 	<a class="confirm" href="$home$apphome/views/assets/delete.html?sourcepath=$asset.sourcepath&assetid=$asset.id&deleteoriginal=true">[[Delete]]</a></li> 
+ 
+	</ul>
+
+
+#if( $asset.getKeywords().size() > 0 || $asset.getCategories().size() > 0 )
+
+	<h6 class="vlist">Related Tags</h6>
+		#foreach ($tag in $asset.keywords)
+			<a href="$home$apphome/views/search/search.html?searchtype=asset&field=$catalogid:asset/details:description&operation=matches&description.value=$tag">$tag</a>
+		#end
+		#foreach ($category in $asset.categories) 
+			<a href="$home$apphome/views/search/category.html?categoryid=${category.id}">$category.name</a> 
+		#end
+		
+	#end
+
+
+
+</div>
+
+	
+</div>
+   <div class="c75r">
+            <div class="subcr">
+  
+  
+
+       
+<h1>Media Details - $asset.name</h1>
+
+  
+  
+  $pages.include("$apphome/components/mediaviewer/details/metadataedit.html")
+  
+  </div></div></div>
+  

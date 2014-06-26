@@ -1,0 +1,26 @@
+<page>
+	<property name="searchtype">publishdestination</property>
+	<property name="searchhome">/${applicationid}/views/settings/modules/asset/publishing</property>
+	<property name="showsearch">false</property>
+	<property name="showactions">true</property>
+	
+	<property name="resultspage">${searchhome}/search/results.html</property>
+	<property name="editable">false</property>
+	<property name="hitsname">hits</property>
+	<property name="showsearch">false</property>
+	<property name="searchfields">advancedsearch</property>
+	
+	 <path-action allowduplicates="true" bean="searcherManager" name="PageValue.loadPageVariable"/>
+	
+	 <permission name="delete">
+	 	<group name="administrators"/>
+	 </permission>
+	 <permission name="editdata">
+	 	<group name="administrators"/>
+	 </permission>
+ 
+ 	<property name="subtab">publishing</property>
+ 	<property name="tab">preferences</property>
+ 	<inner-layout>${themeprefix}/layouts/settingssubtablayoutnomargin.html</inner-layout>
+	
+</page>

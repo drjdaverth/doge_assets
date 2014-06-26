@@ -1,0 +1,125 @@
+<script language="javascript">
+	function SetUrl( inUrl )
+	{
+		var form = document.groups;
+		form.uselayout.value = inUrl;
+	}
+	function previewMail()
+	{
+		var form = document.groups;
+		var url = "preview.html?uselayout=" + form.uselayout.value + "&entryId=$entry.id";
+		window.open( url, 'previewwindow','alwaysRaised=yes,menubar=no,scrollbars=yes,x=10,y=10,width=810,height=620,resizable=yes' );
+	
+	}
+</script>
+
+<h2>Newsletter</h2>
+
+<p>Send this story to group of users.</p>
+
+<form method="get" name="groups" action="sendnotificationlog.html" onsubmit="return confirm('Are you sure you want send?\nClick Ok to send.');">
+
+<table border=0 width="90%"  >
+<tr>
+<td>
+
+	<input type="hidden" name="editPath" value="$entry.path"/>
+	<input type="hidden" name="entryId" value="$entry.id" />			
+
+	<table border="0"  cellpadding="0" cellspacing="0">
+	<tr>
+		<td valign="top" ><b>Subject: </b></td>
+		<td><input size=40 type="text" name="title" value="$entry.title" /></td>
+	</tr>
+	<tr>
+		<td valign="bottom"><b>From: </b></td>
+		<td><input size="40" type="text" name="author" value="$user.firstName $user.lastName <${user.email}>" />
+		</td>
+	</tr>
+	<tr><td><b>Mail Server:</b></td>
+		<td><input type=text name=server value="localhost" size=40 />
+		</td>
+	</tr>
+	<tr><td><b>Custom Layout:</b></td>
+		<td><input type=text name="uselayout" size=40 value="$home${blog.getBlogHome()}/layout/emaillayout.html" />
+		        	<a href="#"
+onclick="if(!window.name)window.name='blog_parent';window.open( '$home/system/tools/filepicker/index.html?parentPage='+window.name, 'pickerwindow','alwaysRaised=yes,menubar=no,scrollbars=yes,x=10,y=10,width=700,height=600,resizable=yes' );return false;">
+<img src="$home/system/images/toolbar/history_view.gif" border="0" width="16" height="16" title="Pick A Layout" /></a>	        
+		</td>
+		</tr>
+		<tr>
+		<td><b>Include Text Version:</b></td>
+		<td><input type=checkbox name="addplaintext" value="true" checked /></td>
+	</tr>
+	
+	<tr>
+	<td><b>Recipients:</b></td>
+	<td>
+	<table>
+	#foreach( $group in $UserManager.getGroupsSorted() )
+		<tr>
+		<td><input value="$group.getName()" name="groupnames" type="checkbox"></td>
+		<style type="text/css">
+		  		#${group.getName()}-edit-link {}
+		  		#${group.getName()}-table-cell {}
+			</style>
+		<td id="${group.getName()}-table-cell" width="100%"><a href="$home/entermedia/settings/usermanager/modifygroup.html?groupname=$group.getName()" class="edit-link" id="$group.getName()-edit-link">$group.getName()</a>
+		#set( $users = $UserManager.getUsersInGroup( $group ) )
+		($users.size())
+		
+		</td>
+		</tr>
+	#end
+	</table>
+	</td>
+	</tr>
+	</table>
+</td>	
+<td>
+
+##right side
+	<table border=0 cellspacing=5 width="200" style="border: 1pt border-color: black;">
+	<tr>	
+	<td valign="bottom" align="center">	
+	#if ( $notify.isKeepRunning() )
+	<p><a href="?oe-action=BlogAdminModule.cancelNotification&entryId=$entry.id">Cancel Running Job</a></p>
+	<hr>
+	#end
+	</td>
+	</tr>
+	<tr>
+	<td align="center">	
+	#if ( $notify.hasLog($entry.path) )
+	<p>This newsletter has been sent in the past.</p><p><a href="${entry.path}.log" target="_blank">View log</a></p>
+	<hr>
+	#end
+	</td>
+	</tr>
+	<tr>
+	<td align="center" >
+	#if( $message )
+		$message
+	#else
+	<a href="?oe-action=BlogAdminModule.fixLinks&entryId=$entry.id">Make Links Absolute</a>
+	#end
+	<hr>
+	</p>
+	</td>
+	</tr>
+		<tr>	
+	<td valign="bottom" align="center">	
+		<input type=button onclick="previewMail();" value="  Preview Email  "  />
+	</td>
+	</tr>
+	<tr>
+	<td align="center">
+	<input type="submit" value="Send Newsletter" />
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+</form>
+<hr>
+$pages.stream($entry.path)

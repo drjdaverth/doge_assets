@@ -1,0 +1,6 @@
+<page>
+	<path-action name="DataEditModule.saveData" />
+	<property name="save">true</property>
+
+			
+</page>

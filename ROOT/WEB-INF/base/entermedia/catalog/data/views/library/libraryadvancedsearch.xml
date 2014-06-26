@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root> 
+  <property id="description">Keyword</property>
+  <property id="name" editable="true" index="true" stored="true">Name</property>
+  <property id="division" type="list" viewtype="list" editable="true" index="true" sortable="true"  sort="name" stored="true" >Division</property>
+  <!--  property id="gitprojectname" editable="true" index="true" stored="true" note="Just the name">Git Project Name</property  -->
+  <property id="projectstatus" index="true" stored="true" editable="true" type="list" viewtype="list" searchtype="library" internalfield="false" datatype="list">Project Status</property>
+  <property id="projecttype" index="true" stored="true" editable="true" type="list" viewtype="list" searchtype="library" internalfield="false" datatype="list">project type</property>
+  
+  
+  
+  
+  
+</root>

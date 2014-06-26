@@ -1,0 +1,5 @@
+<page>
+<inner-layout>${themeprefix}/layouts/myaccount.html</inner-layout>
+<property name="showallfiles">true</property>
+
+</page>

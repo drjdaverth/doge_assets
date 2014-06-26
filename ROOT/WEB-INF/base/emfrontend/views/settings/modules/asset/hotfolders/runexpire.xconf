@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <path-action name="AssetEditModule.removeExpiredAssets"/>
+  <property name="text.Clear Invalid Assets">
+    <value locale="es">Limpiar Artículos Inválidos</value>
+  </property>
+  <property name="text.$removedassets.size() invalid assets removed">
+    <value locale="es">$removedassets.size() artículos inválidos eliminados</value>
+  </property>
+</page>

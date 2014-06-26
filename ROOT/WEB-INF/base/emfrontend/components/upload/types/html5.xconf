@@ -1,0 +1,3 @@
+<page>
+	<page-action name="Date.now" format="yy_MM_dd_HH_mm_ss_SSS" />
+</page>

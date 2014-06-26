@@ -1,0 +1,73 @@
+/*
+ * CSV group File Importer
+ * By Jorge Valencia <jvalencia@openedit.org>
+ */
+
+
+import java.io.*;
+import org.openedit.util.*;
+import org.openedit.tracker.*;
+import org.openedit.entermedia.util.*;
+
+backLog = new StringWriter();
+log = new PrintWriter( backLog ); 
+
+/* Catch exceptions that otherwise would send ugly messages to the group */
+try {
+	log.println( "Starting importing..." );
+	userManager = context.get("usermanager");
+	pageManager = userManager.pageManager;
+	groupsPage = pageManager.getPage("/WEB-INF/temp/groups.csv");
+	log.println( "Checking if group file exists: " + groupsPage.exists() );
+	if ( groupsPage.exists() ) 
+	{
+		log.println( "Starting groups importing..." );
+		int rowcount = 0; int newgroup = 0;
+		groupsFile = groupsPage.contentItem.file;
+		importFile = new ImportFile('\t');
+		importFile.load( groupsFile );
+		headers = importFile.header.headerNames;
+		while ( (row = importFile.nextRow) != null ) 
+		{
+			groupid = row.get("id");
+			if( groupid == null)
+			{
+				groupid = row.get("property.id");
+			}
+			if( groupid == null)
+			{
+				log.println( "row is missing groupid" );
+				continue;
+			}
+			rowcount++;
+			group = userManager.getGroup( groupid );
+			if (group == null) {
+				newgroup++;
+				group = userManager.createGroup( groupid );
+			}
+			groupname = row.get("name");
+			if( groupname != null)
+			{
+				group.setName(groupname);
+			}
+			for ( i = headers.iterator(); i.hasNext(); ) 
+			{
+				column = i.next();
+				if (column.startsWith("property."))
+				{
+					group.setProperty(column.substring("property.".length()), row.get(column));
+				}
+			}
+			userManager.saveGroup(group);
+		}
+		userManager.flush();
+		log.println( "" + rowcount + " rows processed.");
+		log.println( "" + newgroup + " group created.");
+	}
+	log.println( "Ended normally" );
+} catch ( Exception e ) {
+	log.println( "Exception caught:" );
+	e.printStackTrace( log );
+} finally {
+	context.putPageValue( "importlog", backLog.toString() );
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                                                                                                                                   
+<page>
+	<property name="virtual">true</property>
+	<property name="downloadrootdirectory">/${catalogid}/downloads/data/generated</property>
+	<property name="newpathprefix">/WEB-INF/data/${catalogid}/generated</property>
+	<path-action name="Admin.allowViewing" alltypes="true" />
+	<generator name="downloadGenerator"/>
+</page>
+
+

@@ -1,0 +1,17 @@
+<div id="groupsearchpanel">
+#set( $datalist = $grouphits)
+
+$context.putPageValue("hits",$datalist)	
+$context.putPageValue("details",$searcher.getIndexProperties())	
+
+$pages.include("$usermanagerhome/groups/results.html?oeview=groupname", $context)
+<p>
+$pages.include("$usermanagerhome/groups/addgroup.html", $context)
+</p>
+
+<br />
+<p>
+<a class="btn" href="#" onclick="jQuery('#groupsearchpanel').load('$home$usermanagerhome/groups/reindex.html');">[[Reload Search Index]]</a>
+</p>
+
+</div>

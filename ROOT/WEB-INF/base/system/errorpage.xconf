@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout />
+	<inner-layout />
+	<generator name="velocity"/>
+    <property name="title">Error</property>
+	<property name='text.viewrevisions'>
+        <value>View revisions</value>
+    </property>
+	<property name='text.from'>
+        <value>From</value>
+    </property>
+	<property name='text.version'>
+        <value>Version</value>
+    </property>
+	<property name='text.viaemail'>
+        <value>via email.</value>
+    </property>
+	<property name='text.showdetails'>
+        <value>show details</value>
+    </property>
+	<property name='text.errorpage'>
+        <value>Error Page</value>
+    </property>
+	<property name='text.details'>
+        <value>Details</value>
+    </property>
+	<property name='text.administratorreceived'>
+        <value>The administrator has received a copy of this error.</value>
+    </property>
+	<property name='text.editsource'>
+        <value>Edit document source</value>
+    </property>
+	<property name='text.toeditthispage'>
+        <value>To edit this page</value>
+    </property>
+	<property name='text.edittext'>
+        <value>Edit this text</value>
+    </property>
+	<property name='text.bug'>
+        <value>bug</value>
+    </property>
+	<property name='text.broswer'>
+        <value>Browser</value>
+    </property>
+</page>

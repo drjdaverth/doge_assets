@@ -1,0 +1,111 @@
+<div class="textheader TEXTHEADER" >[[Collection Download]]</div>
+$pages.stream("$apphome/crumbs.html")
+
+    <script type="text/javascript" src="inputfields.js"> // </script>
+
+  <div id="sub1">
+	<form method="post" action="usagefinish.html" name="frm" onSubmit="return checkVals();">
+		<input type="hidden" name="isfpo" value="$context.getRequestParameter('isfpo')">
+		<table align="center" width="600" cellpadding="0" cellspacing="0">
+			<td>&nbsp;</td></tr>
+			<td>&nbsp;</td></tr>
+			<td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2" align="center">[[Please enter information regarding this download]].</td>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td align="left" valign="top">[[Audience]] &nbsp;&nbsp;&nbsp;<a href="javascript:openWin('help/usage.html')"  class="catlist">[[Help]]</a>
+					</td>
+									<td><select name="use"  onChange="changeSelect(this);" style="width:190px;">
+									</select>
+
+									<select name="use2" style="width:190px;" onChange="changeDays();">
+									</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top">[[Asset Line/Project]]</td>
+				<td><select name="proj">
+										<option value="Auto">[[Auto]]</option>
+										<option value="Financial Services">[[Financial Services]]</option>
+										<option value="Fire">[[Fire]]</option>
+										<option value="Health">[[Health]]</option>
+										<option value="Life">[[Life]]</option>
+										<option value="Multi-Line">[[Multi-Line]]</option>
+										<option value="Other">[[Other]]</option>										
+									</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top">[[Description of Job including Job Number]]&nbsp;&nbsp;&nbsp;<a href="javascript:openWin('help/description.html')"  class="catlist">[[Help]]</a></td>
+				<td><textarea name="comments" rows="5" cols="30"></textarea></td>
+
+			</tr>
+			
+			<tr>
+				<td align="left" valign="top">[[Your Name]]</td>
+				<td><input type="text" name="username" value = "$user.userName" size="30">
+			  </td>
+			</tr>
+			<tr>
+				<td align="left" valign="top">[[Date]]</td>
+
+				<td><input type="text" name="date" size="30" disabled>
+				
+				<br>
+					<div id="days" style="color:red;"></div>
+				<input name="rdays" type="hidden" value="">	
+					
+				</br>
+				</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top">[[Form]] #&nbsp;&nbsp;&nbsp;<a href="javascript:openWin('help/form.html')"  class="catlist">[[Help]]</a></td>
+				<td><input type="text" name="formID" size="30"></td>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+
+		#if( $context.getRequestParameter('isfpo') == "true")
+			<tr>
+				<td align="left" valign="top">FPO Size Options</td>
+				<td><select name="prefwidth">
+										<option value="">[[Print (original size)]]</options>
+										<option value="1024">[[Powerpoint/Screen (1024p max width)]] </option>
+										<option value="640">[[Web page (640pix max width)]]</option>
+									</select>
+				</td>
+			</tr>
+		#end
+			<tr><input type="hidden" name="arr" value="2,5,6,">
+				<td colspan="2" align="center"><input type="submit" value="[[Save and Continue]]"></td>
+			</tr>
+	  </table>
+	
+	</form>
+	</div>
+	<div id="sub2" style="display:none;">
+
+		<table width="100%">
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td align='center'><b>[[Updating Version History]]</b></td>
+			</tr>
+		</table>
+	</div>
+
+	<table align="center" width="100%">
+	<tr>
+		<td><br><hr></td>
+	</tr>
+	<tr>
+		<td align="center" style="font-family:Verdana,Tahoma,sans-serif;font-size:10px;font-color:'#999999';">
+		[[For Internal Use Only - Contains TRADE SECRET and/or PROPRIETARY]]<br>
+		[[information which may not be disclosed without express written authorization]].</td>
+	</tr>
+
+</table>
+
+  

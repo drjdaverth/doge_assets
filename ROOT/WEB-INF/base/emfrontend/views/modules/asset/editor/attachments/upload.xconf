@@ -1,0 +1,5 @@
+<page>
+	<inner-layout />
+	<layout />
+	<path-action name="AttachmentModule.loadFile"/>
+</page>

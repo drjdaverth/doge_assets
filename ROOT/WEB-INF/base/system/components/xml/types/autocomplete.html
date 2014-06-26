@@ -1,0 +1,13 @@
+#if($detail.listId)
+	#set ($searchinputfield = "name")
+#else
+	#set ($searchinputfield = $detail.getId())
+#end
+
+#set( $args = "catalogid=$searcher.getCatalogId()&searchtype=$searcher.getSearchType()&view=$!view&fieldname=$detail.id&value=$val&searchinputfield=$searchinputfield")
+#if( $detail.foreignKeyId )
+	#set( $fval = "$!data.get($detail.getForeignKeyId())")
+	#set( $args = "$args&foreignkeyvalue=$fval")
+#end
+$context.putPageValue("detail",$detail)
+$pages.include("/system/components/xml/dropdownlist.html?$args", $context)

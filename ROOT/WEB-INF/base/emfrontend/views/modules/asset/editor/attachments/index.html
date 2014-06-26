@@ -1,0 +1,18 @@
+
+    #if($asset.isFolder())
+		<div id="attachments-tree">
+			$pages.include("files.html",$context)
+		</div>
+	#else ##end isfolder check
+		<p style="margin-top: 25px; text-align: center;">This is currently a file-based record, which does not allow for attachments.  
+		#if($caneditasset)
+			<br />You can convert this asset by clicking the link below.<br /><br />
+			#set($params = $context.getRequestParamsAsList())
+			<a class="btn" targetdivinner="right-col" href="$home$apphome/views/modules/asset/editor/attachments/convert.html?$params">Convert this to a Folder-Based Record</a>
+			
+			</p>
+			
+		#else
+			<p>You do not have sufficient permissions to convert this to a folder-based record.</p>
+		#end	
+	#end

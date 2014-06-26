@@ -1,0 +1,37 @@
+<h1>Secure Share</h1>
+
+<p>Only invited recipients will be given permissions to view this asset.</p> 
+
+<form name="secureshare" id="emsecureshare" action="$home$apphome/components/share/securesharesent.html">
+
+<table>
+<tr>
+	<th>[[To]] :</th>
+	<td> <textarea id="friendemailinput" rows="3" cols="58" name="email" class="resizer">$!album.details</textarea></td>
+</tr>
+<tr>
+	<th>[[Subject]] :</th><td><input type="text" size="80" name="subject" value="$user.shortDescription has sent you an invitation"/></td>
+</tr>
+<tr>
+	<th>[[Message]] :</th> 
+	<td><textarea id="content" rows="60"  name="body">$pages.include("./securesharebody.html")</textarea>
+$pages.include("/system/tools/html/textarea.html?htmltextarea=content&true")
+	</td>
+</tr>
+<tr>
+<th></th>
+<td>
+<table><tr><td>
+<div class="embutton">
+<input type="submit" value="[[Send]]" />
+</div>
+</td></tr></table>
+
+
+</td>
+</tr>
+</table>
+	
+
+
+</form>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <path-action name="HistoryModule.saveUsageHistoryForCollection"/>
+  <property name="text.Usage Download">
+    <value>Usage Download</value>
+    <value locale="es">Descarga de Uso</value>
+  </property>
+  <property name="text.Please wait a few minutes for the download to start. Your collection has been downloaded as a zip file.">
+    <value>Please wait a few minutes for the download to start. Your collection has been downloaded as a zip file.</value>
+    <value locale="es">Por favor espere unos minutos a que comience la descarga. Su colección ha sido descargada como archivo ZIP.</value>
+  </property>
+  <property name="text.Click here to return to your basket.">
+    <value>Click here to return to your basket.</value>
+    <value locale="es">Haga click aquí para volver a su canasta.</value>
+  </property>
+  <property name="encoding">UTF-8</property>
+</page>

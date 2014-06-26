@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="$home$themeprefix/styles/dtree.css" />
+<link rel="stylesheet" href="$home$themeprefix/styles/filemanager/tools.css" />
+#if ($browser.browserType == 1)
+	<link rel="stylesheet" href="$home$themeprefix/styles/filemanager/iefixes.css" />
+#end
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="$home$themeprefix/images/oefavicon.ico">
+<div id="oetabarea">
+#if( $tablist.getLastSelected())
+	#set( $tab = $tablist.getLastSelected())
+	$pages.include("$page.filerootpath/tab.html?tabid=$tab.id&nodeID=$tab.id", $context)
+#end
+</div>

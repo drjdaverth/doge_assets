@@ -1,0 +1,5 @@
+<page>
+	<page-action name="PageValue.loadPageVariable" bean="searcherManager" />
+	<property name="dialogicon">${themeprefix}/entermedia/images/navigation/upload.png</property>
+	<layout>${themeprefix}/layouts/dialoglayout.html</layout>
+</page>

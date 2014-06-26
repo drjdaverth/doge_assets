@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<path-action name="AssetEditModule.loadAssetFromSelection"/>
+	<path-action name="Admin.loadPermissions"/>
+	<path-action name="Admin.allowViewing" />
+	<path-action name="CommentModule.loadComments" />
+	
+	<property name="saveokpage">/tools/edit/saveok.html</property>
+		
+	<inner-layout>${themeprefix}/layouts/mediaviewer.html</inner-layout>
+	<style id="detaileditor" href="${themeprefix}/styles/pages/detaileditor.css" />
+	
+
+	<!-- If a user knows the URL they can view a preview to speed up thumbnail loading-->
+	<permission name="viewasset">
+		<or>
+			<action name="AssetControlModule.canViewAsset" />
+			<action name="OrderModule.canViewAsset"/>
+		</or>
+	</permission>	
+
+	<permission name="view">
+		<or>
+			<pagevalue name="canviewasset" equals="true"/>
+		</or>
+	</permission>	
+
+	<permission name="download">
+		<and>
+			<userprofile property="download" equals="true" />
+			<pagevalue name="canviewasset" equals="true"/>
+		</and>
+	</permission>	
+
+	<property name="section">details</property>
+</page>

@@ -1,0 +1,6 @@
+<page>
+
+<property name="viewid">${module}general</property>
+<property name="viewpath">${module}/${module}general</property>
+
+</page>

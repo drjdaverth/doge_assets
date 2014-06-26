@@ -1,0 +1,9 @@
+#set( $listid = $detail.getListId())
+
+#set( $searcher = $searcherManager.getSearcher($catalogid, $listid))
+
+#foreach( $choice in $searcher.getAllHits($context) )
+#if( $choice.id == $val ) 
+#end
+<input type="radio" name="${detail.getId()}.value" #if( $choice.id == $val ) checked #end  value="$choice.id"> $choice
+#end

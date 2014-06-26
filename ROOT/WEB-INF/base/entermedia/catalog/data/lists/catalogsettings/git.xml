@@ -1,0 +1,7 @@
+<properties>
+
+	<property id="project_git_remote_root" value="">GIT Remote Address i.e. ssh://server/vol1/git </property>
+	<property id="project_git_local_root" value="">Git Local Location i.e. /vol1/git </property>
+
+
+</properties>

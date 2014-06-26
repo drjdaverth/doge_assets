@@ -1,0 +1,32 @@
+#set( $filesource = $context.getRequestParameter("filesource") )
+
+#set( $attachmentroot = $content.attachmentroot )
+
+<div id="attach-file" class="user-input-area clearfix">
+
+<h3 class="attachmentsh3">[[Add Attachment or Thumbnail]]</h3>
+
+<form id="uploadform" name="wizard" method="post" enctype="multipart/form-data" action="$home${attachmentroot}/uploadfile-finish.html" >
+
+#if($fileid)
+	#set( $data = $searcherManager.getData($catalogid,"attachment",$fileid))
+	#set( $parentsourcepath = "${data.parentsourcepath}/${data.name}" )
+	#set( $path = "/WEB-INF/data/$catalogid/originals/$parentsourcepath/" )
+#else
+	#set( $path = "/WEB-INF/data/$catalogid/originals/$asset.sourcepath/" )
+#end
+
+<input type="file" multiple name="file" size="35" /> 
+<input type="hidden" id="path" name="path" value="$path" size="35" /> 
+<input type="hidden" id="assetid" name="assetid" value="$!asset.id"/>
+
+##<input class="btn small" style="float: right; margin-top: -43px;" type="button" id="finishbutton" name="Finish" value="Upload" onclick="doUpload('uploadform');">
+<input type="submit" value="Send" />
+
+##This div is important. AJAX replaces it.
+<div id="waiting">
+</div>
+
+</div>
+
+</form>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<page-action bean="pathUtils" class="com.openedit.util.PathUtilities" name="PageValue.loadPageVariable"/>
+	<property name='text.No form found'>
+        	<value>No form found</value>
+		<value locale="es">No se encontraró formulario alguno</value>
+    	</property>
+	<property name='text.Upload New Media'>
+        	<value>Upload New Media</value>
+		<value locale="es">Cargar Nuevo Recurso</value>
+    	</property>
+
+</page>

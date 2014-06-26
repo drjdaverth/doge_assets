@@ -1,0 +1,115 @@
+#if (!$savepath)
+	##zones needs to override this 
+	#set ($savepath = "$apphome/components/detaileditor/genericmulti/save.html")
+#end
+
+<script type="text/javascript">
+reload_$searchtype = function(willEdit)
+{
+	var targetDiv = "#${searchtype}editor";
+	targetDiv = targetDiv.replace(/\//g, "\\/");
+	jQuery(targetDiv).load('$home$apphome/components/detaileditor/genericmulti/index.html',{edit: willEdit, $context.ajax()});
+	return false;
+}
+</script>
+
+#set( $edit = $context.getRequestParameter("edit"))
+#set( $edit = $parser.booleanValue($edit) )
+$context.putPageValue("edit", $edit)
+
+<div id="${searchtype}editor">
+
+#set( $print = $context.getRequestParameter("print") )
+#set( $showit = true )
+#if( $print && $print == "true" )
+
+			#set( $joinsearcher = $searcherManager.getSearcher($catalogid, $view))
+			#set ($existingrecords = $joinsearcher.fieldSearch("assetid",$asset.id))
+			
+			#if( !$existingrecords || $existingrecords.size() == 0 )
+				#set ($showit = false)
+			#end			
+			
+				##set ($pluginpath = $context.getRequestParameter("pluginpath"))
+				##set( $plugin = $pages.getPage("$pluginpath"))
+				#if( $header)
+				<h2>$header  #if( $subheader) - $subheader #end	</h2>
+				#end			
+			#if ($showit)
+				#set( $listsearcher = $searcherManager.getSearcher($catalogid,$listid))	
+				#foreach ($record in $existingrecords)
+								$listsearcher.searchById($record.get($listexternalid)) <br/>
+				#end
+			#end
+			#set ($showit = false)
+#else
+
+#if( $subheader)
+	<h3>$subheader</h3>
+#end
+
+#end
+#if ($showit)
+
+
+#set( $args = "catalogid=$catalogid&view=$view&searchtype=$searchtype&fieldexternalid=$fieldexternalid&fieldexternalvalue=$fieldexternalvalue&listid=$listid&listexternalid=$listexternalid&imagetype=$imagetype")
+
+#if(  $edit == false)
+
+$pages.include("/$applicationid/components/xml/multiselect.html?catalogid=$catalogid",$context)
+#if( !$parser.parseBoolean($edit) &&  $caneditasset )
+<p align="right"><a href="#" onclick="reload_$searchtype('true'); return false;">[[edit]] >></a></p>
+
+#end
+
+#else
+
+<form name="${searchtype}editorform" id="${view}editorform" action="$home$savepath">
+	<p align="right">
+		<a href="$home/system/data/list/index.html?catalogid=$catalogid&searchtype=$listid&origURL=$origURL">[[edit]]</a>
+	</p>
+
+	$pages.include("/$applicationid/components/xml/multiselect.html",$context)
+	
+	<p align="right">
+	<a href="#" onclick="reload_$searchtype('false'); return false;">[[cancel]]</a>
+	<input type="hidden" name="searchtype" value="$searchtype"/>
+	<input type="hidden" name="fieldexternalid" value="$fieldexternalid"/>
+	<input type="hidden" name="fieldexternalvalue" value="$fieldexternalvalue"/>
+	<input type="hidden" name="listid" value="$listid"/>
+	<input type="hidden" name="listexternalid" value="$listexternalid"/>
+	<input type="hidden" name="catalogid" value="$!catalogid"/>
+	<input type="hidden" name="edit" value="false"/>
+	<input type="hidden" name="save" value="true"/>
+	<input name="sourcepath" type="hidden" value="$asset.sourcePath" />	
+	<!-- This field is for DataEditModule.updateDataIndex() and needs to be here -->
+	<input type="hidden" name="id" value="$fieldexternalvalue" />
+	
+	<input type="hidden" name="counterpartsearchtype" value="$counterpartsearchtype" />
+
+	&nbsp;&nbsp; <input  type="button" value="[[Save values]]" onclick="${searchtype}save();return false;"/>
+	</p>
+</form>
+<script type="text/javascript">
+${searchtype}save = function()
+{
+	new Ajax.Updater('${searchtype}editor', '$home$savepath?oemaxlevel=1&$context.rewriteParams()', 
+			{ method: 'post',parameters: $('${view}editorform').serialize(true), evalScripts: true,
+				onSuccess: function()
+				{
+					#if ($counterpartsearchtype)
+						reload_$counterpartsearchtype(false);
+					#end	
+				} 
+		});	
+
+	//form.submit();				
+}
+</script>
+#end
+
+#else ##showit
+	No data has been entered.
+#end
+
+</div>

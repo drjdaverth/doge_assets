@@ -1,0 +1,198 @@
+import org.apache.commons.logging.*;
+import com.openedit.OpenEditException;
+import org.openedit.data.*;
+import com.openedit.page.manage.*;
+import com.openedit.page.*;
+import com.openedit.util.*;
+import org.openedit.repository.*;
+import org.openedit.repository.filesystem.*;
+import org.openedit.*;
+import org.openedit.event.*;
+import org.openedit.entermedia.*;
+import java.util.*; 
+
+public String createID(String id)
+{
+	tempid = id;
+	tempid.replace('/', '-');
+	tempid.replace('\\', '-');
+	return tempid;
+
+}
+
+
+log = LogFactory.getLog("generate.bsh");
+//store = context.getPageValue("store");
+mediaArchive = context.getPageValue("mediaarchive");
+searcherManager = context.getPageValue("searcherManager");
+webEventListener = context.getPageValue("webEventListener");
+
+void moveAsset(asset)
+{
+	if (asset == null)
+	{
+		log.error("No product loaded.");
+		return;
+	}
+	
+	oldSourcePath = asset.sourcePath;
+	//System.out.println("Old Source Path = " + oldSourcePath);
+	log.info("Generating item number for source path: " + oldSourcePath);
+	
+	date = asset.get("assetcreationdate");
+	if (date == null)
+	{
+		original = mediaArchive.getOriginalDocument(asset);
+		creationDate = new Date(original.lastModified());
+	}
+	else
+	{
+		searcher = searcherManager.getSearcher(asset.catalogId, "asset");
+		detail = searcher.getDetail("assetcreationdate");
+		System.out.println(detail.dateFormatString);
+		creationDate = detail.dateFormat.parse(date);
+	}
+	creation = new GregorianCalendar();
+	creation.setTime(creationDate);
+	
+	year = String.valueOf(creation.get(Calendar.YEAR));
+	date = year + "_"
+		+ (creation.get(Calendar.MONTH) + 1) + "_"
+		+ creation.get(Calendar.DATE);
+	String newSourcePath = year + "/" + date + "/";
+	LinkedList list  = new LinkedList();
+	list.add(year);
+	list.add(date);
+	
+	String catIdPath = newSourcePath;
+	newSourcePath = newSourcePath + asset.getId();
+	
+	//System.out.println("newSourcePath = " + newSourcePath);
+	
+	asset.setSourcePath(newSourcePath + "/");
+	
+	String dataRoot = mediaArchive.getCatalogHome() + "/data";
+	//Move Comments
+	Page oldComments = pageManager.getPage(dataRoot + "/comments/"	+ oldSourcePath + ".xml"); //TODO: take off the trailing /
+	System.out.println("oldComments = " + oldComments);
+	if (oldComments.exists())
+	{
+		Page newComments = pageManager.getPage(dataRoot + "/comments/" + newSourcePath + ".xml");
+		pageManager.movePage(oldComments, newComments);
+	}
+	Page oldassets = pageManager.getPage(dataRoot + "/originals/" + oldSourcePath);
+	Page newAssets = pageManager.getPage(dataRoot + "/originals/" + newSourcePath);
+	
+	ContentItem oldContentItem = oldassets.getContentItem();
+	ContentItem newContentItem = newAssets.getContentItem();
+	
+	FileUtils fileUtils = new FileUtils();
+	if( !oldContentItem.getPath().equals( newContentItem.getPath() ) )
+	{
+		File folder = ((FileItem) newContentItem).getFile();
+		folder.mkdirs();
+		File existingfile = ((FileItem) oldContentItem).getFile();
+		if( existingfile.exists() )
+		{
+			if( oldassets.isFolder() )
+			{
+				fileUtils.move(((FileItem) oldContentItem).getFile(), folder, true);
+			}
+			else //is a file move to upgrade existing products that are not already in folders
+			{
+				//move into the dir. 
+				asset.setProperty("primaryfile",oldassets.name);
+				fileUtils.move(existingfile, folder, true);
+			}
+		}
+	}
+	//Put it in a category
+	oldcategories = new ArrayList();
+	oldcategories.addAll(asset.getCategories());
+	
+	asset.clearCategories();
+	Category category = mediaArchive.getCategoryArchive().createCategoryTree(catIdPath, list);
+	
+	asset.addCategory(category);
+	asset.setProperty("editstatus", "2"); //Complete
+	
+	mediaArchive.saveAsset(asset, context.user);
+	mediaArchive.getAssetArchive().clearAssets();
+	
+	webTree = context.getPageValue("catalogTree");
+	
+	webTree.getTreeRenderer().setSelectedNode(category);
+	webTree.getTreeRenderer().expandNode(category);
+	
+	context.putPageValue("category",category);
+	moduleManager.execute("CategoryModule.loadCrumbs", context );
+	
+	
+	//Dont do this if no changes were made otherwise the product gets deleted!
+	if(!oldSourcePath.equals(newSourcePath))
+	{
+	
+		//move old asset directory
+		File oldFile = new File(root, mediaArchive.getCatalogHome() + "/assets/" + oldSourcePath);
+		if (oldFile.exists())
+		{
+			File target = new File(root, mediaArchive.getCatalogHome() + "/assets/" + newSourcePath);
+			//log.error("Moving " + oldFile.absolutePath + " to " + target.absolutePath);
+			fileUtils.move(oldFile, target, true);
+			mediaArchive.saveAsset(asset, context.user);
+		}
+		else
+		{
+			log.error("Could not move old product dir: " + oldFile.absolutePath);
+		}
+		
+		if (webEventListener != null)
+		{
+			changes = new StringBuffer();
+			changes.append("category: \"");
+			first = true;
+			for (i = 0; i < oldcategories.size(); i++)
+			{
+				if(!first)
+				{
+					changes.append(",");
+				}
+				changes.append(oldcategories.get(i).getName());
+				first = false;
+			}
+			changes.append("\" -> \"" + asset.getDefaultCategory().getName() + "\"");
+			
+			WebEvent event = new WebEvent();
+			event.setCatalogId(asset.getCatalogId());
+			event.setSearchType("asset");
+			event.setOperation("edit");
+			event.setSource(context.getUser());
+			event.addDetail("assetname", asset.getName());
+			event.addDetail("assetid", asset.getId());
+			event.addDetail("details", "Approve and Moved: " + changes.toString());
+			event.setUsername(context.getUserName());
+			webEventListener.eventFired(event);
+						
+		}
+	
+	}
+}
+
+
+String assetid = context.getRequestParameter("assetid");
+if (assetid.startsWith("multiedit:"))
+{
+	data = context.getSessionValue(assetid);
+	for (i = data.iterator(); i.hasNext();)
+	{
+		asset = i.next();
+		moveAsset(asset);
+	}
+}
+else
+{
+	asset = mediaArchive.getAsset(assetid);
+	moveAsset(asset);
+}
+
+

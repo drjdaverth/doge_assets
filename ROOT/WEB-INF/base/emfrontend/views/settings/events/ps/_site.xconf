@@ -1,0 +1,8 @@
+<page>
+	<path-action name="PathEventModule.getPathEvents" />
+	
+	<permission name="view">
+		<userprofile property="viewsettings" equals="true" />
+	</permission>
+	
+</page>

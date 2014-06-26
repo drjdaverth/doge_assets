@@ -1,0 +1,43 @@
+<div id="allpermissions">
+
+
+<div id="emselectable" >
+
+<form name="permissionsform" class="ajaxform" targetdiv="allpermissions" action="edit.html">
+<table  style="width:100%;" class="striped emdata">		
+	<thead>
+	<tr class="tableheader"><th>Name</th>
+	<th>Notes</th>
+	<th>Rule</th>
+	</thead>
+	<tbody>
+	#foreach($perm in $permissions)
+	<tr rowid="$perm.id">
+		<td >$context.getText($perm.name)
+		<td>$context.getText($perm.description)</td>
+		<td> 
+		#set( $permission = false )
+		#set( $permission = $settingspage.getPermission($perm.id) )
+
+#if( !$permission || $permission.toString() == "false" )
+[[Nobody]]
+#elseif( $permission.toString() == "true" || $permission.toString() == "" )
+[[Anyone]]
+#else
+$permission
+#end
+		</td>
+	</tr>
+#end
+</tbody>
+</table>
+	<input type="hidden" name="id" id="emselectedrow"  />
+##	<input type="submit" class="emneedselection" disabled="true" value="Edit"/>
+	<input type="hidden" name="editPath" value='$context.findValue("editPath")'  />
+
+</form>
+</div>
+
+<div id="editpermission" style="min-width:500px;">
+</div>
+</div>

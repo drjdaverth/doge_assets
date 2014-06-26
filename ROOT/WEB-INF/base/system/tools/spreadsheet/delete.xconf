@@ -1,0 +1,4 @@
+<page>
+	<path-action name="SpreadSheetModule.delete" />
+	<inner-layout />
+</page>

@@ -1,0 +1,6 @@
+<page>
+	<property name='text.Uploadingd'>
+        	<value>Uploading</value>
+		<value locale="es">Cargando</value>
+    	</property>
+</page>

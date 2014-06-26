@@ -1,0 +1,10 @@
+<properties>
+
+  <parameter id="21F5E3B8-FD4D-452A-A351-173FCC26FA0E" parameterdata="21F5E3B8-FD4D-452A-A351-173FCC26FA0E" value="21F5E3B8-FD4D-452A-A351-173FCC26FA0E" >gui</parameter> 
+  <parameter id="4247D9B0-5E89-4397-B2C3-6B2E4771BC4C" parameterdata="4247D9B0-5E89-4397-B2C3-6B2E4771BC4C" value="4247D9B0-5E89-4397-B2C3-6B2E4771BC4C" >gui</parameter> 
+
+<!-- 
+    <preset id="21F5E3B8-FD4D-452A-A351-173FCC26FA0E" >Rhozet LQ MP4</preset>
+    <preset id="4247D9B0-5E89-4397-B2C3-6B2E4771BC4C" >Rhozet HQ MP4</preset>
+           -->
+</properties>

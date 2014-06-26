@@ -1,0 +1,46 @@
+#if (!$cell)
+	#set ($cell = $asset)
+#end
+
+#if (!$cell)
+	#set ($cell = $data)
+#end
+
+#set ($sourcepath = $cell.sourcepath)
+
+#set ($mediumend = "/$catalogid/downloads/preview/medium/$sourcepath/thumb.jpg")
+#set( $msize = "$home$mediumend")
+#set ($thumbsize = $context.getPageValue("thumbsize"))
+#if(!$thumbsize)
+	#set($thumbsize = "thumb")
+#end
+
+#set ($usethumblink = $context.getPageValue("usethumblink"))
+#if(!$usethumblink)
+	#set($usethumblink = "true")
+#end
+
+#if (!$cell)
+	#set ($cell = $asset)
+#end
+
+#if (!$cell)
+	#set ($cell = $data)
+#end
+#set ($thumbsize = $context.getPageValue("thumbsize"))
+#if(!$thumbsize)
+	#set($thumbsize = "thumb")
+#end
+
+#set ($sourcepath = $cell.sourcepath)
+
+<div id="emthumbholder ">
+
+	
+		<img class="emdropshadow" sourcepath="$sourcepath" catalogid="$catalogid" assetid="$cell.id" alt="" 	title=#if($cell.caption)"${cell.caption}"#elseif($cell.assettitle )"$cell.assettitle" #else "$!{cell.name}" #end
+		src="$home$cataloghome/downloads/preview/$thumbsize/$sourcepath/thumb.jpg" border="0" />
+	
+	
+	
+	
+</div>

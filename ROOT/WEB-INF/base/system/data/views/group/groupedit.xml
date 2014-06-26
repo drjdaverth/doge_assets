@@ -1,0 +1,14 @@
+<properties>		
+	<property id="name" />
+	<property id="contact" />
+	<property id="phone"  />
+	<property id="email"  />
+	<property id="address" /> 
+	<property id="address2" />
+	<property id="city"/> 
+	<property id="state" />
+	<property id="country" />
+ 	<property id="zipcode" />
+ 	<property id="enabled" />
+	
+</properties>

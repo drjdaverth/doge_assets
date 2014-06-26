@@ -1,0 +1,4 @@
+<page>
+	<path-action name="AssetEditModule.removeAssetKeyword"/>
+	<inner-layout />
+</page>

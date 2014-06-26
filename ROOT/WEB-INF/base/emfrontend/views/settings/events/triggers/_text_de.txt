@@ -1,0 +1,5 @@
+#
+#Tue Apr 27 17:04:25 EDT 2010
+Reload\ List\ and\ Restart=reload-Liste und starten
+Disabled=Behinderte
+repeating=Wiederholung

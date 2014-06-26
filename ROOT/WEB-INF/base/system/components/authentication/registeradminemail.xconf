@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <page-action name="User.loadUserProperties"/>
+
+  <property name="subject">
+    <value>New Registration</value>
+    <value locale="es">Nuevo Registro</value>
+  </property>
+
+</page>

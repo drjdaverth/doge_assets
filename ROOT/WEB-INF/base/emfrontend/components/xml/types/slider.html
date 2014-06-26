@@ -1,0 +1,66 @@
+
+#if($context.getRequestParameter("viewonly") == true)
+	#if($hits)
+	$!context.getDate($val) 
+	#else
+	$val
+	#end
+
+#else
+
+#if ( $val == "" )
+	#set ( $val = $detail.default )
+#end
+
+#if ( $detail.valtype != "decimal" )
+
+<script>
+	$(function() {
+		$( "#id-${detail.id}-slider" ).slider({
+			range: "min",
+			value: #if ($val && $val == '') ${detail.default} #else $val #end,
+			min: ${detail.min},
+			max: ${detail.max},
+			slide: function( event, ui ) {
+				$( "#${detail.id}-id" ).val( ui.value );
+			}
+		});
+		$( "#${detail.id}-id" ).val( $( "#id-${detail.id}-slider" ).slider( "value" ) );
+	});
+</script>
+
+#else
+
+<script>
+	$(function() {
+		$( "#id-${detail.id}-slider" ).slider({
+			range: "min",
+			value: #if ($val && $val == '') ${detail.default} #else $val * 100 #end,
+			min: ${detail.min},
+			max: ${detail.max},
+			slide: function( event, ui ) {
+				$( "#${detail.id}-id" ).val( (ui.value * .01).toFixed(2) );
+			}
+		});
+		$( "#${detail.id}-id" ).val( $( "#id-${detail.id}-slider" ).slider( "value" ) * .01 );
+	});
+</script>
+
+#end
+
+<style>
+	.ui-widget-header {
+		border-radius: 5px 5px 5px 5px;
+		padding: 1px;
+	}
+</style>
+
+<div style="margin-bottom: 5px;">
+<label style="color: #999;" for="${detail.id}-id">$detail.desc</label>
+<input  class="${detail.id}" name="${detail.getId()}.value" id="${detail.id}-id"  type="text" style="font-weight:bold; border: none; background: none; padding: 0; color:#f6931f;" /> 
+</div>	
+<div id="id-${detail.id}-slider" style="padding: 4px; border: 1px solid #ccc; border top: 1px solid #ccc; border-radius: 5px 5px 5px 5px;"></div>
+
+	
+
+#end

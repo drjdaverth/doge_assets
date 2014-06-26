@@ -1,0 +1,23 @@
+[[New user registration]]
+<a href="$context.getSiteRoot()$home/${applicationid}/settings/usermanager/users/modifyuser.html?username=$newuser.userName">[[Edit User Groups]]</a>
+<br/>
+<br/>
+#set($groups = $newuser.getGroups())
+#if($groups.size() > 0)
+	[[New user is in the following groups]]:
+	#foreach($group in $newuser.getGroups())
+		<ul>
+			<li>$group</li>
+		</ul>
+	#end
+#else
+	[[New user is in no groups.]]
+#end
+
+
+$context.putPageValue("view", "userregister")	
+$context.putPageValue("data", $newuser)	
+
+$pages.include("/system/components/xml/detaileditor.html?detailsreadonly=true", $context)
+
+

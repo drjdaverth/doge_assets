@@ -1,0 +1,5 @@
+<page>
+	<property name="delay">1s</property>
+	<property name="runmultiple">true</property>
+	<path-action name="LogSearchModule.addEventLog" allowduplicates="true"/>
+</page>

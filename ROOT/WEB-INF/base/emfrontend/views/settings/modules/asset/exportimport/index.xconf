@@ -1,0 +1,6 @@
+<page>
+	<property name="sectiontitle">
+		<value>Export Metadata</value>
+	</property>
+	<property name="tab">importexport</property>
+</page>

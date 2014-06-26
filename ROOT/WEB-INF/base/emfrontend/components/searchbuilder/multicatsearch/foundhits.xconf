@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="text.Found $numtotalhits hit(s) from $numfoundcats catalog(s)">
+    <value locale="es">Se encontraron $numtotalhits resultado(s) en $numfoundcats catálogo(s)</value>
+  </property>
+</page>

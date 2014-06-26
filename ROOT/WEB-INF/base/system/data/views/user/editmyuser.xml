@@ -1,0 +1,16 @@
+<properties>
+
+	<property id="firstName" required="true" />
+    <property id="lastName" required="true"/>
+    
+    <property id="email" required="true" />
+    <property id="phone" required="true"/> 
+    <property id="country" required="true" />
+    <property id="address1" required="true" />
+    <property id="address2" required="true" />
+    <property id="city" required="true" />
+    <property id="state_province" required="true" />   
+    <property id="postal_code" required="true" />
+
+
+</properties> 

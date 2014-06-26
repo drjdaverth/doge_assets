@@ -1,0 +1,95 @@
+<div id="advsearchpanel" >
+
+#set( $view = "asset/advancedsearch")
+#set( $searcher = $mediaarchive.getAssetSearcher())
+
+$context.putPageValue("view", $view)
+$context.putPageValue("searcher", $searcher)
+
+<div class="emsectionheader"><h3>Search</h3></div>
+
+#set($usestartswith = $page.isPropertyTrue('usestartswith'))
+$context.putPageValue("usestartswith",$usestartswith)
+
+#set( $edit = $context.getRequestParameter("editadvsearch"))
+
+<form  name="advancedsearch" action="$apphome/views/search/search.html" class="em-widget-content">
+
+##We need 2 things passed in: $searcher, $view or $searcher $details
+#if (!$details && $view)
+
+	#set ($details = $searcher.getDetailsForView($view, $userprofile))
+#end
+
+<table 	 width="100%">
+	<tr class="emsearchfieldrow">
+	#foreach( $detail in $details)
+		$context.putPageValue("detail", $detail)
+		#if ($detail.isLeaf())
+			<tr class="emsearchfieldrow">
+				#if ($edit == "true")
+				<td>
+					<a href="#" onclick="javascript:deleteField('$detail.id'); return false;">
+					<img src="$home$apphome/theme/images/navigation/deletesm.png"/>
+					</a>
+				</td>
+				#end
+				<td valign="middle" class="emsearchfield" nowrap="true">
+					$!detail.getText($context) 
+				</td>
+				<td id="detail_${detail.id}" align="left" valign="middle" class="emsearchfieldvalue" nowrap >
+					<input name="field" value="$searcher.getCatalogId():$view:${detail.getId()}" type="hidden">
+					$pages.include("/${applicationid}/components/advancedsearch/detail.html", $context)
+				</td>
+			</tr>
+		#else
+			$pages.include("/${applicationid}/components/advancedsearch/section.html", $context)
+		#end
+	#end
+</table>
+
+
+<input type="submit" value="Search"/>
+
+</form>
+
+#if ($edit == "true")
+<br/><br/>
+##TODO: Pass this view name in
+#set ($alldetails = $searcher.getDetailsForView("asset/searchselect", $user))
+
+<form id="searchaddfield" class="ajaxform" targetdiv="advsearchpanel" action="$home$apphome/components/advancedsearch/addfield.html" method="post">
+	<input type="hidden" name="oemaxlevel" value="1"/>
+	<input type="hidden" name="editadvsearch" value="true"/>
+	<input type="hidden" name="view" value="$view"/>
+	<input type="hidden" name="catalogid" value="$searcher.getCatalogId()"/>
+	<input type="hidden" name="searchtype" value="$searcher.getSearchType()"/>
+	
+	<select name="field" onChange="jQuery('#searchaddfield').submit();">
+		<option>Add Field</option>
+	
+		#foreach( $detail in $alldetails)
+			<option value="$detail.id">&nbsp;&nbsp;&nbsp;&nbsp;$detail.getText($context)</option>
+		#end	
+		
+
+	</select>
+	<a class="ajax" targetdiv="advsearchpanel" href="$home$apphome/components/advancedsearch/index.html?oemaxlevel=1&editadvsearch=false&searchtype=$searcher.getSearchType()&catalogid=$searcher.getCatalogId()&view=$view">Done</a>
+	
+</form>
+
+
+#else
+	<a class="ajax" targetdiv="advsearchpanel" href="$home$apphome/components/advancedsearch/index.html?oemaxlevel=1&editadvsearch=true&searchtype=$searcher.getSearchType()&catalogid=$searcher.getCatalogId()&view=$view"><img align="right" src="$apphome/theme/images/navigation/write-note.png"/></a>
+	<br/>
+#end
+
+<script type="text/javascript">
+	deleteField = function(inFieldId)
+	{
+		var params = "oemaxlevel=1&editadvsearch=true&view=$view&catalogid=$searcher.getCatalogId()&searchtype=$searcher.getSearchType()&field=" + inFieldId;
+		jQuery('#advsearchpanel').load("$home$apphome/components/advancedsearch/deletefield.html?" + params)
+	}
+</script>
+
+</div>

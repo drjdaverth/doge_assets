@@ -1,0 +1,46 @@
+#set($current = $data.get($detail.getId()))
+
+#if($current)
+#set($assetsearcher = $searcherManager.getSearcher($detail.catalogId, "attachment") )
+	#set($attachment = $assetsearcher.searchById($current))
+#end
+<div id="${detail.getId()}-previewimage">
+#if($current)
+$current.name
+#end
+</div>
+
+<input type="hidden" class="$detail.getId()-field" id="${detail.getId()}.value" name="${detail.getId()}.value" value="$val" />
+
+<a class="dialogpopup" id="${detail.getId()}_popup" href="$home/$detail.catalogId/components/attachments/upload.html?detailid=$detail.getId()&catalogid=$detail.catalogId&assetid=${assetid}" >
+
+<img src="$home/system/images/toolbar/history_view.gif" border="0" width="16" height="16" title="[[Pick a File]]" /></a>
+
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery("#${detail.getId()}_popup").fancybox(
+						
+						function() 
+						{
+						
+							
+							var newfancy = jQuery(this).fancybox(
+							{ 
+								'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true,
+								enableEscapeButton: true, type: 'iframe' 
+								
+							});
+						}
+					);
+								
+						
+	
+			
+
+	jQuery(".${detail.getId()}-field").bind("change", function () {
+			var sp = jQuery(this).data("sourcepath");
+			jQuery("#${detail.getId()}-previewimage").html('<img src="$home/${detail.catalogId}/downloads/preview/thumb/' + sp + '/image.jpg"/>');
+	});
+	}
+);
+</script>

@@ -1,0 +1,209 @@
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Dots
+Designer: Douglas Bowman
+URL:      www.stopdesign.com
+Date:     24 Feb 2004
+----------------------------------------------- */
+
+
+/* Title & Description
+----------------------------------------------- */
+#oeblog-title {
+  margin:0 0 0;
+  font:250%/1.4em Verdana,Arial,Helvetica,sans-serif;
+  color:#353;
+  }
+#oeblog-title a {
+  color:#353;
+  text-decoration:none;
+  }
+  
+#oeblogpost-description {
+	margin: 1em;  
+  }
+
+#oeblogpost-listing {
+  margin:2em 0 .75em;
+  padding-bottom:.35em;
+ }
+
+
+/* Posts
+----------------------------------------------- */
+.oeblogdate-header {
+
+  color:#333;
+  font:bold Verdana,Arial,Helvetica,sans-serif;
+  font:75%/1.4em Verdana,Arial,Helvetica,sans-serif;
+
+ }
+.oeblogpost {
+  margin:0 0 1.5em;
+  line-height:1.6em;
+  font:95%/1.4em Verdana,Arial,Helvetica,sans-serif;
+}
+
+.oeblogpost-title {
+  font:100%/1em Verdana,Arial,Helvetica,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.3em;
+  color:#663;
+
+
+}
+.oeblogpost-title a, .oeblogpost-title strong {
+  color:#333;
+  text-decoration:none;
+  }
+  
+   
+.oeblogpost-footer {
+  margin:2;
+  border-bottom:1px dotted #9b9; 
+  font:normal 90%/1.4em Verdana,Arial,Helvetica,sans-serif;
+  color:#333;
+  
+  }
+
+.oeblogpost-timestamp
+{
+  margin:0 0 .5em;
+  padding:0 0 .75em 20px;
+  color:#996;
+
+}
+.oeblogcomment-link
+  {
+  color:#353;
+  text-decoration:none;
+  }
+  
+ 
+  
+.oeblogpost img {
+  margin:0 0 5px 0;
+  padding:4px;
+  border:1px solid #cca;
+  }
+  
+
+
+/* Comments
+----------------------------------------------- */
+#oeblogcomments {
+  margin:0;
+  }
+.oeblogcomment
+{
+  margin:2;
+  border-bottom:1px dotted #9b9; 
+	
+}
+#oeblogcomments h4 {
+  margin:0 0 10px;
+  border-top:1px dotted #9b9;
+  padding-top:.5em;
+  font:bold 110%/1.4em Verdana,Arial,Helvetica,sans-serif;
+  color:#333;
+  }
+#oeblogcomments-block {
+  line-height:1.6em;
+  }
+.oeblogcomment-poster {
+  margin:.5em 0 0;
+  padding:0 0 0 20px;
+  font:normal 90%/1.4em Verdana,Arial,Helvetica,sans-serif;
+  color:#333;
+  }
+.oeblogcomment-body {
+  margin:0;
+  padding:.5em  0 0 20px;
+  }
+.oeblogcomment-body p {
+  margin:0 0 .5em;
+  }
+.oeblogcomment-timestamp {
+  margin:0 0 .5em;
+  padding:0 0 .75em 20px;
+  color:#996;
+  }
+.oeblogcomment-timestamp a:link {
+  color:#996;
+  }
+.oeblogdeleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+  
+.oeblogusertypelink {
+  color:#996;
+
+}
+
+/* Page Structure
+----------------------------------------------- */
+
+#oeblogsidebar {
+  font-size:85%;
+  padding-bottom:20px;
+  }
+#oeblogsidebar2 {
+  padding:5px 10px 15px;
+  width:200px;
+  width/* */:/**/180px;
+  width: /**/180px;
+  }
+
+/* More Sidebar Content
+----------------------------------------------- */
+.oeblogsidebar-title {
+  padding-bottom:.35em;
+/*  border-bottom:1px dotted #9b9; */
+  font:95%/1.4em Verdana,Arial,Helvetica,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.3em;
+  color:#663;
+  white-space: no-wrap;
+  }
+#oeblogsidebar p {
+  margin:0 0 .75em;
+  line-height:1.6em;
+  }
+#oeblogsidebar ul {
+  margin:.5em 0 1em;
+  padding:0 0px;
+  list-style:none;
+  line-height:1.5em;
+  }
+#oeblogsidebar ul li {
+  background:url("http://www.blogblog.com/dots/bullet.gif") no-repeat 3px .45em;
+  margin:0;
+  padding:0 0 5px 15px;
+  }
+
+
+#oeblogrecent-posts
+{
+  margin:.5em 0 1em;
+
+}
+#oeblogarchive
+{
+  margin:.5em 0 1em;
+
+}
+#oeblogsyndicate
+{
+  margin:.5em 0 1em;
+
+}
+#oeblogtools
+{
+  margin:.5em 0 1em;
+
+}
+
+  
+  

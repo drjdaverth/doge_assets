@@ -1,0 +1,33 @@
+<table width="100%">
+<tr>
+<td valign="top" width="200">
+$context.setRequestParameter("hitssessionid", $hits.sessionId)
+$context.putPageValue("query", $hits.searchQuery)
+
+
+$pages.include("/$applicationid/search/multicatsearch/side/search.html", $context)
+
+#if( $canviewclipboards )
+<div class="emsidecontent">
+<div id="emsidecontentheader">
+Clipboards
+</div>
+<div class="emsidecontentbody">
+<div class="emsidecontentbodyinner">
+$pages.include("/$applicationid/albums/selection/listselections.html", $context)
+</div>
+</div>
+</div>
+#end
+
+#if( $canviewsavedquery )
+$pages.include("/$applicationid/search/queries/savedqueries.html", $context)
+#end
+
+
+</td>
+<td  valign="top" style="padding-left: 8px;">	
+$pages.includeContent()
+</td>
+</tr>
+</table>

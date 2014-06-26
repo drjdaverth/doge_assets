@@ -1,0 +1,6 @@
+
+<properties>
+  <property id="id" index="true" stored="true">Id</property>
+  <property id="roleid" type="list" listid="settingsgroup"  editable="true" index="true" stored="true">Role</property>
+  <property id="libraryid" type="list" listid="library" editable="true" index="true" stored="true">Library</property>
+</properties>

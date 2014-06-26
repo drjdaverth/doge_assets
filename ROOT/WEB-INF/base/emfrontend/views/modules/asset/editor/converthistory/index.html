@@ -1,0 +1,17 @@
+##  $pages"converthistory/conversions.html" "$asset.id" "conversions/details" $print)
+ 
+#set( $searchtype = "conversiontask")
+#set( $fieldexternalid = "assetid")
+#set( $fieldexternalvalue = $asset.getId())
+#set( $permissionname = "caneditasset")
+#set ($view = "conversions/details")
+#set($viewid = $context.getRequestParameter("viewid"))
+
+#set( $args = "parentid=$asset.id&assetid=$asset.id&catalogid=$mediaarchive.getCatalogId()&searchtype=$searchtype&fieldexternalid=$fieldexternalid&fieldexternalvalue=$fieldexternalvalue&listid=$!listid&listexternalid=$!listexternalid&permissionname=$permissionname&view=$view")
+#set( $args = "$args&selectlink=$home$content.searchhome/editor/converthistory/index.html")
+
+<div class="tab-actions">
+	<a class="btn thickbox"  href="$home$apphome/views/settings/events/triggers/run.html?forcerun=true&runpath=$cataloghome/events/conversions/runconversions.html&assetid=$asset.getId()">Process Conversion Queue now</a>
+</div>
+$pages.include("$apphome/components/detaileditor/generictable.html?$args", $context)
+  

@@ -1,0 +1,298 @@
+#emcontainer .settings_index_link
+{
+	display:table-cell;
+	text-align:center;
+	padding: 0 10px 0 10px;
+}
+#emcontainer .catalogs_menu_item
+{
+	width:200px;
+}
+#emcontainer .catalogs_menu_item a
+{
+	font-weight:bold;
+	text-decoration: none;
+	color:#555252;
+	display: block;
+}
+#emcontainer .catalogs_menu_item .spiffyfgthree a
+{
+	color:white;
+}
+#emcontainer .catalogs_menu_item img
+{
+	vertical-align:middle;
+	align:left;
+	padding:3px 10px 3px 10px;
+}
+
+#emcontainer .catalogs_menu_settings
+{
+	margin: 50px 0px 0px 80px;
+	display: block;
+	width: 100px;
+	height: 50px;
+	text-decoration: none;
+	background: url(../../images/detaileditor/settingsbutton.png) no-repeat right top;
+} 
+#emcontainer .catalogs_menu_settings span
+{
+	text-decoration: none;
+}
+#emcontainer .catalogs_menu_settings span
+{
+	display: block;
+	padding: 14px 0px 0px 38px;
+	color: white;
+	font-size: 1.2em;
+	font-weight: bold;
+} 
+
+
+#emcontainer #catalogSettingsPanel
+{
+	padding:10px;
+	background-color:white;
+	min-height:540px;
+	
+}
+
+/*********************************
+	Used for menu background 
+*********************************/
+#emcontainer .spiffy{display:block}
+#emcontainer .spiffy *{
+  display:block;
+  height:1px;
+  overflow:hidden;
+  font-size:.01em;
+  background:#e4ffe3}
+#emcontainer .spiffy1{
+  margin-left:3px;
+  margin-right:3px;
+  padding-left:1px;
+  padding-right:1px;
+  border-left:1px solid #f3fff2;
+  border-right:1px solid #f3fff2;
+  background:#eaffea}
+#emcontainer .spiffy2{
+  margin-left:1px;
+  margin-right:1px;
+  padding-right:1px;
+  padding-left:1px;
+  border-left:1px solid #fcfffc;
+  border-right:1px solid #fcfffc;
+  background:#e9ffe8}
+#emcontainer .spiffy3{
+  margin-left:1px;
+  margin-right:1px;
+  border-left:1px solid #e9ffe8;
+  border-right:1px solid #e9ffe8;}
+#emcontainer .spiffy4{
+  border-left:1px solid #f3fff2;
+  border-right:1px solid #f3fff2}
+#emcontainer .spiffy5{
+  border-left:1px solid #eaffea;
+  border-right:1px solid #eaffea}
+#emcontainer .spiffyfg{
+  background:#e4ffe3;
+  width:200px;
+  height:600px;}
+
+
+
+/*********************************
+	used for highlighting selected tab
+*********************************/
+#emcontainer .spiffythree{display:block}
+#emcontainer .spiffythree *{
+  display:block;
+  height:1px;
+  overflow:hidden;
+  font-size:.01em;
+  background:#353A35}
+#emcontainer .spiffythree1{
+  margin-left:3px;
+  padding-left:1px;
+  border-left:1px solid #98aa98;
+  background:#606b60}
+#emcontainer .spiffythree2{
+  margin-left:1px;
+  padding-left:1px;
+  border-left:1px solid #d2ebd1;
+  background:#565f56}
+#emcontainer .spiffythree3{
+  margin-left:1px;
+  border-left:1px solid #565f56;}
+#emcontainer .spiffythree4{
+  border-left:1px solid #98aa98;}
+#emcontainer .spiffythree5{
+  border-left:1px solid #606b60;}
+#emcontainer .spiffyfgthree{
+ 	background:#353A35}
+
+
+/*********************************
+	Content headers
+*********************************/
+#emcontainer .emsidecontent
+{
+	padding:0px 15px 20px 8px;
+}
+
+#emcontainer #emsidecontentheader
+{
+	background-color: #dadada;
+	background: white url(../../images/detaileditor/bkgd_bar2.png) repeat-x center;
+	color: white;
+	padding: 2px 4px 1px 4px;
+}
+#emcontainer  #emsidecontentheader a
+{
+	text-decoration: none;
+	font-size: 13px; 
+	color: #FFFFFF;  
+	display: block;
+}
+
+#emcontainer .emsidecontentbody
+{
+	margin:0px;
+	border: 1px solid #dadada;
+	background: transparent url(../images/layout/sidebox_bggradient.gif) repeat-x;
+}
+#emcontainer .emsidecontentbodyinner
+{
+	padding: 6px 0px 10px 10px;
+}
+#emcontainer #showbrowser .emsidecontentbodyinner
+{
+	padding: 0px;
+}
+
+#emcontainer .spiffytwo {
+    display: block;
+}
+#emcontainer .spiffytwo * {
+    background: none repeat scroll 0 0 #353A35;
+    display: block;
+    font-size: 0.01em;
+    height: 1px;
+    overflow: hidden;
+}
+#emcontainer .spiffytwo1 {
+    background: none repeat scroll 0 0 #676B67;
+    border-left: 1px solid #A8AAA8;
+    border-right: 1px solid #A8AAA8;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+#emcontainer .spiffytwo2 {
+    background: none repeat scroll 0 0 #5B5F5B;
+    border-left: 1px solid #EAEBEA;
+    border-right: 1px solid #EAEBEA;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+#emcontainer .spiffytwo3 {
+    border-left: 1px solid #5B5F5B;
+    border-right: 1px solid #5B5F5B;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+#emcontainer .spiffytwo4 {
+    border-left: 1px solid #A8AAA8;
+    border-right: 1px solid #A8AAA8;
+}
+#emcontainer .spiffytwo5 {
+    border-left: 1px solid #676B67;
+    border-right: 1px solid #676B67;
+}
+#emcontainer .spiffyfgtwo {
+    background: none repeat scroll 0 0 #353A35;
+    min-height: 500px;
+    min-width: 400px;
+    padding: 20px;
+}
+#emcontainer .spiffyfgfour {
+    background: none repeat scroll 0 0 #353A35;
+    padding: 0 10px 0;
+}
+#emcontainer .spiffyfgfour a {
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+#emcontainer .spiffyfgfour a:hover {
+    color: #E4FFE3;
+}
+#emcontainer img.thumbicon {
+    padding: 3px;
+}
+.embody #nav .emtable .row .menulink {
+    color: white;
+    font-size: 8pt;
+    font-weight: bold;
+    padding-right: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.embody #nav .emtable .row .menulink:hover {
+    color: #CC0717;
+}
+#emcontainer #navbox {
+    padding-right: 5px;
+    text-align: center;
+}
+#emcontainer .emasseteditorareawrapper
+{
+	background-color: #2790B0;
+	overflow:hidden;
+	min-height: 500px;
+		-webkit-border-radius: 5px 5px;
+	-moz-border-radius: 5px 5px;
+	-o-border-radius: 5px 5px;
+	-ms-border-radius: 5px 5px;
+	-khtml-border-radius: 5px 5px;
+	border-radius: 5px 5px;
+}
+
+#emcontainer .emasseteditorarea
+{
+	min-height: 460px;
+	background-color: #eee;
+	margin: 20px;
+	padding: 10px 20px 5px 20px;
+	overflow:hidden;
+	
+}
+#emcontainer .emdetaileditorbuttonwrapper
+{
+	margin-right: -10px;
+	background-color: #2790B0;
+	-webkit-border-radius: 5px 5px;
+	-o-border-radius: 5px 5px;
+	-ms-border-radius: 5px 5px;
+	-khtml-border-radius: 5px 5px;
+	
+	border-top-left-radius: 5px 5px;
+	border-bottom-left-radius: 5px 5px;
+	-moz-border-radius-topleft: 5px 5px;
+	-moz-border-radius-bottomleft: 5px 5px;
+	
+}
+
+#emcontainer .emdetaileditorbutton a
+{
+	color: white;
+	
+}
+
+.emdetaileditorheader
+{
+	text-align:right;
+}

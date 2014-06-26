@@ -1,0 +1,45 @@
+#set( $base = "$home/$applicationid/users/$owner.id")
+
+<table><tr><td>
+<div id="emuserhome">
+	<div class="emsidecontent">
+	<div id="emsidecontentheader">
+		$owner.name
+	</div>
+	<div class="emsidecontentbody">
+	<div class="emsidecontentbodyinner">
+			<a class="thickbox" href="$home/$applicationid/catalogs/public/downloads/preview/medium/users/$owner.id/image.jpg"><img src="$home/$applicationid/catalogs/public/downloads/preview/thumb/users/$owner.id/image.jpg"/></a>
+			$pages.include("/$applicationid/tools/user/menu.html")			
+	</div>
+	</div>
+	</div>	
+	#if( $canviewclipboards )
+	
+	<div class="emsidecontent">
+		<div id="emsidecontentheader">
+			[[Clipboards]]
+		</div>
+		<div class="emsidecontentbody">
+			<div class="emsidecontentbodyinner">
+			$pages.include("/$applicationid/albums/selection/listselections.html")
+			</div>
+		</div>
+	</div>
+	#end
+</div>
+</td><td>
+<div id="emuseralbumslist">
+			#if($user.id != $owner.id && !$isfriend && !$autofriend)
+			<div >		
+	  			 	 <a class="thickbox" href="$base/friends/invite/invitelink.html?targetid=${owner.id}" ><img border="0" align="absmiddle" src="$home${themeprefix}/entermedia/images/add_16x16.png"/> [[invite $owner to be your friend]]</a>
+					</div> 
+			#end
+			#if($autofriend)
+				[[You are now friends with ${owner.name}.]]
+			#end
+
+			$pages.includeContent()
+
+</div>
+
+</td></tr></table>

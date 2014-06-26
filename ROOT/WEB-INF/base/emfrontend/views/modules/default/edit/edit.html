@@ -1,0 +1,58 @@
+#if( !$view )
+	#set($viewid = $context.getRequestParameter("viewid"))
+#end
+#if( !$viewpath )	
+	#set($viewpath = $context.getRequestParameter("viewpath"))
+#end
+
+#set( $moduleid = $context.findValue("module") )
+
+#set($id = $data.id )
+#if( !$id )
+	#set( $id = $context.getRequestParameter("id") )
+#end
+#if( !$view )
+	#set($view = $searcherManager.getData($catalogid, "view",$viewid))
+#end
+#if( $view.rendertype )
+	#set( $action = "$home$content.searchhome/edit/savetable.html")
+#else
+	#set( $action = "$home$content.searchhome/edit/save.html")
+#end
+<div id="default-fields">
+    <div id="editlayout">
+    <form id="dataeditor" name="dataeditor" method="post"  action="$action" enctype="multipart/form-data">
+    	<input name="save" type="hidden" value="true" />
+    	<input name="id" type="hidden" value="$!id" />
+    	<input name="categoryid" type="hidden" value="$!categoryid" />
+    	<input name="catalogid" type="hidden" value="$searcher.catalogId" />
+    	<input name="searchtype" type="hidden" value="$searcher.searchType" />
+    	<input name="viewid" type="hidden" value="$viewid" />
+    	<input name="view" type="hidden" value="$viewpath" />
+    	<input name="hitssessionid" type="hidden" value="$hits.sessionId" />
+
+    	<input name="viewpath" type="hidden" value="$viewpath" />
+    	<input name="origURL"  type="hidden" value="$!origURL" />
+    	
+    	$context.putPageValue("view", $viewpath)
+
+#set( $origURL = $context.getRequestParameter("origURL" ) )
+#set ( $moduleid = $context.findValue("module") )
+#if($caneditdata)
+$pages.include("/$applicationid/components/xml/detaileditor.html", $context)
+#else
+##$pages.include("/$applicationid/components/xml/detaileditor.html?detailsreadonly=true&alwaysshow=true", $context)
+$pages.include("/$applicationid/components/xml/detaileditor.html?detailsreadonly=true&alwaysshow=false", $context)
+#end
+    #if($caneditdata)
+    <input class="btn" style="margin: 20px 0 0 20px;" type="submit" value="Save" />
+    #end
+    #if($candelete)	
+    <a class="btn right red confirm" confirm="Are you sure?" style="margin: 20px 20px 0 0; color: #fff;" href="$home$content.searchhome/edit/delete.html?id=$data.id&catalogid=$searcher.catalogId&searchtype=$searcher.searchType&viewid=$viewid&viewpath=$viewpath" style="margin: 20px 20px 0 0;">Delete</a>
+    #end
+    </form>
+    
+    
+    
+    </div>
+</div>

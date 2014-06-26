@@ -1,0 +1,11 @@
+#set($sourcepath = $context.getRequestParameter("sourcepath"))
+#set( $type = $mediaarchive.getMediaRenderType($asset.fileFormat))
+<div id="embed-wrapper" style="padding: 15px;">
+<div class="embedlink">
+<textarea class="embedlinktextarea" type=text onclick="this.select();" readonly="readonly" rows="7" cols="60">
+<iframe src="$context.siteRoot$home$apphome/views/modules/asset/embed/index.html?type=$type&sourcepath=$asset.sourcepath&embed=true" width="550" height="400" style="border:none">
+</iframe>
+</textarea>
+<p>[[Select code then right click to copy]]</p>
+</div>
+</div>

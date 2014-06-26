@@ -1,0 +1,33 @@
+
+#set($idcount = $context.getRequestParameter("idcount"))
+#if(!$idcount)
+	#set($idcount = "")
+#end
+#if(!$val)
+	#set($val = $context.getRequestParameter('val'))
+#end
+
+#if($val && $val != "")
+#set( $foundrow = $mediaarchive.getAsset($val)  )
+#end
+
+#set( $click = "$home$apphome/views/modules/asset/editor/viewer/index.html?assetid=$!val&hitssessionid=$!rootid" )
+#set( $type = $mediaarchive.getMediaRenderType($foundrow.fileFormat))
+
+<a href="$click" alt="$foundrow" name="$foundrow.sourcepath" style="text-decoration: none;" id="${detail.id}-preview">
+			$context.putPageValue("cell", $foundrow)
+			$context.putPageValue("hit", $foundrow)
+			
+			$context.putPageValue("showdetails", "false")
+			$context.putPageValue("thumbsize", "crop")
+		   	#set( $sourcepath = $foundrow.sourcePath )
+			$pages.include("${apphome}/components/results/thumbnails/${type}.html", $context)
+			</a> 
+#if( $type == "audio")
+
+<a href="$click" alt="$foundrow" class="audio-filename"> 
+                  $foundrow.name
+</a>
+#end
+
+			

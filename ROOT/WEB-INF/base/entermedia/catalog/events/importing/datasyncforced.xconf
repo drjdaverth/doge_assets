@@ -1,0 +1,9 @@
+<page>
+  <property name="forced">true</property>
+	<path-action name="Script.run">
+		<script>/${catalogid}/events/scripts/cumulus/importassets.groovy</script>
+	</path-action>
+</page>
+
+
+	

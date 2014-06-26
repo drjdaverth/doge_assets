@@ -1,0 +1,11 @@
+<properties>
+	<property id="thumbssmall" hitsperpage="40">Gallery - Compact</property>
+	<property id="thumbs" hitsperpage="20">Gallery - Normal</property>
+	<property id="captions" hitsperpage="20">Gallery - With Captions</property>
+	<property id="iconmedium" hitsperpage="15">Gallery - Large</property>
+	<property id="thumbs-nohover" hitsperpage="20">Gallery - No Hover</property>
+	<property id="attachments" hitsperpage="10">Restrictions</property>
+	<property id="table" hitsperpage="30">Table Data</property>
+	<property id="audio" hitsperpage="10">Audio</property>
+	<property id="download" hitsperpage="10">Download</property>
+</properties>

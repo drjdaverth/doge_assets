@@ -1,0 +1,6 @@
+<page>
+	<path-action name="Script.run" allowduplicates="true">
+		<script>/${catalogid}/events/scripts/importing/queueconversions.groovy</script>
+	</path-action>
+	<property name="virtual">true</property>
+</page>

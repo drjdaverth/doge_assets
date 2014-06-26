@@ -1,0 +1,4 @@
+<properties>
+<property id="defaultremotepath" editable="true">Remote Path on server</property>
+<property id="someotherfiles" editable="true">Example</property>
+</properties>

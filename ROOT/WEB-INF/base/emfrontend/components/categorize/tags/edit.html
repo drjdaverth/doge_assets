@@ -1,0 +1,17 @@
+<div id="edittags$asset.id">
+$pages.include("$cataloghome/results/types/categorize/tags/list.html",$context)
+
+<form name="titleeditbox" class="ajaxform" targetdiv="edittags$asset.id" action="$home${cataloghome}/results/types/categorize/tags/save.html?assetid=$asset.id">
+<textarea name="keyword" rows="1" cols="25" class="resizer"></textarea>
+<div class="emtable">
+<div class="row">
+<span><input type="submit" value="Save" class="btn small" /></span>
+<span><a class="ajax btn small" targetdiv="edittags$asset.id" href="$home${cataloghome}/results/types/categorize/tags/index.html?assetid=$asset.id">Cancel</a></span>
+</div>
+</div>
+
+<input type="hidden" name="save" value="true" />
+<input type="hidden" name="assetid" value="$asset.id" />
+</form>
+
+</div>

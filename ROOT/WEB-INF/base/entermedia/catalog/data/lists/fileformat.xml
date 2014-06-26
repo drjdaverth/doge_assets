@@ -1,0 +1,79 @@
+<!-- Mime types are only really used for thumbnail generation -->
+<!-- The render type is a simple way to build a family of includes to render the HTML -->
+<!-- Creators are used to pre-process media formats such as DOC > PDF > JPG -->
+
+<properties>
+	<property id="ai" rendertype="document" creator="imagemagick" scanner="iptc">AI</property>
+	<property id="asf" rendertype="video" creator="ffmpeg">ASF</property>
+	<property id="avi" rendertype="video" creator="ffmpeg">AVI</property>
+	<property id="bmp" rendertype="image" creator="imagemagick">BMP</property>
+	<property id="crw" rendertype="image" creator="imagemagick">CRW</property>
+	<property id="cr2" rendertype="image" creator="imagemagick">CR2</property>
+	<property id="dng" rendertype="image" creator="imagemagick">DNG</property>
+	<property id="eps" rendertype="document" creator="imagemagick">EPS</property>
+	<property id="flv" rendertype="video" creator="ffmpeg">FLV</property>
+	<property id="gif" rendertype="image" creator="imagemagick">GIF</property>
+	<property id="indd" rendertype="image" >INDD</property>
+	<property id="ico" rendertype="image" creator="imagemagick">ICO</property>
+	<property id="jpg" rendertype="image" creator="imagemagick">JPG</property>
+	<property id="jpeg" rendertype="image" creator="imagemagick">JPEG</property>
+	<property id="mov" rendertype="video" creator="ffmpeg">MOV</property>
+	<property id="moov" rendertype="video" creator="ffmpeg">MooV</property>
+	<property id="mp3" rendertype="audio" creator="audio" >MP3</property>
+	<property id="ptf"  rendertype="default" >PTF</property>
+	<property id="aiff" rendertype="audio" creator="audio" >AIFF</property>
+	<property id="mts" rendertype="video" creator="ffmpeg">MTS</property>
+	<property id="m2ts" rendertype="video" creator="ffmpeg">M2TS</property>
+	<property id="m2t" rendertype="video" creator="ffmpeg">M2T</property>
+	
+	<property id="3gp" rendertype="video" creator="ffmpeg">3GP</property>
+	<property id="mxf" rendertype="video" creator="ffmpeg">MXF</property>
+	
+	<property id="mp4" rendertype="video" creator="ffmpeg" >MPEG 4 mp4</property>
+	<property id="m4v" rendertype="video" creator="ffmpeg" >MPEG 4 m4v</property>
+	<property id="mpg" rendertype="video" creator="ffmpeg" >MPEG 2</property>
+	<property id="mpeg" rendertype="video" creator="ffmpeg" >MPEG 2</property>
+	<property id="mkv" rendertype="video" creator="ffmpeg" >MKV</property>
+	<property id="nef" rendertype="image" creator="imagemagick">NEF</property>
+	<property id="ogg" rendertype="audio" >OGG</property>
+	<property id="pbm" rendertype="image" creator="imagemagick">PBM</property>
+	<property id="pdf" rendertype="document" creator="imagemagick">PDF</property>
+	<property id="pef" rendertype="image" creator="imagemagick">PEF</property>
+	<property id="pgm" rendertype="image" creator="imagemagick">PGM</property>
+	<property id="png" rendertype="image" creator="imagemagick">PNG</property>
+	<property id="pnm" rendertype="image" creator="imagemagick">PNM</property>
+	<property id="ppm" rendertype="image" creator="imagemagick">PPM</property>
+	<property id="psd" rendertype="document" creator="imagemagick">PSD</property>
+	<property id="rm" rendertype="video" creator="ffmpeg">RM</property>
+	<property id="swf" rendertype="embedded" >SWF</property>
+	<property id="tga" rendertype="image" creator="imagemagick">TGA</property>
+	<property id="tif" rendertype="image" creator="imagemagick">TIFF (.tif)</property>
+	<property id="tiff" rendertype="image" creator="imagemagick">TIFF</property>
+	<property id="ttf" rendertype="image" creator="imagemagick" >TTF</property>
+	<property id="wav" rendertype="audio" creator="audio" synctags="false">WAV</property>
+	<property id="wma" rendertype="audio"  synctags="false">WMA</property>
+	<property id="webm" rendertype="video"  creator="ffmpeg" synctags="false">WebM</property>
+
+	<property id="flac" rendertype="audio"  synctags="false">Flac</property>
+	<property id="m4a" rendertype="audio"  synctags="false">M4A</property>
+	<property id="aac" rendertype="audio"  synctags="false">aac</property>
+
+	<property id="wmv" rendertype="video" creator="ffmpeg">WMV</property>
+	<property id="doc" rendertype="document"  creator="oofficeDocument">DOC</property>
+	<property id="docx" rendertype="document" >DOCx</property>
+	<property id="rtf" rendertype="document" >RTF</property>
+	<property id="xls" rendertype="document" >XLS</property>
+	<property id="xlsx" rendertype="document" >XLS</property>
+	<property id="ppt" rendertype="document" >PPT</property>
+	<property id="pptx" rendertype="document" >PPTX</property>
+	<property id="wps" rendertype="document" >WPS</property>
+	<property id="odt" rendertype="document" >ODT</property>
+	<property id="ods" rendertype="document" >ODS</property>
+	<property id="odp" rendertype="document" >ODP</property>
+	
+	<property id="html" rendertype="document" >HTML</property>
+	<property id="xml" rendertype="document" >XML</property>
+	<property id="csv" rendertype="document" >CSV</property>
+	
+	<property id="default" rendertype="default" >Default</property>
+</properties>

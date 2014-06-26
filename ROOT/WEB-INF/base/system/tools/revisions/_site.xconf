@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<property name="editable">false</property>
+	<property name="revisioneditorhome">/system/tools/revisions</property>
+	<inner-layout>/system/tools/revisions/layout.html</inner-layout>
+	<page-action name="RevisionEditor.getRevisions"/>
+	<page-action name="PageValue.getLoader" />
+	<property name="text.revisionsfor">
+		<value>Revisions for</value>
+		<value locale="es">Revisiones de</value>
+	</property>
+</page>

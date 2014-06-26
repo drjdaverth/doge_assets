@@ -1,0 +1,17 @@
+<div class="oelist-box">
+<h2>Path Actions</h2>
+<table width="60%" class="emdatatable" >
+#foreach($action in $editPage.getPathActions())
+<tr><td>$action</td><td>$action.path</td></tr>
+#end
+</table>
+</div>
+
+<div class="oelist-box">
+<h2>Page Actions</h2>
+<table width="60%" class="emdatatable" >
+#foreach($action in $editPage.getPageActions())
+<tr><td>$action</td><td>$action.path</td></tr>
+#end
+</table>
+</div>

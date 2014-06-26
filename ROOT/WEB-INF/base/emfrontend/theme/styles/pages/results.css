@@ -1,0 +1,204 @@
+#emcontainer .emcategorieslist 
+{
+	padding: 0px 0 0 4px;
+}
+#emcontainer .emcategorieslist li a
+{
+	white-space:nowrap;
+	padding-bottom: 6px;
+	display: block;	
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+.emthumbbox {
+	margin-bottom: 4px;
+	float:left;
+	padding: 0 30px 0 0;
+}
+
+.emthumbimage
+{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	overflow:hidden;
+	padding: 0 0 4px 0;
+}
+.emthumbimage *
+{
+	vertical-align:middle;
+}
+
+/** Sizes **/
+.emboxthumbsmall
+{
+	width: 150px;
+	height: 150px;
+}
+.emthumbsmall
+{
+	width: 150px;
+	height: 150px;
+}
+
+.emboxthumb
+{
+	width: 200px;
+	height: 260px;
+	text-align: center;
+	border-bottom:1px solid #666;
+	padding-bottom:15px;
+}
+.emthumb
+{
+	width: 200px;
+}
+
+.emthumb:hover
+{
+}
+
+.emboxthumblarge
+{
+	height:300px;
+	width: 300px;
+}
+.emthumblarge
+{
+	height:300px;
+	width: 300px;
+}
+
+.emthumbboxicon
+{
+	margin: 10px 0 0 0;
+}
+.emthumbboxtext
+{
+	margin: 5px 0 0 0;
+	height: 50px;
+}
+#emcontainer .emthumbboxtext .emtitle 
+{
+	padding: 4px 0px 0px 0px;
+	text-align: left;
+	font-weight: bold;
+	color: white;
+}
+
+
+#emcontainer .emthumbboxtext .emcaption 
+{
+	padding: 2px 4px 0px 0px;
+	text-align: left;
+	width: 200px;
+}
+
+#emfullresults .emrounded
+{
+	min-width: 810px;
+	width: 100%;
+}
+
+#emfullresults #emslidesheet
+{
+	min-height: 300px;
+}
+
+/*------------*/
+/* pages.html */
+/*------------*/
+
+#emcontainer .emnavigateboxes
+{
+	text-align: right;
+	padding-bottom: 50px;
+}
+
+#emcontainer #navbox
+{
+	
+	text-align: center;
+	padding-right: 5px;	
+
+}
+#emcontainer #navbox A 
+{
+	background-color: #666666;
+	color:           #FFFFFF;
+	text-decoration: none;
+	display:block;
+	width: 28px;
+	border: 2px solid #666666;
+}
+#emcontainer #navbox A:hover 
+{
+	color:           #666666;
+	background-color: #FFFFFF;
+	border: 2px solid #666666;
+}
+#emcontainer #navbox A:visited
+{
+	color:           #FFFFFF;
+	text-decoration: none;
+}
+#emcontainer #navboxselected
+{
+	text-align: center;
+	padding-right: 5px;	
+}
+#emcontainer #navboxselected A
+{
+	border: 2px solid #666666;
+	text-decoration: none;
+	display:block;
+	width: 28px;
+	color:           #666666;
+	background-color: #FFFFFF;
+	
+}
+#emcontainer #navboxselected A:visited
+{
+	text-decoration: none;
+}
+
+
+#player_container
+{
+	position: relative;
+	background-color:#eee;
+	width:120px;
+	height:41px;
+	border:1px solid #009be3;
+	overflow: hidden;
+	margin: 0 auto 0 auto;
+}
+
+#player_container  ul#player_controls
+{
+	list-style-type:none;
+	padding: 0;
+	margin: 0;
+}
+#player_container  ul#player_controls li
+{
+	overflow:hidden;
+	text-indent:-9999px;
+}
+
+#player_play
+{
+	position: absolute;
+	left:4px;
+	top:0px;
+	width:40px;
+	height:40px;
+	cursor: pointer;
+	display: inline;
+	background: url("../../images/audioplayer/spirites.jpg") 0 0 no-repeat;
+}
+#player_play.em_hover
+{
+	background: url("../../images/audioplayer/spirites.jpg") -41px 0 no-repeat;
+}

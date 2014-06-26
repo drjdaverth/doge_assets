@@ -1,0 +1,24 @@
+<page>
+	<property name="searchtype">title</property>
+	<property name="searchhome">/${applicationid}/views/settings/lists/production/titles</property>
+	<property name="showsearch">false</property>
+	<property name="searchheader">Titles</property>
+	<property name="showactions">false</property>
+
+	<property name="resultspage">${searchhome}/search/results.html</property>
+	<inner-layout>/${applicationid}/views/settings/lists/production/innerlayout.html</inner-layout>
+	<property name="editable">false</property>
+	<property name="hitsname">hits</property>
+	<property name="showsearch">false</property>
+	<property name="searchfields">advancedsearch</property>
+	
+	 <path-action allowduplicates="true" bean="searcherManager" name="PageValue.loadPageVariable"/>
+	
+	 <permission name="delete">
+	 	<group name="administrators"/>
+	 </permission>
+	 <permission name="editdata">
+	 	<group name="administrators"/>
+	 </permission>
+ 
+</page>

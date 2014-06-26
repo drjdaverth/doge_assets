@@ -1,0 +1,24 @@
+<div id="emuploadcontainer">
+
+<h2>[[Upload Media]]</h2>
+
+##[[Please select an upload type:]]
+
+##set( $types = $searcherManager.getSearcher($content.parentapplicationid, "uploadtype").getAllHits() )
+##set( $catalog = $context.getRequestParameter("uploadcatalog") )
+##<select  onchange="jQuery('#emuploadstep3').load('$home/$applicationid/components/upload/types/' + this.value + '.html', {uploadcatalog: '$catalog'});">
+##	#foreach ($type in $types)
+##	<option value="$type.id">$context.getText($type.name)</option>
+##	#end
+##</select>
+##<br><br>
+
+<div id="emuploadstep3" >
+	$pages.include("$apphome/components/upload/types/swtformupload.html")
+</div>
+
+
+<div id="emuploadstep2">
+</div>
+
+</div>

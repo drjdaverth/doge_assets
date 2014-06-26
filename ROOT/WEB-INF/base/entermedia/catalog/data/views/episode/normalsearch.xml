@@ -1,0 +1,6 @@
+
+<properties>
+ 
+  <property id="name" editable="true" index="true" stored="true">Name</property>
+  <property id="title" editable="true" index="true" stored="true">Title</property>
+</properties>

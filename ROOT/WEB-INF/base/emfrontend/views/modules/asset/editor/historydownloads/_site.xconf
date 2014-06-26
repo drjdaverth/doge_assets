@@ -1,0 +1,12 @@
+<page>
+	<property name="sectiontitle">
+    	<value>Downloads Report</value>
+  	</property>
+	<property name="subtab">viewassetdownloadhistory</property>
+	<property name="assettab">viewassetdownloadhistory</property>
+	<property name="hitsname">loghits</property>
+	<property name="foldername">${catalogid}/assetdownloadLog</property>
+	<property name="sortby">dateDown</property>
+	<path-action name="LogSearchModule.getLogSearcher" />
+	
+</page>

@@ -1,0 +1,6 @@
+<page>
+	<path-action name="OrderModule.findOrdersForUser" />
+	<page-action name="OrderModule.loadOrderManager" />
+	<inner-layout>/${themeprefix}/layouts/ordermanager.html</inner-layout>
+
+</page>

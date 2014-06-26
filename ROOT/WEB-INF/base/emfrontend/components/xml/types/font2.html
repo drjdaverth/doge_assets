@@ -1,0 +1,105 @@
+	
+	#set($size = $data.get("${detail.id}size") )
+	#if (!$size)
+		#set($size = 12)
+	#end
+	#set($color = $data.get("${detail.id}color") )
+	#if (!$color)
+		#set($color = "#000000")
+	#end
+	#set($opacity = $data.get("${detail.id}opacity") )
+	#if (!$opacity)
+		#set($opacity = 1.0)
+	#end
+	
+	<style>
+		.${detail.id}-style {
+			#if($val) font-family: $val; #end
+			font-size: ${size}px;
+			color: ${color};
+			opacity: $opacity;
+		}
+	</style>
+	
+	<table>
+		<tr>
+			<td>
+				<table style="width:342px; ">
+					<tr>
+						<td style="vertical-align:middle;">
+							<a href="#" rel="${detail.id}-target" class="plus" id="${detail.id}-plus"></a>
+							<a href="#" rel="${detail.id}-target" class="minus" id="${detail.id}-minus"></a>
+						</td>
+						<td style="vertical-align:middle;">
+							<select id="${detail.id}-fontselector" class="fontselector" rel="${detail.id}-target" #if($val) style="font-family: $val;" #end>
+							#set ($fontlist = $searcherManager.getList($catalogid, "fonts") )
+							#foreach ($font in $fontlist)
+							 	<option style="font-family: ${font.name}" value="${font.name}" #if($val == $font.name) selected #end>$font.fontname</option>
+							#end
+							</select>
+						</td>
+						<td style="vertical-align:middle;">
+							<input id="${detail.id}-fontcolor" type="text" class="fontcolor" data-control="hue" data-defaultValue="#000000" data-opacity="$!opacity" value="$!color" rel="${detail.id}-target">
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<div id="${detail.id}-target" class="${detail.id}-style">AaBbCc</div>
+			</td>
+		</tr>
+	</table>
+	
+	<input name="${detail.getId()}.value" id="${detail.id}" value="$!val" type="hidden" />
+	<input type="hidden" name="field" value="${detail.id}size" /> 
+	<input name="${detail.getId()}size.value" id="${detail.id}size" value="$!size" type="hidden" />
+	<input type="hidden" name="field" value="${detail.id}color" /> 
+	<input name="${detail.getId()}color.value" id="${detail.id}color" value="$!color" type="hidden" />
+	<input type="hidden" name="field" value="${detail.id}opacity" /> 
+	<input  name="${detail.getId()}opacity.value" id="${detail.id}opacity" value="$!opacity" type="hidden" />
+	
+	<script type="text/javascript">
+	$(function() {
+		$("#${detail.id}-fontselector").change(function(e) {
+			var target = $(this).attr('rel');
+			var style = $(this).attr('value');
+			$(this).css('fontFamily', style);
+			$("#"+target).css('fontFamily', style);
+			$("#${detail.id}").attr('value',style);
+			return false;
+		});
+		$("#${detail.id}-fontcolor").minicolors({
+					control: 'hue',
+					defaultValue: $(this).attr('data-defaultValue') || '',
+					opacity: true,
+					letterCase: 'lowercase',
+					change: function(hex, opacity) {
+						try {
+							var c = hex ? hex : 'transparent';
+							var target = $(this).attr('rel');
+							$("#"+target).css('color',c);
+							$("#${detail.id}color").attr('value',c);
+							if( opacity ) {
+								$("#"+target).css('opacity',opacity);
+								$("#${detail.id}opacity").attr('value',opacity);
+							}
+						} catch(e) {console.log(e);}
+					},
+					theme: 'default'
+				});
+		$("#${detail.id}-plus").click(function(){
+			var target = $(this).attr('rel');
+			var currentSize = parseInt($("#"+target).css('fontSize'));
+			$("#"+target).css('fontSize',(currentSize+1)+'px');
+			$("#${detail.id}size").attr('value',(currentSize+1));
+			return false;
+		});
+		$("#${detail.id}-minus").click(function(){
+			var target = $(this).attr('rel');
+			var currentSize = parseInt($("#"+target).css('fontSize'));
+			$("#"+target).css('fontSize',(currentSize-1)+'px');
+			$("#${detail.id}size").attr('value',(currentSize-1));
+			return false;
+		});
+	});
+	</script>

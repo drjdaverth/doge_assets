@@ -1,0 +1,8 @@
+<page>
+
+	<inner-layout>${themeprefix}/layouts/settingssubtablayout.html</inner-layout>
+	<property name="subsettinglist">system</property>
+	
+	<property name="tab">setup</property>
+
+</page>

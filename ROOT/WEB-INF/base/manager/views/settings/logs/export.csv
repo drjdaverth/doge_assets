@@ -1,0 +1,5 @@
+#set( $details = $searcher.getStoredProperties() )#foreach( $searchItem in $details)${searchItem.getText()}	#end
+#foreach ($hit in $loghits)
+
+#foreach( $searchItem in $details)#set($value=$hit.get("$searchItem.id"))#if($searchItem.isDate())$!loghits.toDate($value)#else$!value	#end#end
+#end

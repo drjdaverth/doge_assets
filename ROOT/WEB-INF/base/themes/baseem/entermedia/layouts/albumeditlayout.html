@@ -1,0 +1,47 @@
+<table width="100%">
+	<tr>
+<td valign="top"  width="200">
+
+
+
+#if( $user && $caneditalbum)
+<div class="emsidecontent">
+<div id="emsidecontentheader">
+#if($album.isSelection())
+[[Edit Clipboard]]
+#else
+[[Edit $content.albumname]]
+#end 
+</div>
+<div class="emsidecontentbody">
+<div class="emsidecontentbodyinner">
+$pages.include("/$applicationid/users/$album.owner/albums/menus/edit.html")
+</div>
+</div>
+</div>
+#end
+
+#if( $canviewclipboards )
+
+<div class="emsidecontent">
+<div id="emsidecontentheader">
+[[View Clipboard]]
+</div>
+
+<div class="emsidecontentbody">
+<div class="emsidecontentbodyinner">
+$pages.include("/$applicationid/albums/selection/listselections.html", $context)
+</div>
+</div>
+
+</div>
+#end
+</td>
+<td valign="top" style="padding:10px;">
+
+$pages.includeContent()
+
+</td>
+</tr>
+</table>
+

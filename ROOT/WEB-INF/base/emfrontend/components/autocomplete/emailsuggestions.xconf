@@ -1,0 +1,8 @@
+<page>
+	<layout/>
+	<inner-layout/>
+	<page-action name="AutoCompleteModule.searchUserEmails" alltypes="true">
+	</page-action>
+	<generator name="velocityGenerator" />
+	
+</page>

@@ -1,0 +1,20 @@
+#set ( $sourcePath = $context.getRequestParameter( "path" ) ) 
+#if($sourcePath ) 
+#set ( $destinationPath = "$pathutil.extractDirectoryPath($sourcePath)/")
+
+
+<form name="movewizard" id="movewizard" method="post" class="ajaxform" targetdiv="oetabarea" action="$home${page.filerootpath}/movepage/movepage-finish.html">
+	<input type="hidden" name="param-part" value="req.destinationPath"/>
+	<input type="hidden" name="param-name" value="newpath"/>
+	<input type="hidden" 	name="sourcePath" value="$sourcePath">
+
+<h2>$context.getPageProperty('text.moverename')</h2>
+
+<p>$context.getPageProperty('text.fullpath'):<br>
+<input type="text" size="40" name="destinationPath" value="$destinationPath">
+</p>
+<p>
+<input class="btn btn-default" type="submit" name="MOVE" value="[[Move]]" >
+	</form>
+</p>
+#else $context.getPageProperty('text.selectafile') #end

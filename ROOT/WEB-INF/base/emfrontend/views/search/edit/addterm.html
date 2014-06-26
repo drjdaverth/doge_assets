@@ -1,0 +1,17 @@
+<div id="eml-green-dialog" class="clearfix add-search-term">
+	<div id="arrow" class="arrow">&nbsp;</div>		
+
+<div id="addwizard">
+	<h3 class="instructions">Choose the type of search parameter you would like to add.</h3>
+	<ul id="stacked">
+	<li><a class="btn ajax" targetdivinner="addwizard" href="$home$apphome/views/search/edit/add/metadata.html?queryid=$query.id&oemaxlevel=1">Metadata</a></li>
+	<li><a class="btn ajax" targetdivinner="addwizard" href="$home$apphome/views/search/edit/add/category.html?queryid=$query.id&oemaxlevel=1">Category</a></li>
+
+##	<li><a class="btn" href="$home$apphome/views/activity/downloadassets.html?hitssessionid=$!hits.getSessionId()">Asset Type</a></li>
+##	<li><a class="btn" href="$home$apphome/views/activity/index.html">File Details</a></li>
+	##if( $asset )
+	##end
+	</ul>
+	<a class="btn" style="float: right" targetdiv="querybigeditarea" href="$home$apphome/views/search/edit/index.html?queryid=$query.id">Cancel</a> 
+</div>	
+</div>		

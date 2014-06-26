@@ -1,0 +1,39 @@
+#set( $originalpath = "/WEB-INF/data/$catalogid/originals/$asset.sourcePath/$attachment.name" )
+#set( $versions = $pages.pageManager.getVersions($originalpath) )
+#set( $latest = $pages.pageManager.getLatestVersion($originalpath) )
+#set($item = $pages.getPage($originalpath))
+<tr #if($even) style="background-color:#EEEEEE;" #end>
+
+#if( $canchangeattachment )
+	<td nowrap="true" style="text-align: center;">
+		
+		<input type="radio" name="filename" value="$!attachment.getName()" #if($asset.primaryfile && $asset.primaryfile == $attachment.getName()) checked="checked" #end> 
+	</td>
+	<td nowrap="true" style="text-align: center;">
+		<input type="radio" name="imagefilename" value="$!attachment.getName()" #if($asset.imagefile && $asset.imagefile == $attachment.getName()) checked="checked" #end> 
+	</td>
+#end
+
+<td nowrap="true">
+	#if( $item.isFolder() )
+		<a href="?path=$item.path&sourcepath=${asset.sourcePath}">$attachment.getName()</a> 
+	#else
+		#set ($prefix = "/WEB-INF/data/$catalogid/originals/")
+		#set ($sourcepath = $item.path.substring($prefix.length()))
+		<!-- <img src="$home/${applicationid}/views/modules/asset/downloads/preview/thumb/$sourcepath/thumb.jpg" border="0" height="30" width="30"/> -->
+		<a href="$home/${applicationid}/views/modules/asset/downloads/originals/$sourcepath/$item.getName()">$item.getName()</a> 
+	#end
+</td>
+
+<td nowrap="true"> $!sizer.inEnglish($attachment.size) </td>
+<td>
+		#if( $latest.author )
+			<a href="$home/${applicationid}/settings/usermanager/users/modifyuser.html?username=$latest.author">$!userManager.getUser($latest.author)</a>
+		#end	
+ </td>
+<td nowrap="true"> $dateformat.format($item.lastModified()) </td>
+
+##set( $text = "History ($versions.size())")
+##set ($href = "$home$apphome/views/modules/asset/editor/historyimageedit/index.html?assetid=$asset.getId()&editPath=$originalpath")
+<!-- <td nowrap="true"><a href="$href">$text</a></td> -->
+</tr>

@@ -1,0 +1,14 @@
+<page>
+	<property name='text.View Icons Strips'>
+        	<value>View Icons Strips</value>
+		<value locale="es">Vista de Franjas de Íconos</value>
+    	</property>
+	<property name='text.Index'>
+        	<value>Index</value>
+		<value locale="es">Índice</value>
+    	</property>
+	<property name='text.default'>
+        	<value>default</value>
+		<value locale="es">por defecto</value>
+    	</property>
+</page>

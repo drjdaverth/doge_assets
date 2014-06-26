@@ -1,0 +1,164 @@
+
+
+    
+#if ( $hits.size() == 0 )
+No results found                                                                                                                                                                        
+#else
+#if(!$view)
+#set($view = $context.getRequestParameter("view"))
+$context.putPageValue("hits", $hits)
+$context.putPageValue("searcher", $searcher)
+$context.putPageValue("view", $view)
+
+#end
+#set( $resultdetail = $searcher.getDetailsForView("$view", $userprofile))
+
+
+
+##set ( $canedit = $context.getPageValue("${moduleid}edit") )
+
+<form name="selectionform" action="$home${content.searchhome}/common/selection/toggle.html">
+<input type="hidden" name="hitsname" value="hits"/>
+
+<div class="tablecontainer">
+
+<div class="editholder" style="margin-top: 0;">
+ <div id="messagearea"> </div>
+
+</div>
+<div id="emselectable">
+<table class="emdata striped" id="main-results-table">
+
+<thead>
+<tr id="tableheader" >
+#if($content.isPropertyTrue("showactions"))
+
+<th class="firstheader" id="th-checkbox" ><input name="pagetoggle" type="checkbox" onclick="togglehits('page');">
+	   <div class="anchor">
+	    <div id="select-dropdown-open" class="down"></div>
+	    <ul id="select-dropdown" style="display: none; ">
+ 
+	        <li><a class="ajax selectpage" targetdiv="drag-columns-text" href="#"  onclick="togglehits('page');return false;">Select This Page</a></li>
+	        <li><a class="ajax  selectpage" targetdiv="drag-columns-text" href="#" onclick="togglehits('all');">Select All Results</a></li>
+	        <li><a class="ajax  deselectpage" targetdiv="drag-columns-text" href="#" onclick="togglehits('none');return false;">Deselect All</a></li>
+	    </ul>
+	    </div>
+	</th>
+	
+	
+#end
+
+#set( $sortby = $hits.getSearchQuery().getSortBy() )
+#foreach( $detail in $resultdetail )
+		<th  class="sortable #if( $edit)editcolumnheader #end #if( $sortby.startsWith($detail.getId() ) ) currentsort #if( $sortby.endsWith("Up") ) up #else down #end #end" id="$detail.id">
+					
+			<div id="$detail.id" hitssessionid="$hits.getSessionId()"  editing="$edit" class="headerdraggable headerdroppable"> 
+					#text( $detail.text )
+					#if( $edit)
+						<a class="baseemenableonhover ajax edit-table-header" targetdivinner="resultsdiv" href="$home$apphome/components/results/addremovecolumns.html?oemaxlevel=1&searchtype=$moduleid&hitssessionid=$hits.getSessionId()&editheader=true&removecolumn=$detail.id"><img title="Remove" src="$home$themeprefix/images/navigation/deletesm.png" /></a>
+					
+					#end
+			</div>
+		 </th>  
+	
+#end
+
+<script>
+    $('th.sortable').on({
+        click: function(){
+            var id = $(this).attr('id');
+            if ( $(this).hasClass('currentsort') ) {
+                if ( $(this).hasClass('up') ) {
+                    jQuery('#resultsarea').load( '$home$apphome/views/modules/$moduleid/columnsort.html?oemaxlevel=1&searchtype=$moduleid&hitssessionid=$hits.getSessionId()&sortby=' + id + 'Down');
+                } else {
+                    jQuery('#resultsarea').load( '$home$apphome/views/modules/$moduleid/columnsort.html?oemaxlevel=1&searchtype=$moduleid&hitssessionid=$hits.getSessionId()&sortby=' + id + 'Up');
+                }
+            } else {
+                $('th.sortable').removeClass('currentsort');
+                $(this).addClass('currentsort');
+                jQuery('#resultsarea').load( '$home$apphome/views/modules/$moduleid/columnsort.html?oemaxlevel=1&searchtype=$moduleid&hitssessionid=$hits.getSessionId()&sortby=' + id + 'Down');
+            }
+        }
+    });
+</script>
+
+
+</tr>
+</thead>
+<tbody>
+    
+    
+    
+    #set( $even = true )
+#set($count = 0)
+#foreach ( $cell in $hits.getPageOfHits() )
+   $context.putPageValue('data', $cell)
+    $context.putPageValue('cell', $cell)
+    
+    
+      
+        
+        <tr rowid="$home$clink?id=${cell.id}&hitssessionid=${hits.sessionId}&searchtype=$searcher.getSearchType()"  >
+  
+    
+   
+    
+#if($content.isPropertyTrue("showactions"))
+
+<td align="center">
+
+
+<input type="checkbox" class="moduleselectionbox" name="count" value="" #if($hits.isSelectedOnPage(${cell.id})) checked #end data-dataid='${cell.id}' data-hitssessionid='$hits.sessionId' />
+<div id="check_${count}">
+</div>
+
+
+
+</td>
+
+#end
+
+
+#foreach( $detail in $resultdetail )
+
+<td class="editfield highlightMe" id="$detail.id" halign="right"  >
+   <div id="edit_${cell.id}_$detail.id">
+			
+		    
+           
+              $context.putPageValue('val',  $!cell.get($detail.id))
+              $context.putPageValue('detail',  $detail)
+              $pages.include("$apphome/components/moduleresults/cell.html", $context)    
+    		
+
+    </div>
+</td>
+#end
+
+
+</tr>
+#set($count = $count + 1)
+#end
+</tbody>
+</table>
+</div>
+#if($content.isPropertyTrue("showactions"))
+## <div align="left" id="messagearea">$pages.include("$apphome/components/moduleresults/selections/togglepage.html")</div>
+#end
+
+   <div id="navigationrow">
+
+ $pages.stream("$apphome/components/moduleresults/navigate.html", $context)		
+</div>
+
+</div></div>
+
+
+
+</form>
+
+
+
+#end
+
+## $pages.include("$apphome/components/moduleresults/actions.html", $context)

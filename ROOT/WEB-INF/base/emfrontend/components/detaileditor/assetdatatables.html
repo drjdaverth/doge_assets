@@ -1,0 +1,22 @@
+#set( $moduleid = $context.findValue("module") )
+#set($viewid = $context.getRequestParameter("viewid"))
+#set($viewpath = $context.getRequestParameter("viewpath"))
+#set($hitssessionid = $context.findValue("hitssessionid"))
+
+#set($viewsearcher = $searcherManager.getSearcher($catalogid, "view"))
+#set($query = $viewsearcher.createSearchQuery().append("module",$moduleid).append("systemdefined","false").append("rendertable","*") )
+$!query.addSortBy("ordering")   
+#set($views = $viewsearcher.search($query))
+
+$context.putPageValue("view", $viewpath)
+#set( $data = $asset)
+$context.putPageValue("data",$asset)
+
+#foreach( $target in $views)            
+      <li #if($viewid == $target.id) class="current" #end byassettype="true">
+          <a class="tab ajax tooltip" title="$target" targetdiv="detaileditor"  href="$home$apphome/views/modules/${moduleid}/edit/moduletable.html?oemaxlevel=3&id=${data.id}&assetid=$data.id&viewid=$target.id&viewpath=$moduleid/$target.id&hitssessionid=${hitssessionid}">
+	          <span class="icon"></span><span class="text">$target</span>
+          </a>
+      </li>
+#end
+      <li class="divider"></li>

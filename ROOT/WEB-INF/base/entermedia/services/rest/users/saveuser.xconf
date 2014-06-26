@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<page-action name="DataEditModule.saveData" alltypes="true"/>   
+	<page-action name="User.saveGroupData" alltypes="true"/>   
+	
+	<property name="save">true</property>
+</page>

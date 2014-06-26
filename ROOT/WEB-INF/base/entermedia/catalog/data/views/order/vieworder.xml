@@ -1,0 +1,8 @@
+<properties>
+	<property id="id" />
+	<property id="orderstatus" />
+	<property id="ordertype" />
+	<property id="userid" />
+	<property id="project" />
+	
+</properties>

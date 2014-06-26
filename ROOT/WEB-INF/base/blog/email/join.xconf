@@ -1,0 +1,20 @@
+<page>
+ 	<page-action name="User.loadQuestion" />
+ 	<page-action name="ValidationModule.validate">
+	    <field name="email">
+	      <rule name="required">*</rule>
+	      <rule name="email">invalid email</rule>
+	    </field>
+	    <field name="answerid">
+	      <rule name="required">*</rule>
+	    </field>
+	    
+	</page-action>
+	
+	<page-action name="User.checkQuestion" />
+	
+	<page-action name="User.addEmailToGroup" />
+	<property name="emailgroupid">newsletter</property>
+	
+ 	
+</page>

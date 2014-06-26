@@ -1,0 +1,104 @@
+#set ($catalogid = $context.getRequestParameter('catalogid'))
+#set ($searchtype = $context.getRequestParameter('searchtype')) ##product
+#set ($fieldname = $context.getRequestParameter('fieldname')) ##lastmodified
+#set ($view = $context.getRequestParameter('view')) 
+<!--  This would have the point details in it -->
+
+      <p style="text-align: right; margin-top: -5px; margin-bottom: 15px;">
+        <input type="text" size="60" id="${detail.id}_address"  />
+        <input class="btn small" type="button" id="${detail.id}_search" value="Search"  />
+      </p>
+     
+
+<div id="${detail.id}_map" align style="width: 100%; height:400px; margin-bottom: 15px;"></div>
+   
+   #set( $lat = $!data.get("${detail.id}_lat") )
+   #set( $lng = $!data.get("${detail.id}_lng") )
+    <input type="hidden" name="field" value="${detail.id}_lat"/>
+   Latitude: <input type="text" id="${detail.id}_lat" name="${detail.id}_lat.value" value="$!lat"/>
+    <input type="hidden" name="field" value="${detail.id}_lng"/>
+    Longitude: <input type="text" id="${detail.id}_lng" name="${detail.id}_lng.value" value="$!lng"/>
+
+
+<script type="text/javascript">
+
+$('#${detail.id}_map').gmap({
+	 'center':'39.025818619038375,-95.03089171562499',
+}).bind('init', function(ev, map) {
+	#if( $lat )
+	$('#${detail.id}_map').gmap('addMarker', 
+			{
+			'position': '$lat,$lng',
+			'draggable': true, 
+		    'bounds': true
+		    })
+		    .dragend(function(event) 
+	    	  		{
+	    		 	
+	    		  jQuery('#${detail.id}_lat').val(event.latLng.lat());
+	              jQuery('#${detail.id}_lng').val(event.latLng.lng());
+	    	  	}       
+	    	).click(function() {
+		//$('#${detail.id}_map').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+	});
+	    $('#${detail.id}_map').gmap('option', 'zoom', 12);
+	#else
+	    $('#${detail.id}_map').gmap('option', 'zoom', 2);
+	#end
+
+}).click(function(e)
+		{
+			//alert( "click");
+		});
+
+
+dosearch = function () 
+{
+	var address = jQuery('#${detail.id}_address').val();
+
+	$('#${detail.id}_map').gmap('search', { 'address': address }, function(results, status) 
+	{
+	    if ( status === 'OK' ) 
+	    {
+	    	$('#${detail.id}_map').gmap('clear', 'markers');
+	    	
+	    	$('#${detail.id}_map').gmap('addMarker', 
+	          {
+	    		'position': results[0].geometry.location, 
+	    		'draggable': true, 
+	    		'bounds': true
+	    	  }).dragend(function(event) 
+	    	  		{
+	    		 	
+	    		  jQuery('#${detail.id}_lat').val(event.latLng.lat());
+	              jQuery('#${detail.id}_lng').val(event.latLng.lng());
+	                
+	    	  		}
+	    	  ).click(function() 
+	    	   {
+	    		//$('#${detail.id}_map').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+	    	});
+
+	    	$('#${detail.id}_map').gmap('get', 'map').panTo(results[0].geometry.location);
+	       $('#${detail.id}_map').gmap('option', 'zoom', 12);
+
+ 		  jQuery('#${detail.id}_lat').val(results[0].geometry.location.lat());
+          jQuery('#${detail.id}_lng').val(results[0].geometry.location.lng());
+
+	    }
+	});
+	
+}
+
+
+jQuery('#${detail.id}_search').click(dosearch);
+jQuery('#${detail.id}_address').keypress(function(e)
+{
+	if (e.keyCode == 13) 
+	{
+		dosearch()
+	}
+});
+		
+
+</script>

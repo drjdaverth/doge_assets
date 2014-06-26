@@ -1,0 +1,9 @@
+<page>
+	<path-action name="WebTree.selectNodeByPath" />
+	<path-action name="TabModule.addNewTab" />
+	<path-action name="TabModule.clearUnneededTabs" />
+	<property name="sorttabs">true</property>
+	<property name="maxtabcount">20</property>
+	<layout/>
+	<inner-layout>${filerootpath}/treelayout.html</inner-layout>
+</page>

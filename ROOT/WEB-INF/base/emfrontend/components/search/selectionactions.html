@@ -1,0 +1,57 @@
+
+
+<ul class="table_actions">
+
+	<li>
+
+		<a href="#">[[Actions]]</a>
+	
+		<ul>
+            
+			#if($canexport)
+			<li class="current"><a href="$home${content.searchhome}/export/export.csv?hitssessionid=$hits.sessionId">[[Export results CSV]]</a></li>
+			
+
+			#end
+			#if($candelete)
+		<li class="current confirm"><a href="$home${content.searchhome}/actions/deleteselections.html?hitssessionid=$hits.sessionId">[[Delete selected items]]</a></li>
+			#end
+			
+			
+	
+		</ul>
+	</li>
+	
+</ul>
+
+<div id="ajax_results"></div>
+
+<script type="text/javascript">
+	table_action_over = function(){
+		jQuery(this).find('> ul').blur(function(){table_action_out.call(this);}).show();
+	};
+	table_action_out = function(){
+		jQuery(this).find('> ul').hide();
+	}
+	
+	jQuery(document).ready(function(){
+		jQuery('ul.table_actions li').hoverIntent(table_action_over, table_action_out);		
+		
+		jQuery('#select_all').click(function(){
+			jQuery('input[type="checkbox"]').each(function(){this.checked = true;});
+			jQuery('#ajax_results').load('$home${content.searchhome}/search/selectall.html');
+			
+			return false;
+		});
+		
+		jQuery('#select_none').click(function(){
+			jQuery('input[type="checkbox"]').each(function(){this.checked = false;});			
+			jQuery('#ajax_results').load('$home{content.searchhome}/search/selectnone.html');			
+			
+			return false;
+		});
+		
+	});
+	
+</script>
+

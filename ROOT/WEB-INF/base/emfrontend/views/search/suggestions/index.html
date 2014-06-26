@@ -1,0 +1,27 @@
+## Needs: $query, $hits, $searchtype, $catalogid, $hitssessionid 
+
+#set( $suggestions = $query.suggestedSearches )
+#if( $suggestions )
+<div class="emsidecontent">
+<div id="emsidecontentheader">
+[[Related Searches]]
+</div>
+<div class="emsidecontentbody">
+<div class="emsidecontentbodyinner">
+<ul class="emactions" style="width: 120px;">
+#foreach( $term in $suggestions.keySet() )
+	#if( $hits.dataSource )
+		#set( $resultspage = "/${hits.dataSource}.html" )
+	#else
+		#set( $resultspage = "$content.path" )
+	#end
+	<li><a href="$home${resultspage}?field=description&operation=matches&description.value=$term&hitsname=$hits.hitsName&searchtype=$searchtype">
+		$suggestions.get($term)
+	</a>
+	</li>
+#end
+</ul>
+</div>
+</div>
+</div>
+#end

@@ -1,0 +1,11 @@
+<properties>
+  <property id="id" index="true" stored="true" editable="true" searchtype="projecttask" internalfield="true">Id</property>
+  <property id="name" index="true" stored="true" editable="true" searchtype="projecttask" internalfield="false">Title</property>
+  <property id="deliverydate" index="true" stored="true" editable="true" sortable="true" type="date" searchtype="projecttask" internalfield="false" datatype="date">Delivery Date</property>
+  <property id="assigned" index="true" stored="true" editable="true" type="list" viewtype="list" searchtype="projecttask" internalfield="false" listid="userprofile" datatype="list">Assigned To</property>
+  <property id="taskstatus" index="true" stored="true" editable="true" type="list" viewtype="list" searchtype="projecttask" internalfield="false" datatype="list">Task Status</property>
+  <property id="taskdescription" index="true" stored="true" editable="true" viewtype="html" searchtype="projecttask" internalfield="false">Task Description</property>
+  <property id="sourcepath" searchtype="projecttask">SourcePath</property>
+  <property id="library" index="true" stored="true" editable="true" sortable="true" type="list" searchtype="projecttask" internalfield="false" listid="library" datatype="list">Project</property>
+  <property id="asset" index="true" stored="true" editable="true" type="list" viewtype="asset" searchtype="projecttask" internalfield="false" datatype="list">Asset</property>
+</properties>

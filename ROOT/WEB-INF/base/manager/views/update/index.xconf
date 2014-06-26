@@ -1,0 +1,42 @@
+<page>
+	<property name='sectiontitle'>
+		<value>Add-Ons</value>
+		<value locale="es">OpenEdit - Administrador de Plugins</value>
+	</property>
+
+	<page-action name="UpdateModule.listPlugins">
+	</page-action>
+	<property name='text.Upgrade Plugins'>
+        	<value>Upgrade Plugins</value>
+		<value locale="es">Actualizar Plugins</value>
+    	</property>
+	<property name='text.Description'>
+        	<value>Description</value>
+		<value locale="es">Descripción</value>
+    	</property>
+	<property name='text.Installed Version'>
+        	<value>Installed Version</value>
+		<value locale="es">Versión Instalada</value>
+    	</property>
+	<property name='text.Latest Version'>
+        	<value>Latest Version</value>
+		<value locale="es">Última Versión</value>
+    	</property>
+	<property name='text.Release Notes'>
+        	<value>Release Notes</value>
+		<value locale="es">Notas Publicadas</value>
+    	</property>
+	<property name='text.To Update'>
+        	<value>To Update</value>
+		<value locale="es">Para Actualizar</value>
+    	</property>
+	<property name='text.Upgrade'>
+        	<value>Upgrade</value>
+		<value locale="es">Actualizar</value>
+    	</property>
+	<property name='text.notes'>
+        	<value>notes</value>
+		<value locale="es">notas</value>
+    	</property>
+
+</page>

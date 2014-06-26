@@ -1,0 +1,68 @@
+<page>
+	<inner-layout>${themeprefix}/entermedia/layouts/mediaapplication.html</inner-layout>
+	
+	
+	<!-- Translations -->
+	<property name="text.HOME">
+		<value locale="es">INICIO</value>
+	</property>
+	<property name="text.SEARCH">
+		<value locale="es">BUSCAR</value>
+	</property>	
+	<property name="text.BROWSE">
+		<value locale="es">NAVEGAR</value>
+	</property>	
+	<property name="text.UPLOAD">
+		<value locale="es">SUBIR</value>
+	</property>	
+	<property name="text.ADMIN">
+		<value locale="es">ADMIN</value>
+	</property>	
+	<property name="text.HELP">
+		<value locale="es">AYUDA</value>
+	</property>	
+	<property name="text.LOG IN">
+		<value locale="es">INGRESAR</value>
+	</property>	
+	<property name="text.LOG OUT">
+		<value locale="es">SALIR</value>
+	</property>
+	<property name="text.ADD NEW RECORD">
+		<value locale="es">AGREGAR REGISTRO</value>
+	</property>
+	<property name="text.SETTINGS">
+		<value locale="es">CONFIGURACIÓN</value>
+	</property>
+	
+	<property name="text.Albums">
+		<value locale="es">Álbumes</value>
+	</property>
+	<property name="text.Browse">
+		<value locale="es">Navegar</value>
+	</property>	
+	<property name="text.Search">
+		<value locale="es">Buscar</value>
+	</property>	
+	<property name="text.Results">
+		<value locale="es">Resultados</value>
+	</property>	
+	<property name="text.Reports">
+		<value locale="es">Reportes</value>
+	</property>	
+	<property name="text.Upload">
+		<value locale="es">Subir</value>
+	</property>	
+	
+	<property name="text.Create New Album">
+		<value locale="es">Crear Nuevo Álbum</value>
+	</property>
+	<property name="text.Your albums">
+		<value locale="es">Tus álbumes</value>
+	</property>
+
+	<property name="text.selection1">Send</property>
+	<property name="text.selection2">Categorize</property>
+	<property name="text.selection3">Downloads</property>
+	
+	
+</page>

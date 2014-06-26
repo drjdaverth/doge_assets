@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <property id="division"/>
+  <property id="name"/>
+  <property id="thumbnail"/>
+  <property id="folder"/>
+  <property id="giturl"/>
+  
+</root>

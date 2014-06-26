@@ -1,0 +1,73 @@
+<div class="ui-widget" style="overflow: hidden;">
+<div class="ui-widget-header">Settings</div>
+<div  class="ui-widget-content">
+
+<div id="editlayout">
+#set( $origURL = $context.getRequestParameter("origURL" ) )
+#set( $categoryid = $context.getRequestParameter("categoryid" ) )
+
+#if( !$view )				
+	#set( $view = "${searcher.searchType}/edit" )
+#end
+$context.putPageValue("view", $view)
+
+<form id="dataeditor-settings" name="dataeditor-settings" method="post" action="$home$content.searchhome/edit/save.html" >
+	<input name="save" type="hidden" value="true" />
+	<input name="id" type="hidden" value="$!data.id" />
+	<input name="categoryid" type="hidden" value="$!categoryid" />
+	<input name="catalogid" type="hidden" value="$searcher.catalogId" />
+	<input name="searchtype" type="hidden" value="$searcher.searchType" />
+	<input name="origURL"  type="hidden" value="$!origURL" />
+$pages.include("/system/components/xml/detaileditor.html", $context)
+
+
+<a class="btn" href="#" onclick="jQuery(this).closest('form').submit();"><span>Save</span></a>
+<a class="btn"  href='$home$content.searchhome/index.html'><span>Cancel</span></a>
+<a class="btn red" style="float: right" href='$home$content.searchhome/edit/delete.html?searchtype=$searcher.searchType&catalogid=$searcher.catalogId&id=$!data.id'>
+	<span>
+		Delete
+	</span></a>
+<br>
+<div id="messagearea">$!message
+</div>
+</form>
+
+
+#if( $savedok && $origURL )
+	<a href="$origURL">[[Go Back]]</a>	
+#end
+
+
+</div>
+
+</div>
+</div>
+#if($data && $data.id)
+<h2>
+Preset Parameters
+</h2>
+#set($viewsearcher = $searcherManager.getSearcher($catalogid, "view"))
+#set( $viewdata = $viewsearcher.searchById($viewid))
+#set($viewdetailspath = "presetparameter/edit")
+
+#set( $searchtype = "presetparameter" )
+#set( $fieldexternalid = "parameterdata")
+
+#set( $permissionname = "canedit${searchtype}")
+#set ( $id = $context.getRequestParameter("id") )
+#if ( $!id )
+    #set ( $id = $data.id )
+    #set( $fieldexternalvalue = $data.getId())
+#end
+#set( $fieldexternalvalue = $id )
+$context.putPageValue("canedittable", $caneditdata)
+
+#set( $args = "id=$id&parentid=$id&viewdetailspath=$!viewdetailspath&viewid=presetparameter/edit&viewpath=presetparameter/edit&catalogid=$mediaarchive.getCatalogId()&searchtype=$searchtype&fieldexternalid=$!fieldexternalid&fieldexternalvalue=$!fieldexternalvalue&listid=$!listid&listexternalid=$!listexternalid&permissionname=$permissionname&hitssessionid=$hitssessionid")
+
+$pages.include("$apphome/components/detaileditor/generictable.html?$args", $context)
+
+
+
+
+
+#end

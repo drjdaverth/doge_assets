@@ -1,0 +1,74 @@
+<form class="validate" id="usereditform" method="post" action="$home$apphome/views/activity/share/previewemail.html">
+<div class="emrounded">
+<input type="hidden" name="searchtype" value="order"/>
+<input type="hidden" name="catalogid" value="$catalogid"/>
+<input type="hidden" name="orderid" value="$order.id"/>
+	<div>
+	<p>Please choose a download format for each asset.</p>
+	<table id="shared-asset-table" class="striped download-table" width="100%" >
+	#foreach( $item in $orderitems )
+		 #set( $asset = $mediaarchive.getAssetBySourcePath($item.assetsourcepath))
+	<tr>
+	<td>		
+		<input type="hidden" name="itemid" value="$item.id"/>
+		 
+				$context.putPageValue("asset", $asset)
+				$context.putPageValue("item", $item)
+				$context.setRequestParameter("sourcepath", $asset.sourcepath)					
+	
+	   	#set( $assetpath = $mediaarchive.getLinkToAssetViewer($sourcepath) )
+		#set( $thumbend = $mediaarchive.getLinkToSize($sourcepath, "thumb") )
+		#set( $tsize = "$home$thumbend" )
+		
+		#if( $parenthits )
+			#set( $rootid = $parenthits.sessionId )
+		#else
+			#set( $rootid = $hits.sessionId )
+		#end
+			#set( $click = "$home$apphome/views/assetdialog/index.html?width=600&height=500&sourcepath=${asset.sourcepath}&hitssessionid=$rootid" )
+		
+			#set( $type = $mediaarchive.getMediaRenderType($asset.fileFormat))
+			$context.putPageValue("cell", $asset)
+			$context.putPageValue("showdetails", "false")
+		   	#set( $sourcepath = $asset.sourcePath )
+		   	$context.putPageValue("thumbsize", "crop")
+			$pages.include("${apphome}/components/results/thumbnails/${type}.html", $context)
+</td>
+<td class="asset-name">${asset.name}</td>
+<td align="right">
+	      #set($presetsearcher = $searcherManager.getSearcher($catalogid, "convertpreset") )
+	      <input type="hidden" name="field" value="presetid"/>
+
+<!-- 
+  	   	    #set( $presetquery = $presetsearcher.createSearchQuery() )
+  	   	    $presetquery.setAndTogether(false)
+  	   	    #set( $rendertype = false)
+  	   	    #set( $rendertype = $mediaarchive.getMediaRenderType($asset.fileFormat) )
+  	   	    #if( $rendertype )
+	  	   	    $presetquery.addExact("inputtype",$rendertype);
+  	   	    #end
+  	   	    $presetquery.addExact("inputtype","all");
+  	   	    $presetquery.addSortBy("ordering");
+  	   	    #set( $results = $presetsearcher.search($presetquery) )
+ -->
+  			<select name="${item.id}.presetid.value">
+  	   	    <option value="preview">Preview Only</option>
+  	    	#foreach ($preset in $results)
+  	    		<option value="$preset.id">$preset</option>
+  	    	#end
+  	    	</select>
+
+	</td>
+	</tr>	
+	#end
+	
+</table>
+	<div id="itemsave"></div>
+	<input class="btn small" style="float: right; margin-top: 20px;" type="submit" value="Next" />
+</div>
+</form>
+</div>
+
+
+
+

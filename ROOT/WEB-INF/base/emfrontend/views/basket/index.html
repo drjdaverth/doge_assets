@@ -1,0 +1,16 @@
+$context.putPageValue("hits",$orderassets)
+
+<div id="collectionbasket">
+<div id="resultsdiv" data-hitssessionid="$orderassets.getSessionId()">
+
+#if($orderitems.size() >0 )
+
+$pages.include("$apphome/components/results/index.html",$context)
+
+#else
+
+<p class="info" style="margin: 0 20px;">[[No Items in Basket]]</p>
+
+#end
+</div>
+</div>

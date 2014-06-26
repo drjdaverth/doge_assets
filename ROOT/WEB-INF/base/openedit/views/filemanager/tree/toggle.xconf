@@ -1,0 +1,6 @@
+<page>
+	<inner-layout />
+	<layout />
+
+	<page-action name="WebTree.toggleTreeNode" />	
+</page>

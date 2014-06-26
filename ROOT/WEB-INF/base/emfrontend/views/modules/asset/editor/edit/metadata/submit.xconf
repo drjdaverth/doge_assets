@@ -1,0 +1,5 @@
+<page>
+<path-action name="Script.run" allowduplicates="true">
+	<script>/${catalogid}/events/scripts/importing/assetreadmetadata.groovy</script>
+</path-action>
+</page>

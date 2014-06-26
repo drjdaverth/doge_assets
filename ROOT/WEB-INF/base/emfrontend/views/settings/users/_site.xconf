@@ -1,0 +1,9 @@
+<page>
+		<inner-layout>${themeprefix}/layouts/settingssubtablayout.html</inner-layout>
+	<property name="subsettinglist">settingsusers</property>
+	<property name="tab">users</property>
+	<permission name="view">
+		<userprofile property="viewsettings" equals="true" />
+	</permission>
+	
+</page>

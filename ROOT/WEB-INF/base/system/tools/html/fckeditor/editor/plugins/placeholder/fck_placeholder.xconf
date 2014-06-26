@@ -1,0 +1,11 @@
+<page>
+	<property name='text.Placeholder Properties'>
+        	<value>Placeholder Properties</value>
+		<value locale="es">Propiedades del Marcador de Posición</value>
+    	</property>
+	<property name='text.Placeholder Name'>
+        	<value>Placeholder Name</value>
+		<value locale="es">Nombre del Marcador de Posición</value>
+    	</property>
+</page>
+

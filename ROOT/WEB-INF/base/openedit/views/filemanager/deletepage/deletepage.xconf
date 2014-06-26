@@ -1,0 +1,23 @@
+<page>
+	<path-action name="PageValue.loadPageVariable"  bean="pathutil" class="com.openedit.util.PathUtilities"/>
+
+	<property name='text.areyousure'>
+        	<value>Are you sure you want to delete this file or directory?</value>
+		<value locale="es">¿Está seguro de que desea borrar el archivo o directorio?</value> 
+   	</property>
+	<property name='text.yes'>
+        	<value>YES</value>
+		<value locale="es">SÍ</value> 
+    	</property>
+	<property name='text.deletepageordir'>
+        	<value>DELETE PAGE OR DIRECTORY</value>
+		<value locale="es">BORRAR PÁGINA O DIRECTORIO</value> 
+    	</property>
+	<property name='text.no'>
+        	<value>NO</value>
+    	</property>
+	<property name='text.Delete'>
+        	<value>Delete</value>
+		<value locale="es">Borrar</value> 
+    	</property>
+</page>

@@ -1,0 +1,5 @@
+<filters>
+	<filter id="2" query="royaltyfree:true">Royalty Free</filter>
+	<filter id="3" query="Orientation:Horizontal">Orientation - Landscape</filter>
+	<filter id="4" query="Orientation:Vertical">Orientation - Portrait</filter>
+</filters>

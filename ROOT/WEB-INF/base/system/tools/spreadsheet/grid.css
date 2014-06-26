@@ -1,0 +1,92 @@
+	#excel
+	{
+		border: 1px solid #888888;
+		border-collapse: collapse; 
+		empty-cells: show;
+	}	
+
+	#excel  TH
+	{
+		background-color: #e8eef7;
+		text-align: center;
+		border: 1px solid #888888;
+	}
+	#excel .textheader
+	{
+		
+	}
+	#excel  .rowselector
+	{
+		background-color: #e8eef7;
+		text-align: center;
+		width: 40px;
+		border: 1px solid #888888;
+	}
+	#excel  .selectRow
+	{
+		background-color:  #e8eef7;
+		border: 10px solid #888888;
+	}
+	#excel  .selectCol
+	{
+		background-color:  #e8eef7;
+	}
+	
+	#excel  .headerdivider
+	{
+		background-color: #eeeeee;
+		height: 15px;
+		border: 1px solid #888888;
+	}
+
+	#excel .textfull
+	{
+		border: 1px solid #888888;
+		background-color: #ffffff;
+		color: black;
+		vertical-align: bottom;
+	}
+	#excel .textfull DIV
+	{
+		display: block;
+		//background-color: #e8eef7;
+		background-color: #ffffff;
+		color: black;
+	}
+	
+	#excel .edittext
+	{
+		border: 0px;
+		width: 100%;
+		height: 100%; /* firefox only */
+		color: black;
+		border: 1px solid #1E90FF;
+	}
+
+	.resizeOnHandleClass 
+	{
+		cursor: e-resize;
+	}
+	.resizeOnHandleClassRows 
+	{
+		cursor: s-resize;
+	}
+
+	div.resize-handlecolumns
+	{
+		cursor: e-resize;
+		width: 2px;
+		border-right: 1px dashed #1E90FF;
+		position:absolute;
+		top:0;
+		left:0;
+	}
+	div.resize-handlerows 
+	{
+		cursor: s-resize;
+		height: 2px;
+		border-top: 1px dashed #1E90FF;
+		position:absolute;
+		top:0;
+		left:0;
+	}

@@ -1,0 +1,15 @@
+<properties>
+	<property id="id" index="true" stored="true">Item Id</property>
+	<property id="orderid" index="true" stored="true">Order Id</property>
+	<property id="userid" index="true" stored="true">User Id</property>
+	<property id="assetsourcepath" index="true" stored="true" >Asset SourcePath</property>
+	<property id="assetid" index="true" stored="true" >Asset Id</property>
+	<property id="status" datatype="list" listid="orderitem/status" index="true" stored="true" >Status</property>
+	<property id="errorcount" index="true" stored="true" >Error Count</property>
+	<property id="errordetails" index="true"  stored="true" >Error Details</property>
+	<property id="jobnotes" index="true" stored="true" >Job Notes</property>
+	<property id="remotePath" index="true" stored="true" >Remote Path</property> <!-- Is This needed? -->
+	<property id="publishqueueid" index="true" stored="true" >Publish Queue Id</property>
+	<property id="presetid" listid="convertpreset" index="true" stored="true" >Preset</property>
+
+</properties>

@@ -1,0 +1,42 @@
+asdfdfsasd
+## API -- Set these page variables
+##$searchtype  ##jointable
+##$fieldexternalid ##productid
+##$fieldexternalvalue ##4322
+##$listid ##states
+##$listexternalid
+##$edit ## are we editing
+##$imagetype 
+##$catalogid
+#if(!$listid)
+	#set($listid = $detail.get("listid"))
+#end
+## get big list of all
+#set( $lsearcher = $searcherManager.getSearcher( $catalogid, $listid ))	
+
+#if ($foreignkeyid && $foreignkeyvalue)
+	#set ($query = $lsearcher.createSearchQuery())
+	#set ($o = $query.setAndTogether(false))
+	#set ($o = $query.addMatches("$foreignkeyid", "$!foreignkeyvalue"))
+	#set ($o = $query.addMatches("$foreignkeyid", "all"))
+#else
+	#set ($query = $lsearcher.createSearchQuery())
+	#set ($o = $query.addMatches("id", "*"))
+#end
+#set ($types = $lsearcher.search($query))
+
+$context.putPageValue("all", $types)
+
+#set( $joinsearcher = $searcherManager.getSearcher($catalogid, $searchtype))
+#set ($filteredtracker = $searcherManager.makeFilteredTracker())
+$filteredtracker.setSearcher($joinsearcher)
+$filteredtracker.setListId($listexternalid)
+$filteredtracker.filter($fieldexternalid, $fieldexternalvalue)
+
+$context.putPageValue("checked", $filteredtracker.filteredValues())
+
+#if($edit == false)
+	$pages.include("/system/components/xml/multiselect/display.html", $context)
+#else
+	$pages.include("/system/components/xml/multiselect/edit.html", $context)
+#end

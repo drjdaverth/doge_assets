@@ -1,0 +1,27 @@
+ 
+ <ul class="emheaderbuttons" >
+
+#if( $canviewhomelink )
+<li><a id="module"  href="$home$apphome/index.html"> Home </a></li>
+#end
+
+
+ </ul>
+
+
+<div style="float:right; margin-top:-30px;">
+
+#if ($canquicksearch)
+<div id="searchform" class="">
+<form id="search_form" action="$home$apphome/views/search/search.html" class="em-widget-content">
+	<input type="hidden" name="field" value="description" />
+	<input type="hidden" name="operation" value="startswith" />
+	#set( $input = "Search...")
+	#set( $input = $hits.getInput("description") )
+    <input type="text"  id="assetsearchinput" initialtext="Search..."  class="suggestsearchinput initialtext " name="description.value" value="$input" />
+</form>
+</div>
+#end
+
+
+</div>

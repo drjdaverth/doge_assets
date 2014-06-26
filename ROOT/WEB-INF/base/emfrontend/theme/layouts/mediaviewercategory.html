@@ -1,0 +1,4 @@
+#set( $hit = $hits.first() )
+#set( $asset = $mediaarchive.getAssetBySourcePath($hit.sourcepath) )
+$context.putPageValue("asset",$asset)
+$pages.include("$themeprefix/layouts/mediaviewer.html",$context)

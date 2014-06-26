@@ -1,0 +1,11 @@
+<page>
+	<inner-layout>/${applicationid}/views/links/listinnerlayout.html</inner-layout>
+	<property name="title">
+		<value>Links Editor - OpenEdit</value>
+		<value locale="es">Editor de Enlaces - OpenEdit</value>
+	</property>
+	<property name='text.description'>
+		<value>Click on a link to edit. You can sort the links up and down.</value>
+		<value locale="es">Haga Click sobre el enlace a editar. Puede ordenar los enlaces hacia arriba y abajo.</value>
+	</property>	
+</page>

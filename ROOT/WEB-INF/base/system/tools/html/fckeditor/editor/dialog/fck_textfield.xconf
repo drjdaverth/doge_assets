@@ -1,0 +1,34 @@
+<page>
+	<property name='text.Text Field Properties'>
+        	<value>Text Field Properties</value>
+		<value locale="es">Propiedades de Campo de Texto</value>
+    	</property>
+	<property name='text.Name'>
+        	<value>Name</value>
+		<value locale="es">Nombre</value>
+    	</property>
+	<property name='text.Value'>
+        	<value>Value</value>
+		<value locale="es">Valor</value>
+    	</property>
+	<property name='text.Character Width'>
+        	<value>Character Width</value>
+		<value locale="es">Cantidad de Caracteres de Ancho</value>
+    	</property>
+	<property name='text.Maximum Characters'>
+        	<value>Maximum Characters</value>
+		<value locale="es">Cantidad Máxima de Caracteres</value>
+    	</property>
+	<property name='text.Type'>
+        	<value>Type</value>
+		<value locale="es">Tipo</value>
+    	</property>
+	<property name='text.Text'>
+        	<value>Text</value>
+		<value locale="es">Texto</value>
+    	</property>
+	<property name='text.Password'>
+        	<value>Password</value>
+		<value locale="es">Contraseña</value>
+    	</property>
+</page>

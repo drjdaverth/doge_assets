@@ -1,0 +1,44 @@
+#set( $searcher = $searcherManager.getSearcher($catalogid,"mediaalbum"))
+$context.putPageValue("searcher",$searcher)
+
+#set( $parents = $searcher.getAllHits($context) )
+
+
+<div id="resultsdiv" data-hitssessionid="$hits.getSessionId()">
+
+    <div class="simple-content clearfix">
+#foreach( $parent in $parents)
+        <div class="one-to-many clearfix">
+            <div class="group-title"><a href="#">$parent</a></div>
+            <div class="table-row">
+                <div class="table-cell group-image">
+              $context.putPageValue('data',  $parent )
+              $context.putPageValue('val',  $parent.thumb )
+              $context.putPageValue('detail',  $searcher.getDetail("thumb") )
+              $pages.include("$apphome/components/moduleresults/cell.html", $context)    
+                
+                </div>
+                <div class="table-cell">
+                    <ul>
+                        <li class="table-header">
+                            <span class="title">Song Title</span>
+                            <span class="status">Status</span>
+                        </li>
+                        #set( $songsearcher = $searcherManager.getSearcher($catalogid,"song") ) 
+                        #set( $rows = $songsearcher.fieldSearch("mediaalbum_id",$parent.id) )
+                        #foreach($child in $rows)
+                        <li>
+                            <span class="title"><a href="$home$apphome/view/index.html?id=${child.id}&viewid=songmasters&viewpath=song/songmasters">$child</a></span>
+                            <span class="status">$!searcherManager.getData($catalogid,"songstatus",$child.status)</span>
+                        </li>
+                        #end
+                        <li class="add-song">                        
+                            <a class="btn emdialog" href="$home$apphome/components/detaileditor/generictablesave.html?candelete=true&editpath=$apphome/components/detaileditor/generictablesave.html&parentid=$parent.id&searchtype=song&fieldexternalid=mediaalbum_id&fieldexternalvalue=${parent.id}&viewid=mediaalbumsongs&viewpath=mediaalbum/mediaalbumsongs&selectlink=$apphome/components/detaileditor/generictablesave.html&edit=true&oemaxlevel=1">Add New Song</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+#end
+    </div>
+</div>

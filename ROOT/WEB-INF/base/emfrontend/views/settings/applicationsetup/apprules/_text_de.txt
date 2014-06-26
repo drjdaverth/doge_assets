@@ -1,0 +1,7 @@
+#
+#Thu Apr 08 15:20:42 EDT 2010
+Select\ a\ group=W\u00E4hlen Sie eine Gruppe
+PERMISSIONS=Berechtigungen
+Select\ a\ catalog=W\u00E4hlen Sie einen Katalog
+Catalogs=Kataloge
+Groups=Gruppen

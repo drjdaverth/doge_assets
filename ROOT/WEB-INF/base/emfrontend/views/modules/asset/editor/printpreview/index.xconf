@@ -1,0 +1,5 @@
+<page>
+
+	<path-action name="DataEditModule.loadCorrectViewForUser" />
+<inner-layout>/${applicationid}/views/modules/asset/editor/printpreview/printlayout.html</inner-layout>
+</page>

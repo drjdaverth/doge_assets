@@ -1,0 +1,10 @@
+#set( $searchtype = "approvals")
+#set( $fieldexternalid = "assetid")
+#set( $fieldexternalvalue = $asset.getId())
+#set( $permissionname = "caneditasset")
+#set ($view = "approvals/details")
+
+#set( $args = "assetid=$asset.id&catalogid=$mediaarchive.getCatalogId()&searchtype=$searchtype&fieldexternalid=$fieldexternalid&fieldexternalvalue=$fieldexternalvalue&listid=$listid&listexternalid=$listexternalid&permissionname=$permissionname&view=$view")
+
+$pages.include("$apphome/components/detaileditor/generictable.html?$args", $context)
+

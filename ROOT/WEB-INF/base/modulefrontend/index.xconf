@@ -1,0 +1,6 @@
+<page>
+	<path-action name="DataEditModule.search">
+		<searchtype>${appmodule}</searchtype>
+	</path-action>
+	<property name="hitssessionid">hits${module}${catalogid}</property>
+</page>

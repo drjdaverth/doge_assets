@@ -1,0 +1,32 @@
+#
+#Tue Apr 27 10:36:27 CLT 2010
+Date\ Format=Formato de Fecha
+Save=Guardar
+View\ Type=Tipo de Vista
+List=Lista
+Date=Fecha
+File=Archivo
+List\ Id=Id de Lista
+List\ Query=Cosulta de la Lista
+Is\ Keyword=Es Palabra Clave
+In\ Filters=En Filtros
+Foreign\ Key\ ID=Clave Foránea
+Go\ Back=Volver
+Field\ Setup=Configuración de Campos
+Stored=Guardado
+List\ Catalog\ Id=Id del Catálogo de la Lista
+Index=\u00CDndice
+External\ ID=ID Externo
+Label=Etiqueta
+Permission=Permiso
+Data\ Type=Tipo de Datos
+Add\ New\ Field=Agregar Nuevo Campo
+Multi-Select=Selecci\u00F3n M\u00FAltiple
+delete=eliminar
+Image=Imagen
+Delete\ Field=Eliminar Campo
+Text\ Join=Unión de Texto
+List\ Sort\ Field=Campo de Orden de la Lista
+Boolean=Lógico
+Number=N\u00FAmero
+

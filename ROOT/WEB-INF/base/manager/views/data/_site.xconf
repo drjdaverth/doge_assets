@@ -1,0 +1,5 @@
+<page>
+	<path-action name="DataEditModule.loadSearchTypes" />
+	<property name="hitsname">datalist</property>
+	<property name="dataroot">/${applicationid}/views/data</property>
+</page>

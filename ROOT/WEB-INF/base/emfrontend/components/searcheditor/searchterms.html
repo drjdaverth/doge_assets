@@ -1,0 +1,13 @@
+#set( $inputed = $term.getValue())
+$context.putPageValue("inputed", $inputed)
+
+<tr class="emsearchfieldrow">
+	<td  class="emsearchfield">$!detail.getText($context) </td>
+	<td id="term_$term.id"  class="emsearchfieldvalue" >
+			#set( $baseid = "${detail.catalogId}:$!{detail.view}:${detail.id}" )
+			<input name="field" value="$baseid" type="hidden">
+			<input name="termid" value="$term.id" type="hidden" />
+			$pages.include("/$applicationid/components/advancedsearch/detail.html", $context)
+	</td>
+	<td width="100%" align="left"><a href="#" onclick="return removeTerm('${term.id}')"><img src="$home/system/images/toolbar/deletefile.gif"/></a></td>
+</tr>

@@ -1,0 +1,4 @@
+<page>
+	<property name="assetrootfolder">/${catalogid}/data/originals</property>
+	<property name="oecheckfilepermissions">true</property>
+</page>

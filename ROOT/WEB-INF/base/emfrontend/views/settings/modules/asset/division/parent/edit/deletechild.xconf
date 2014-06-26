@@ -1,0 +1,6 @@
+<page>
+	<path-action name="DataEditModule.deleteData" >
+		<searchtype>${childtype}</searchtype>	
+	</path-action>
+	<inner-layout />
+</page>

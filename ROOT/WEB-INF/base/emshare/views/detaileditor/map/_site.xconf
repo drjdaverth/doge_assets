@@ -1,0 +1,3 @@
+<page>
+	<inner-layout>${themeprefix}/layouts/detaileditor.html</inner-layout>
+</page>

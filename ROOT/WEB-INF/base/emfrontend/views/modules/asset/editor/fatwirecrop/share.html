@@ -1,0 +1,27 @@
+
+ 
+<a class="thickbox btn" href="$home$apphome/views/modules/asset/downloads/generatedpreview/${asset.sourcepath}/${presetdata.outputfile}/$mediaarchive.asExportFileName($asset, $presetdata)">Preview</a>
+<a class="btn" href="$home$apphome/views/modules/asset/downloads/generated/${asset.sourcepath}/${presetdata.outputfile}/$mediaarchive.asExportFileName($asset, $presetdata)">Download</a>
+#if($canembedasset)
+<a class="btn ajax" id="${presetdata.id}-btn" targetdivinner="${presetdata.id}-embed" href="$home$apphome/views/modules/asset/editor/fatwirecrop/embed.html?assetid=${asset.id}&outputfile=${presetdata.outputfile}&oemaxlevel=1">Embed</a>
+#end
+
+
+<div id="${presetdata.id}-embed"></div>
+
+<script>
+	$( "#${presetdata.id}-btn" ).click(function() {
+		var status = $(this).attr("isShowing");
+		if (status == undefined){
+			$( this ).attr("isShowing", "true");
+			return;
+		}
+		if (status == "true"){
+			$( this ).attr("isShowing", "false");
+			$("#${presetdata.id}-embed").hide();
+		} else {
+			$( this ).attr("isShowing", "true");
+			$("#${presetdata.id}-embed").show();
+		}
+	});
+</script>

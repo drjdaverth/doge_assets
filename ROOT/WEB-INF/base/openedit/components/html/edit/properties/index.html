@@ -1,0 +1,48 @@
+<form  method="post" 
+	action="$home/openedit/components/html/edit/seo/save.html" >
+	
+#set ( $editPath = $editorSession.getEditPath() )
+#set ( $origURL = $context.getRequestParameter("origURL") )
+<input name="editPath" type="hidden" value="$!editPath" />
+<input name="origURL" type="hidden" value="$!origlURL" />
+
+<div style="height: 400px;">
+
+<h2>File Properties: $editPage.path</h2>
+
+		#set( $revision = $pageManager.getLatestVersion($editPage.path) )
+		#if( $revision.author )	[[Last Edited By]]: $revision.author on 
+		#else
+		[[Last Edited]]:
+		#end	
+		$editPage.getLastModified("MM/dd/yy h:mm a") <br>	[[File Size]]: $filesize.inEnglish( $editPage.path )
+
+
+<ul class="list-group">
+<a href="#" class="list-group-item active">
+   Fallbacks
+  </a>
+#foreach( $fallback in $editPage.getPageSettings().getFallBacks() )
+  #set($targeturl = "$fallback.getParentPath()/$editPage.getName()" )
+  #set($real = $pages.doesExist($targeturl))
+  
+  <li class="list-group-item"><a href="$apphome/components/html/edit/htmledit/index.html?editPath=$targeturl&path=$targeturl">$targeturl #if(!$real) <span class="badge"> virtual</span> #end</a> </li>
+#end
+ 
+</ul>
+
+
+<br>
+
+  <table class="oepropertiestable" >
+  	<tr>
+   	<td class="oetableleft">[[Editable]]</td>
+	<td  class="oetableright">
+		<input type="hidden" name="field" value="editable" />
+		<input type="checkbox" name="editable.value" #if( $editPage.get('editable') == "true")checked#end />
+	</td>  
+   </tr>   
+   </table>
+	
+</div>
+

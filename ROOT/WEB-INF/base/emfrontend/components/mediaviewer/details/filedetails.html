@@ -1,0 +1,14 @@
+<div class="emdetailsbox">
+#if( $asset.assetaddeddate )
+[[Added:]]	<span class="emdetaildate">$!context.getDate($asset.assetaddeddate)</span>
+#end
+
+#if( $canviewviews )
+#set( $views = $mediaarchive.getAssetStatsManager().getViewsForAsset($asset))
+<span class="emdetailviews">
+#if( $views > 0 )
+[[has]] <a href="$home$apphome/components/mediaviewer/views/index.html?foldername=/${asset.catalogid}/assetpreviewLog&field=sourcepath&sourcepath.value=$asset.sourcepath&operation=exact">$views views</a>
+#end
+</span>
+#end
+</div>

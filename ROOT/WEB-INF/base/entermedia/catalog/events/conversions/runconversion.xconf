@@ -1,0 +1,7 @@
+<page>
+	<property name="eventname">Run media conversion on one asset</property>	
+	<property name="eventdescription">Check for conversions that need to be run</property>	
+		<path-action name="Script.run" allowduplicates="true" >
+		<script>/${catalogid}/events/scripts/conversions/runconversions.groovy</script>
+	</path-action>
+</page>

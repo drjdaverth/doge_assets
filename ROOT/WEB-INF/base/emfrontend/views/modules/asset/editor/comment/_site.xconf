@@ -1,0 +1,7 @@
+<page>
+	<page-action name="AssetEditModule.getAsset"  />
+	<page-action bean="commentArchive" name="PageValue.loadPageVariable"/>
+	<property name="assetrootfolder">/${catalogid}/assets</property>
+	<property name="commenttype">asset</property>
+		<property name="assettab">comment</property>
+</page>

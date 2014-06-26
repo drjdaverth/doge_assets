@@ -1,0 +1,5 @@
+<properties usagelabel="Specify columns used on results Table Data view">
+	<property id="name"/>
+	<property id="assettitle"/>
+	<property id="assetaddeddate" />	
+</properties>

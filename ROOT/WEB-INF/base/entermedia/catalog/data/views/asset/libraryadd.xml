@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties usagelabel="Library Picker">
+<property id="division" editable="true"/>
+<property id="libraries" foreignkeyid="division" editable="true"/>
+</properties>

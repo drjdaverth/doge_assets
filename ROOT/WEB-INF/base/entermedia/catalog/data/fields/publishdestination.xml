@@ -1,0 +1,40 @@
+<properties>
+	<property id="id" index="true" stored="true">Destination ID</property>
+	<property id="name" editable="true" index="true" stored="true">Destination</property>
+	
+	<property id="publishtype"  index="true" stored="true" editable="true" viewtype="list" type="list">Publish Type</property>
+	<property id="notifyadmin" index="true" stored="true" editable="true" type="boolean" >Notify Administrator</property>
+	
+	<property id="server" index="true" stored="true" editable="true" >Server IP</property>
+	<property id="url" index="true" stored="true" editable="true" >Path/URL</property>
+	<property id="onimport" index="true" type="boolean" stored="true" editable="true" >On Import</property>
+	<property id="remotempublish" index="true" type="boolean" stored="true" editable="true"  note="Tries to publish locally first">Allow Remote Monitoring</property>
+	<property id="onlyremotempublish" index="true" type="boolean" stored="true" editable="true" note="Always handled remotely" >Force Remote Publishing</property>
+
+<!-- Amazon -->
+	<property id="bucket" index="true" stored="true" editable="true" >Bucket</property>
+	<property id="accesskey" index="true" stored="true" editable="true" >Access Key</property>
+	<property id="secretkey" index="true" stored="true" editable="true" >Secret Key</property>
+
+	<property id="username"  index="true" stored="true" editable="true">User Name</property>
+	<property id="password"  index="true" stored="true" editable="true">Password</property>
+	<property id="convertpreset" index="true" stored="true" editable="true" type="list" >Default Profile</property>
+	
+	<property id="company" index="true" stored="true" editable="true" >Company Name</property>
+	<property id="division" index="true" stored="true" editable="true" >Division</property>
+		
+	<property id="technicalcontact" index="true" stored="true" editable="true" >Technical Contact</property>
+	<property id="technicalphone" index="true" stored="true" editable="true" >Technical Phone</property>
+	<property id="technicalemail" index="true" stored="true" editable="true" >Technical Email</property>
+
+	<property id="administrativecontact" index="true" stored="true" editable="true" >Administrative Contact</property>
+	<property id="administrativephone" index="true" stored="true" editable="true" >Administrative Phone</property>
+	<property id="administrativeemail" index="true" stored="true" editable="true" >Administrative Email</property>
+	
+	<property id="emergencycontact" index="true" stored="true" editable="true" >Emergency Contact</property>
+	<property id="emergencyphone" index="true" stored="true" editable="true" >Emergency Phone</property>
+	<property id="emergencyemail" index="true" stored="true" editable="true" >Emergency Email</property>
+
+
+	
+</properties>

@@ -1,0 +1,27 @@
+<page>
+	<property name='text.Folder already exists'>
+        	<value>Folder already exists</value>
+		<value locale="es">El directorio ya existe</value>
+    	</property>
+	<property name='text.Invalid folder name'>
+        	<value>Invalid folder name</value>
+		<value locale="es">Nombre de directorio incorrecto</value>
+    	</property>
+	<property name='text.You have no permissions to create the folder'>
+        	<value>You have no permissions to create the folder</value>
+		<value locale="es">Usted no tiene permisos para crear el directorio</value>
+    	</property>
+	<property name='text.Unknown error creating folder'>
+        	<value>Unknown error creating folder</value>
+		<value locale="es">Error desconocido al crear el directorio</value>
+    	</property>
+	<property name='text.Error on your request. Error number'>
+        	<value>Error on your request. Error number</value>
+		<value locale="es">Error en su petición. Número del error</value>
+    	</property>
+	<property name='text.Create New Folder'>
+        	<value>Create New Folder</value>
+		<value locale="es">Crear Nuevo Directorio</value>
+    	</property>
+</page>
+

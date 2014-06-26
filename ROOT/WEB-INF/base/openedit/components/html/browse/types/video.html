@@ -1,0 +1,5 @@
+#set($sourcepath = $context.getRequestParameter('sourcepath'))
+#set($asset = $mediaarchive.getAssetBySourcePath($sourcepath))
+$context.putPageValue("asset", $asset)
+
+$pages.include("${cataloghome}/mediaplayer/index.html", $context)

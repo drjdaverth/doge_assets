@@ -1,0 +1,9 @@
+<page>
+	<path-action name="DataEditModule.saveData" />
+	
+	<path-action name="DataEditModule.loadPageOfSearch" />
+	<property name="save">true</property>
+
+	<property name="searchtype" />
+			
+</page>

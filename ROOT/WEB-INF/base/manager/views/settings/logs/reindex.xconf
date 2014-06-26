@@ -1,0 +1,8 @@
+<page>
+	<path-action name="LogSearchModule.reindexLogs"/>
+	<property name='text.Reindex Complete'>
+        	<value>Reindex Complete</value>
+		<value locale="es">Re-indexación Completada</value>
+    	</property>
+
+</page>

@@ -1,0 +1,83 @@
+#set( $xmledithome = $context.getPageProperty("xmledithome"))
+#set( $readonly = "false" )
+#set( $readonly = $context.getRequestParameter("detailsreadonly"))
+
+##We need 3 things passed in: $searcher, $view, $data
+#if ($view)
+	#if( $context.getUserProfile() )
+		#set ($details = $searcher.getDetailsForView($view, $context.getUserProfile()))
+	#else
+		#set ($details = $searcher.getDetailsForView($view))
+	#end
+	#if( !$details)
+		404 on view:  $searcher.getCatalogId() $searcher.getSearchType() $view
+	#end
+#else
+	##leagacy check. We used to pass in the $details
+	#if( !$details)
+	#set ($details = $searcher.getPropertyDetails())
+	#end
+#end	
+
+<div class="oeinputform validate-inputs">
+<div id="allerrors">
+</div>
+ #foreach( $detail in $details )
+ 	<div class="inputformrow">
+	#set($val = false)
+	#set($target = "${detail.id}.value")
+	#set( $val = $context.getRequestParameter($target))					
+	#if( $searcherManager )
+		#set( $val = $searcherManager.getValue($data,$detail) )	
+	#else
+		#set( $val = $!{data.getProperty($detail.getId())} )
+	#end
+	
+	#if( !$val)
+		#set( $val = $!{data.get($detail.getId())} )
+	#end
+	
+	$!context.putPageValue("detail",$detail)
+	
+	#if ($detail.header)
+		#if ($detail.header != "blank")
+			<div class="header"><h4>$detail.header</h4></div>
+		#end
+	#end
+	#set( $editrow = $detail.isEditable() && $readonly != "true") 
+	#if( $editrow || $val  || !$detail.isEditable()) 
+		#if( !$val) #set( $val = "") #end	
+		$!context.putPageValue("val",$val)
+			#if( $detail.hidelabel == true )
+			#else
+				<span class="emdatafield" >
+						$!detail.getText($context)
+				</span>
+			#end
+		<div id="detail_$detail.id" class="emdatafieldvalue #if ($detail.isRequired()) requiredfield #end">
+		#if( $editrow )	
+			$pages.include("$xmledithome/detailedit.html", $context)
+		#else  ##NOT EDITABLE
+			$pages.include("$xmledithome/detailreadonly.html", $context) 
+		#end
+		#if ( $detail.note )
+			<span class="detail-note">$detail.note<span>
+		#end
+		</div>
+	#end
+	#if ($detail.viewType && ($detail.viewType == "html" || $detail.viewType == "largehtml"))
+		#if($usedhtml)
+			#set( $usedhtml = "htmltextarea=${detail.getId()}&$usedhtml")
+		#else
+			#set( $usedhtml = "htmltextarea=${detail.getId()}")
+		#end
+	#end
+	</div>
+#end
+</div>
+
+##needed for fast loading HTML edit boxes
+#if( $usedhtml && $readonly !=  "true") 
+	$pages.include("/system/tools/html/textarea.html?$usedhtml")	
+#end
+ 

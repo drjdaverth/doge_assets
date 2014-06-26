@@ -1,0 +1,45 @@
+#if ( !$hit )
+	#set( $hit = $asset )
+#end
+
+#if($conversionerrors && $conversionerrors.size() >0)
+	<div style="padding-top:30px;">
+	#if($canviewsettings)
+		<span style="color:red;">Conversion Error</span><br/>
+		<a class="btn" href="$home$apphome/views/modules/asset/editor/converthistory/index.html?sourcepath=$asset.sourcepath&hitssessionid=$!hits.getSessionId()">Troubleshoot</a>
+	#else
+		<span style="color:red;">Conversion Error</span><br/>
+		<span>Please contact your administrator.</span>
+	#end
+	</div>
+#elseif($publisherrors && $publisherrors.size() >0)
+	<span style="color:red;">Publish Error</span>
+	<a class="btn" href="$home$apphome/views/modules/asset/editor/historyexports/index.html?sourcepath=$asset.sourcepath&hitssessionid=$!hits.getSessionId()">Troubleshoot</a>
+	
+#elseif( $hit.importstatus && $hit.importstatus == "complete")
+	$pages.include("$apphome/components/mediaviewer/player/player.html",$context)
+#elseif($conversionsremaining && $conversionsremaining.size()  > 0)
+	<div id="status$hit.id" class="ajaxstatus"  ajaxpath="$home$apphome/components/convertqueue/importstatusplayer.html?assetid=$hit.id" style="width:550px;height:350px;">
+		<div style="padding-top:150px;">
+			<img title="Creating Proxy Step ${conversionsremaining.size()}/${conversions.size()}" src="$home$themeprefix/images/ajax-loader.gif" />
+			<br/>
+			Creating Proxy Step ${conversionsremaining.size()}/${conversions.size()}
+		</div>
+	</div>
+#elseif($publish && $publish.size() >0 )
+	<div id="status$hit.id" class="ajaxstatus"  ajaxpath="$home$apphome/components/convertqueue/importstatusplayer.html?assetid=$hit.id" style="width:550px;height:350px;">
+		<div style="padding-top:150px;">
+			<img title="Publishing Proxy $publish.size()" src=$"home$themeprefix/images/ajax-loader.gif" />
+			<br/>
+			Publishing Proxy $publish.size()
+		</div>
+	</div>
+#elseif($conversions && $conversions.size() == 0)
+	<div id="status$hit.id" class="ajaxstatus"  ajaxpath="$home$apphome/components/convertqueue/importstatusplayer.html?assetid=$hit.id" style="width:550px;height:350px;">
+		<div style="padding-top:150px;">
+			<img title="Adding to Queue" src="$home$themeprefix/images/ajax-loader.gif" />
+			<br/>
+			Adding to Queue
+		</div>
+	</div>
+#end

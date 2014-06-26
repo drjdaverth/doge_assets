@@ -1,0 +1,17 @@
+##We need 2 things passed in: $searcher, $view or $searcher $details
+#if (!$details && $view)
+	#set ($details = $searcher.getDetailsForView($view, $user))
+#end
+
+#set($usestartswith = $page.isPropertyTrue('usestartswith'))
+
+<table 	 width="100%">
+	#foreach( $detail in $details)
+		$context.putPageValue("detail", $detail)
+		#if ($detail.isLeaf())
+			$pages.include("/${applicationid}/components/advancedsearch/field.html", $context)
+		#else
+			$pages.include("/${applicationid}/components/advancedsearch/section.html", $context)
+		#end
+	#end
+</table>

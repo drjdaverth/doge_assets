@@ -1,0 +1,10 @@
+<page>
+	<inner-layout>./layout.html</inner-layout>
+	<layout />
+	<path-action name="MediaArchiveModule.getAsset" alltypes="true"/>
+	<path-action name="Admin.loadPermissions" alltypes="true"/>
+	<property name="assetrootfolder">/${catalogid}/downloads/asx</property>
+	<property name="virtual">true</property>
+	<property name="forcelayout">true</property>
+	<generator name="velocityGenerator" />
+</page>

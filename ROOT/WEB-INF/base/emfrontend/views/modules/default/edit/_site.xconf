@@ -1,0 +1,13 @@
+<page>
+	<path-action name="DataEditModule.loadSearcherForEdit" >
+		<property name="searchtype">${module}</property>
+	</path-action>
+  <path-action name="DataEditModule.loadHits">
+ 	 <searchtype>${module}</searchtype>
+  </path-action>
+
+	<property name="detailtab">${module}metadatageneral</property>
+	<property name="detailsubtab">${module}metadatageneral</property>
+
+	<inner-layout>${searchhome}/edit/innerlayout.html</inner-layout>
+</page>

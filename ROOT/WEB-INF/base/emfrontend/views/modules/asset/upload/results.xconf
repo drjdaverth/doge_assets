@@ -1,0 +1,7 @@
+<page>
+	<property name="hitsname">hits</property>
+	<property name="searchtype">asset</property>
+	
+	<page-action name="AssetEditModule.loadRecentUploads" />
+	<property name="clearonload">true</property>
+</page>

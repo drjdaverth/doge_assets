@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+    	<property name="title">
+		<value>Show Revision</value>
+		<value locale="es">Mostrar Revisión</value>
+	</property>
+	<property name="group">welcome</property>
+	
+	<page-action name="RevisionEditor.getRevisionContent" />
+	<property name='text.showrevision'>
+        	<value>SHOW REVISION</value>
+		<value locale="es">MOSTRAR REVISIÓN</value>
+    	</property>
+	<property name='text.currentversion'>
+        	<value>Current Version</value>
+		<value locale="es">Versión Actual</value>
+    	</property>
+	<property name='text.cancel'>
+        	<value>Cancel</value>
+		<value locale="es">Cancelar</value>
+    	</property>
+	<property name='text.oldversion'>
+        	<value>Old Version</value>
+		<value locale="es">Versión Antigua</value>
+    	</property>
+	<property name='text.usethisrevision'>
+        	<value>Use This Revision</value>
+		<value locale="es">Utilice Esta Revisión</value>
+    	</property>
+	<property name='text.revisioninfo'>
+        	<value>Revision Information</value>
+		<value locale="es">Información de la Revisión</value>
+    	</property>
+	<property name='text.Author'>
+        	<value>Author</value>
+		<value locale="es">Autor</value>
+    	</property>
+	<property name='text.Message'>
+        	<value>Message</value>
+		<value locale="es">Mensaje</value>
+    	</property>
+	<property name='text.Version'>
+        	<value>Version</value>
+		<value locale="es">Versión</value>
+    	</property>
+</page>

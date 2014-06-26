@@ -1,0 +1,5 @@
+#
+#Thu Apr 29 09:39:27 CLT 2010
+Category\ Id=ID de Categor\u00EDa
+Short\ Description=Descripci\u00F3n Breve
+Category\ Name=Nombre de Categor\u00EDa

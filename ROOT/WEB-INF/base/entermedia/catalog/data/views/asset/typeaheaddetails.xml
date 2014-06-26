@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties usagelabel="General">
+
+	<property id="assettitle"/>
+
+ 	<property id="assettype" />
+	<property id="name"/>
+	<property id="filesize" />
+</properties>

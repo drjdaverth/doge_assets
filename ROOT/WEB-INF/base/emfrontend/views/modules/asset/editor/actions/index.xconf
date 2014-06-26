@@ -1,0 +1,6 @@
+<page>
+	<property name="text.is not filled in">
+		<value>is not filled in</value>
+		<value locale="es">no se ha ingresado</value>
+	</property>
+</page>

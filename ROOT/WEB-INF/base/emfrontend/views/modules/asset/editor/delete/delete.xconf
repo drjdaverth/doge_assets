@@ -1,0 +1,4 @@
+<page>
+	<path-action name="AssetEditModule.deleteAssets"/>
+	<property name="assettab">deleteasset</property>
+</page>

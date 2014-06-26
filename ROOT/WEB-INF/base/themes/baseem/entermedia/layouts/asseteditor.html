@@ -1,0 +1,92 @@
+#macro (display $filename $assetid $view $print)
+	$context.putPageValue("view", $view)
+	#if ($print && $print == "true")
+		$pages.include("$cataloghome/detailviewer/$filename?assetid=$assetid&view=$view&print=true&pluginpath=$cataloghome/detailviewer/$filename", $context)
+	#else
+  		$pages.include("$cataloghome/detailviewer/toggle.html?pluginpath=$cataloghome/detailviewer/$filename&assetid=$assetid&view=$view",$context)
+  	#end
+#end
+
+<link href="$home${themeprefix}/entermedia/styles/pages/settings.css" rel="stylesheet" type="text/css">
+
+<div id="emmediaviewer">
+
+#if( $asset )
+<h2>Asset Details</h2>
+#set( $olink = $mediaarchive.asLinkToOriginal($asset))
+#set ($mediumend = $mediaarchive.getLinkToMedium($asset.sourcePath, $asset.fileformat))
+#set ($thumbend = $mediaarchive.getLinkToThumb($asset.sourcePath, $asset.fileformat))
+$context.putPageValue("olink",$olink)
+$context.putPageValue("mediumend",$mediumend)
+$context.putPageValue("thumbend",$thumbend)
+
+#set( $tsize = "$home$thumbend?assetid=$asset.id")
+#set( $msize = "$home$mediumend")
+
+
+<table>
+	<tr>
+	<td style="vertical-align:top;">
+
+	$pages.include("$cataloghome/detailviewer/assetmenu.html",$context)
+	</td>
+	<td style="vertical-align:top;">
+	  <b class="spiffytwo">
+	  <b class="spiffytwo1"><b></b></b>
+	  <b class="spiffytwo2"><b></b></b>
+	  <b class="spiffytwo3"></b>
+	  <b class="spiffytwo4"></b>
+	  <b class="spiffytwo5"></b></b>
+	  <div class="spiffyfgtwo">
+		<div class="emasseteditorarea">	
+		
+			$pages.include("$cataloghome/detailviewer/navigate.html")
+			#set( $inpreviewpage = false )
+			#if( $content.assetrootfolder && $content.path.startsWith($content.assetrootfolder) )
+				#set( $inpreviewpage = true )
+			#elseif( $content.assetrootfolder && $content.path.startsWith($content.assetrootfolder) )
+				#set( $inpreviewpage = true )
+			#elseif( $content.path.endsWith("detailviewer/index.html") )
+				#set( $inpreviewpage = true )
+			#end
+		
+			#if( $inpreviewpage )
+				$pages.include("$cataloghome/detailviewer/index.html?assetid=$asset.id")
+			#else
+				#if( $asset.getId().startsWith("multiedit:") )
+				<h2>[[Editing across $asset.size() records]]</h2>
+				#end
+				$pages.includeContent()
+			#end
+		</div>
+
+	  </div>	
+	  <b class="spiffytwo">
+	  <b class="spiffytwo5"></b>
+	  <b class="spiffytwo4"></b>
+	  <b class="spiffytwo3"></b>
+	  <b class="spiffytwo2"><b></b></b>
+	  <b class="spiffytwo1"><b></b></b></b>
+</td>
+</tr>
+</table>
+
+
+<script type="text/javascript" >
+	toggleEditSection = function(inId, inPath, inAssetID, inView)
+	{
+		var targetDiv = "#" + inId;
+		targetDiv = targetDiv.replace(/\//g, "\\/");
+		jQuery(targetDiv).load('$home$cataloghome/detailviewer/toggle.html', {id: inId, pluginpath: inPath, origURL: "$content.path", assetid:inAssetID, view:inView });
+	}	
+</script>
+
+
+#else
+
+$pages.stream("${cataloghome}/crumbs/categories.html")
+
+[[Asset is missing]]
+
+#end
+</div>

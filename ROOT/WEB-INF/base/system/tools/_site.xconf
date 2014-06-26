@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<page>
+	<property name="editable">false</property>
+	<view-requirements>
+		<permission name="oe.edit"/>
+	</view-requirements>
+</page>

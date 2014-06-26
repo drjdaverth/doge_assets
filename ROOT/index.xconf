@@ -1,0 +1,7 @@
+<page>
+	<property name="title">EnterMedia Applications</property>
+	<style id="theme" href="/theme/styles/theme.css" />
+	
+	<path-action name="DataEditModule.loadSearcherManager" />
+	<inner-layout>/theme/layouts/layout.html</inner-layout>
+</page>

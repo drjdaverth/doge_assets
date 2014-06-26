@@ -1,0 +1,62 @@
+#set( $inputed = "$!query.getInput($termid)" )
+
+<input type="hidden" name="${detail.id}.additionals" value="$additionals"/>
+
+<table>
+	<tr>
+		#foreach( $depend in $depends )
+			<td align="center">$depend.name</td>
+		#end
+		<td align="center">$detail.name</td>
+	</tr>
+	<tr>
+		#foreach( $depend in $depends )
+		<td align="center">
+			#set( $value = false )
+			#set( $value = $values.get($depend.id) )
+			<select name="${detail.id}.${depend.id}" id="${termid}${depend.id}" onchange="updatePicker${termid}('${catalogid}', '${detail.view}');">
+				<option></option>
+				#set( $query = $searchers.get($depend.id).createSearchQuery() )
+				#set( $hits = false )
+				#if( $foreignkey && $foreignvalue && $foreignvalue != "" ) )
+					<!-- $query.addMatches($foreignkey, $foreignvalue) -->
+				#else
+					<!-- $query.addMatches("id", "*") -->
+				#end
+				#if( $depend.sort )
+					<!-- $query.setSortBy($depend.sort) -->
+				#end
+				#set( $hits = $searchers.get($depend.id).search($query) )
+				
+				#foreach( $item in $hits )
+				<option value="$item.id" #if( $value && $value == $item.id) selected="true" #end>$item.name</option>
+				#end
+			</select>
+			#set( $foreignkey = $depend.id )
+			#set( $foreignvalue = $value )
+		</td>
+		#end
+		
+		<td align="center">
+			<input type="hidden" name="operation" value="is"/>
+			<select id="pickervalue_$termid" name="${detail.id}.value" >
+				<option></option>
+				#set( $query = $searcher.createSearchQuery() )
+				#set( $hits = false )
+				#if( $foreignkey && $foreignvalue && $foreignvalue != "" ) )
+					<!-- $query.addMatches($foreignkey, $foreignvalue) -->
+				#else
+					<!-- $query.addMatches("id", "*") -->
+				#end
+				#if( $detail.sort )
+					<!-- $query.setSortBy($detail.sort) -->
+				#end
+				#set( $hits = $searcher.search($query) )
+				#foreach( $item in $hits )
+				<option value="$item.id" #if( $inputed == $item.id ) selected="true" #end>$item.name</option>
+				#end
+			</select>
+		</td>
+		
+	</tr>
+</table>

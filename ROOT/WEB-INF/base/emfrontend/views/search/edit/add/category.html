@@ -1,0 +1,25 @@
+<script type="text/javascript" src="$home$apphome/components/javascript/jstree/jquery.jstree.js"></script>
+<script type="text/javascript" src="$home$apphome/components/javascript/jstree/_lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="$home$apphome/components/javascript/jstree/_lib/jquery.hotkeys.js"></script>
+
+#set( $view = "asset/advancedsearch")
+#set( $searcher = $mediaarchive.getAssetSearcher())
+#set( $detailid = $context.getRequestParameter("detailid") )
+##set( $detail = $searcher.getDetailForView("asset/searchselect", $detailid, $user) )
+#set( $detail = $searcher.getDetail("category") )
+
+<form name="saveform" action="$home$apphome/views/search/edit/addparamfinish.html">
+	<input name="queryid" value="$query.id" type="hidden" />
+	<input name="orgroup" value="$detail.id" type="hidden">
+	<input name="detailid" value="$detail.id" type="hidden">
+		<div class="ui-widget" style="overflow: hidden;">
+		<div class="ui-widget-header">Categories</div>
+		<div  class="ui-widget-content emselectmenu">
+	$context.putPageValue("detail",$detail)
+	$pages.include("$apphome/components/xml/types/category.html", $context)
+	</div></div>
+	
+	<input type="submit" class="btn small" value="Save"  />
+	<a class="btn small" href="">Cancel</a> 
+	
+</form>

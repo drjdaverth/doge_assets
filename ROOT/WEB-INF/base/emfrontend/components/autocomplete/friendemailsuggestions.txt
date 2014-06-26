@@ -1,0 +1,3 @@
+#foreach ($user in $suggestions)
+$user.screenname &lt;$user.email&gt;|$existingmail$user.screenname <$user.email>;
+#end

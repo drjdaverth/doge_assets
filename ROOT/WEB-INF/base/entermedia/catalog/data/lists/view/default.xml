@@ -1,0 +1,11 @@
+<properties>
+	
+	<property id="defaultadvancedsearch" module="default" systemdefined="true" byassettype="false">Advanced Search</property>
+	<property id="defaultresultstable" module="default" systemdefined="true" byassettype="false">Results Table</property>
+	<property id="defaultbatchedit" module="default" systemdefined="true" byassettype="false">Batch Edit</property>
+	<property id="defaultpopupdetail" module="default" systemdefined="true" byassettype="false">Popup Details</property>
+	<property id="defaultheaderdetail" module="default" systemdefined="true" byassettype="false">Header Details</property>
+	
+	
+	
+</properties>

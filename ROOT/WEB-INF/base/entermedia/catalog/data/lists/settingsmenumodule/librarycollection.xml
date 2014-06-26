@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+  <property id="librarycollectionviews" type="toplevel" module="librarycollection" parentid="librarycollectionviews" ordering="100" path="/views/settings/modules/librarycollection/metadata/views/index.html" sublabel="Editing">Views</property>
+  <property id="librarycollectionpermissions" type="toplevel" module="librarycollection" parentid="librarycollectionpermissions" ordering="300" path="/views/settings/modules/librarycollection/permissions/index.html" sublabel="Editing">Permissions</property>
+  <property id="librarycollectionsystemviews" module="librarycollection" parentid="librarycollectionviews" path="/views/settings/modules/librarycollection/metadata/viewssystem/index.html" ordering="110">System</property>
+</properties>
+  	

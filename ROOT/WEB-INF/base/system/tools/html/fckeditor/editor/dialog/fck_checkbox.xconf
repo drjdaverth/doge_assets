@@ -1,0 +1,18 @@
+<page>
+	<property name='text.Checkbox Properties'>
+        	<value>Checkbox Properties</value>
+		<value locale="es">Propiedades de la Casilla de Selección</value>
+    	</property>
+	<property name='text.Name'>
+        	<value>Name</value>
+		<value locale="es">Nombre</value>
+    	</property>
+	<property name='text.Value'>
+        	<value>Value</value>
+		<value locale="es">Valor</value>
+    	</property>
+	<property name='text.Checked'>
+        	<value>Checked</value>
+		<value locale="es">Habilitado</value>
+    	</property>
+</page>

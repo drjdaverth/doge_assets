@@ -1,0 +1,28 @@
+#set($viewid = $context.getRequestParameter("viewid"))
+#set($viewpath = $context.getRequestParameter("viewpath"))
+#set($moduleid = $context.findValue("module"))
+#set($hitssessionid = $context.getRequestParameter('hitssessionid'))
+
+
+#set($viewsearcher = $searcherManager.getSearcher($catalogid, "view"))
+#set( $viewdata = $viewsearcher.searchById($viewid))
+
+#set( $searchtype = $viewdata.rendertable )
+#set( $fieldexternalid = $viewdata.renderexternalid)
+
+#set( $permissionname = "canedit${moduleid}")
+#set ( $id = $context.getRequestParameter("id") )
+#if ( $!id )
+    #set ( $id = $data.id )
+    #set( $fieldexternalvalue = $data.getId())
+#end
+#set( $fieldexternalvalue = $id )
+
+$context.putPageValue("canedittable", $caneditdata)
+
+
+#set( $args = "id=$id&parentid=$id&searchtype=$searchtype&fieldexternalid=$fieldexternalid&fieldexternalvalue=$fieldexternalvalue&permissionname=$permissionname&hitssessionid=$hitssessionid")
+##set( $args = "$args&editorpath=")
+$pages.include("$apphome/components/detaileditor/generictable.html?$args", $context)
+
+<div class="tab-actions"></div>

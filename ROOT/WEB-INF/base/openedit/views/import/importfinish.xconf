@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+<path-action name="Page.uploadFile"/>
+
+<path-action name="DataImportModule.importData"/>
+
+<!--
+<path-action name="DataImportModule.geocode"/>
+-->
+</page>

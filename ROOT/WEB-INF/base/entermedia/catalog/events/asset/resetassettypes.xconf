@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<property name="eventname">Reset Asset Types</property>	
+	<path-action name="Script.run" allowduplicates="true" >
+		<script>/${catalogid}/events/scripts/assets/resetassettypes.groovy</script>
+	</path-action>
+</page>

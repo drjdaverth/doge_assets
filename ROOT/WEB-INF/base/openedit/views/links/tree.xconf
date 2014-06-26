@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<page>
+	<property name="tree-name">adminLinkTree</property>
+
+	<layout />
+	<inner-layout />
+	<property name='text.Add New Child'>
+        	<value>Add New Child</value>
+		<value locale="es">Agregar Nuevo Hijo</value>
+    	</property>
+	<property name='text.Refresh'>
+        	<value>Refresh</value>
+		<value locale="es">Refrescar</value>
+    	</property>
+	<property name='text.Approve'>
+        	<value>Approve</value>
+		<value locale="es">Aprobar</value>
+    	</property>
+
+</page>

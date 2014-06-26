@@ -1,0 +1,74 @@
+#set( $moduleid = $context.findValue("module") )
+#set($viewid = $context.getRequestParameter("viewid"))
+#set($viewpath = $context.getRequestParameter("viewpath"))
+
+
+<div id="searchplugin">
+    <div class="subcolumns">
+        <div class="c25l" id="left-col">
+                $pages.include("/$applicationid/views/modules/${moduleid}/sidebar/standard.html", $context)
+$pages.include("$apphome/components/libraries/sidebar.html",$context)
+
+        </div>
+        <div id="right-col" class="module-inner">
+                
+            <div id="resultsdiv">
+                <div id="emresultscontent">
+                    
+                    <div id="resultsarea">
+                        <div id="resultslist">
+
+				#if(!$hits)
+				        #set($hitsname = $context.getRequestParameter('hitsname'))
+				        #set($hits = $context.getPageValue($hitsname))
+				#end
+				
+				#if(!$hits)
+				        #set($hitssessionid = $context.getRequestParameter('hitssessionid'))
+				        #if($hitssessionid)
+				            #set($hits = $context.getSessionValue($hitssessionid))
+				        #end
+				#end
+				#if(!$hits)
+				#set($hits = $context.getPageValue($content.hitsname))
+				#end
+				
+				$context.putPageValue("hits", $hits)
+				#set( $moduleid = $context.findValue("module") )
+				
+				$pages.include("/$applicationid/views/modules/${moduleid}/edit/actions.html", $context)
+				$pages.include("/$applicationid/views/modules/${moduleid}/edit/header.html", $context)
+  
+   
+  
+      <div id="detailarea">
+        <div id="de-table">
+           
+            <div class="tr">
+                #set( $expanded = $userprofile.isEnabled("expand_media_sidebar") )
+                <div id="de-side-nav" class="#if( $expanded )open #else closed #end">
+                 $pages.include("$apphome/views/modules/${moduleid}/edit/sidebar.html",$context)
+
+                 $pages.include("$apphome/components/detaileditor/modulemenuul.html?moduleid=$moduleid",$context)
+				
+                </div>
+                <div id="details">
+                     $pages.includeContent()
+                </div>
+           </div>
+        </div>
+     </div>	               
+                              
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+    

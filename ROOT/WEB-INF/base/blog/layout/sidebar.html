@@ -1,0 +1,43 @@
+<div id="oeblogsidebar">
+
+<div class="oeblogsidebar-title">Most Recent Posts</div>
+<div id="oeblogrecent-posts">
+    #foreach( $entry in $blog.getVisibleEntries(0,10) )
+<div class="oeblogblogentryitem">
+     <a href="$entry.link">$entry.title</a> <br> #if($page.isPropertyTrue('usecomments'))($entry.countComments() comments)#end
+</div>
+    #end
+</div>
+
+<div class="oeblogsidebar-title" >Archive</div>
+<div id="oeblogarchive">
+<a href="$home$bloghome/archive.html">View All</a>
+</div>
+
+#if( $user )
+<div class="oeblogsidebar-title">Tools</div>
+<div id="oeblogtools">
+	$user.shortDescription 
+	 <a href="$home/system/tools/authentication/logout.html">Log out</a>
+	#if( $blog.canEdit($user) )
+	<br />
+    	<a href="$home$bloghome/useradmin/addnewentry.html?origURL=$content.path">Add New Story</a> 
+    	<br />
+		#if ( $pages.canView( "$blog.blogHome/admin/index.html" ) )
+    	<a href="$home$bloghome/admin/index.html">Blog Administration</a>
+    	#end    
+	#end
+</div>
+#else
+	<a href="$home$bloghome/blogLogin.html?loginokpage=$content.path">Log in</a>
+#end
+
+<div class="oeblogsidebar-title">Syndicate:</div>
+<div id="oeblogsyndicate">
+    <a href="$home$bloghome/rss.xml"><img src="$home$bloghome/images/rss.gif" width="50" height="14" border="0"></a>
+	<br>
+    <a href="$home$bloghome/atom.xml"><img src="$home$bloghome/images/atom.gif" width="50" height="14" border="0"></a>
+</div>
+
+
+</div>

@@ -1,0 +1,49 @@
+#set( $dataroot = $context.findValue("dataroot"))
+
+<div class="tab" id="field-tab">
+	<div class="tab-actions">
+		#if( $catalogid && $searchtype)
+			<div style="float:right;">$!searcher.getPropertyDetails().getBeanName()</div>
+			<form action="$home$dataroot/properties/addnew.html" name="addnewprop">
+				<input type="hidden" name="catalogid" value="$!catalogid" />
+				<input type="hidden" name="searchtype" value="$searchtype" />
+				<strong>[[Add New Field]]: </strong><input class="field" type="text" name="newproperty"  /><input class="btn" style="margin-top: -2px;" type="submit" value="[[Save]]" />
+		</form>
+		#end
+	</div>
+#if($candevelop)
+	<a href="$dataroot/properties/makedefault.html?searchtype=$searchtype&catalogid=$catalogid" class="btn" >Copy to catalog defaults</a>
+	#end
+	<div id="emselectable">
+	<table class="striped emdata">
+		<tr class="tableheader">
+			<th #if ($detail.getExternalId ) colspan="2" #end>Field Name</th>
+			<th style="width:200px;">Field Type</th>
+		</tr>	
+	#foreach( $detail in $properties)
+	<tr rowid="$detail.id">
+	#set( $link = "catalogid=$catalogid&searchtype=$searchtype&id=$detail.id")
+		#if ($detail.getExternalId )
+			<td><br>$!detail.getExternalId()</td>
+		#end
+		<td><b>$!detail.getText($context)</b></td>
+		<td><span class="emselectabledetails">#if( $detail.getDataType() ) $detail.getDataType() #else textbox #end</span></td>
+		
+			
+	</tr>
+	#end
+	</table>
+	##this will auto submit when they click
+	<form name="editlink" action="$home$dataroot/properties/edit.html?oemaxlevel=1">
+		<input type="hidden" name="id" id="emselectedrow" value="" />
+		<input type="hidden" name="catalogid" value="$catalogid" />
+		<input type="hidden" name="searchtype" value="$searcher.getSearchType()" />
+	##	<td><a href="remove.html?$link">[[delete]]</a></td>
+	</form>
+	
+	</div>
+</div>
+
+	
+
+

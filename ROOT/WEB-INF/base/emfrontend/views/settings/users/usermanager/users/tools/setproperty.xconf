@@ -1,0 +1,6 @@
+<page>
+	<inner-layout/>
+	<property name="virtual">true</property>
+	<path-action name="User.setUserProperty"/>
+	<permission name="view"/>
+</page>

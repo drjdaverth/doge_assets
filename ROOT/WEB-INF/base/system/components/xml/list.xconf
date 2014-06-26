@@ -1,0 +1,20 @@
+<page>
+	<layout/>
+	<inner-layout/>
+	<page-action name="PageValue.loadPageVariable"  bean="searcherManager" />
+		<page-action bean="replacer" name="PageValue.loadPageVariable" class="com.openedit.util.Replacer" alltypes="true" allowduplicates="true"/>
+	
+	<property name='text.edit'>
+        	<value>edit</value>
+		<value locale="es">editar</value>
+    	</property>
+	<property name='text.edit group'>
+        	<value>edit group</value>
+		<value locale="es">editar grupo</value>
+    	</property>
+	<property name='text.add'>
+        	<value>add</value>
+		<value locale="es">agregar</value>
+    	</property>
+
+</page>

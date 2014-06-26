@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+
+	<property name="assetrootfolder">/${applicationid}/views/modules/asset/downloads/originals</property>
+	<property name="sourcepathhasfilename">true</property>
+	
+	<generator name="originalDownloadGenerator"/>
+	<path-action name="MediaArchiveModule.forceDownload" alltypes="true" />
+	<permission name="view">
+			<pagevalue name="candownload" equals="true"/>
+	</permission>
+	
+</page>

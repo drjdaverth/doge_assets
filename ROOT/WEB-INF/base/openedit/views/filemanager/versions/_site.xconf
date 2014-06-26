@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+
+	<inner-layout>${filerootpath}/versions/layout.html</inner-layout>
+
+	<property name="fallbackdirectory">/system/tools/revisions</property>
+	<property name="tab">revisiontab</property>
+
+	<property name="revisioneditorhome">${filerootpath}/versions</property>
+
+	<property name='showcontent'>true</property>
+
+</page>

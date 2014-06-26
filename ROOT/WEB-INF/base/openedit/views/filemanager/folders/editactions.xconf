@@ -1,0 +1,15 @@
+<page>
+	<property name='text.Copy'>
+        	<value>Copy</value>
+		<value locale="es">Copiar</value> 
+   	</property>
+	<property name='text.Move and rename'>
+        	<value>Move and rename</value>
+		<value locale="es">Mover y Renombrar</value> 
+    	</property>
+	<property name='text.Delete'>
+        	<value>Delete</value>
+		<value locale="es">Borrar</value> 
+    	</property>
+</page>
+

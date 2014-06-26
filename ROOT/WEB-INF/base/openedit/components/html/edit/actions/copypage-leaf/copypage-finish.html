@@ -1,0 +1,6 @@
+#set ($newpath = $context.getRequestParameter("newpath"))
+#if(!$newpath)
+#set($newpath = $context.getRequestParameter("destinationPath"))
+#end
+$newpath
+$pages.include("$apphome/components/html/edit/htmledit/index.html?editPath=$newpath&path=$newpath", $context)

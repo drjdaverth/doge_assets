@@ -1,0 +1,9 @@
+<properties>
+	
+	<property id="video" extensions="mp4 mov avi flv">Videos</property>
+	<property id="document" extensions="pdf doc">Documents</property>
+	<property id="photo" extensions="jpg png">Photos</property>
+	<property id="audio" extensions="mp3 wav">Audio</property>
+	<property id="none" >None</property>
+
+</properties>

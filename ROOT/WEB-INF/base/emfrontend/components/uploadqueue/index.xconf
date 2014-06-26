@@ -1,0 +1,5 @@
+<page>
+	<page-action name="AssetSyncModule.searchForPendingAssets"/>
+		<property name="oemaxlevel">1</property>
+	
+</page>

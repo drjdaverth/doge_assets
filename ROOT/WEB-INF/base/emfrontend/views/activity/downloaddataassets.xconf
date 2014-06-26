@@ -1,0 +1,6 @@
+<page>
+	<path-action name="OrderModule.createOrderFromData"/>
+	<path-action name="OrderModule.findOrderItems"/>
+	<property name="sectiontitle">Download</property>
+	<inner-layout>/${applicationid}/views/activity/activitydialoguelayout.html</inner-layout>
+</page>

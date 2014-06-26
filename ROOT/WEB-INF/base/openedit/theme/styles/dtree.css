@@ -1,0 +1,69 @@
+#application .emtreehover
+{
+	background-color: #E0E0E0;
+}
+#application .treerow a
+{
+	min-width: 50px;
+}
+
+#application .treerowtext
+{
+	padding-bottom: 4px;
+}
+
+#application .dtree {
+	white-space: nowrap;
+}
+#application .dtree img {
+	border: 0px;
+	vertical-align: top;
+}
+#application .dtree a 
+{
+	color: #444444;
+	font-size: 12px;
+	margin-bottom: 5px;
+	text-decoration: none;
+}
+#application .dTreeNodeSel
+{
+	background-color: #C0D2EC;
+	
+}
+
+
+
+#filetree .emtreehover
+{
+	background-color: #E0E0E0;
+}
+#filetree .treerow a
+{
+	min-width: 50px;
+}
+
+#filetree .treerowtext
+{
+	padding-bottom: 4px;
+}
+
+#filetree .dtree {
+	white-space: nowrap;
+}
+#filetree .dtree img {
+	border: 0px;
+	vertical-align: top;
+}
+#filetree .dtree a 
+{
+	color: #444444;
+	font-size: 12px;
+	margin-bottom: 5px;
+	text-decoration: none;
+}
+#filetree .dTreeNodeSel
+{
+	background-color: #C0D2EC;
+	
+}

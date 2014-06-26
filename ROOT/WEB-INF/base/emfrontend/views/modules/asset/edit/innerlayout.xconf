@@ -1,0 +1,3 @@
+<page>
+	<inner-layout>${themeprefix}/layouts/mediaviewer.html</inner-layout>
+</page>

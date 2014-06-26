@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout />
+	<inner-layout />	
+	
+<property name='text.address'>
+        <value>Address</value>
+    </property>
+<property name='text.no'>
+        <value>NO</value>
+    </property>
+<property name='text.yes'>
+        <value>YES</value>
+    </property>
+<property name='text.addthisfile'>
+        <value>Would you like to add this file?</value>
+    </property>
+<property name='text.doesnotexist'>
+        <value>does not exist.</value>
+    </property>
+</page>

@@ -1,0 +1,10 @@
+<page>
+	<property name="sectiontitle">
+    	<value>Order History</value>
+  	</property>
+	<property name="subtab">viewassetorderhistory</property>
+	<property name="assettab">viewassetorderhistory</property>
+	<property name="hitsname">assetorderitems</property>
+	<path-action name="DataEditModule.loadPageOfSearch" />
+	<property name="searchtype">orderitem</property>	
+</page>

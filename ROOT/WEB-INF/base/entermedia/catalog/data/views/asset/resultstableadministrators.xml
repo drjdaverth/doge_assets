@@ -1,0 +1,10 @@
+<properties usagelabel="Specify columns used on results Table Data view">
+	<property id="name"/>
+	<property id="assettitle"  editable="false"/>
+	<property id="episode" />
+	<property id="longcaption" />
+	<property id="filesize" />
+	<property id="assettype" />
+	<property id="assetaddeddate" />
+	
+</properties>

@@ -1,0 +1,80 @@
+<div id="emresultscontent">
+$context.putPageValue("assetrootfolder", "/$catalogid/assets")
+#if( !$thumbsize )
+	#set( $thumbsize  = "thumb" )
+#end
+<table  width="100%">
+		<tr><td>		
+<div  id="emslidesheet">
+	#if( $parenthits )
+		#set( $rootid = $parenthits.sessionId ) ##what is this for?
+	#else
+		#set( $rootid = $hits.sessionId )
+	#end
+	#if( $category )
+		#set( $catid = $category.id )
+	#else
+		#set( $catid = "index" )
+	#end
+
+	#foreach ($hit in $hits.getPageOfHits())
+		<div class="emthumbbox embox$thumbsize" id="cell${catalogid}_${hit.id}" >
+			#set( $count = $hits.getPage()+-1 )
+			#set( $count = $count*$hits.getHitsPerPage() )	
+			#set( $count = $velocityCount + $count )
+			$context.putPageValue("hitindex",$count )
+			#set ($sourcepath = $hit.sourcepath)
+		
+			$context.putPageValue("cell", $hit)
+			#set( $type = $mediaarchive.getMediaRenderType($hit.fileformat))
+			$context.putPageValue("type", $type)
+			#set( $click = "$home$apphome/views/assets/${sourcepath}/index.html?categoryid=$catid&hitssessionid=$rootid" )
+			$context.putPageValue("clink", $clink)
+
+			<a href="$click">
+
+			<div class="emthumbimage em$thumbsize" 
+				#if( $showcaption ) style="vertical-align:bottom;" #end 
+				#if($showhover != false) hover="true" #end >			
+
+				$pages.include("$apphome/components/results/thumbnails/${type}.html", $context)				
+
+			</div>
+			</a>			
+			#if( $showcaption )
+				<a href="$click">
+				<div class="emthumbboxtext emtitle">			
+	
+					<table width="100%"><tr>
+					<td>
+						<div >
+						#if( $hit.assettitle ) $hit.assettitle #else $hit.name#end
+					</div>
+					</td><td>#if(${hit.length})$!{hit.length}s#end</td> ##show smart time
+					</tr>
+					</table>
+					<div class="emgallerystars">
+					#set( $count = $hits.parseInt($hit.get("assetvotes")) )
+					#if( $count > 0 ) #showStars($count) #end
+						<span class="emgalleryviews">#if( $hit.assetviews )$hit.assetviews views#end</span>
+					</div>
+				</div>
+				</a>
+			#end
+			#if( $showbasket ) 
+				$pages.include("$apphome/components/basket/toggleitem.html?assetid=$hit.id",$context)
+			#end
+			
+			
+		</div>
+	#end
+	</div>
+	</td></tr>
+</table>
+#if ( $hits.totalPages == 0 )
+<p>
+[[No results found.]]
+</p>
+#end
+</div>
+	

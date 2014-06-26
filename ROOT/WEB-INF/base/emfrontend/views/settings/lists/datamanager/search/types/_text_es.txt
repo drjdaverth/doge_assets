@@ -1,0 +1,14 @@
+#
+#Thu Apr 29 17:04:16 CLT 2010
+Past\ year=A\u00F1o Pasado
+Before\ Date=Antes de la Fecha
+Equals=Igual a
+Past\ month=Mes Pasado
+Past\ 24\ hours=\u00DAltimas 24 horas
+More\ Than=M\u00E1s Que
+Past\ week=Semana Pasada
+After\ Date=Despu\u00E9s de la Fecha
+Before=Antes
+Between\ Dates=Entre Fechas
+After=Despu\u00E9s de
+Less\ Than=Menos Que

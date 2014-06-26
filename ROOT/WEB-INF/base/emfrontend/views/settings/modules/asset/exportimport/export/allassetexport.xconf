@@ -1,0 +1,6 @@
+<page>
+  <path-action name="CategoryModule.exportAllAssets" alltypes="true" />
+  <layout />
+  <inner-layout/>
+  <property name="virtual">true</property>
+</page>

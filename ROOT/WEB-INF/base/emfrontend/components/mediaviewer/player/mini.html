@@ -1,0 +1,95 @@
+#set($totalpages = $numberutils.toInt($asset.pages))
+#set ( $hitssessionid = $context.findValue("hitssessionid"))
+<div id="media-player" class="clearfix" >
+<div id="mediaviewer" >
+    
+        
+        #if( $asset.getId().startsWith("multiedit:") )
+                    <div class="main-info">
+        
+ <div class="primary" style="text-align: center">
+						Editing across $asset.size() assets
+</div>
+</div>
+		#else            
+        <div id="default-top" style="border-bottom: none;">
+        
+            <div class="thumbnail">
+                #set( $type = $mediaarchive.getMediaRenderType($asset.fileformat))
+                #if( !$thumbsize )
+                    #set( $thumbsize  = "thumb" )
+                #end
+                $context.putPageValue("thumbsize",$thumbsize)
+                #if ( $type == "image" || $type == "document" )
+                	#set ( $urlutils = $context.getPageValue("url_util"))
+					#if ($urlutils)
+						#set ( $sourcepath = $urlutils.encode($asset.sourcepath))
+						#set ( $sourcepath = $sourcepath.replace("%2F", "/") )
+					#else
+						#set ( $sourcepath = $asset.sourcepath)
+					#end
+                    #set( $link = "/${applicationid}/views/modules/asset/downloads/preview/extralarge/$sourcepath/preview.jpg")
+                    <a class="thickbox" href="$home$link" target="_parent" title="[[$asset]]">
+                        $pages.include("$apphome/components/results/thumbnails/${type}.html", $context) 
+                    </a>
+                #else
+                    $pages.include("$apphome/components/results/thumbnails/${type}.html", $context) 
+                #end 
+                
+            </div>
+            <div class="main-info">
+                <div class="primary">
+                                
+                    $asset #if ($totalpages > 1) <span style="opacity: 0.8; font-size: 11px; font-weight: normal; position: relative; top: -3px; margin-left: 5px;"><a class="propertyset" propertyname="maximize_player" style="color: #fff;" propertyvalue="true" targetdiv="detaileditor" href="$home$apphome/views/assets/$asset.sourcepath/index.html?hitssessionid=$hitssessionid&oemaxlevel=2">($totalpages Pages)</a></span> #end
+                </div>
+                <div class="secondary">
+                    <div id="mp-asset-info">
+                        
+                        #set( $views = $mediaarchive.getAssetStatsManager().getViewsForAsset($asset))
+                        <a href="$home$apphome/views/modules/asset/editor/historypreviews/index.html?assetid=$asset.id&hitssessionid=$hitssessionid" class="views">$views<span class="">&nbsp;</span></a>
+                        
+                        <a style="margin-right: 0;" href="$home$apphome/views/modules/asset/editor/comment/index.html?assetid=$asset.id&sourcepath=$asset.sourcepath&hitssessionid=$hitssessionid" class="comments">$!comments.size()<span>&nbsp;</span></a>
+                                           
+                    </div>
+                </div>
+                <div class="asset-details-more">
+                    <p style="line-height: 25px; text-align: left; color: #fff;">
+                        #if ($asset.getKeywords().size() > 0)
+                            <strong>Tags</strong><br/>
+                            #foreach ($tag in $asset.getKeywords())
+                                #if ( $velocityCount <= 10 )
+                                <a href="$home$apphome/views/search/search.html?field=keywords&operation=matches&keywords.value=$tag">$tag</a> 
+                                #elseif ( $velocityCount == 11 )
+                                    <a class="ajax tooltip" title="View All Tags" targetdiv="detaileditor" href="$home$apphome/views/modules/asset/editor/tags/index.html?assetid=$asset.id&hitssessionid=$hitssessionid&oemaxlevel=2">...</a>
+                                #end
+                            #end
+                        #end
+                     </p>
+                     <p style="line-height: 25px; text-align: left; color: #fff; ">
+                        #if ($asset.getCategories().size() > 0)
+                            <strong>Categories</strong><br/>
+                            #foreach ($category in $asset.getCategories())
+                                #if ( $velocityCount <= 8 )
+                                <a href="$home$apphome/views/categories/${category.id}.html">$category</a> 
+                                #elseif ( $velocityCount == 9 )
+                                    <a class="ajax tooltip" title="View All Categories" targetdiv="detaileditor" href="$home$apphome/views/modules/asset/editor/categorize/index.html?assetid=$asset.id&hitssessionid=$hitssessionid&oemaxlevel=2">...</a>
+                                #end
+                            #end
+                        #end
+                     </p>
+                </div>
+            </div>
+        </div>
+               #end 
+</div>
+
+<script>
+    $('#mp-player img').load(function(){
+        var $wimg = $('#mp-player img').width();
+        $('#mp-player').width($wimg);
+        $('#mp-asset-title').show();
+        $('#mp-asset-info').show();
+    });
+</script>
+
+</div>

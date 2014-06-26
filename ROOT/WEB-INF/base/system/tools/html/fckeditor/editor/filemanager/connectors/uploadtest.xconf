@@ -1,0 +1,74 @@
+<page>
+	<property name='text.Uploaders Tests'>
+        	<value>Uploaders Tests</value>
+		<value locale="es">Pruebas de Cargadores</value>
+    	</property>
+	<property name='text.Please provide your custom URL or select a default one'>
+        	<value>Please provide your custom URL or select a default one</value>
+		<value locale="es">Por favor provea su URL o selecciones una por defecto</value>
+    	</property>
+	<property name='text.File uploaded with no errors'>
+        	<value>File uploaded with no errors</value>
+		<value locale="es">Archivo cargado sin errores</value>
+    	</property>
+	<property name='text.A file with the same name is already available. The uploaded file has been renamed to'>
+        	<value>A file with the same name is already available. The uploaded file has been renamed to</value>
+		<value locale="es">Ya se encuentra disponible un archivo con el mismo nombre. El archivo cargado ha sido renombrado a</value>
+    	</property>
+	<property name='text.Invalid file'>
+        	<value>Invalid file</value>
+		<value locale="es">Archivo Inválido</value>
+    	</property>
+	<property name="text.Security error. You probably don't have enough permissions to upload. Please check your server">
+        	<value>Security error. You probably don't have enough permissions to upload. Please check your server</value>
+		<value locale="es">Error de Seguridad. Probablemente usted no tiene los permisos suficientes para cargar. Por favor revise su servidor</value>
+    	</property>
+	<property name='text.Error on file upload. Error number'>
+        	<value>Error on file upload. Error number</value>
+		<value locale="es">Error en la carga del archivo. Número del error</value>
+    	</property>
+	<property name='text.Select the File Uploader to use'>
+        	<value>Select the "File Uploader" to use</value>
+		<value locale="es">Seleccione el "Cargado de Archivos" a utilizar</value>
+    	</property>
+	<property name='text.Resource Type'>
+        	<value>Resource Type</value>
+		<value locale="es">Tipo de Recurso</value>
+    	</property>
+	<property name='text.None'>
+        	<value>None</value>
+		<value locale="es">Ninguno</value>
+    	</property>
+	<property name='text.File'>
+        	<value>File</value>
+		<value locale="es">Archivo</value>
+    	</property>
+	<property name='text.Image'>
+        	<value>Image</value>
+		<value locale="es">Imagen</value>
+    	</property>
+	<property name='text.Invalid Type (for testing)'>
+        	<value>Invalid Type (for testing)</value>
+		<value locale="es">Tipo inválido (para prueba)</value>
+    	</property>
+	<property name='text.Current Folder'>
+        	<value>Current Folder</value>
+		<value locale="es">Directorio Actual</value>
+    	</property>
+	<property name='text.Custom Uploader URL'>
+        	<value>Custom Uploader URL</value>
+		<value locale="es">URL del Cargador Personal</value>
+    	</property>
+	<property name='text.Upload a new file'>
+        	<value>Upload a new file</value>
+		<value locale="es">Cargar un nuevo archivo</value>
+    	</property>
+	<property name='text.Uploaded File URL'>
+        	<value>Uploaded File URL</value>
+		<value locale="es">URL del Archivo Cargado</value>
+    	</property>
+	<property name='text.Post URL'>
+        	<value>Post URL</value>
+		<value locale="es">URL</value>
+    	</property>
+</page>

@@ -1,0 +1,33 @@
+<permissions name="Application Permissions">
+
+	<permission id="deleteasset" permissiontype="asset" name="Delete" description="Enables removal of an asset, and the option to remove the original." ordering="200"/>
+	<permission id="emaillink" permissiontype="asset" name="Email" description="Enables an email button that sends a link to an internal asset." ordering="200"/>
+	<permission id="embedasset" permissiontype="asset" name="Embed" description="Enables and embed button that provides HTML code for an asset." ordering="200"/>
+	<permission id="viewvoting" permissiontype="asset" name="Like" description="Enables a like button for users to express approval of an asset." ordering="200"/>
+	<permission id="publish" permissiontype="asset" name="Publish" description="Enables the publishing of an asset to a specified set of servers." ordering="200"/>
+	<permission id="shareasset" permissiontype="asset" name="Share" description="Enables the share button. Parent of email, embed, publish and social media share."  ordering="200"/>
+	<permission id="sharetosocialmedia" permissiontype="asset" name="Social Media Share" description="Enables sharing to social networks such as Twitter or Facebook." ordering="200"/>
+	<permission id="forcewatermarkasset" permissiontype="asset" name="Watermark" description="Enables watermarking of all downloadable versions of an asset." ordering="200"/>
+	<permission id="printpreview" permissiontype="asset" name="Print" description="Allows printing of asset and asset metadata." ordering="200"/>
+	<permission id="embedlinks" permissiontype="asset" name="Embed Links" description="Shows Embedding quick links." ordering="200"/>
+	<permission id="viewfatwire" permissiontype="asset" name="View Fatwire Status" description="Shows Fatwire Status." ordering="200"/>
+	<permission id="viewfatwirecrop" permissiontype="asset" name="View Fatwire Cropping Tool" description="Accesses Fatwire Cropping Tool" ordering="220"/>
+		
+		
+		
+	<!-- 
+	<preference id="relateassets" name="Create Asset Relationships" description="Enable creation and modification of asset relation"/>	
+	<permission id="editassetcategories" name="Edit Categories" description="Edit Asset Categories"/>
+
+	<permission id="viewassetdownloads" name="View Download Links" description="Show screen for custom links"/>
+	<permission id="viewassetedit" name="Media editor" description="Allow JPG crop and resize"/>
+		
+	<permission id="viewassetdownloadhistory" name="Download History" description="Show download history report"/>
+	<permission id="viewassetedithistory" name="Edit History" description="Show when edits where made"/>
+	<permission id="viewassetorderhistory" name="Order History" description="Show order history report"/>
+	 -->
+		
+	
+</permissions>
+
+	

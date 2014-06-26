@@ -1,0 +1,6 @@
+<page>
+<!--	<path-action name="SavedQueryModule.addPreviousSearch"/>
+-->
+
+	<path-action name="RelatedKeywordModule.getSuggestions"/>
+</page>

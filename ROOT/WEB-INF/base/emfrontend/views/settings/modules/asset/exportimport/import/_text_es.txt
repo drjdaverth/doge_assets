@@ -1,0 +1,13 @@
+#
+#Tue Apr 27 10:55:21 CLT 2010
+CSV\ Input\ File=Archivo CSV de entrada
+See\ the\ "storeassets.csv"\ file\ created\ by\ the\ "Assets"\ export\ as\ an\ example=Vea el archivo "storeassets.csv" creado por la exportación de artículos como ejemplo
+Import=Importar
+See\ the\ "storeassetsandcategories.csv"\ file\ created\ by\ the\ "Assets\ and\ Categories"\ export\ as\ an\ example.=Vea el archivo "storeassetsandcategories.csv" creado por la exportación de artículos y categorías como ejemplo.
+Once\ the\ upload\ is\ completed\ the\ store\ search\ will\ automatically\ contain\ the\ new\ asset\ data=Una vez que la carga se haya completado los nuevos artículos estarán automáticamente disponibles
+CSV\ Asset\ Import=Importar Artículos desde CSV
+CSV\ Category\ Import=Importar Categorías desde CSV
+Upload\ your\ asset\ data\ and\ category\ information=Cargue la información de sus artículos y categorías
+CSV\ Assets\ and\ Categories\ Import=Importar Artículos y Categorías desde CSV
+See\ the\ "storecategories.csv"\ file\ created\ by\ the\ "Categories"\ export\ as\ an\ example.=Vea el archivo "storecategories.csv" creado por la exportación de categorías como ejemplo.
+

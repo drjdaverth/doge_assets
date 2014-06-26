@@ -1,0 +1,98 @@
+import java.awt.Dimension;
+import java.io.File;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.lang.Integer;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import org.ijsolutions.membership.converter.ConvertStatus;
+import org.ijsolutions.membership.search.MemberSearcher;
+import org.ijsolutions.util.CSVWriter;
+import org.openedit.data.PropertyDetail;
+import com.openedit.OpenEditException;
+import com.openedit.OpenEditRuntimeException;
+import com.openedit.WebPageRequest;
+import com.openedit.hittracker.HitTracker;
+import com.openedit.hittracker.ListHitTracker;
+import com.openedit.modules.admin.filemanager.FileUpload;
+import com.openedit.modules.admin.filemanager.UploadRequest;
+import com.openedit.modules.image.ConvertInstructions;
+import com.openedit.modules.image.ImageConverter;
+import com.openedit.modules.image.ImageResizer;
+import com.openedit.page.PageRequestKeys;
+import com.openedit.users.Group;
+import com.openedit.users.User;
+import com.openedit.users.UserManager;
+import com.openedit.users.UserManagerException;
+import com.openedit.util.URLUtilities;
+import org.openedit.data.*;
+	
+
+HitTracker hits = (HitTracker) context.getPageValue("hits");
+if(hits == null){
+ String sessionid = context.getRequestParameter("hitssessionid");
+ hits = context.getSessionValue(sessionid);
+}
+log.info("hits: " +hits);
+searcherManager = context.getPageValue("searcherManager");
+searchtype = context.findValue("searchtype");
+catalogid = context.findValue("catalogid");
+searcher = searcherManager.getSearcher(catalogid, searchtype);
+
+ details = searcher.getDetailsForView("csvexport", context.getUser());
+if(details == null){
+	details = searcher.getPropertyDetails();
+}
+
+StringWriter output  = new StringWriter();
+CSVWriter writer  = new CSVWriter(output);
+int count = 0;
+headers = new String[details.size()];
+for (Iterator iterator = details.iterator(); iterator.hasNext();)
+{
+	PropertyDetail detail = (PropertyDetail) iterator.next();
+	headers[count] = detail.getText();		
+	count++;
+}
+writer.writeNext(headers);
+	log.info("about to start: " + hits);
+for (Iterator iterator = hits.iterator(); iterator.hasNext();)
+{
+	hit =  iterator.next();
+	tracker = searcher.searchById(hit.get("id"));
+
+
+	nextrow = new String[details.size()];//make an extra spot for c
+	int fieldcount = 0;
+	for (Iterator detailiter = details.iterator(); detailiter.hasNext();)
+	{
+		PropertyDetail detail = (PropertyDetail) detailiter.next();
+		String value = tracker.get(detail.getId());
+		//do special logic here
+		
+	
+
+		nextrow[fieldcount] = value;
+	
+		fieldcount++;
+	}
+	
+	
+	
+	
+	writer.writeNext(nextrow);
+}
+writer.close();
+
+String finalout = output.toString();
+context.putPageValue("export", finalout);
+
+

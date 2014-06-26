@@ -1,0 +1,8 @@
+<page>
+	<property name="enabled">true</property>
+	<property name="eventname">Original Modified</property>	
+
+	<path-action name="AssetEditModule.originalModified"/>
+
+
+</page>

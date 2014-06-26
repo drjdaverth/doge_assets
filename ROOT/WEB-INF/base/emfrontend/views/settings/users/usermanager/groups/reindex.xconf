@@ -1,0 +1,4 @@
+<page>
+	<page-action name="User.reindexGroups"/>
+	<property name="oemaxlevel">1</property>
+</page>

@@ -1,0 +1,11 @@
+<properties>
+	
+  <property id="librarycollectiongeneral" module="librarycollection" systemdefined="false" ordering="1">Details</property>
+  <property id="librarycollectionassets" module="librarycollection" systemdefined="false" ordering="2" rendertable="librarycollectionasset" renderexternalid="librarycollection">Assets</property>
+  <property id="librarycollectionshares" module="librarycollection" systemdefined="false" ordering="2" rendertable="librarycollectionshares" renderexternalid="librarycollection">Shared With</property>
+
+  <property id="librarycollectionadvancedsearch" module="librarycollection" systemdefined="true" byassettype="false">Advanced Search</property>
+  <property id="librarycollectionresultstable" module="librarycollection" systemdefined="true" byassettype="false">Results Table</property>
+  <property id="librarycollectionheaderdetail" module="librarycollection" systemdefined="true" byassettype="false">Edit Header</property>
+  	
+</properties>

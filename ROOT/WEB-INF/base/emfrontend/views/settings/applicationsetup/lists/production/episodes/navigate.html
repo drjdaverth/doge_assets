@@ -1,0 +1,86 @@
+
+
+
+#if( $hits && $hits.total > 0 )
+
+	#set($thispage = $hits.getPage())
+	#set($resultsPage = "$home$content.searchhome/results.html")
+	  
+
+	
+	
+	<table class="navigateboxes" cellspacing=0 cellpadding=0  >
+	<tr >
+	#if ( $hits )
+	<td nowrap  >
+		<p CLASS="ver11D">[[Displaying records]] $!hits.getPageStart() - $!hits.getPageEnd()  [[of]] $!hits.total [[items]]
+		&nbsp;&nbsp;&nbsp;</p>
+	</td>
+	#end
+	
+	<td >
+	
+	<table>
+	<tr>
+	
+	#if($hits.linksBefore().size()!=0)
+	  #if($hits.linksBefore().get(0)>1)
+		<td  class="navbox NAVBOX"><a class="navlink" href="$resultsPage?page=1&hitssessionid=$hits.sessionId">1</a></td>	
+	    <td>...</td>
+	   #end
+	#end
+	
+	#foreach( $before in $hits.linksBefore() )
+	<td  class="navbox NAVBOX"><a  class="navlink" href="$resultsPage?page=$before&hitssessionid=$hits.sessionId">$before</a></td>		
+	#end
+	<td  class="navboxselected"><a class="navlink" href="$resultsPage?page=$!thispage&hitssessionid=$hits.sessionId">$!thispage</a></td>
+	#foreach( $after in $hits.linksAfter() )
+	<td  class="navbox NAVBOX"><a class="navlink" href="$resultsPage?page=$after&hitssessionid=$hits.sessionId">$after</a></td>		
+	#end
+	#set($size=${hits.linksAfter().size()})
+	#set( $size = $size - 1 )
+	
+	
+	#if($size>0)
+		#if ($hits.linksAfter().get($size)< $hits.getTotalPages() )
+			<td>...</td>
+			<td  class="navbox NAVBOX"><a class="navlink" href="$resultsPage?page=$hits.getTotalPages()&hitssessionid=$hits.sessionId">$hits.getTotalPages()</a></td>	
+		#end
+	#end
+	
+	</tr>
+	</table>
+	</td>
+	
+	<td nowrap valign="center">
+	#if( $hits.prevPage() )
+	<a class="navlink" href="$resultsPage?page=$hits.prevPage()&hitssessionid=$hits.sessionId" title="[[Previous ( alt p enter)]]" accesskey="p" ><img src="$home/util/common/icons/arrow_left.png" width=20 border=0 /></a>
+	#end
+	</td>
+	<td nowrap valign="center">
+	#if ( $hits.nextPage() )
+	<a class="navlink" href="$resultsPage?page=$hits.nextPage()&hitssessionid=$hits.sessionId" title="[[Next (alt n enter)]]" accesskey="n"><img src="$home/util/common/icons/arrow_right.png" width=20 border=0 /></a>
+	#end
+	
+	</td>
+   <td>
+   <table width="100%" cellpadding="0" cellspacing="0">
+	<tr><td>
+	
+	</td><td width="20%"></td>
+	#if( $content.searchtype != "team")
+	
+    #end
+    <td nowrap>
+    <div id="spinner" style="visibility: hidden"> <img src="$home${content.searchhome}/images/spinner.gif" alt="Refreshing"/> </div>
+    </td>
+</table></td>
+	</tr>
+	</table>
+<table>
+
+
+</table>
+
+#end
+

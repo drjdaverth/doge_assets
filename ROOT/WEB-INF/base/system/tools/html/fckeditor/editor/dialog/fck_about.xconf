@@ -1,0 +1,55 @@
+<page>
+	<property name='text.Visit'>
+        	<value>Visit the FCKeditor web site</value>
+		<value locale="es">Visite el sitio web de FCKeditor</value>
+    	</property>
+	<property name='text.OpenSource'>
+        	<value>Support &gt;b&lt;Open Source&gt;\b&lt; Software</value>
+		<value locale="es">Ayudar al Software &gt;b&lt;Open Source&gt;\b&lt;</value>
+    	</property>
+	<property name='text.Selected Sponsor'>
+        	<value>Selected Sponsor</value>
+		<value locale="es">Auspiciador Seleccionado</value>
+    	</property>
+	<property name='text.For further information go to'>
+        	<value>For further information go to</value>
+		<value locale="es">Para mayor información diríjase a</value>
+    	</property>
+	<property name='text.Become a Sponsor'>
+        	<value>Become a Sponsor</value>
+		<value locale="es">Conviértase en Auspiciador</value>
+    	</property>
+	<property name='text.License'>
+        	<value>Licensed under the terms of any of the following licenses at your choice</value>
+		<value locale="es">Autorizado bajo los términos de cualquiera de las siguientes licencias a su elección</value>
+    	</property>
+	<property name='text.GPL'>
+        	<value>Version 2 or later (the "GPL")</value>
+		<value locale="es">Versión 2 o superior ("GPL")</value>
+    	</property>
+	<property name='text.LGPL'>
+        	<value>Version 2.1 or later (the "LGPL")</value>
+		<value locale="es">Versión 2.1 o superior ("LGPL")</value>
+    	</property>
+	<property name='text.MPL'>
+        	<value>Version 1.1 or later (the "MPL")</value>
+		<value locale="es">Versión 1.1 o superior ("MPL")</value>
+    	</property>
+	<property name='text.User Agent'>
+        	<value>User Agent</value>
+		<value locale="es">Agente de Usuario</value>
+    	</property>
+	<property name='text.Browser'>
+        	<value>Browser</value>
+		<value locale="es">Navigador</value>
+    	</property>
+	<property name='text.Platform'>
+        	<value>Platform</value>
+		<value locale="es">Plataforma</value>
+    	</property>
+	<property name='text.User Language'>
+        	<value>User Language</value>
+		<value locale="es">Idioma del Usuario</value>
+    	</property>
+</page>
+

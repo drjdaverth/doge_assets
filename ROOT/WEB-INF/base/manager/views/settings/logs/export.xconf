@@ -1,0 +1,6 @@
+<page>
+	<path-action name="LogSearchModule.loadHits" alltypes="true" />
+	<generator name="velocityGenerator" />
+		<property name="hitsname">loghits</property>
+	
+</page>

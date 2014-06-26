@@ -1,0 +1,5 @@
+<page>
+	<generator name="velocityGenerator" />
+	<path-action name="MultiSearchModule.loadApplicationId" alltypes="true"/>
+
+</page>

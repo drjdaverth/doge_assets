@@ -1,0 +1,6 @@
+<page>
+	<property name="virtual">true</property>
+	<layout/>
+	<inner-layout/>
+	<generator name="zipGenerator"/>
+</page>

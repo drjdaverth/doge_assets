@@ -1,0 +1,5 @@
+<properties>
+  <property id="id" editable="true" index="true" stored="true">Id</property>
+  <property id="name" keyword="true" editable="true" index="true" stored="true">Name</property>
+  <property id="mediatypecategory" editable="true" list="true" datatype="list" index="true" stored="true">Media Type Category</property>
+</properties>

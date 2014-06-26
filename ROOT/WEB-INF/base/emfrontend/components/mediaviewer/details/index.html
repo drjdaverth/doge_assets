@@ -1,0 +1,139 @@
+#set($hitssessionid = $hits.sessionId )
+
+<div id="data">
+		
+	<div id="asset-data" class="clearfix">
+		<div class="col1">
+		
+		
+			#set( $archive = $searcherManager.getPropertyDetailsArchive($catalogid) )
+			
+						$context.putPageValue("origURL", "$apphome/assets/${asset.sourcePath}.html")
+						$context.putPageValue("data",$asset)	
+						$context.putPageValue("searcher",$mediaarchive.getAssetSearcher() )	
+						
+						#if( $asset.assettype && $archive.viewExists("asset/assettype/$asset.assettype/general") )
+						  #set ($view = "asset/assettype/$asset.assettype/general")
+						#else
+						  #set ($view = "asset/assettype/default/general")
+						#end
+						$context.putPageValue("view",$view)	
+						$pages.include("/$applicationid/components/xml/detailviewer.html", $context)
+						
+			#if( $asset.getKeywords().size() > 0 || $asset.getCategories().size() > 0 )
+						
+			<div class="asset-details-more" style="width: 100%; padding: 0 0 20px 0">
+				#set( $libraries = $asset.getLibraries())
+				#if( $libraries.size() > 0)
+    				<h3>Libraries</h3>
+    					<p style="line-height: 25px;">
+            				#foreach($library in $libraries)
+            					  
+            					 #set( $ldata = $searcherManager.getData($catalogid,"library",$library) )
+            					 #set( $division = $searcherManager.getData($catalogid,"division",$ldata.division ) )
+            					 
+            					<a href="$home$apphome/views/search/search.html?searchtype=asset&field=libraries&operation=matches&libraries.value=$ldata.id" class="">$division / $ldata</a>
+            			
+            				#end
+    				</p>
+				#end
+				
+				
+				#if( $asset.hasKeywords() )
+				<h3>Related Tags</h3>
+					<p style="line-height: 25px;">
+						#foreach ($tag in $asset.keywords)
+							<a href="$home$apphome/views/search/search.html?searchtype=asset&field=$catalogid:asset/details:description&operation=matches&description.value=$tag">$tag</a>
+						#end
+					</p>
+				#end	
+				<h3>Categories</h3>
+					<p style="line-height: 25px;">
+					#foreach ($category in $asset.categories)
+						<a href="$home$apphome/views/search/category.html?categoryid=${category.id}">$category.name</a> 
+					#end
+					</p>
+			</div>	
+			#end
+				
+				#if ($canviewslideshow)
+				
+    				#set( $type = $mediaarchive.getMediaRenderType($asset.fileFormat))
+    				#if( $type != "video" )
+    					<div>	
+    							<a class="slideshow emdialog" href="$home$link" target="_parent"
+    								pageturner="$home$apphome/components/lightbox/pageturner.xml?hitssessionid=$hits.getSessionId()&amp;index=$indexOf"
+    								title="[[Slideshow]]"><img style="vertical-align:middle;padding-right: 10px;" src="$home$themeprefix/images/buttons/fullscreen.png" /></a>
+    					</div>
+    				#end
+					
+				
+				#end		
+
+		</div>
+		
+		<div class="col2">
+			#set( $views = $mediaarchive.getAssetStatsManager().getViewsForAsset($asset))
+			#if( $views > 0 )
+			<div class="attachments-views">
+				<span class="emdetailviews">
+					$views views
+				</span>
+			</div>
+			#end
+			
+			<div class="grey-box clearfix">
+			
+			#set( $views = $mediaarchive.getAssetStatsManager().getViewsForAsset($asset))
+			
+			
+						#if( $asset.assettype && $archive.viewExists("asset/assettype/$asset.assettype/fileproperties") )
+						  #set ($view = "asset/assettype/$asset.assettype/fileproperties")
+						#else
+						  #set ($view = "asset/assettype/default/fileproperties")
+						#end
+						$context.putPageValue("view",$view)	
+						$pages.include("/$applicationid/components/xml/detailviewer.html", $context)
+			</div>
+		</div>
+		
+	</div>		
+</div>
+			<center><a class="btn showhide" style="border-top: none; margin: 0; border-radius: 0 0 5px 5px; font-size: 10px;" id="showmore">Show More</a></center>
+
+<script>
+	
+	$('#showmore').click(function() {
+		if ( $('#showmore').hasClass('more') ) 
+		{
+			$('#data').css('max-height', '250px');
+			$('#showmore').html('Show More');
+			$('#showmore').removeClass('more');
+		} 
+		else 
+		{
+			$('#data').css('max-height', 'inherit');
+			$('#showmore').html('Show Less');
+			$('#showmore').addClass('more');
+		}
+	});
+	
+	$(document).ready(function(){
+		if( $('#asset-assettype-default-fileproperties li').length > 0 ) 
+		{
+			
+		} 
+		else 
+		{
+			$('.grey-box').css('display', 'none');
+		}
+		var dataHeight = $('#data').css('height');
+		dataHeight = dataHeight.replace('px', '');
+		if ( dataHeight < 249 ) 
+		{
+			$('#showmore').hide();
+		}
+		
+	});
+	
+</script>

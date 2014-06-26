@@ -1,0 +1,49 @@
+	<table class="oemenuback">
+	<tr>
+		<td class="oe-module-title">Entries</td>
+				<td class="oe-module-actions">         <input onclick="openHelp( 'http://www.openedit.org/wiki/blog/Blog_Administration.html' );" value="Help" name="Help" type="button" class="oestandard-button">
+				</td>
+	</tr>
+	</table>
+           
+<div class="oelist-box">
+
+<style>
+.small {
+	font-size: 8pt;
+}
+</style>          
+          
+<table border="0" width="100%">
+	
+<th align="left" class="edit-link">Title</th>
+<th align="left" class="edit-link">Author</th>
+<th align="left" class="edit-link">Date</th>
+<th align="left" colspan=4 class="edit-link">Actions</th>
+
+<!--get all entries-->
+#set( $even = "true" )
+#foreach( $entry in $blog.getRecentEntries(0) )  
+
+	#if ( $even == "false" )
+		<tr style="background-color: #EEEEEE;">
+		#set( $even = "true" )
+	#else
+		<tr>
+		#set( $even = "false" )
+	#end
+
+	<td nowrap class="small"><a class="small" href="${entry.link}"><b>$entry.title</b></a></td>
+	<td nowrap class="small">$entry.author</td> 
+	<td nowrap class="small">$entry.published("M/d/yyyy")</td>
+	<td nowrap class="small">[<a class="small" href="$home$bloghome/admin/editentry.html?entryId=${entry.id}">Edit</a>]</td>
+	<td nowrap class="small">[<a class="small" class="pageTitle" href="${home}${bloghome}/admin/index.html?oe-action=BlogModule.changeEntryVisibility&entryId=${entry.id}">#if( $entry.isVisible() )Unpublish#else
+Publish#end</a>]</td>
+	<td nowrap class="small">[<a class="small" href="${home}${bloghome}/admin/index.html?oe-action=BlogModule.removeEntry&entryId=${entry.id}">Delete</a>]</td>
+	<td nowrap class="small">[<a class="small" href="${home}${bloghome}/admin/sendnotification.html?&entryId=${entry.id}">Email As Newsletter</a>]</td>
+</tr>
+#end
+
+</table>
+        
+</div>

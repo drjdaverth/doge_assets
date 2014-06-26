@@ -1,0 +1,35 @@
+<page>
+
+<inner-layout>/openedit/components/html/edit/layout.html</inner-layout>
+	<page-action name="EditModule.claimEditLock" />
+	<page-action name="HtmlEditor.loadView" />
+
+<property name="htmledit">Editor</property>
+<property name="text">Raw</property>
+<property name="preview">Preview</property>
+<property name="seo">SEO</property>
+<property name="versions">Versions</property>
+<property name="properties">Properties</property>
+<property name="styles">Styles</property>
+<property name="scripts">Scripts</property>
+<property name="preview">Preview</property>
+
+
+	<path-action bean="pageManager" name="PageValue.loadPageVariable"/>
+	<path-action name="LinkTree.loadSizer"/>
+	<path-action name="WebTree.getTree" allowduplicates="true" >
+		<property name="tree-name">pageTree</property>
+		<property name="renderleaves">false</property>
+	</path-action>
+
+	<property name='tab'>managerviewer</property>
+	
+	<property name='showcontent'>false</property>
+	
+	<property name="tree-name">pageTree</property>
+	<property name="root">/</property>
+	<property name="excludes">.bash*, *CVS*</property>
+	<property name="tablistname">tablist</property>
+	<property name="tab">filemanager</property>
+
+</page>

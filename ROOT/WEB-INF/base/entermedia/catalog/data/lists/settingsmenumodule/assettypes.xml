@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+  <property id="assettypes" type="toplevel" module="asset" path="/views/settings/modules/asset/assettypes/index.html" ordering="050">Asset Types</property>
+ 
+</properties>

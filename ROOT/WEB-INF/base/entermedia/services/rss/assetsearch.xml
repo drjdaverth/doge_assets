@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+#set( $mediaarchive = $entermedia.getMediaArchive($context.getRequestParameter("catalogid") ) )
+#set( $cataloghome = $mediaarchive.getCatalogHome() )
+#set( $fields = $searcher.getDetailsForView("asset/restsearchresults",$user) )
+#set( $siteroot = $context.getSiteRoot() )
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
+      xmlns:atom="http://www.w3.org/2005/Atom">
+      <channel>
+          <title>Media Feed</title>
+          <description>$siteroot</description>
+          <link>$siteroot</link>
+#foreach( $hit in $hits.getPageOfHits() )
+          <item>
+          #if( $hit.assettitle )
+               <title>$hit.assettitle</title>
+          #else
+               <title>$hit.name</title>
+          #end  
+               <media:description>$hit.caption</media:description>
+               
+               <link>$home$cataloghome/downloads/originals/$hit.sourcepath/$hit.name</link>
+
+#set( $type = $mediaarchive.getMediaRenderType($hit.fileformat))
+#if( $type == "default" )
+	#set ($ext = $hit.fileformat)
+	#set ($thumb = "$mediaarchive.getThemePrefix()/entermedia/images/mimetypes/${ext}.gif")
+#else
+	#set( $thumb = "$home$cataloghome/downloads/preview/thumb/$hit.sourcepath/thumb.jpg")
+#end
+               <media:thumbnail url="$siteroot$thumb"/>
+
+#if( $type == "image" || $type == "document")
+#set( $preview = "$home$cataloghome/downloads/preview/large/$hit.sourcepath/image.jpg")
+#elseif(  $type == "video" )
+#set( $preview = "$home/$catalogid/downloads/converted/cache/${hit.sourcepath}/preview.flv")
+#elseif( $type == "audio" )
+#set( $preview = "$home/$catalogid/downloads/mp3/${hit.sourcepath}/audio.mp3")
+#end
+## <media:content type="video/x-flv"     url="http://example.com/pl_images/B.flv"/>
+
+               <media:content url="$siteroot$preview"/>
+          </item>
+#end          
+      </channel>
+</rss>

@@ -1,0 +1,9 @@
+#
+#Mon Aug 27 11:11:11 EDT 2012
+No=aucun
+Save\ values=Enregistrer les valeurs
+Share=part
+Cancel=annuler
+Edit=\u00E9diter
+Yes=oui
+No\ data\ has\ been\ entered.=Aucune donn\u00E9e n'a \u00E9t\u00E9 entr\u00E9 .

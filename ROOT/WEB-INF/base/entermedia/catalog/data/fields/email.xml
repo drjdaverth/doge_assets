@@ -1,0 +1,17 @@
+<properties>
+	<property id="from" index="true" stored="true">From</property>
+	<property id="fromname" index="true" stored="true">From</property>
+	
+	<property id="groups" index="true" stored="true">Groups</property>
+	<property id="emails" index="true" stored="true">Emails</property>
+	
+	<property id="to" index="true" stored="true">To</property>
+	<property id="sent-date" index="true" stored="true" datatype="date" date="true" format="MM/dd/yy h:mm a">Sent Date</property>
+	<property id="subject" index="true" stored="true">Subject</property>
+	<property id="message" index="true">Message</property>
+	<property id="alternativemessage" index="true">Text Message</property>
+	<property id="assetid" index="true" stored="true">Asset</property>
+	<property id="senderuserid" index="true" stored="true">From UserID</property>
+	<property id="senderfirstname" index="true" stored="true">From First Name</property>
+	<property id="senderlastname" index="true" stored="true">From Last Name</property>
+</properties>

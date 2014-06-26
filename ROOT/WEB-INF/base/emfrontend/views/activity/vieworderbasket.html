@@ -1,0 +1,54 @@
+
+#set($order = $data)
+#if( $order.userid != $user.getId() )
+Invalid order
+#else
+
+	#set($orderitemsearcher = $searcherManager.getSearcher($catalogid, "orderitem"))
+	#set($ordersearcher = $searcherManager.getSearcher($catalogid, "order"))
+	#set($owner = $userManager.getUser($order.userid))
+	
+	<h2>Order Details</h2>
+	
+	<ul>
+		<li>Order Id: $order.id </li>
+		<li>Order Date: $context.getDateTime($order.date)</li>
+			
+	</ul>	
+	
+	<div >
+	<form name="download" action="$home$apphome/views/activity/submitforconversion.html" method="post">
+	
+	<table class="striped" width="80%">
+	<tr>
+	<th></th>
+	<th></th>
+	<th>Name</th>
+	<th>Conversion Type</th>
+	<th>Destination</th>
+	<th></th>
+	</tr>
+	
+	
+	#foreach( $item in $orderitems )
+		
+		 #set( $asset = $mediaarchive.getAssetBySourcePath($item.assetsourcepath))
+		 
+				$context.putPageValue("asset", $asset)
+				$context.putPageValue("item", $item)
+				$context.setRequestParameter("sourcepath", $asset.sourcepath)					
+				$pages.include("${apphome}/views/activity/row.html", $context)
+	#end
+	
+	</table>
+	<input type="hidden" name="field" value="destinationid" />
+	<input type="hidden" name="field" value="presetid" />
+	<input type="hidden" name="orderid" value="$order.id"/>
+	<input type="submit" value="Submit"/>
+	</form>
+	</div>
+	<div id="itemsave"></div>
+
+#end
+
+

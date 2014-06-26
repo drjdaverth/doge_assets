@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rsp stat="ok">
+#set( $util = $context.getLocaleManager().getDateStorageUtil() )
+<hits sessionid="$hits.sessionId" page="$hits.page" pages="$hits.totalPages" totalsize="$hits.size()">
+
+#set( $fields = $searcher.getPropertyDetails().findStoredProperties() )
+#foreach( $hit in $hits.getPageOfHits() )
+<hit #foreach( $field in $fields )
+#set( $value = false )
+#set( $value = $hit.get($field.id))#if($value && $field.isDate())#set( $value=$util.formatForStorage($util.parseFromStorage($value) ) )#end
+#if( $value ) $field.id="#esc($value)" #end
+#end >
+</hit>#end
+</hits>
+</rsp>

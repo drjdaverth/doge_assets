@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>#if( $category || $asset || $category || $content.sectiontitle)$!category.name $!asset.name $!content.sectiontitle -#end  $content.title</title>
+
+$pages.include("$themeprefix/layouts/includes.html")
+
+</head>
+
+<body class="embody">
+<div id="container">
+
+$pages.includeContent()
+
+</div><!-- end #container -->
+</body>
+</html>

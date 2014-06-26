@@ -1,0 +1,52 @@
+
+<table height="100%" class="oedivided-box" cellspacing="0" cellpadding="0">
+<tr>
+<td class="oedivided-box-title" colspan="2">Settings</td>
+</tr>
+<tr>
+<td class="oedivided-box-blue" height="100%" valign="top" colspan="2">
+           
+<div class="oelist-box">
+          
+<form name="blogsettings" action="settings.html">
+<input type="hidden" name="oe-action" value="BlogModule.writeBlogSettings" />
+<table border="0">
+	<tr>
+		<td>Title:</td>
+		<td><input name="blogtitle" value="$blog.getTitle()" /></td>
+	</tr>
+	<tr>
+		<td>Hostname:</td>
+		<td><input name="bloghostname" value="$blog.getHostName()" /></td>
+	</tr>
+	<tr>
+		<td>Author:</td>
+		<td><input name="blogauthor" value="$blog.getAuthor()" /></td>
+	</tr>
+	<tr>
+		<td>Description:</td>
+		<td><input name="blogdescription" value="$blog.getDescription()" /></td>
+	</tr>
+
+	<tr>
+		<td>Allow Anonymous Comments:</td>
+		<td><input type=checkbox name="bloganonymous" #if ($blog.getAllowAnonymous()) CHECKED #end value="true" /></td>
+	</tr>
+	<tr>
+		<td>Automatically Publish Entries:</td>
+		<td><input type=checkbox name="blogautopublishentries" #if ($blog.isAutoPublishEntries()) CHECKED #end value="true" /></td>
+	</tr>
+	<tr>
+		<td>Automatically Publish Comments:</td>
+		<td><input type=checkbox name="blogautopublishcomments" #if ($blog.isAutoPublishingComments()) CHECKED #end value="true" /></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Save Settings"/></td>
+	</tr>
+</table>
+</form>
+</div>
+       
+</td>
+</tr>
+</table>

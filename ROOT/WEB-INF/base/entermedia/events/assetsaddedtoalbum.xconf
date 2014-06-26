@@ -1,0 +1,4 @@
+<page>
+	<path-action name="RecentActivityModule.addEventLog"/>
+	<!-- path-action name="FriendModule.sendAssetsAddedToAlbumNotification" / -->
+</page>

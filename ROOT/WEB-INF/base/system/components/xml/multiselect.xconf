@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<page-action name="PageValue.loadPageVariable"  bean="searcherManager" />
+ 	<page-action name="PageValue.loadPageVariable" bean="checked" class="java.util.HashSet"/>
+	<property name='text.all'>
+        	<value>all</value>
+		<value locale="es">todos</value>
+    	</property>
+	<property name='text.none'>
+        	<value>none</value>
+		<value locale="es">ninguno</value>
+    	</property>
+	<property name='text.Not Available'>
+        	<value>Not Available</value>
+		<value locale="es">No Disponible</value>
+    	</property>
+	<property name='text.Available'>
+        	<value>Available</value>
+		<value locale="es">Disponible</value>
+    	</property>
+	<property name='text.No records found'>
+        	<value>No records found</value>
+		<value locale="es">No se encontraron registros</value>
+    	</property>
+</page>

@@ -1,0 +1,3 @@
+<page>
+	<inner-layout>/${themeprefix}/layouts/ordermanager.html</inner-layout>
+</page>

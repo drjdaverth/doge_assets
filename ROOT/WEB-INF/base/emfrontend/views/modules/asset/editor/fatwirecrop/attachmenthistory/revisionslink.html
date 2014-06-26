@@ -1,0 +1,7 @@
+#set ( $editPath = $context.findValue("editPath") )
+#set ( $parentsourcepath = $context.getRequestParameter("parentsourcepath"))
+#if ( $revisions.getRevisions().size() > 1 )
+(<a id="viewrevisions" class="thickbox" data-fancybox-type="ajax" href="$home$apphome/views/modules/asset/editor/fatwirecrop/attachmenthistory/index.html?assetid=$asset.id&editPath=$editPath&parentsourcepath=$parentsourcepath&oemaxlevel=1">$revisions.getRevisions().size() Revisions</a>)
+#end
+
+

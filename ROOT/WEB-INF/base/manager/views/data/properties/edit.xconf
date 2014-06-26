@@ -1,0 +1,84 @@
+<page>
+
+	<path-action name="DataEditModule.loadProperty" />
+    	<property name='text.Properties'>
+        	<value>$searchtype Properties</value>
+		<value locale="es">Propiedades de $searchtype</value>
+    	</property>
+    	<property name='text.Properties'>
+        	<value>$searchtype Properties</value>
+		<value locale="es">Propiedades de $searchtype</value>
+    	</property>
+    	<property name='text.Property Editor'>
+        	<value>$property.id Property Editor</value>
+		<value locale="es">Editor de la Propiedad de $property.id</value>
+    	</property>
+    	<property name='text.Label'>
+        	<value>Label</value>
+		<value locale="es">Etiqueta</value>
+    	</property>
+    	<property name='text.External ID'>
+        	<value>External ID</value>
+		<value locale="es">ID Externo</value>
+    	</property>
+    	<property name='text.Date Format'>
+        	<value>Date Format</value>
+		<value locale="es">Formato de Fecha</value>
+    	</property>
+    	<property name='text.Index'>
+        	<value>Index</value>
+		<value locale="es">Índice</value>
+    	</property>
+    	<property name='text.Stored'>
+        	<value>Stored</value>
+		<value locale="es">Almacenado</value>
+    	</property>
+    	<property name='text.Is Keyword'>
+        	<value>Is Keyword</value>
+		<value locale="es">Es Palabra Clave</value>
+    	</property>
+    	<property name='text.In Filters'>
+        	<value>In Filters</value>
+		<value locale="es">En Filtros</value>
+    	</property>
+    	<property name='text.Type'>
+        	<value>Type</value>
+		<value locale="es">Tipo</value>
+    	</property>
+    	<property name='text.Boolean'>
+        	<value>Boolean</value>
+		<value locale="es">Booleano</value>
+    	</property>
+    	<property name='text.Number'>
+        	<value>Number</value>
+		<value locale="es">Número</value>
+    	</property>
+    	<property name='text.Date'>
+        	<value>Date</value>
+		<value locale="es">Fecha</value>
+    	</property>
+    	<property name='text.List'>
+        	<value>List</value>
+		<value locale="es">Lista</value>
+    	</property>
+    	<property name='text.Permission'>
+        	<value>Permission</value>
+		<value locale="es">Permiso</value>
+    	</property>
+    	<property name='text.File'>
+        	<value>File</value>
+		<value locale="es">Archivo</value>
+    	</property>
+    	<property name='text.Image'>
+        	<value>Image</value>
+		<value locale="es">Imagen</value>
+    	</property>
+    	<property name='text.Multi-Select'>
+        	<value>Multi-Select</value>
+		<value locale="es">Selección Múltiple</value>
+    	</property>
+    	<property name='text.Go Back'>
+        	<value>Go Back</value>
+		<value locale="es">Volver</value>
+    	</property>
+</page>

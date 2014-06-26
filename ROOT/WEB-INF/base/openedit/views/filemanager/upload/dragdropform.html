@@ -1,0 +1,7 @@
+#set( $action = $context.getRequestParameter("action"))
+#if( !$action )
+#set( $action =	"$page.filerootpath/upload/uploadfile-finish.html" )
+#end
+<form name="uploadwizard" id="uploadwizard"  method="post"  action="$home$action" >
+$pages.include("$page.filerootpath/upload/dragdrop.html",$context)
+</form>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<property name="text.Permission Name">
+    		<value>Permission Name</value>
+    		<value locale="es">Nombre del Permiso</value>
+  	</property>
+   	<property name="cancelinnerlayout">${permissionrootpath}/layout.html</property>
+  
+</page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  	<path-action name="PermissionModule.savePermissions"/>
+  	<property name="title">
+    		<value>Open Edit Permission Editor</value>
+    		<value locale="es">Editor de Permisos de Open Edit</value>
+  	</property>
+</page>

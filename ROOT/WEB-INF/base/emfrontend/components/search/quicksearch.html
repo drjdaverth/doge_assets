@@ -1,0 +1,11 @@
+<div id="eml-quick-search">
+	<form name="searchform" action="$apphome/views/search/search.html" >
+		<input type="hidden" name="field" value="description" />
+		<input type="hidden" name="operation" value="startswith" />
+	#set( $input = "Search...") 
+	#set( $input = $hits.getInput("description") )
+    	<input type="text"  id="assetsearchinput"  initialtext="Search..." class="initialtext field" name="description.value" value="$!input" />
+		<input class="search" type="submit" value="Search" />
+	</form>
+
+</div>

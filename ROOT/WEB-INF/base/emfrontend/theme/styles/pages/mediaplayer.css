@@ -1,0 +1,113 @@
+
+#emcontainer #emplayerplayer
+{
+	width: 600px;
+}
+#emcontainer .emplayerbox
+{
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#emcontainer .emplayerbox td
+{
+	padding: 10px;
+}
+#emcontainer #emplayerplayer  .embox
+{
+	min-height: 400px;
+	width: 100%;
+}
+
+#emcontainer #emviewerdetails
+{
+	width: 180px;
+}
+#emcontainer #emviewerdetails  .embox
+{
+	min-height: 400px;
+  	background: url(../../images/backgrounds/gradientmenu.png) no-repeat top center;
+}
+#emcontainer #emplayerresults
+{
+	width: 100%;
+	
+}
+#emcontainer #emplayerresults .embox
+{
+	min-height: 600px;
+	background: url(../../images/backgrounds/gradientresults.png) no-repeat top center;
+	
+}
+
+.emdetailsbox
+{
+	text-align: left;
+	margin-left:auto;
+	margin-right:auto;
+	width: 260px;
+}
+
+#emcontainer .emdetailactions a
+{
+	display:block;
+	text-decoration: none;
+}
+#emcontainer .emdetailactions a img
+{
+	vertical-align: top;
+}
+#emcontainer .emdetailactions a:hover
+{
+	display:block;
+	text-decoration: none;
+}
+
+.emdetailvotes 
+{
+	line-height: 20px;
+}
+
+.emdetailvotes img
+{
+	vertical-align: middle;
+}
+
+.emdetaildownload
+{
+}
+
+.emdetaildownload img
+{
+	vertical-align: middle;
+}
+
+#emcommentarea
+{
+	padding-top: 10px;
+}
+
+/*********************************
+	Comments
+*********************************/
+#emcontainer #emcomments {
+	padding-left: 9px;
+}
+#emcontainer .emcomment {
+	margin-bottom: 5px;
+	display: table;
+	padding: 5px;
+}
+#emcontainer .emcommentuser {
+	font-weight: bold;
+	
+}
+#emcontainer .emcommenttext {
+}
+#emcontainer .emcommentdate
+{
+	display: block;
+	color: #888888;
+}
+

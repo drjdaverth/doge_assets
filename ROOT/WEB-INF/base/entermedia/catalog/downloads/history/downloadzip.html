@@ -1,0 +1,87 @@
+<h2>[[Download Usage]]</h2>
+
+<p class="instructions">[[Complete the form below to continue the download process.]]</p>
+
+<form id="downloadform" method="post" action="$home$cataloghome/downloads/history/save.html">
+	#set( $targetid = "assetselect_${catalogid}" )
+
+	#set( $values = $context.getRequestParameters($targetid))
+
+	#foreach( $assetid in $values )
+		<input type="hidden" name="assetid" value="$assetid"/>
+	#end
+
+<div>
+<table class="usageform">
+<tr><td></td><td>Downloading $values.size() assets</td></tr> 
+<tr>
+	<td></td>
+	<td class="agreementtext"><input type="checkbox" name="agreement" id="agreefield"/>
+		[[agreement]]
+	</td>
+</tr>
+<tr>
+	<td/>
+	<td><input type="submit" onclick="return validateAndSubmit();" value="[[Download]]"/></td>
+</tr>
+</table>
+</div>
+</form>
+
+<form id="zipdownload" action="$home$cataloghome/downloads/zip/results.zip" method="post">
+	#foreach( $assetid in $values )
+		#set($height = false)
+		#set($width = false)
+		#set($ext = false)
+		<input type="hidden" name="assetselect_${catalogid}" value="$assetid"/>
+		#set($height = $context.getRequestParameter("${catalogid}.${assetid}.height"))
+		#set($width = $context.getRequestParameter("${catalogid}.${assetid}.width"))
+		#if($height)
+			<input type="hidden" name="${catalogid}.${assetid}.height" value="$height"/>
+		#end
+		#if($width)
+			<input type="hidden" name="${catalogid}.${assetid}.width" value="$width"/>
+		#end
+		#if($height || $width)
+			#set($ext = $context.getRequestParameter("${catalogid}.${assetid}.extension"))
+			#if($ext)
+				<input type="hidden" name="${catalogid}.${assetid}.extension" value="$ext"/>
+			#end
+		#end
+	#end
+</form>
+
+<div id="nulldiv" style="display:none;"></div>
+
+<script type="text/javascript">
+validateAndSubmit = function()
+{
+	var agree = document.getElementById('agreefield');
+	jQuery(".inittextfield").each(function(cb){ clearField(this); });
+	if( agree == null || agree.checked == false )
+	{
+		alert('[[You must agree to adhere to the usage restrictions.]]');
+	}
+	else
+	{
+		jQuery('#nulldiv').load('$home$cataloghome/downloads/history/save.html?' + jQuery('#downloadform').serialize(), {},
+			function() {
+				document.getElementById("zipdownload").submit();
+				self.parent.jQuery.fn.fancybox.close();
+			}
+		);
+		
+	}
+	return false;
+}
+
+clearField = function(inField)
+{
+	if( inField.style.color != "black" )
+	{
+		inField.value = "";
+		inField.style.color = "black";
+	}
+}
+
+</script>

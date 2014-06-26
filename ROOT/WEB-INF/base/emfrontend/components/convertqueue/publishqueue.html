@@ -1,0 +1,24 @@
+#set( $searchtype = "publishqueue")
+#set( $fieldexternalid = "assetid")
+#set( $fieldexternalvalue = $asset.getId())
+#set( $permissionname = "caneditasset")
+#set ($view = "publishqueue/details")
+<h2>Auto Publish Queue</h2>
+
+<div class="uipanel">
+#set( $args = "assetid=$asset.id&catalogid=$mediaarchive.getCatalogId()&searchtype=$searchtype&fieldexternalid=$fieldexternalid&fieldexternalvalue=$fieldexternalvalue&listid=$listid&listexternalid=$listexternalid&permissionname=$permissionname&view=$view")
+
+#set( $joinsearcher = $searcherManager.getSearcher($catalogid, $searchtype))
+#set( $q = $joinsearcher.createSearchQuery() )
+#set( $null = $!q.addExact($fieldexternalid,$fieldexternalvalue) )
+$!q.addSortBy("idDown")
+#set( $existingrecords = $joinsearcher.cachedSearch($context,$q) )
+$context.putPageValue("existingrecords",$existingrecords)
+
+$pages.include("/$applicationid/components/xml/table.html?$args&candelete=false",$context)
+
+
+
+</div>
+
+<a class="thickbox uibutton" href="$home$cataloghome/settings/events/run.html?forcerun=true&runpath=$cataloghome/events/publishing/publishassets.html&assetid=$asset.getId()">Process Publishing Queue now</a>

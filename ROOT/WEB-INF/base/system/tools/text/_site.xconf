@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<property name="texteditorroot">/openedit/filemanager/tabs/text</property>
+	<generator mimetypes="text/html" name="velocityGenerator"/>
+	
+</page>

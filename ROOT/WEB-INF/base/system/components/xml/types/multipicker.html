@@ -1,0 +1,85 @@
+#set ($catalogid = $context.getRequestParameter('catalogid'))
+#set ($searchtype = $context.getRequestParameter('searchtype')) ##product
+#set ($fieldname = $context.getRequestParameter('fieldname')) ##lastmodified
+ 
+
+#set( $fid = $detail.getId() )
+#set ($listid = $detail.get("listid") )
+#if(!$listid  || $listid =="")
+	#set ($listid = $detail.getId() )
+#end
+#set( $lsearcher = $searcherManager.getSearcher($detail.getCatalogId($catalogid), $listid))
+
+
+#set($current = $data.get($fid))
+
+#set($param = ${fid} + '.value')
+#set($fromrequest = $context.getRequestParameters(${param}))
+					    
+#set( $types = $lsearcher.getAllHits() ) 
+<div id="${detail.id}_list" >
+#foreach( $type in $types )
+	#set($key = $type.id)
+
+
+		#if ($strings.contains($current, $key," ") || $strings.contains($fromrequest, $key, " "))
+		
+		
+			
+			<img src="$home/openedit/images/toolbar/check.gif" alt="checked">			 
+			<input  id="multiselect_item_${fid}_$key" type="hidden" value="$key" name="${fid}.value" />
+
+			#set($replacewith = $type.replacewith)					
+			#if($replacewith && $replacewith != "")
+			    $!data.get($replacewith)
+			#else
+				$types.get($key)
+			#end
+	<br/>
+		#end
+	#set($replacewith = "")
+#end
+
+	</div>
+
+    
+    
+   #if($context.getRequestParameter("viewonly") != true)
+   
+     <p>
+   Search:     <input type="text" size="60" id="${detail.id}_address"  />
+        <input type="button" id="${detail.id}_search" value="Search"  />
+      </p>
+     
+    
+   
+     <div id="${detail.id}_results" style="overflow:auto; height: 400px; border-width: 1px; border-style: dotted; ">
+   
+     $pages.include("/util/editors/xml/types/multipickerlist.html?detailid=$detail.id&searchtype=$detail.listId&catalogid=$detail.catalogId")
+     
+     </div>
+     
+   #end
+     
+     <script type="text/javascript">
+   $j('#${detail.id}_search').click(function () {
+	   var val = $j("#${detail.id}_address").val();
+    $j("#${detail.id}_results").load("/util/editors/xml/types/multipickerlist.html?detailid=$detail.id&searchtype=$detail.listId&field=description&description.value=" + val  + "&catalogid=$detail.catalogId&operation=matches&oemaxlevel=1");
+    
+ 	}
+     );
+
+
+   $j('.listpicker').livequery('click', function () {
+	   var val = $j(this).attr("id");
+	   var toadd =  '<input type="hidden" value="' + val + '" name="${detail.id}.value" />  ' + val ;
+	   
+	   $j("#${detail.id}_list").append(toadd);
+    	
+    
+ 	}
+     );
+
+   
+       
+     </script>

@@ -1,0 +1,7 @@
+#set( $parent = "$content.parenttype")
+#set( $id = $context.getRequestParameter("${parent}.value") )
+#set($data = $searcherManager.getData($catalogid, "division", $id) )
+$context.putPageValue("data",$data)
+$pages.include("$apphome/views/settings/modules/asset/division/parent/edit/children.html", $context)
+
+<p class="fader save">Saved</p>

@@ -1,0 +1,11 @@
+<page>
+	<path-action name="UpdateModule.loadPlugIn" />
+	<property name='text.Create Application'>
+        	<value>Create Application</value>
+		<value locale="es">Crear Aplicación</value>
+    	</property>
+	<property name='text.Please enter a folder name where this application will reside'>
+        	<value>Please enter a folder name where this application will reside</value>
+		<value locale="es">Por favor ingrese el nombre de carpeta en donde está aplicación habitará</value>
+    	</property>
+</page>	

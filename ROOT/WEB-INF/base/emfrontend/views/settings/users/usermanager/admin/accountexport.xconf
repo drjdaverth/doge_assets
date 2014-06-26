@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <path-action name="User.findAllUsers" alltypes="true"/>
+  <layout />
+  <inner-layout/>
+  <generator name="velocityGenerator" />
+</page>

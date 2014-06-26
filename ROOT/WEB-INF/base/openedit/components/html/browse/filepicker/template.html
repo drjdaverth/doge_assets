@@ -1,0 +1,90 @@
+#if( !$path )
+  #set ( $path = $request.getParameter( "path" ) )           
+#end
+
+<div class="row">	  
+<div class="col-md-3" id="filetree">
+
+$pages.include("./tree.html")
+
+
+ 
+</div>
+<div class="col-md-6">
+<div id="nodecontent">
+   $pages.includeContent()
+   </div>
+
+</div>
+</div>
+
+  
+ <script type="text/javascript">
+var imagePicker = new Object();
+imagePicker.lastselected = "";
+imagePicker.name = "imagePicker";
+//this needs to be implemented so that we can return and fill in the blank - probably no AJAX here.
+imagePicker.jumpToNode = function(inUrl, inNodeId)
+{
+	this.selectRow( inNodeId );	
+		//jQuery("#renderimagePicker").load("$home$apphome/components/html/browse/filepicker/tree.html",{path: inUrl, origURL: "$content.path" } );
+
+	//new Ajax.Updater("renderimagePicker", '$home/openedit/editors/filepicker/tree.html', { parameters: {path: inUrl, origURL: "$content.path" } });	
+	jQuery("#nodecontent").load("$home$apphome/components/html/browse/filepicker/nodeinfo.html",{path: inUrl, origURL: "$content.path" ,oemaxlevel:1} );
+
+	//new Ajax.Updater("nodecontent", '$home/openedit/filemanager/viewer.html', { parameters: {path: inUrl, origURL: "$content.path" } });
+	return false;
+}
+imagePicker.toggleNode = function(inUrl,inTreeId, inNodeId)
+{
+	jQuery("#renderimagePicker").load("$home$apphome/components/html/browse/filepicker/toggle.html",{nodeID: inNodeId, treeid: inTreeId, origURL: "$content.path" } );
+	
+	//new Ajax.Updater("renderimagePicker", '$home/openedit/editors/filepicker/toggle.html', { parameters: {nodeID: inNodeId, treeid: inTreeId, origURL: "$content.path" } });
+	return false;
+}
+imagePicker.jumpAndOpenNode = function(inUrl,inTreeId, inNodeId)
+{
+	
+	this.selectRow( inNodeId );
+	jQuery("#renderimagePicker").load("$home$apphome/components/html/browse/filepicker/toggle.html",{nodeID: inNodeId, treeid: inTreeId, origURL: "$content.path" } );
+	jQuery("#nodecontent").load("$home$apphome/components/html/browse/filepicker/nodeinfo.html",{path: inUrl, origURL: "$content.path" ,oemaxlevel:1} );
+
+	//new Ajax.Updater("treeviewer", '$home/openedit/filemanager/viewer.html', { parameters: {path: inUrl, origURL: "$content.path" } });
+	return false;
+}
+imagePicker.selectRow = function( inNodeId )
+{
+	if( this.lastselected.length > 0 )
+	{
+		var thediv = document.getElementById(this.name + "treerow" + this.lastselected);
+		if( thediv )
+		{
+			thediv.style.backgroundColor = "#ffffff";
+		}
+		thediv = document.getElementById("treerow" + inNodeId);
+		if( thediv )
+		{
+			thediv.style.backgroundColor = "#c0d2ec";
+		}
+	}
+	this.lastselected = inNodeId;
+}
+
+	 	
+	 	function setAndClose()
+	 	{
+	 		var thepath = document.getElementById("treepath").value;
+	 	
+		 	if( window.opener.SetUrl )
+			{
+			 	window.opener.SetUrl( '$home'+thepath );
+			}
+			else
+			{
+				window.opener.SetPath( thepath);
+			}
+		 	window.close();
+	 	}
+
+
+</script>  

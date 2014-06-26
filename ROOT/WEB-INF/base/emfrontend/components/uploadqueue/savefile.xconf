@@ -1,0 +1,6 @@
+<page>
+	<property name="virtual">true</property>
+	<inner-layout />
+	<path-action name="AssetSyncModule.receiveData" />
+	
+</page>

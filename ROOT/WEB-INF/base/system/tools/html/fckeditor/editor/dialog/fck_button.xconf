@@ -1,0 +1,30 @@
+<page>
+	<property name='text.Button Properties'>
+        	<value>Button Properties</value>
+		<value locale="es">Propiedades del Botón</value>
+    	</property>
+	<property name='text.Name'>
+        	<value>Name</value>
+		<value locale="es">Nombre</value>
+    	</property>
+	<property name='text.Text (Value)'>
+        	<value>Text (Value)</value>
+		<value locale="es">Texto (Valor)</value>
+    	</property>
+	<property name='text.Type'>
+        	<value>Type</value>
+		<value locale="es">Tipo</value>
+    	</property>
+	<property name='text.Button'>
+        	<value>Button</value>
+		<value locale="es">Botón</value>
+    	</property>
+	<property name='text.Submit'>
+        	<value>Submit</value>
+		<value locale="es">Envío</value>
+    	</property>
+	<property name='text.Reset'>
+        	<value>Reset</value>
+		<value locale="es">Restablecer</value>
+    	</property>
+</page>

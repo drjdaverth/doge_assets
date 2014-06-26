@@ -1,0 +1,7 @@
+<page>
+	<path-action name="SpreadSheetModule.listSheets" />
+	<path-action name="SpreadSheetModule.loadSheet" />
+	<property name="basedir">/sheets</property>
+	<property name="ssedithome">/system/tools/spreadsheet</property>
+	
+</page>

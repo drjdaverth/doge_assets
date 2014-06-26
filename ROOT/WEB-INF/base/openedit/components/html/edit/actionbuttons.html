@@ -1,0 +1,62 @@
+#set ( $nodeID = $context.getRequestParameter("nodeID") )
+#set( $editNode = $pageTree.getModel().getChildById($nodeID))
+
+#set( $editPath = $editNode.getURL() )
+#set( $editPage = $pageManager.getPage( $editPath ) )
+
+#if( $editPage.isFolder() ) #set( $type = "folder" ) 
+#elseif ( $editPage.getMimeType().startsWith("image/")) #set ( $type = "image" )
+#else #set( $type = "file" )
+#end
+
+#set ($origURL = "${page.filerootpath}/showfile.html")
+
+	<a href="$home${page.filerootpath}/copypage-leaf/copypage.html?path=$!{editPath}&oemaxlevel=1" >
+	$context.getText("Copy $type")</a>
+
+#if( $pages.canEdit($editPath) || $caneditallfiles)
+	
+	| <a  href="$home${page.filerootpath}/movepage-leaf/movepage.html?path=$!{editPath}&oemaxlevel=1" class="ajaxDialog" >
+	$context.getText("Move and rename $type")</a>		
+	
+	| <a  href="$home${page.filerootpath}/deletepage-leaf/deletepage.html?delete=$!{editPath}&oemaxlevel=1" >
+	$context.getText("Delete $type")
+	</a>
+	
+
+	#if( $editPage.getMimeType().equals("image/jpeg") )
+	| <a href="#" onclick="if(!window.name)window.name='$parentName';window.open('$home/system/tools/imageresize/edit.html?editPath=$editPath&origURL=$origURL&parentName='+window.name, 'imageresize','alwaysRaised=yes,menubar=no,scrollbars=yes,resizable=yes,top=120,left=50,width=1000,height=600' );return false;">
+	[[Resize Image]]
+	</a>
+
+	| <a href="#" onclick="if(!window.name)window.name='$parentName';window.open('$home/system/tools/crop/edit.html?editPath=$editPath&origURL=$origURL&parentName='+window.name, 'imageeditor','alwaysRaised=yes,menubar=no,scrollbars=yes,resizable=yes,top=120,left=50,width=1000,height=600' );return false;">
+	[[Crop Image]]
+	</a>
+	#end
+#end
+
+	| <a href="$home${page.filerootpath}/download${editPath}">[[Download File]]</a>	
+	<!-- really not useful 
+	| <a href="$home${page.filerootpath}/preview/index.html?editPath=${editPath}">[[Preview]]</a>
+	 -->	
+  #if( $pages.canEdit($editPath) )
+	| <a href="#" onclick="openDialog('$home${page.filerootpath}/settings/index.html?editPath=$editPath');"> 
+	#if( $type == "file") [[Page Properties]] #elseif ($type == "folder") [[Folder Properties]] #elseif ($type == "image") [[Image Properties]] #end
+	</a>
+	
+	| <a href="#" onclick="openDialog('$home${page.filerootpath}/permissions/index.html?editPath=$editPath',2);">
+	 [[Set Permissions]]</a>
+	 
+#if($pages.doesExist("/openedit/components/"))	 
+|	 
+	<a  href="#" onclick="openDialog('$home/openedit/components/html/edit/htmledit/index.html?editPath=$editPath&path=$editPath&textheight=480px&origURL=$content.path',1)" >Visual Editor</a>
+	#if( $editPath.isDraft() )
+				$pages.include("/openedit/components/html/workflow/approvetoolbar.html", $context)
+				#end
+#end		
+
+
+	 
+	 
+  #end
+	

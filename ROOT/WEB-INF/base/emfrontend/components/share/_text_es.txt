@@ -1,0 +1,5 @@
+#
+#Mon Jul 11 15:25:59 EDT 2011
+Share=compartir
+Edit\ Permissions=Editar Permisos
+Note\:\ Sharing\ enables\ access\ to\ anonymous\ visitors=Nota\: Compartir permite el acceso a los visitantes an\u00F3nimos

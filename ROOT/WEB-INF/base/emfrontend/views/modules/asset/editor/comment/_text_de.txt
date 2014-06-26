@@ -1,0 +1,7 @@
+#
+#Thu Apr 08 15:49:34 EDT 2010
+Write\ a\ comment=Schreiben Sie einen Kommentar
+register\ here.=Registrieren Sie sich hier.
+If\ you\ don't\ have\ an\ account,\ please=Wenn Sie noch kein Konto haben, bitte
+You\ must\ be\ logged\ in\ to\ leave\ your\ own\ comments.=Sie m\u00FCssen, um Ihre eigenen Kommentare zu hinterlassen, eingeloggt sein.
+Comments=Bemerkungen

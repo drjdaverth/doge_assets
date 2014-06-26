@@ -1,0 +1,8 @@
+<properties>
+	<property id="historyuserstatus" />
+	<property id="historydate" />
+	<property id="id" />
+	<property id="project" />
+	<property id="historyuserid" />
+	<property id="historynote" />
+</properties>

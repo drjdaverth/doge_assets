@@ -1,0 +1,10 @@
+<page>
+	<property name='text.Add Condition'>
+        	<value>Add Condition</value>
+		<value locale="es">Agregar Condición</value>
+    	</property>
+	<property name='text.select a type'>
+        	<value>select a type</value>
+		<value locale="es">seleccione un tipo</value>
+    	</property>
+</page>

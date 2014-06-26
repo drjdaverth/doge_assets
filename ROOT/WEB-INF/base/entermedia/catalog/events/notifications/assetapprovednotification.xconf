@@ -1,0 +1,9 @@
+<page>
+	<property name="virtual">true</property>
+	<property name="eventname">Pull Approved Assets from Remote Server</property>	
+	<path-action name="Script.run">
+		<script>
+			/${catalogid}/events/scripts/notifications/assetapprovednotification.groovy
+		</script>
+	</path-action>
+</page>

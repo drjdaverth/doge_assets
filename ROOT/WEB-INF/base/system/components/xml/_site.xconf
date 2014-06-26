@@ -1,0 +1,19 @@
+<page>
+	<property name="xmledithome">/system/components/xml</property>
+ 	<property name="text.error-integer">
+   		<value>Must be numeric</value>
+		<value locale="es">Debe ser numérico</value>
+   	</property>
+   	<property name="text.error-date">
+   		<value>Must be a date</value>
+		<value locale="es">Debe ser una fecha</value>
+   	</property>
+   	<property name="text.error-email">
+   		<value>Must be a valid email address</value>
+		<value locale="es">Debe ser una dirección válida de correo electrónico</value>
+   	</property>
+   	<property name="text.error-required">
+   		<value>*</value>
+   	</property>
+   	<permission name="view"><boolean value="true" /></permission>
+</page>

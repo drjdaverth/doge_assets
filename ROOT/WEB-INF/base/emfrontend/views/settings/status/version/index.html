@@ -1,0 +1,9 @@
+#set( $paths = $pageManager.getChildrenPaths("/WEB-INF/lib/") )
+<ul>
+#foreach( $path in  $paths)
+#set( $jar = $pageManager.getPage( $path ) )
+<li>$jar.getName()</li>
+
+#end
+
+</ul>

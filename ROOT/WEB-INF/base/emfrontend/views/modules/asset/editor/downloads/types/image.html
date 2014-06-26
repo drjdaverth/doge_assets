@@ -1,0 +1,109 @@
+<h2>[[Thumbnails]]</h2>
+<div class="emtable">
+	<div class="row">
+		<span>[[Small Thumbnail]]: </span>
+		<span><a href="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/preview/small/$asset.sourcepath/thumb.jpg">view</a>
+			<input size="50" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home$apphome/downloads/preview/small/$asset.sourcepath/thumb.jpg"/>
+		 </span>
+	</div>
+	<div class="row">
+		<span>[[Thumbnail]]: </span>
+		<span><a href="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/preview/thumb/$asset.sourcepath/thumb.jpg">view</a>
+			<input size="50" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home$apphome/downloads/preview/thumb/$asset.sourcepath/thumb.jpg"/>
+		 </span>
+	</div>
+	<div class="row">
+		<span>[[Medium]]: </span>
+		<span><a href="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/preview/medium/$asset.sourcepath/thumb.jpg">view</a>
+			<input size="50" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/preview/medium/$asset.sourcepath/thumb.jpg"/>
+		 </span>
+	</div>
+	<div class="row">
+		<span>[[Medium Plus]]: </span>
+		<span><a href="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/preview/mediumplus/$asset.sourcepath/thumb.jpg">view</a>
+			<input size="50" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/preview/mediumplus/$asset.sourcepath/thumb.jpg"/>
+		 </span>
+	</div>
+</div>
+
+<br>
+<h2>[[Large Formats]]</h2>
+
+<div class="emtable">
+	<div class="row">
+		<span>[[Desktop Size]]: </span>
+		<span><a href="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/preview/cache/$asset.sourcepath/preview.jpg">view</a>
+			<input size="50" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/preview/cache/$asset.sourcepath/preview.jpg"/>
+		 </span>
+	</div>
+	<div class="row">
+		<span>[[Full Size JPG]]: </span>
+		<span><a href="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/converted/cache/$asset.sourcepath/converted.jpg">view</a>
+			<input size="50" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home/${applicationid}/views/modules/asset/downloads/converted/cache/$asset.sourcepath/converted.jpg"/>
+		 </span>
+	</div>
+	
+#if( $candownload)
+	<div class="row">
+		<span>[[Original Download]]: </span>
+		#set( $link = $mediaarchive.asLinkToOriginal($asset) )
+		<span><a href="$context.siteRoot$home$link">view</a>
+			<input size="50" type=text onclick="this.select();" readonly="readonly"
+			  value="$context.siteRoot$home$link"/>
+		 </span>
+	</div>
+#end
+</div>
+
+<br>
+<h2>[[Custom Links]]</h2>
+
+<p>[[Image links can be dynamically created using this format]]:</p>
+
+<p>
+[<b>server name</b>]
+[<b>applicationid id</b>]
+[<b>/converted/cache/</b>]
+[<b>sourcepath</b>]
+[<b>file name</b>]
+[<b>extension</b>]
+[<b>?</b>]
+<p>
+<br>
+<p style="max-width: 400px; font-size: smaller; width: 400px;">
+[[Example to create a small PDF download]]:<br>
+<b>
+$context.siteRoot$home$apphome/views/modules/asset/downloads/converted/cache/$asset.sourcepath/filename.pdf?prefwidth=1024
+</b>
+</p>
+<div class="emtable" style="margin-left: 20px;">
+	<div class="row">
+		<span>extension:</span>
+		<span>[[Can be any supported output format such as]] pdf, jpg, png</span>
+	</div>
+	<div class="row">
+		<span>prefwidth=1024</span>
+		<span>[[How wide the image should be in pixels]]</span>
+	</div>
+	<div class="row">
+		<span>prefheight=300</span>
+		<span>[[How tall the image should be in pixels]]</span>
+	</div>
+	<div class="row">
+		<span>pagenum=1:</span>
+		<span>[[Requested page number. Only used with multi-page image formats such as PDF]]</span>
+	</div>
+	<div class="row">
+		<span>canforcewatermark=true</span>
+		<span>Adds a watermark</span>
+	</div>
+</div>
+
+
+</p> 

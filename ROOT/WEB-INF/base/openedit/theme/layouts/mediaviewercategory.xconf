@@ -1,0 +1,4 @@
+<page>
+
+<inner-layout>/${applicationid}/theme/layouts/searchlayout.html</inner-layout>
+</page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+  <property name="text.menulabel">
+  	<value>Usage History</value>
+  	<value locale="es">Historial de Uso</value>
+  </property>
+  <property name="show">usagehistory</property>
+</page>

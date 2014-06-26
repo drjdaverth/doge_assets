@@ -1,0 +1,137 @@
+##required: catalogid, searchtype, view, fieldname
+##optional: value, foreignkeyid and foreignkeyvalue
+
+#set ($catalogid = $context.getRequestParameter('catalogid'))
+#set ($searchtype = $context.getRequestParameter('searchtype')) ##product
+#set ($fieldname = $context.getRequestParameter('fieldname')) ##lastmodified
+#set ($view = $context.getRequestParameter('view')) 
+
+<div id="listdetail_$fieldname" class="listdetailpicker">
+##we need to load up the existing detail object
+
+#set( $originalsearcher = $searcherManager.getSearcher($catalogid, $searchtype))
+#if( !$detail) ##this is new. To reduce complexity we want to just load up the detail all the time
+	#set( $detail = $originalsearcher.getDetailForView($view, $fieldname, $user) )
+#end
+
+#set( $listid = $detail.getListId())
+#set( $lsearcher = $searcherManager.getSearcher( $detail.getListCatalogId(), $listid ))	
+##optional things to filter the list
+#set ($foreignkeyid = $detail.get("foreignkeyid") )
+
+#set ($foreignkeyvalue = $context.getRequestParameter('foreignkeyvalue'))
+
+#set ($squery = $detail.query )
+
+#if ($foreignkeyid && $foreignkeyvalue)
+	#set( $foreigndetail = $originalsearcher.getDetailForView($view, $foreignkeyid, $user) )
+	
+	#if( $foreigndetail && $foreigndetail.listid )
+		#set( $foreignfield = $foreigndetail.listid )
+	#else
+		#set( $foreignfield = $foreignkeyid )
+	#end
+	#set ($query = $lsearcher.createSearchQuery())
+	#set ($o = $query.setAndTogether(false))
+	#set ($o = $query.addMatches("$foreignfield", "$foreignkeyvalue"))
+#elseif( $squery && (!$detail.getType() || $detail.getType() != "textjoin") )
+	#set ($query = $lsearcher.parse($squery))
+#else
+	#set ($query = $lsearcher.createSearchQuery())
+	#set ($o = $query.addMatches("id", "*"))
+#end
+
+#if ($detail.sort)
+	$query.setSortBy($detail.sort)
+#end
+$lsearcher.addShowOnly($context, $query) 
+#set ($types = $lsearcher.search($context, $query))
+#if( !$value )
+	#set ($value = $context.getRequestParameter('value'))
+#end
+##if (!$value)
+##  #set ($value = $context.getRequestParameter("${fieldname}.value"))
+##end
+
+#set( $valueid = "$fieldname" )
+
+#if($types)
+	#if( $foreignkeyid)
+		<script type="text/javascript">
+			addListListener("$foreignkeyid", "${fieldname}");
+		</script>
+	#end
+		
+	<select style="margin-top: 8px; max-width: 200px;" id="list-$listid" data-placeholder=" " name="$!detailprefix${valueid}.value" 
+		class="choose-select autosubmited #if($detail.isRequired() && !$multiedit) required #end" 
+		listid="$listid" id="${valueid}.value"
+		data-listid="$listid" 
+		data-searchtype= '$searchtype'
+		onchange="if( typeof updatelisteners == 'function' )updatelisteners('$catalogid','$searchtype','$!view','$fieldname');" 
+	>
+	#if ($detail.blankoption != "false")
+	<option value=""></option>
+	#end
+	#foreach( $type in $types )
+		#set( $key = $type.id)
+		#if($detail.render)
+   			#set($label = $searcherManager.getValue($catalogid, $detail.render, $type.properties))
+		#else
+   		#set($label = $type.name)
+		#end
+		
+		
+		
+		<option value="$key" #if( $value && $key == $value ) selected #end>#esc($label)</option>
+	#end
+	#if( $caneditlists && "$caneditlists" == "true")
+		<option value="new $listid">-- Add New --</option>
+    #end
+   </select>
+#else
+	No values found in data file ${listid}).xml 
+#end
+
+#if( $caneditlists && "$caneditlists" == "true")
+<div class="editfield" id="listeditor-$listid" style="display: none;">
+        <input  type="text" />
+        <input  class="btn save" type="button" value="Save" />
+        <a class="btn cancel" style="cursor: pointer; top: 0;">Cancel</a>
+</div>
+#end
+
+
+<script>
+
+    $('#list-$listid').change(function(){
+        if ( $(this).val() == "new $listid" )  {
+            $('#list-$listid').hide();
+            $('#listeditor-$listid').show();
+        }
+    });
+    
+    $('#listeditorbtn-$listid').click(function(){
+        $('#list-$listid').hide();
+        $('#listeditor-$listid').show();
+        $('#listeditorbtn-$listid').hide();
+        
+    });
+    $('#listeditor-$listid .cancel').click(function(){
+        $('#list-$listid').show();
+        $('#listeditor-$listid').hide();
+        $('#listeditorbtn-$listid').show();
+    });
+    $('#listeditor-$listid .save').click(function()
+    {
+    	##required: catalogid, searchtype, view, fieldname
+    	##optional: value, foreignkeyid and foreignkeyvalue
+    	#set( $xmledithome = $context.getPageProperty("xmledithome"))
+		var val = $('#listeditor-$listid input[type="text"]').val();
+       	$("#listdetail_$fieldname").load("$xmledithome/listsave.html?catalogid=$catalogid&listid=${listid}&searchtype=$searchtype&view=$!view&fieldname=$fieldname&foreignkeyid=$!foreignkeyid&foreignkeyvalue=$!foreignkeyvalue&newrow=" + encodeURI(val) )  	
+    	$('#list-$listid').show();
+    	
+    });
+
+</script>
+
+</div>

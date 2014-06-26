@@ -1,0 +1,60 @@
+<tr class="emsearchfieldrow">
+	<td id="detail_${detail.id}" align="left" valign="middle" class="emsearchfieldvalue" nowrap >
+		<div class="emsearchfield"> 
+	#if ($edit == "true")
+		<a href="#" onclick="javascript:deleteField('$detail.id'); return false;">
+		<img src="$home$apphome/theme/images/navigation/deletesm.png"/>
+		</a>
+	#end
+		$!detail.getText($context) 
+		</div>
+		<input name="field" value="$searcher.getCatalogId():$view:${detail.getId()}" type="hidden">
+
+		#set( $viewtype = $detail.searchcomponent )
+		#if (!$viewtype)
+			#set( $viewtype = $detail.viewType )
+		#end
+		#if (!$viewtype)
+			#set ($viewtype = $detail.dataType)
+		#end
+		#if (!$viewtype || $viewtype == "text")
+			#set ($viewtype = "default")
+		#end
+		
+		#if (!$viewtype || $viewtype == "date")
+			#set ($viewtype = "datesearch")
+		#end
+
+		#if (!$viewtype || $viewtype == "textarea" || $viewtype == "html")
+			#set ($viewtype = "default")
+		#end
+
+		#if(!$detail.isDate() && $detail.getId() != "category" && !$viewtype.endsWith("search") )
+				#if($detail.defaultoperation && $detail.defaultoperation != "")
+					<input name="operation" value="$detail.defaultoperation" type="hidden" />
+				#elseif($detail.isList() || $detail.isBoolean() || $viewtype == "multiselect")
+				<input name="operation" value="matches" type="hidden" />
+				#else
+				<input name="operation" value="startswith" type="hidden" />
+				#end
+		#end
+			
+		#if (!$viewtype || $viewtype == "boolean")
+			#set ($viewtype = "booleansearch")
+		#end
+
+
+		#if( $hits.getSearchQuery() )
+			#set( $value = "$!hits.getSearchQuery().getInput($detail.id)" )
+			#set( $values = "$!hits.getSearchQuery().getInputs($detail.id)" )
+			#set( $term = $hits.getSearchQuery().getTermByDetailId($detail.id) )
+			$context.putPageValue("term",$term)			
+			$context.putPageValue("val",$value)
+			$context.putPageValue("values",$values)
+		#end
+		
+		
+		$pages.include("/${applicationid}/components/xml/types/${viewtype}.html", $context)
+	</td>
+</tr>
+

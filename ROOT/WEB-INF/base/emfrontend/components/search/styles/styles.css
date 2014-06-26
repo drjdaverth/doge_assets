@@ -1,0 +1,84 @@
+
+
+.NAVBOX {
+	color: #FFFFFF;
+	background-color: #666666;
+}
+
+.navigateboxes {
+	padding-top: 4px;
+}
+
+.navbox {
+	width: 20px;
+	height: 17px;
+	text-align: center;
+	font-family: "Verdana", "Arial", "Helvetica", "Sans-serif";
+	font-size: 10px;
+}
+
+.navbox A {
+	color: #FFFFFF;
+	text-decoration: none;
+	display: block;
+	width: 20px;
+}
+
+.navbox A:visited {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.navbox A:hover {
+	text-decoration: underline;
+}
+
+.navboxselected {
+	width: 20px;
+	height: 17px;
+	text-align: center;
+	font-family: "Verdana", "Arial", "Helvetica", "Sans-serif";
+	font-size: 10px;
+	color: #666666;
+	background-color: #FFFFFF;
+	border: 1px solid #666666;
+}
+
+.navboxselected A {
+	text-decoration: none;
+	display: block;
+	width: 20px;
+}
+
+.navboxselected A:visited {
+	text-decoration: none;
+}
+
+.navboxselected A:hover {
+	text-decoration: underline;
+}
+
+#resultsarea {
+     min-height:700px;
+     height:auto !important;
+     height:700px; 
+}
+
+
+ul.table_actions {margin: 0px 5px; position: relative; list-style-type: none; padding: 0px; z-index: 2500; overflow: visible;}
+ul.table_actions li {display: inline; margin: 0px; z-index: 2500;}
+ul.table_actions li a{ line-height: 35px; padding: 5px; margin:2px; border: 1px solid #999; background: #e5e5e5; color: #333; text-decoration: none; z-index: 2500;}
+ul.table_actions li a:hover {color: #F1592A;}
+
+ul.table_actions ul {font-size: .8em;background: #e5e5e5; border-top: 1px solid #999; z-index: 2500; position: absolute; right: 0px;  list-style-type: none; margin: 0px; padding: 0px; top: 30px;}
+ul.table_actions ul li {display: block; border: 1px solid #999; border-top: none;  z-index: 2500;}
+ul.table_actions ul li a {border: none; line-height: 25px;  z-index: 2500;}
+ul.table_actions ul {top: 25px; z-index: 2500;}
+
+
+
+.actionlink {
+      font-weight: none;
+      text-decoration: none;
+     
+}

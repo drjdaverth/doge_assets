@@ -1,0 +1,47 @@
+<script type="text/javascript" src="$home/openedit/components/html/fckeditor/fckeditor.js"></script>
+#set( $textnames = $context.getRequestParameters("htmltextarea") )
+#set( $fckheight = $context.getRequestParameter("fckheight"))
+#set( $fckwidth = $context.getRequestParameter("fckwidth"))
+
+
+<script type="text/javascript">
+<!--
+
+loadEditors = function()
+	{
+   
+    //Just run the code straight away. Works better with AJAX.
+      var oFCKeditor;
+      #foreach( $textname in $textnames ) 
+		oFCKeditor = new FCKeditor( '$textname' );
+		oFCKeditor.Config.StylesXmlPath		= '$home/system/tools/html/styles.xml';
+		oFCKeditor.BasePath	= "$home/openedit/components/html/fckeditor/";
+		oFCKeditor.ToolbarSet = "Basic";
+		oFCKeditor.Config.DefaultLanguage = "$context.getLanguage()";
+		#set($tempint = 1)
+		#if($fckheight)
+			#set( $heightint = $tempint.parseInt($fckheight))
+			oFCKeditor.Height = $heightint;
+		#end
+		#if($fckwidth)
+			#set( $widthint = $tempint.parseInt($fckwidth))
+			oFCKeditor.Width = $widthint;
+		#end
+        oFCKeditor.ReplaceTextarea();
+      #end 
+}	
+
+if(typeof window.addEventListener != 'undefined')
+{
+	//.. gecko, safari, konqueror and standard
+	window.addEventListener('load', loadEditors, false);
+}
+else if(typeof window.attachEvent != 'undefined')
+{
+	//.. win/ie
+	window.attachEvent('onload', loadEditors);
+}
+
+
+//-->
+</script>

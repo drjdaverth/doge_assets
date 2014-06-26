@@ -1,0 +1,3 @@
+<page>
+	<path-action name="AssetEditModule.removeAssetImages" alltypes="true"/>
+</page>

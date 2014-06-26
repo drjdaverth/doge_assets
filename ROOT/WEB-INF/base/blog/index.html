@@ -1,0 +1,18 @@
+<div id="oeblogpost-listing" >
+	#foreach( $entry in $entries )     
+		<div class="oeblogpost">
+		    <h1 class="oeblogpost-title">$entry.title</h1>
+		    <div id="oeblogpost-description">
+				$entry.description.value
+		    </div>		
+  	#if( $entry.user.userName == $user.userName ) 
+  		[<a class="small" class="pageTitle" href="${home}${bloghome}/useradmin/togglevisible.html?entryId=${entry.id}&origURL=$content.path">#if( $entry.isVisible() )Unpublish#else
+  		Publish#end</a>]#end		
+		<div class="oeblogpost-footer">
+		  <div class="oeblogpost-poster">$entry.author #if($page.isPropertyTrue('showUserType') && $entry.user.usertype )<a class="oeblogusertypelink"  href="$home/${page.usertypelink}${entry.user.get('usertype')}.html">(${entry.user.get('usertype')})</a>#end <span class="post-timestamp">$entry.published("EEE, MMM d yyyy h:mm a")</span>
+		   #if($page.isPropertyTrue('usecomments')) <a class="oeblogcomment-link" href="${entry.link}">$entry.countVisibleComments() comment#if( $entry.countVisibleComments() != 1 )s #end</a>#end
+		  </div>      
+		</div>	
+       </div>	
+	#end
+</div>

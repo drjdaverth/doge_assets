@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties usagelabel="Contents">
+<property id="assettitle" />
+<property id="longcaption"  />
+<property id="longcaption" /> 
+<property id="extrakeywords" />
+<property id="viewpoint" />
+<property id="ethnicity" />
+<property id="ethnicitydetailed" />
+<property id="region" />
+<property id="country" />
+<property id="state" />
+<property id="royaltyfree" />
+<property id="importtatus" />
+<property id="previewstatus" />
+<property id="editstatus" />
+
+<property id="language"  />
+<property id="purpose"  />
+<property id="stocknumber" />
+<property id="jobnotes" /> 
+<property id="assettype" /> 
+
+</properties>

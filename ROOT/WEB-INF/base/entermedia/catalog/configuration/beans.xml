@@ -1,0 +1,42 @@
+<beans>
+
+<!--  Upraded 
+
+	<bean id="publishqueueSearcher" bean="dataSearcher"/>
+	<bean id="catalogsettingsSearcher" bean="folderSearcher"/>
+	<bean id="viewSearcher" bean="folderSearcher"/>
+
+-->
+<!--  real data -->
+    <bean id="userSearcher" bean="cataloguserSearcher" />
+
+    <bean id="assetvotesSearcher" bean="dataSearcher" />
+
+
+<!--  menus -->
+	<bean id="asseteditorSearcher" bean="folderSearcher"/>
+	<bean id="asseteditorhistorySearcher" bean="folderSearcher"/>
+	<bean id="asseteditormetadataSearcher" bean="folderSearcher"/>
+
+
+	<bean id="settingsmenumoduleSearcher" bean="folderSearcher"/>
+
+	<bean id="moduleSearcher" bean="folderSearcher"/>
+
+<!--  Old? -->
+	<bean id="relatedassetSearcher" bean="dataSearcher" /> 
+	<bean id="relatedassethistorySearcher" bean="dataSearcher" /> 
+
+	<bean id="assetThesaurusSearcher" bean="thesaurusSearcher"/>
+	<bean id="usagehistorySearcher" bean="dataSearcher"/>
+	<bean id="assetalbumsSearcher" bean="dataSearcher"/>
+	<bean id="conversionSearcher" bean="dataSearcher"/>
+	<bean id="publishSearcher" bean="dataSearcher"/>
+    <bean id="catalogImportConverter" bean="assetCompositeConverter" /> 
+    <bean id="productThesaurusSearcher" bean="thesaurusSearcher" /> 
+
+   
+   
+   
+  
+</beans>

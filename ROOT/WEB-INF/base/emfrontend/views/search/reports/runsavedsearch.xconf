@@ -1,0 +1,12 @@
+<page>
+
+<path-action name="MultiSearchModule.loadQuery">
+		<property name="applicationid">${catalogid}</property>
+</path-action>
+
+
+<path-action name="MultiSearchModule.runCurrentQuery">
+		<property name="applicationid">${catalogid}</property>
+</path-action>
+
+</page>

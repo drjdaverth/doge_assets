@@ -1,0 +1,6 @@
+<page>
+	<path-action name="MultiSearchModule.createNewCatalog" alltypes="true">
+		<property name="appfolderprefix">/${applicationid}/catalogs/</property>
+		<property name="fallbackfolder">/WEB-INF/base/entermedia/catalog</property>
+	</path-action>
+</page>

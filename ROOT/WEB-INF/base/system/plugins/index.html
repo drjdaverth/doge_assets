@@ -1,0 +1,98 @@
+<div id="oeadmin">
+	
+<h2>[[Upgrade Plugins]]</h2>
+#set( $installpath = $context.getRequestParameter("installpath") ) 
+
+
+<form name="upgradepicker" action="upgrade.html" target="_top" method="post">
+
+<table  width="100%" border=0 style="padding: 20px;">
+<tr>
+	<th>Plug In</th>
+	<th>[[Description]]</th>
+	<th  >[[Installed Version]]</th>
+	<th   >[[Latest Version]]</th>
+	<th   >[[Release Notes]]</th>
+	<th>[[To Update]]</th>	
+</tr>
+#foreach( $plugin in $sortedlist ) 
+#if( $even )<tr>#set($even=false)#else<tr style="background-color:#eeeeee;">#set($even=true)#end
+
+#if ($plugin) ##there might be a null plugin to act as a separator
+<td valign="top" style="white-space: nowrap;">
+#if( $plugin.vendorLink ) 
+<img border="0" src="$home$plugin.showThumb()" />  <a href="$plugin.vendorLink" target="_blank">#esc($plugin.getTitle($context.locale))</a>
+#else
+<img border="0" src="$home$plugin.showThumb()" /> #esc($plugin.getTitle($context.locale))
+#end
+</td>
+<td valign="top" width="250" >
+#if( $plugin.getLongDescription() )<a href="#" onclick="toggleNote('description$plugin.getId()')">show</a>
+	<span id="description$plugin.getId()" style="display: none">#esc($plugin.getLongDescription())</span>
+#end
+</td>
+<td valign="top" >$!plugin.getVersion()</td>
+<td valign="top" >$!plugin.getAvailableVersion()</td>
+<td valign="top" width="300">
+#if( $plugin.getAvailableVersionNotes() )<a href="#" onclick="toggleNote('notes$plugin.getId()')">[[notes]]</a>
+	<div id="notes$plugin.getId()" style="display: none">#esc($plugin.getAvailableVersionNotes())</div>
+#end
+</td>
+<td align="center"> 
+#set ($alldeps = $plugin.getAllDepends())
+<input type="checkbox" name="toupdate" id="checkbox_${plugin.id}" value="${plugin.id}" 
+onclick="javascript:togglePlugins( '$plugin.id'
+		#foreach ($dep in $alldeps)
+			, '$dep.id'
+		#end
+		)"
+		/>
+
+</td>
+#else
+<td colspan=6>&nbsp;</td>  ##spacer
+#end
+</tr>
+#end
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td align="center"><a href="#" onclick="document.upgradepicker.submit();" >[[Upgrade]]</a></td>
+</tr>
+</table>
+</form>
+
+<script> 
+
+ function togglePlugins(callerid) //this is a magical function. don't try to understand it.
+ {
+	 callerbox = document.getElementById('checkbox_' + callerid);
+	 
+	for( var i = 1; i < arguments.length; i++ ) 
+	{
+		box = document.getElementById('checkbox_' + arguments[i]);
+		if (callerbox.checked == true)
+		{
+			box.checked = true;
+		}
+	}
+ }
+
+ function toggleNote( inId )
+ {
+ 	var div =    document.getElementById(inId);
+ 	if( div.style.display == "inline" )
+ 	{
+	    div.style.display = "none";
+	}
+	else
+	{
+	    div.style.display = "inline";
+	}
+ }
+</script>
+
+</div>

@@ -1,0 +1,15 @@
+<properties  beanname="folderSearcher">
+	<property id="id" index="true" stored="true">ID</property>
+	<property id="name" index="true" stored="true" editable="true">Conversion</property>
+	<property id="inputtype" index="true" stored="true" type="list" editable="true" listid="rendertype">Media Type</property>
+	<property id="outputfile"  index="true" stored="true" editable="true">Generated File Name</property>
+	<property id="fileexportformat"  index="true" stored="true" editable="true" note="${user.id}/${date}${time}-${asset.author||assettitle}-${shortfilename}.mp4">File Download Format</property>
+	<property id="type" listid="transcoder" index="true" stored="true" editable="true" viewtype="list" type="list" >Transcoder</property>
+	<property id="guid" index="true" type="list" listid="presetdata" stored="true" editable="true">GUID</property>
+	<property id="onimport" type="boolean" index="true" stored="true" editable="true">On Import</property>
+	<property id="ordering" index="true" stored="true" editable="true">Ordering</property>
+	<property id="display" type="boolean" index="true" stored="true" editable="true">Display on Convert/Crop Page</property>
+	
+</properties>
+
+   

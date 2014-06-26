@@ -1,0 +1,6 @@
+<page>
+	<path-action name="DataEditModule.loadData" >
+			<searchtype>${module}</searchtype>
+	</path-action>
+	<inner-layout>${searchhome}/edit/innerlayout.html</inner-layout>
+</page>

@@ -1,0 +1,199 @@
+#if(!$caneditspreadsheet)
+	<p><b>Read-only</b></p>
+#end 
+#if ($pages.canView($sheet.getPath()))
+
+<script type="text/javascript" src="$home/system/javascript/validateandedit.js"></script>
+<script language="javascript" src="$home/system/javascript/prototype.js">     </script> 
+<script language="JavaScript" src="$home/system/javascript/tablednd.js"></script>
+<script language="JavaScript" src="$home/system/javascript/oepopup.js"></script>
+<script language="JavaScript" src="$home/system/javascript/proto.menu.js"></script>
+<script language="JavaScript" src="$home/system/javascript/tableresize.js"></script>
+<link rel="stylesheet" type="text/css" href="$home/system/styles/proto.menu.0.6.css"/>
+#set( $ssedithome = $context.getContentProperty("ssedithome"))
+<link rel="stylesheet" type="text/css" href="$home$ssedithome/grid.css"/>
+
+<script type="text/javascript">
+	
+	var currentcell = null;
+	var currentrow = null;
+	var currentcol = null;
+				
+	selectRow = function(inRowId)
+	{
+		if( currentrow )
+		{
+			currentrow.removeClassName("selectRow");
+			currentrow = null;
+		}
+		if( inRowId != null)
+		{
+			selectCol( null );
+			currentrow = $("row_" + inRowId);
+			currentrow.addClassName("selectRow");
+		}
+	}		
+	selectCol = function(inColId)
+	{
+		var table = $("excel");
+		var rows = table.tBodies[0].rows;
+		if( currentcol )
+		{
+			var oldindex = parseInt(currentcol.getAttribute("colIndex"));
+			oldindex++;
+			for (var i=0; i<rows.length; i++) 
+			{
+				var r = rows[i];
+				var c = r.cells.item(oldindex);
+				c.removeClassName("selectCol");
+			}
+			currentcol = null;
+		}
+		if( inColId != null )
+		{
+			selectRow( null );
+			currentcol = $(inColId);  //find all the cells in the rows at index
+			var index = parseInt(currentcol.getAttribute("colIndex"));
+			index++;
+			for (var i=0; i<rows.length; i++) 
+			{
+				var r = rows[i];
+				var c = r.cells.item(index);
+				c.addClassName("selectCol");
+			}
+		}
+	}		
+	startedit = function(event)
+	{
+		Element.stopObserving(this, 'click', startedit)
+		var inRow = this.getAttribute('rowid');
+		var inCell = this.getAttribute('cellid');
+		var oOptions = { 
+				method: 'post',
+				parameters: {sheet: '$sheet.getId()',row: inRow, cell: inCell },
+				evalScripts: true,
+				asynchronous: false,
+				onFailure: function (oXHR, oJson) {
+				      alert("An error occurred on save: " + oXHR.status);
+				}
+		     };
+		jQuery("#"+this.id).load( "$home$ssedithome/editcell.html", oOptions);
+
+		var textarea = document.getElementById(inRow + "_" + inCell + "_textarea");
+		textarea.focus();
+		Element.observe(textarea, 'blur', saveEdit);
+		return false;
+	}
+	
+	saveEdit = function( event )
+	{
+		var inTa = Event.element(event);
+
+		var row = inTa.getAttribute("row");
+		var cell = inTa.getAttribute("cell");
+		var oOptions = { 
+			method: 'post',
+			parameters: {sheet: '$sheet.getId()',row: row, cell: cell, value: inTa.value },
+			evalScripts: true,
+			asynchronous: false,
+			onFailure: function (oXHR, oJson) {
+			      alert("An error occurred on save: " + oXHR.status);
+			}
+	     };
+	    var inDiv = "td_" + row + "_" + cell;
+		jQuery("#"+inDiv).load( "$home$ssedithome/savevalue.html", oOptions);
+
+		var td = document.getElementById("td_" + row + "_" + cell);
+		Element.observe(td, 'click', startedit); 
+		//remove active edit status? Delete the text area?
+		//inTa.remove();
+	}	
+
+	saveColumn = function(inCell)
+	{
+		var inColId = inCell.id;
+		var inWidth = inCell.readAttribute("preferedwidth");
+		
+		var oOptions = { 
+			method: 'post',
+			parameters: {sheet: '$sheet.getId()',column: inColId, width: inWidth },
+			evalScripts: true,
+			asynchronous: true,
+			onFailure: function (oXHR, oJson) {
+			      alert("Error saving col width. code: " + oXHR.status);
+			}
+	     };
+		jQuery("#gridholder").load( "$home$ssedithome/savecolumn.html", oOptions);
+	}
+	
+	saveRow = function(inCell)
+	{
+		//alert( inCell);
+		var inRowId = inCell.id;  //getAttribute("specialid")
+		var inHeight = inCell.readAttribute("preferedheight");
+
+		var oOptions = { 
+			method: 'post',
+			parameters: {sheet: '$sheet.getId()',row: inRowId, height: inHeight },
+			evalScripts: true,
+			asynchronous: true,
+			onFailure: function (oXHR, oJson) {
+			      alert("Error saving row height. code: " + oXHR.status);
+			}
+	     };
+		jQuery("#gridholder").load( "$home$ssedithome/saverow.html", oOptions);
+	}
+	
+	insertColOnLeft = function(event)
+	{
+		var element = Event.element(event);
+		var index = element.getAttribute("colIndex");
+		var oOptions = { parameters: {sheet: '$sheet.getId()',colindex: index },
+			evalScripts: true, asynchronous: true,
+			onFailure: function (oXHR, oJson) {
+			      alert("Error inserting. Code: " + oXHR.status);
+			}
+	     };
+		jQuery("#gridholder").load( "$home$ssedithome/insert.html", oOptions);
+	}
+	insertRowAbove = function(event)
+	{
+		var element = Event.element(event);
+		var index = element.getAttribute("rowIndex");
+		var oOptions = { parameters: {sheet: '$sheet.getId()',rowindex: index },
+			evalScripts: true, asynchronous: true,
+			onFailure: function (oXHR, oJson) {
+			      alert("Error inserting. Code: " + oXHR.status);
+			}
+	     };
+		jQuery("#gridholder").load( "$home$ssedithome/insert.html", oOptions);
+	}
+	deleteRow = function(event)
+	{
+		var element = Event.element(event);
+		var index = element.getAttribute("rowid");
+		var oOptions = { parameters: {sheet: '$sheet.getId()',rowid: index },
+			evalScripts: true, asynchronous: true,
+			onFailure: function (oXHR, oJson) {
+			      alert("Error inserting. Code: " + oXHR.status);
+			}
+	     };
+		jQuery("#gridholder").load( "$home$ssedithome/delete.html", oOptions);
+	}
+	deleteCol = function(event)
+	{
+		var element = Event.element(event);
+		var index = element.id;
+		var oOptions = { parameters: {sheet: '$sheet.getId()',colid: index },
+			evalScripts: true, asynchronous: true,
+			onFailure: function (oXHR, oJson) {
+			      alert("Error inserting. Code: " + oXHR.status);
+			}
+	     };
+		jQuery("#gridholder").load( "$home$ssedithome/delete.html", oOptions);
+	}
+</script>
+
+$pages.include("$ssedithome/grid.html",$context)
+
+#end

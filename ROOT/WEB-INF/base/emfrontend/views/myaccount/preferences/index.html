@@ -1,0 +1,65 @@
+
+#set ($userSearcher = $searcherManager.getSearcher($catalogid, "userprofile"))
+$context.putPageValue("searcher", $userSearcher)     
+$context.putPageValue("view", "userprofile/preferences")  
+$context.putPageValue("data", $userprofile) 
+
+<div id="default-top" class="clearfix">
+    
+<!--  
+    <div class="thumbnail">
+        <img src="" style="width: 91px; height: 91px;" />
+    </div>
+    
+    <div class="main-info">
+        <div class="primary">
+            $firstName $lastname <span style="font-weight: normal; color: #999">($userid)</span>
+        </div>
+        <div class="secondary">
+            $role
+        </div>
+    </div>
+-->
+
+     <div class="main-info" style="padding-bottom: 30px;">
+        <div class="primary">
+           [[User Preferences]]
+        </div>
+        <div class="secondary">
+            [[Update your Preferences]]
+        </div>
+    </div>
+    
+</div>
+<div id="emselectable">
+<div id="default-fields">
+        
+        <form class="ajaxform validate" id="usereditform" targetdiv="usereditproperties" name="usereditform" action="$home$apphome/views/myaccount/preferences/profilesave.html">
+            <input type="hidden" name="id" value="$userprofile.id"/>
+        
+            <input type="hidden" name="save" value="true"/>
+            <input type="hidden" name="username" value="$selectedUser.id"/> ## so the page loads after we save
+            <input type="hidden" name="method" value="edituser"/>
+            <input type="hidden" name="oemaxlevel" value="1"/>
+            
+            <div class="clearfix">
+                   
+			<div id="resultslist">
+				<div id="default-fields">
+	 				$pages.include("/${applicationid}/components/xml/detaileditor.html", $context)
+				</div>
+			</div>
+            </div>
+            
+            #if( $message || $errors)
+                <div class="common-success">
+                    $context.getText($message)  $!errors
+                </div>
+            #end
+  			<div id="usereditproperties" ></div>
+            <a href="#" class="btn right" style="margin: 20px 20px 0 0" onclick="$('#usereditform').submit();" >[[Save Changes]]</a>
+        </form>
+    
+    </div>
+</div>
+</div>

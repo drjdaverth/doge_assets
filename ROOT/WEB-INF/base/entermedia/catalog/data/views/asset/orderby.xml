@@ -1,0 +1,11 @@
+<properties usagelabel="Used on search results to sort the results" >
+	<property id="name_sortable" />
+	<property id="assetvotes.count" />
+	<property id="fileformat" />
+	<property id="filesize" />
+	<property id="width" />
+	<property id="height" />
+	<property id="assetcreationdate">Creation date</property>
+	<property id="assetmodificationdate" />
+	<property id="assetaddeddate" />
+</properties>

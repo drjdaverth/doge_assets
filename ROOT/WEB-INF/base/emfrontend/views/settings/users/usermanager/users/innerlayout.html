@@ -1,0 +1,23 @@
+
+
+			$pages.streamContent()
+
+
+<script type="text/javascript">
+selectUser = function(inUser)
+{
+	var currentUser = jQuery("#selecteduserholder").attr("value")
+	jQuery("[id=" + currentUser + "_row]").css("background-color",'');
+	jQuery('#usercontentpanel').load('$home$usermanagerhome/users/modifyuser.html', {username: inUser, oemaxlevel: '1'});
+	jQuery("[id=" + inUser + "_row]").css("background-color", "lightblue");
+	jQuery("#selecteduserholder").attr("value", inUser);
+}
+deleteUser = function()
+{
+	var currentUser = jQuery("#selecteduserholder").attr("value")
+	if(confirm("Are you sure you want to delete user: " + currentUser + "?"))
+	{	
+		jQuery("#usersearchpanel").load('$home$usermanagerhome/users/deleteuser.html', {usertodelete: currentUser, oemaxlevel: '1'});
+	}
+}
+</script>

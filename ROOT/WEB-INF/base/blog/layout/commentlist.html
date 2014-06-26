@@ -1,0 +1,16 @@
+		#foreach( $comment in $entry.getAllowedComments($user) )
+			<div class="oeblogcomment">
+			<div class="oeblogcomment-body">$comment.content</div> 
+			<div class="oeblogcomment-poster">${comment.author} #if($page.isPropertyTrue('showUserType') && $comment.user.usertype )<a class="oeblogusertypelink" href="$home/${page.usertypelink}${comment.user.get('usertype')}.html">(${comment.user.get('usertype')})</a>#end <span class="comment-timestamp">$comment.published("EEE, MMM d, h:mm a")</span>
+			#if( $comment.canEdit($user) )
+		        #if ( $comment.isVisible() )
+		        	#set ( $actionText = "Unpublish" )
+		        #else
+		        	#set ( $actionText = "Publish" )
+		        #end
+		        [<a href="$bloghome/useradmin/publishcomment.html?entryId=${entry.id}&commentId=${comment.id}&origURL=$content.path">$actionText</a>]
+		        [<a href="$bloghome/useradmin/deletecomment.html?entryId=${entry.id}&commentId=${comment.id}&origURL=$content.path">Delete</a>]
+			#end
+			</div>
+			</div>						
+		#end

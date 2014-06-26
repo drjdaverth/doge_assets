@@ -1,0 +1,5 @@
+<page>
+	<property name="hitsname">assetorderitems</property>
+	<path-action name="DataEditModule.loadPageOfSearch" />
+	<property name="searchtype">orderitem</property>	
+</page>

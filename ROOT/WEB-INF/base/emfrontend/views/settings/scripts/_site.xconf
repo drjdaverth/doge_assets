@@ -1,0 +1,8 @@
+<page>
+	<property name="scriptroot">/${catalogid}/events/scripts</property> 
+	<property name="editroot">/${applicationid}/views/settings/scripts</property>
+	<inner-layout>${themeprefix}/layouts/settingssubtablayout.html</inner-layout>
+	<property name="tab">scheduler</property>
+	<property name="subtab">scripts</property>
+	
+</page>

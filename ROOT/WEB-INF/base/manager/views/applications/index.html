@@ -1,0 +1,32 @@
+#set( $appcatalogid = $context.getRequestParameter("appcatalogid") )
+#set( $appid = $context.getRequestParameter("id"))
+
+#set( $data = $searcherManager.getData($appcatalogid,"app",$appid ) )
+
+#set ($catalog = $searcherManager.getData("system","catalog",$appcatalogid))
+
+<a href="$home$apphome/views/catalogs/edit.html?id=$appcatalogid&appcatalogid=$appcatalogid" style="position: relative; top: 8px; font-size: 16px;">&larr; Back to Catalog $catalog</a>
+<br><br>
+<div id="folders" class="fwlist manual">
+    <div class="folder" style="margin-top: 0;">
+        <div class="name">
+            <a href="$home$data.deploypath">
+            	<div style="margin-top: 8px" class="alias" title="Alias">$data.getName() ($data.deploypath)</div>
+            </a>	
+            ##<div class="path" title="$folder.externalpath">$module</div>
+            ##<div class="last-activity">Last Scanned: $!context.getDateTime($data.lastscanstart)</div>
+        </div>
+        <div class="delete" style="margin-top: 15px; position: relative; z-index: 100;">
+            #set( $path = $data.deploypath )
+            <a class="btn" href="./exports/${data}.zip?apppath=/$path" confirm="Are you sure?">Export</a>
+            <a class="btn blue" href="./remove.html?appcatalogid=$appcatalogid&catalogid=$appcatalogid&searchtype=app&id=$data.id" confirm="Are you sure?">Delete</a>
+        </div>
+    </div>
+    <div class="fields" id="workspaceform">
+        $context.putPageValue("data",$data)
+        $pages.include("$apphome/views/applications/workspacedetails.html",$context)
+        
+        
+    </div>
+</div>
+

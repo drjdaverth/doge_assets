@@ -1,0 +1,93 @@
+#set($assetid = $context.getRequestParameter("assetid"))
+#set($sourcepath = $context.getRequestParameter("sourcepath"))
+
+<div id="croparea">
+
+
+<script language="JavaScript">
+	function save()
+	{
+		var form = jQuery("#contentForm");
+		form.submit();				
+	}
+</script>
+<script type="text/javascript" charset="utf-8">
+	function onEndCrop(img, selection) 
+	{
+			var thumbwidth = parseInt(jQuery("img#testImage").css("width"));
+			var thumbheight = parseInt(jQuery("img#testImage").css("height"));
+			var actualWidth = parseInt(${imageeditsession.editImage.getWidth()});
+			var actualHeight = parseInt(${imageeditsession.editImage.getHeight()});
+			
+			//calculate scale
+			var scalex = actualWidth / thumbwidth;
+			var scaley = actualHeight / thumbheight;
+			
+		jQuery( '#x1' ).val(parseInt(selection.x1*scalex));
+		jQuery( '#y1' ).val(parseInt(selection.y1*scaley));
+		jQuery( '#width' ).val(parseInt(selection.width*scalex));
+		jQuery( '#height' ).val(parseInt(selection.height*scaley));
+	}
+		
+	jQuery(document).ready(
+		function () 
+		{
+			jQuery("img#testImage").imgAreaSelect(
+				{
+					handles : true,
+					onSelectEnd : onEndCrop
+				}
+			);
+		}
+	);	
+	
+	
+	
+</script>
+	
+<form id="contentForm"  name="contentForm" method="post" action="$home${apphome}/views/modules/asset/editor/edit/crop/cropfinish.html" style="margin-bottom:0;">
+<input type="hidden" name="editPath" value="$imageeditsession.editPath" />
+<input type="hidden" name="origURL" value="$imageeditsession.originalUrl" />
+<input type="hidden" name="assetid" value="$assetid"/>
+<input type="hidden" name="sourcepath" value="$sourcepath"/>
+
+<input type="hidden" name="message" value="crop"/>
+
+<div style="padding:4px">
+<div id="results" style="padding-left: 6px; padding-right: 6px; padding-bottom: 6px;">
+		<table style="padding-left: 100px" cellpadding="1">
+			<tr>
+				<td align="right">x:</td>
+				<td><input type="text" size="5" name="x1" id="x1" /></td>
+				<td align="right">y:</td>
+				<td><input type="text" size="5" name="y1" id="y1" /></td>
+			</tr>
+		    <tr>
+		    	<td align="right">$context.getPageProperty('text.width'):</td>
+		    	<td><input type="text" size="5" name="width" id="width" /></td>
+		    	<td align="right">$context.getPageProperty('text.height'):</td>
+		    	<td><input type="text" size="5" name="height" id="height" /></td>
+		    </tr>
+		    <tr>
+		    	<td>
+		    		<a href="javascript:save();"><img border=0 class="imageinput" src="$home${themeprefix}/images/buttons/save_16x16.png" title="Save" ></a>
+				</td>
+		    	<td>
+		    		<a href="$home${apphome}/views/modules/asset/editor/edit/index.html?assetid=$assetid"><img border=0 class="imageinput" src="$home${themeprefix}/images/buttons/close_16x16.png" title="Close" ></a>
+		    	</td>
+    		</tr>
+		</table>
+</div>
+	<table width="50%" >
+		<tr>
+			<td valign="top" width="50%">
+	   		<div id="testWrap">
+				<img src="$home/${applicationid}/views/modules/asset/downloads/preview/cache/${sourcepath}/preview.jpg?cache=false" alt="image" id="testImage" />
+	   		</div>	
+			</td>
+		</tr>
+	</table>
+</div>
+</form>	
+
+</div>

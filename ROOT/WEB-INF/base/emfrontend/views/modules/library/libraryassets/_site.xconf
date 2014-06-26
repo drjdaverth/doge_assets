@@ -1,0 +1,11 @@
+<page>
+	<property name="detailsubtab">libraryassets</property>
+	<property name="detailtab">libraryassets</property>
+		<inner-layout>${searchhome}/edit/innerlayout.html</inner-layout>
+
+		<path-action name="DataEditModule.loadData" >
+			<searchtype>${module}</searchtype>
+		</path-action>
+
+	<property name="searchtype">asset</property>
+</page>

@@ -1,0 +1,12 @@
+{"rows": [
+	#foreach ($res in $autocomplete.getPageOfHits())
+	#if( $velocityCount > 1 ),#end
+	#if($searcher.getPropertyDetails().getRender())
+	#set($label = $replacer.replace($searcher.getPropertyDetails().getRender(), $res.properties))
+	#else
+	#set($label = $res.name)
+	#end
+	{"id": "$res.get('id')", "name": "$label", "sourcepath" : "$res.sourcepath"}
+	#end
+	]
+}

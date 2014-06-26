@@ -1,0 +1,14 @@
+<div style="margin: 20px;">
+    <h2>[[Delete Confirmation]]</h2>
+    <p>[[Are you sure you want to delete this record]]:</p>
+    <form class="ajaxform" name="deleteoption" action="$home$apphome/views/modules/asset/editor/delete/delete.html">
+    
+    <input name="hitssessionid" value='$!context.getRequestParameter("hitssessionid")' type="hidden" />
+    <input name="assetid" value="$asset.id" type="hidden" />
+    <p><input type="checkbox" name="deleteoriginal" value="true" /> [[Also delete original]]</p>
+    
+    
+    <input class="btn" type="submit" value="[[Delete]]"/>
+    
+    </form>
+</div>

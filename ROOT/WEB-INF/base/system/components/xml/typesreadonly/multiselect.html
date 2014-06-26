@@ -1,0 +1,14 @@
+#if( $data )
+	#set($values = $data.getValues($detail.id) )
+#end
+#set( $searcher = $searcherManager.getSearcher($detail.getListCatalogId(), $detail.getListId() ))
+
+	<ul class="multi-value-list">
+		#foreach( $type in $values )
+			#set( $row = false )
+			#set( $row = $searcher.searchById($type) )
+		    #if( $row )
+		    <li>$row</li>
+		    #end 
+		#end	
+	</ul>

@@ -1,0 +1,18 @@
+#set ( $editPath = $editPage.path ) #set ( $origURL = $context.getRequestParameter("origURL") )
+#if( !$origURL)
+#set ( $origURL=$url_util.getOriginalUrl() )
+#set ( $realPath = $pathUtils.createLivePath($editPath))
+#set ( $origURL = "$origURL?path=$realPath" ) ## for file manager
+#end
+
+#if( $editPage.isDraft() )
+#if( $canapprove )	
+
+<a href="$home/openedit/components/html/workflow/approve-finished.html?editPath=$editPath&origURL=$origURL"><img src="$home/openedit/components/html/theme/images/check.png" border="0" title="$context.getPageProperty("text.approve")" /></a>
+
+#end
+
+	<a href="$home/openedit/components/html/workflow/delete.html?editPath=$editPath&origURL=$origURL"><img src="$home/openedit/components/html/theme/images/delete.png" border="0" title="$context.getPageProperty("text.deletedraft")" />
+	</a>
+
+#end

@@ -1,0 +1,147 @@
+.simple-content {
+    padding: 20px;
+}
+.one-to-many {
+    padding-bottom: 60px;
+}
+.one-to-many:last-child {
+    padding-bottom: 0;
+}
+.one-to-many ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.one-to-many .group-title {
+    font-size: 24px;
+    height: 24px;
+    margin-bottom: 15px;
+}
+.one-to-many .group-image img {
+    width: 200px;
+    height: 200px;
+    background: #000;
+    margin-right: 20px;
+}
+.one-to-many ul {
+    float: left;
+    width: 100%;
+}
+.one-to-many ul li {
+    display: table;
+    width: 100%;
+}
+.one-to-many ul li span {
+    display: table-cell;
+    border: 1px solid #bbb;
+    border-left: none;
+    border-bottom: none;
+    padding: 6px 10px;
+}
+.one-to-many ul li span:first-child {
+    border-left: 1px solid #bbb;
+}
+.one-to-many ul .add-song {
+    border-top: 1px solid #bbb;
+    padding-top: 5px;
+}
+.one-to-many ul .add-song .btn {
+    float: right;
+}
+.table-row {
+    display: table;
+    width: 100%;
+}
+.table-cell {
+    display: table-cell;
+    vertical-align: top;
+}
+.group-image {
+    width: 210px;
+}
+.one-to-many .table-header span {
+    background: #444; 
+    color: #fff;
+    font-weight: bold;
+}
+.one-to-many .status {
+    width: 150px;
+}
+.one-to-many ul li span a:hover{
+    color: #999;
+}
+#header .site-title a {
+    font-size: 34px;
+    font-weight: bold;
+    font-family: helvetica, arial, sans-serif;
+    color: #eee;
+    margin-bottom: 15px;
+}
+#header .site-title a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.tcell {
+    display: table-cell;
+}
+.module-sidebar-actions {
+   width: 250px;
+}
+.module-sidebar-actions ul {
+    list-style: none;
+    text-align: right;
+    width: 180px;
+    line-height: 21px;
+    font-size: 14px;
+    padding: 20px 20px 20px 0;
+    border-right: 1px solid #ddd;
+}
+.module-details-main {
+    width: 100%;
+    padding: 20px;
+}
+.module-details-header {
+    margin-bottom: 20px;
+}
+.md-thumbnail {
+    height: 80px;
+    background: #000;
+    float: left;
+    margin-right: 20px;
+}
+.md-header-info span {
+    font-size: 14px;
+    display: block;
+}
+.md-header-info .md-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.md-content {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 20px;
+}
+.md-navigation {
+    border: 1px solid #ddd;
+    background: #f7f7f7;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 27px;
+}
+.md-navigation li {
+    margin: 0;
+    padding: 0;
+}
+.md-navigation li a {
+    padding: 6px 10px;
+    border-right: 1px solid #ddd;
+    float: left;
+}
+.md-navigation li a:hover {
+    color: #2790B0;
+}
+.md-navigation li.current a {
+    background: #fff;
+}

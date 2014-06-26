@@ -1,0 +1,16 @@
+ #if( !$path )
+  #set( $path = $context.getRequestParameter("path") )
+ #end  	
+ #if ( $path )
+  $imagePicker.getTreeRenderer().setSelectedNodeByUrl("$path")
+ #end
+    
+ <div id="render$imagePicker.getName()">      
+  $imagePicker.render()
+
+<form id="treeform" name="treeform">
+	<input type="hidden" name="path" id="treepath" value="$imagePicker.getTreeRenderer().getSelectedNode().getURL()" />
+</form>
+
+</div>  
+

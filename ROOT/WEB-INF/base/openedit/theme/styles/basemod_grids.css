@@ -1,0 +1,170 @@
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Screen layout for YAML examples
+ * (de) Bildschirmlayout für YAML-Beispiele
+ *
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision: 466 $
+ * @lastmodified    $Date: 2010-09-14 21:19:30 +0200 (Di, 14 Sep 2010) $
+ */
+
+@media screen, projection
+{
+  /** 
+   * (en) Forcing vertical scrollbars in IE8, Firefox, Webkit & Opera 
+   * (de) Erzwingen vertikaler Scrollbalken in IE8, Firefox, Webkit & Opera 
+   *
+   * @workaround
+   * @affected IE8, FF, Webkit, Opera
+   * @css-for all
+   * @valid CSS3
+   */
+
+  body { overflow-y: scroll; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+  
+  /**
+   * (en) Formatting YAML's  basic layout elements
+   * (de) Gestaltung des YAML Basis-Layouts
+   */
+
+  /* (en) Marginal areas & page background */
+  /* (de) Randbereiche & Seitenhintergrund */
+  body { background: #888; }
+
+  /* (en) Centering layout in old IE-versions */
+  /* (de) Zentrierung des Layouts in alten IE-versionen */
+  .page_margins { text-align:left; margin: 0 auto; }
+
+  /* (en) Layout: width, background, borders */
+  /* (de) Layout: Breite, Hintergrund, Rahmen */
+  .page_margins { max-width: 95%; }
+  .page { margin: 0 10px; }
+  #topnav, #header, #nav, #main, #extended, #footer { overflow:hidden; min-width: 720px; }
+
+  /* (en) Designing main layout elements */
+  /* (de) Gestaltung der Hauptelemente des Layouts */
+  #topnav, #footer { background: #888; color: #ccc; }
+  #topnav .page { text-align:left; padding: 5px 0; }
+  #topnav span.navlinks { float:right; }
+
+  .logoheader {
+    height: 34px;
+    background:  url("../images/oe-logo.png") no-repeat top left;
+    padding-left: 100px;
+  }
+
+  #header .page {
+    position:relative;
+  padding: 100px 0px 20px 0px;
+  }
+
+  #header h1 { color: #fff !important; }
+
+  #nav {
+    background: #f0f0f0;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-top:10px;
+    border-top: 2px #666 solid;
+    border-bottom: 1px #ccc dashed;
+  }
+
+  #main {
+    background: #fff;
+    border-top: 1px #ccc dashed;
+  }
+
+  #main .c25r { border-left: 1px #88a dashed; }
+
+  #extended { background: #eee; border-top: 1px #ccc dashed; }
+  #extended .c25l,  #extended .c50l { border-right: 1px #88a dashed; }
+
+  #extended .subc  { padding: 0 10px; }
+  #extended .subcl { padding: 0 10px 0 0; }
+  #extended .subcr { padding: 0 0 0 10px; }
+
+  #main, #extended { padding-top: 10px; padding-bottom: 10px; }
+
+  #footer { border-top: 2px #666 solid; }
+  #footer .page { padding: 10px 0px; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * (en) Modifying "shiny buttons" navigation
+  * (en) Anpassung der "Shiny Buttons" Navigation
+  */
+
+  .hlist { background: transparent; border: 0 none; }
+  .hlist ul { margin-left: 0; border: 0 none; width: 100%; }
+  .hlist ul li { line-height: 1.2em; display:block; width: 12.5%; border:0; padding: 0;}
+  .hlist ul li.last { margin-left: -5px; float:right; border-right: 1px #ccc solid;}
+
+  .hlist ul li a,
+  .hlist ul li strong {  width:auto; display:block; border-left: 1px #ccc solid; color: #000; font-weight: normal; margin: 0 5px 0 0; padding: 0.5em 0 0.5em 0.5em; }
+
+  .hlist ul li a span { display:block; color: #888; }
+  .hlist ul li strong span { display:block; color: #aaa; }
+
+  .hlist ul li a:focus,
+  .hlist ul li a:hover,
+  .hlist ul li a:active {  background: #444; color: #fff; }
+
+  .hlist ul li.active { background:transparent; border: 0 none; }
+  .hlist ul li.active strong { background: #800; color: #fff; font-weight: bold; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * (en) Styling of layout specific elements
+  * (de) Gestaltung layoutabhängiger Elemente
+  */
+
+  #header h1 {
+    font-weight:bold;
+    font-size:2.5em;
+    letter-spacing:-2px;
+    line-height:65%;
+    color:#000;
+  }
+
+  #header span { color:#99c; }
+
+  #topnav a { color: #fff; font-weight: normal; background:transparent; text-decoration:none; }
+  #topnav a:focus,
+  #topnav a:hover,
+  #topnav a:active { text-decoration:underline; background-color: transparent; }
+
+  #footer a { color: #fff; background:transparent; font-weight: bold; }
+  #footer a:focus,
+  #footer a:hover,
+  #footer a:active { background-color: transparent; text-decoration:underline; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Skiplinks 
+  *
+  * (en) Visual styling for skiplink navigation
+  * (de) Visuelle Gestaltung der Skiplink-Navigation
+  *
+  * @section content-skiplinks
+  */
+  
+  #skiplinks a.skip:focus,
+  #skiplinks a.skip:active { 
+	color: #fff; 
+	background: #333; 
+	border-bottom: 1px #000 solid;
+	padding: 10px 0;
+	text-decoration:none;
+  }
+}

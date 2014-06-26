@@ -1,0 +1,5 @@
+<page>
+	<path-action name="DataEditModule.loadSearcherForEdit" />
+		<inner-layout>${dataroot}/list/innerlayout.html</inner-layout>
+	
+</page>

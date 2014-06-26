@@ -1,0 +1,36 @@
+#content #emcontainer h2
+{
+	color: #AF0A0A;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+#secondaryContent #emcontainer .emtable .row .menulink
+{
+	text-decoration: none;
+	text-transform:uppercase;
+	color: #AF0A0A;
+	font-weight: bold;
+	font-size: 11pt;
+}
+
+#secondaryContent #emcontainer .emtable .row .menulink:hover
+{
+	color: #555555;
+}
+
+#secondaryContent #emcontainer div.emtable div.row span
+{
+	display: block;
+	padding-bottom: 10px;
+}
+
+#topnavsearch
+{
+	display:block;
+	padding: 4px 4px 0px 0px;
+}
+
+#menu #emtopmenu {
+	margin: 20px 20px 0 0;
+}

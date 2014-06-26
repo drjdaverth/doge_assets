@@ -1,0 +1,1 @@
+find . -name "*.png" -exec /home/cburkey/programs/png/pngquant 8 {} \;

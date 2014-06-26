@@ -1,0 +1,10 @@
+<properties>
+	<property id="id" index="true" stored="true">Location ID</property>
+	<property id="publishtype"  index="true" stored="true" editable="true" viewtype="list" type="list">Publish Type</property>
+	<property id="url" index="true" stored="true" editable="true" viewtype="list" type="list">Destination URL</property>
+	<property id="username" listid="publishtypes" index="true" stored="true" editable="true">User Name</property>
+	<property id="password" listid="publishtypes" index="true" stored="true" editable="true">Asset Id</property>
+	
+	
+	
+</properties>

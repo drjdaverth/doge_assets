@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+	PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+	"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>EnterMedia 7</display-name>
+	
+	<cache-mapping url-pattern='*.gif'  expires='1h'/>
+  	<cache-mapping url-pattern='*.jpg'       expires='25h'/>
+
+	<filter>
+	    <filter-name>gzip</filter-name>
+	    <filter-class>com.openedit.servlet.gzip.GzipFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>EMFilter</filter-name>
+		<filter-class>com.openedit.servlet.OpenEditFilter</filter-class>
+	</filter>
+		
+			
+	<filter-mapping>
+	    <filter-name>gzip</filter-name>
+	    <url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+	    <filter-name>gzip</filter-name>
+	    <url-pattern>*.css</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+	    <filter-name>gzip</filter-name>
+	    <url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>EMFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+</web-app>

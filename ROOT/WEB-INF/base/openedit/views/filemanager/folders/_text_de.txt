@@ -1,0 +1,32 @@
+#
+#Wed Oct 20 15:33:56 EDT 2010
+Create\ Folder=Ordner erstellen
+Open\ Preview\ Tab=offen Registerkarte Vorschau
+Set\ Permissions=Berechtigungen
+Download\ File=Download-Datei
+Tools=Werkzeuge
+Prev\ Page=Vorherige Seite
+Next\ Page=n\u00E4chste Seite
+Name=Name
+Edit\ XConf=bearbeiten xconf
+Folder\ Properties=Ordner-Eigenschaften
+Last\ Modified=Zuletzt ver\u00E4ndert\:
+Visual\ Editor=visuellen Editor
+Versions=Versionen
+Text\ Editor=Text-Editor
+Delete\ folder=Ordner l\u00F6schen
+Edit\ Site\ XConf=Website bearbeiten xconf
+Upload\ File=Upload-Datei
+Page\ Properties=Seite Eigenschaften
+Translate=\u00FCbersetzen
+Create\ File=Erstellen der Datei
+Empty\ Folder=leeren Ordner
+Copy\ folder=Ordner kopieren
+Move\ and\ rename\ folder=Ordner verschieben und umbenennen
+Refresh=erfrischen
+Upload/Download=Upload / Download
+Size=Gr\u00F6\u00DFe
+Edit=bearbeiten
+Download\ In\ Zip=in einer Zip
+Image\ Properties=Bildeigenschaften
+New=neue

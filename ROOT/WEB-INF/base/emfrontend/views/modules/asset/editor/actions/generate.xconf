@@ -1,0 +1,13 @@
+<page>
+	<path-action name="Script.run">
+		<script>./generate.bsh</script>
+	</path-action>
+	<Xpath-action name="Script.run" allowduplicates="true"> 
+		<script>./move.bsh</script>
+	</Xpath-action>
+	<property name="virtual">true</property>
+	<!-- path-action name="Admin.redirectToOriginal"/ -->
+	<permission name="view">
+		<pagevalue name="canapproveandmove" equals="true"/>
+	</permission>
+</page>

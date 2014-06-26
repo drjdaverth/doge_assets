@@ -1,0 +1,12 @@
+<properties>
+	
+	<property id="librarygeneral" module="library" systemdefined="false" byassettype="false" ordering="01">Details</property>
+    <data id="librarycollection" module="library" systemdefined="false" ordering="2353462437014" rendertable="librarycollection" renderexternalid="library">Collections</data>
+	<property id="libraryfilter" module="library"  systemdefined="true" byassettype="false">Search Filter</property>	
+	
+	  <property id="libraryadvancedsearch" module="library" systemdefined="true" byassettype="false">Advanced Search</property>
+  <property id="libraryresultstable" module="library" systemdefined="true" byassettype="false">Results Table</property>
+  <property id="librarybatchedit" module="library" systemdefined="true" byassettype="false">Batch Edit</property>
+	
+	
+</properties>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<page>
+
+  <path-action name="PermissionModule.addGroup"  />
+  <path-action name="PermissionModule.loadPermissionForEdit" />
+		 <inner-layout /> 
+</page>

@@ -1,0 +1,101 @@
+
+<p>[[Visible Fields]]:</p>
+<br>
+<div id="editlayout">
+
+<div id="emselectable">
+<table >
+#foreach( $element in $view.elements)
+#set( $pid = $element.attributeValue('id'))
+<tr rowid="$pid">
+#set( $detail = false )
+#set( $detail = $details.getDetail($pid) )
+#if( $element.text && $element.text != "" )
+	#set( $text = $element.text )
+#elseif( $detail )
+	#set( $text = $detail.text )
+#end
+	<td><b>$pid</b>
+		<div class="emselectabledetails">$!text</div></div>
+	<td> 
+</tr>
+#end
+</table>
+	<input type="hidden" name="id" id="emselectedrow" />
+</div>
+
+##<form name="editrow" method="post" action="../properties/edit.html?catalogid=$catalogid&searchtype=$searchtype&view=$viewname">
+##<div class="embutton">
+##	<input type="button" onclick=""/>
+##</div>		
+##</form>
+<form name="editrow" id="removeform" method="post" action="removefromview.html?catalogid=$catalogid&searchtype=$searchtype&view=$viewname">
+	<input type="hidden" name="toremove" id="toremove" />
+<div class="embutton">
+	<a href="#" onclick="removeRow()">[[Remove Selected From This View]]</a>
+</div>	
+</form>
+<br><br><br>
+
+
+<form name="addtoview" id="addtoview" action="addtoview.html">
+<input type="hidden" name="catalogid" value="$!catalogid"/>
+<input type="hidden" name="searchtype" value="$searchtype"/>
+<input type="hidden" name="view" value="$viewname"/>
+
+[[Add New Property]]:
+<select name="newone">
+#foreach( $detail in $properties)
+	<option value="$detail.id">$detail.text</option>
+#end
+</select>
+
+<input type="submit" value="[[Add]]"/>
+</form>
+
+
+<hr>
+<table width="100%">
+<tr>
+<td style="padding: 10px;" valign="top">
+<form name="changeviewname" id="changeviewname" action="changeviewname.html">
+<input type="hidden" name="catalogid" value="$!catalogid"/>
+<input type="hidden" name="searchtype" value="$searchtype"/>
+<input type="hidden" name="view" value="$viewname"/>
+[[Rename View As]]: <input name="newname" value="$viewname" />
+<div class="embutton">
+	<input type="submit" value="[[Save]]" />
+</div>	
+</form>
+
+</td>
+
+<td style="border-left: solid 2px black;padding: 10px;" valign="top"> 
+
+<form name="labelsave" action="savelabel.html">
+<input type="hidden" name="catalogid" value="$!catalogid"/>
+<input type="hidden" name="view" value="$viewname"/>
+<input type="hidden" name="searchtype" value="$searchtype"/>
+View Label:<br><br>
+<textarea  cols="30" rows="6" name="usagelabel" >$!view.root.attributeValue('usagelabel')</textarea>
+
+<div class="embutton">
+	<input type="submit" value="[[Save]]" />
+</div>	
+$!message
+</form>
+</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+	removeRow = function()
+	{
+		var id = $("#emselectedrow").val(); 
+		$("#toremove").val(id);
+		$("#removeform").submit();		
+				
+	}
+</script>
+
+</div>

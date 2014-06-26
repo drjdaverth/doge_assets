@@ -1,0 +1,30 @@
+<page>
+	<property name='text.Find what'>
+        	<value>Find what</value>
+		<value locale="es">Buscar Texto</value>
+    	</property>
+	<property name='text.Find'>
+        	<value>Find</value>
+		<value locale="es">Buscar</value>
+    	</property>
+	<property name='text.Match case'>
+        	<value>Match case</value>
+		<value locale="es">Calzar Mayúsculas/Minúsculas</value>
+    	</property>
+	<property name='text.Match whole word'>
+        	<value>Match whole word</value>
+		<value locale="es">Calzar la Palabra Completa</value>
+    	</property>
+	<property name='text.Replace'>
+        	<value>Replace</value>
+		<value locale="es">Reemplazar</value>
+    	</property>
+	<property name='text.Replace with'>
+        	<value>Replace with</value>
+		<value locale="es">Reemplazar con</value>
+    	</property>
+	<property name='text.Replace All'>
+        	<value>Replace All</value>
+		<value locale="es">Reemplazar Todas</value>
+    	</property>
+</page>

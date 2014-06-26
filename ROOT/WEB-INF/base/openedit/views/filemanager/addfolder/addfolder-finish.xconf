@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<page>
+	<page-action name="Page.makeFolder" />
+	<page-action name="Page.constructParameter" />
+</page>

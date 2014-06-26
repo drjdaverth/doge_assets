@@ -1,0 +1,33 @@
+<div style="background-color: #FFFFFF;" >
+	<input type="hidden" name="editPath" value="$editPath" />
+	<input type="hidden" name="savepath" value="$editPath" />
+	<input type="hidden" name="origURL" value="$origURL" />
+	<input type="hidden" name="parentName" value="$parentName" />
+<script type="text/javascript" src="$home/system/tools/html/fckeditor/fckeditor.js"></script>
+<script type="text/javascript">
+<!--
+if( !window.name )
+{
+	window.name = "editor_window";
+}
+var sBasePath = "$home/system/tools/html/fckeditor/";
+var oFCKeditor = new FCKeditor( 'content' ) ;
+oFCKeditor.Config.StylesXmlPath		= '$home/system/tools/html/styles.xml';
+oFCKeditor.BasePath	= sBasePath ;
+oFCKeditor.Value	= "$!viewcontent" ;
+oFCKeditor.Height = '$height';
+#if( $user.hasPermission("oe.edit.editor.advanced") )
+oFCKeditor.ToolbarSet = "Advanced";
+#else
+oFCKeditor.ToolbarSet = "Default";
+#end
+oFCKeditor.Config.DefaultLanguage = "$context.getLanguage()";
+oFCKeditor.Config.BaseHref = '${url_util.siteRoot()}${home}${editPath}';
+#if( $editorSession && $editorSession.hasHeader() )
+oFCKeditor.Config.FullPage = true;
+#end
+oFCKeditor.Config.EditorAreaCSS = '$home$csspath';
+oFCKeditor.Create() ;
+//-->
+</script>
+</div>

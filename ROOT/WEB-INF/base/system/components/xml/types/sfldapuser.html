@@ -1,0 +1,43 @@
+#if( !$sfldapusercount )
+	#set( $sfldapusercount = $context.getRequestParameter("sfldapusercount") )
+	#if( !$sfldapusercount )
+		#set( $sfldapusercount = 0 )
+	#else
+		#set( $tool = 1 )
+		#set( $sfldapusercount = $tool.parseInt($sfldapusercount) )
+	#end
+#else
+	#set( $sfldapusercount = $sfldapusercount + 1 )
+#end
+
+<input type="hidden" name="field" value="${detail.id}"/>
+<input type="hidden" id="alias${sfldapusercount}.value" name="${detail.id}.value" />
+<input type="text" id="ldapuid$sfldapusercount" name="uid" size="8"/>
+<button type="button" class="verify" 
+	onclick="verifyuserid($sfldapusercount); return false;">
+	Verify
+</button>
+<br/>
+<div id="ldapinfo$sfldapusercount">
+</div>
+
+<script type="text/javascript">
+
+if( typeof verifyuserid != "function" )
+{
+	verifyuserid = function(inCount)
+	{
+		var userid = document.getElementById("ldapuid" + inCount).value;
+		jQuery('#ldapinfo' + inCount).load("$home$page.xmledithome/verifyuser.html", {
+			oemaxlevel:1,
+			searchby: "uid",
+			value: userid,
+			sfldapusercount: inCount,
+			applicationid: '$content.applicationid',
+			catalogid: '$content.catalogid'
+		});
+		return false;
+	}
+}
+
+</script>

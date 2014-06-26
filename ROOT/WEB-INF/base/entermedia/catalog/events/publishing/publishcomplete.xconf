@@ -1,0 +1,5 @@
+<page>
+	<property name="eventname">Publish Complete</property>	
+	<path-action name="PathEventModule.runSharedEvent" runpath="/${catalogid}/events/ordering/checkorderstatus.html" allowduplicates="true" />
+	
+</page>

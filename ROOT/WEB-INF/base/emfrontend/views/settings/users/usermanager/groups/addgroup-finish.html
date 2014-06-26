@@ -1,0 +1,39 @@
+#set ( $groupname = $context.getRequestParameter( 'groupname' ) )
+Group: $groupname added.
+$pages.include("$usermanagerhome/groups/searchgroups.html")
+
+<!-- 
+#set ( $groupid = $context.getRequestParameter( 'groupid' ) )
+
+
+<form  method="post" name="wizard">
+<table cellspacing="0" width="100%" class="oestandard-table">
+<tr>
+<td bgcolor="black">
+<div class="oe-module-title">[[GROUP ADDED]]</div>
+</td><td align="right" bgcolor="black">
+<table cellpadding="5" cellspacing="5" border="0">
+<tr>
+<td>
+<input type="button" onclick="gotoPage( 'modifygroup.html?groupid=$groupid', '' );" name="Edit Group" class="oestandard-button" value="[[Edit Group]]" />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<br>
+                
+<input type="hidden" name="groupname" value="tempgroup">
+        
+<div class="oelist-box">
+  [[Group $groupname added]].
+</div>
+      
+
+</td>
+</tr>
+</table>
+</form>
+ -->

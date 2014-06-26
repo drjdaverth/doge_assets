@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<page>  
+	<property name="eventname">Find Bad Filenames</property>	
+	<property name="eventdescription">Looks for assets over 250 characters or invalid file names for the web</property>	
+	<path-action name="Script.run" allowduplicates="true" >
+		<script>./checkfilenames.groovy</script>
+	</path-action>
+	<inner-layout />
+	
+</page>

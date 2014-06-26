@@ -1,0 +1,39 @@
+<link href="$home${themeprefix}/entermedia/styles/pages/settings.css" rel="stylesheet" type="text/css">
+#set($currentcatalog = $context.getRequestParameter("currentcat"))
+#if(!$currentcatalog)
+	#set($currentcatalog = $catalogid)
+#end
+$context.putPageValue("currentcatalog", $currentcatalog)
+<h2>[[User Manager]]</h2>
+<table>
+	<tr>
+	<td style="vertical-align:top;">
+		$pages.include("/$applicationid/settings/usermanager/menu.html", $context)
+	</td>
+	<td style="vertical-algin:top;">
+		<div>
+		  <b class="spiffytwo">
+		  <b class="spiffytwo1"><b></b></b>
+		  <b class="spiffytwo2"><b></b></b>
+		  <b class="spiffytwo3"></b>
+		  <b class="spiffytwo4"></b>
+		  <b class="spiffytwo5"></b></b>
+	
+		  <div class="spiffyfgtwo">
+		  		<div id="catalogSettingsPanel">
+		  			$pages.streamContent()
+		  		</div>
+		  </div>
+	
+		  <b class="spiffytwo">
+		  <b class="spiffytwo5"></b>
+		  <b class="spiffytwo4"></b>
+		  <b class="spiffytwo3"></b>
+		  <b class="spiffytwo2"><b></b></b>
+		  <b class="spiffytwo1"><b></b></b></b>
+		</div>
+	</td>
+	</tr>
+</table>
+
+

@@ -1,0 +1,10 @@
+<properties>
+	<!-- The last thing completed -->
+  <property id="uploading" >Uploading</property> <!-- Assets created -->
+  <property id="uploaded" >Uploaded</property> <!-- originals in place -->
+  <property id="imported" >Imported</property> <!-- after exif removed -->
+  <property id="reimported" >Re-Imported</property> <!-- if modified -->
+  <property id="complete" >Complete</property>
+  <property id="error" >Error</property>
+</properties>
+  

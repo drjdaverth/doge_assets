@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+	<page-action name="ChangeLog.getChangeLog" />
+  <path-action name="WorkFlow.listDrafts"/>
+  <property name="title">
+    <value>Workflow</value>
+    <value locale="cn">工作流</value>
+    <value locale="es">Flujo Del Trabajo</value>
+  </property>
+  <property name="text.approveall">
+    <value>Approve All</value>
+    <value locale="es">Apruebe Todos</value>
+    <value locale="cn">批准所有</value>
+  </property>
+  <property name="text.confirm">
+    <value>Approve all edits?</value>
+    <value locale="es">¿Apruebe todos corrige?</value>
+    <value locale="cn">批准所有编辑?</value>
+  </property>
+  
+<property name='text.workflow'>
+        <value>Approval Report</value>
+    </property>
+<property name='text.description'>
+        <value>The following files have recently been changed and are awaiting approval.</value>
+    </property>
+<property name='text.viewrevisions'>
+        <value>View revisions</value>
+    </property>
+<property name='text.title'>
+        <value>Title</value>
+    </property>
+<property name='text.modified'>
+        <value>Modified</value>
+    </property>
+<property name='text.author'>
+        <value>Author</value>
+    </property>
+<property name='text.page'>
+        <value>Page</value>
+    </property>
+<property name='text.message'>
+        <value>Message</value>
+    </property>
+<property name='text.editpage'>
+        <value>Edit Page</value>
+    </property>
+<property name='text.workflowreport'>
+        <value>Workflow Report</value>
+    </property>
+<property name='text.listapprovalfiles'>
+        <value>The following files have recently been changed and are awaiting approval.</value>
+    </property>
+</page>

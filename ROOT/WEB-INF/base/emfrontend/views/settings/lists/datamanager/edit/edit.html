@@ -1,0 +1,24 @@
+
+<div class="tab">
+	$pages.include("../list/actions.html")
+		<div id="editlayout">
+		#set( $origURL = $context.getRequestParameter("origURL" ) )
+		#set( $view = $context.findValue("editview") )
+		$context.putPageValue("view", $view)
+		
+		<form id="dataeditor" name="dataeditor" method="post" action="$home$content.dataroot/edit/save.html" >
+			<input name="save" type="hidden" value="true" />
+			<input name="id" type="hidden" value="$!data.id" />
+			<input name="catalogid" type="hidden" value="$searcher.catalogId" />
+			<input name="searchtype" type="hidden" value="$searcher.searchType" />
+			<input name="origURL"  type="hidden" value="$!origURL" />
+		<div id="edit-data">	
+		$pages.include("/${applicationid}/components/xml/detaileditor.html", $context)
+		</div>
+		<a class="btn red" style="margin-left: 20px;" href="./delete.html?searchtype=$searcher.searchType&id=$data.id">Delete</a>
+		<input class="btn right" style="margin-right: 20px;" type="submit" value="Save" />
+		<div id="messagearea">$!message
+		</div>
+		</form>
+	</div>
+</div>

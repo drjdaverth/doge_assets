@@ -1,0 +1,45 @@
+<div id="bulkuploader">
+
+$pages.include("./metadata.html",$context)
+
+
+<script>
+
+    $('#list-$listid').change(function(){
+        if ( $(this).val() == "new $listid" )  {
+            $('#list-$listid').hide();
+            $('#listeditor-$listid').show();
+        }
+    });
+    
+    $('#listeditorbtn-$listid').click(function(){
+        $('#list-$listid').hide();
+        $('#listeditor-$listid').show();
+        $('#listeditorbtn-$listid').hide();
+        
+    });
+    $('#listeditor-$listid .cancel').click(function(){
+        $('#list-$listid').show();
+        $('#listeditor-$listid').hide();
+        $('#listeditorbtn-$listid').show();
+    });
+    $('#listeditor-$listid .save').click(function()
+    {
+    	##required: catalogid, searchtype, view, fieldname
+    	##optional: value, foreignkeyid and foreignkeyvalue
+    	#set( $xmledithome = $context.getPageProperty("xmledithome"))
+		var val = $('#listeditor-$listid input[type="text"]').val();
+       	$("#listdetail_$fieldname").load("$xmledithome/listsave.html?catalogid=$catalogid&listid=${listid}&searchtype=$listid&view=$!view&fieldname=$fieldname&foreignkeyid=$!foreignkeyid&foreignkeyvalue=$!foreignkeyvalue&newrow=" + encodeURI(val) )  	
+    	$('#list-$listid').show();
+    	
+    });
+
+</script>
+
+        
+    
+
+<div style="text-align: right" >
+    <input class="btn large" type="submit" id="finishbutton" value="Next >>" />
+</div>     
+</div>       

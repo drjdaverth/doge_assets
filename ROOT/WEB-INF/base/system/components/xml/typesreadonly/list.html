@@ -1,0 +1,8 @@
+#set( $foundrow = $searcherManager.getData($detail.getListCatalogId(),$detail.getListId(),$val) )  
+	#if($detail.render)
+   			#set($label = $searcherManager.getValue($catalogid, $detail.render, $foundrow.properties))
+		#else
+   		#set($label = $foundrow.name)
+		#end
+#esc($!label)
+#debug("ListID: $detail.listId")

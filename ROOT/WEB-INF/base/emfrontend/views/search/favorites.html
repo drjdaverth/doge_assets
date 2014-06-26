@@ -1,0 +1,13 @@
+
+$hits.setHitsPerPage(10)
+#if( $hits.size() > 10 )
+<div align="right" ><a href="$home$apphome/views/search/favoritesall.html?userid=$owner.id">View All $hits.size()</a></div>
+#end
+<table><tr><td> ##need this table to fill in float background
+$context.putPageValue("showhover", "false")
+$context.putPageValue("thumbsize", "thumb")
+$context.putPageValue("showcaption", "true")
+$context.putPageValue("hideheader","true")
+$pages.include("$apphome/components/results/index.html",$context)
+
+</td></tr></table>
