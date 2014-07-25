@@ -1,9 +1,0 @@
-#set( $q = $searchstring)
-[
-#foreach ($res in $suggestions)#set( $s = $res.get('synonyms'))
-#if( $velocityCount > 1 ),#end
-{"label": "$s ($res.get('hitcount'))", "value": "$s"}
-#end
-]
-
-##{"label": "$s.replace($q,"<b>$q</b>") ($res.get('hitcount'))", "value": "$s"}

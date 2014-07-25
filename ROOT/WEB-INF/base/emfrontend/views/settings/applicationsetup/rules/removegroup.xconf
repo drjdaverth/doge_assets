@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-
-<page>
-
-  <path-action name="PermissionModule.removeCondition"  />
-  <path-action name="PermissionModule.loadPermissionForEdit" />
-	  	 <inner-layout /> 
-</page>

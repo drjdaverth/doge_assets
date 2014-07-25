@@ -1,9 +1,0 @@
-<properties>
-  <property id="mediatype" />
-  <property id="primarymarketsegment"/>
-  <property id="secondarymarketsegment"/>
-  <property id="language"/>
-  <property id="scope"/>
-  <property id="usedby"/>
-  <property id="purpose"/>
-</properties>

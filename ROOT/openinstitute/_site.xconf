@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-  <property name="fallbackdirectory">/WEB-INF/base/emshare</property>
-  <property name="appmodule">asset</property>
-  <property name="catalogid">media/catalogs/public</property>
-  <property name="applicationid">openinstitute</property>
-</page>

@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-
-<page>
-	<path-action name="DataEditModule.deleteProperty" />
-	<inner-layout>${themeprefix}/layouts/dialoglayout.html</inner-layout>
-</page>

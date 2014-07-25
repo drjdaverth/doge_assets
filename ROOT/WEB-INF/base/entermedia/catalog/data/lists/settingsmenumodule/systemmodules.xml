@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-
-  <property id="modules" type="toplevel" parentid="modules" module="system" path="/views/settings/modules/setup/index.html" ordering="030">Modules</property>
-</properties>
-

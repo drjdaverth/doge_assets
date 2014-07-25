@@ -1,5 +1,0 @@
-<page>
-	<page-action name="User.deleteUser" />
-	<page-action name="User.reindexUsers"/>
-	
-</page>

@@ -1,6 +1,0 @@
-<page>
-	<path-action name="Script.run" alltypes="true">
-		<script>/scribe/scripts/reports/generatexls.groovy</script>
-	</path-action>
-	<property name="virtual">true</property>
-</page>

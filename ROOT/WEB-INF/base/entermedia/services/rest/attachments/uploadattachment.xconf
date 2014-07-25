@@ -1,4 +1,0 @@
-<page>
-	<path-action name="Page.uploadFile" alltypes="true"/>
-	<path-action name="AssetEditModule.attachToAssetFromUploads" alltypes="true"/>
-</page>

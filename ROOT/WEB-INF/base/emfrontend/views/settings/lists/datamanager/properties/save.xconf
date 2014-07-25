@@ -1,7 +1,0 @@
-<page>
-
-	<path-action name="DataEditModule.saveProperty" />
-	<path-action name="DataEditModule.loadProperties" />
-	<path-action name="DataEditModule.loadProperty" />
-	
-</page>

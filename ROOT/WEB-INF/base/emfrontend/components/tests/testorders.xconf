@@ -1,6 +1,0 @@
-<page>
-	<path-action name="Script.run">
-		<script>./testorders.groovy</script>
-	</path-action>
-	
-</page>

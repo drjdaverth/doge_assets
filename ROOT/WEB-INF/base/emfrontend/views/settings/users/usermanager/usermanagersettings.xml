@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<usermanager>		
-	<userproperty id="firstName" name="First Name" />
-	<userproperty id="lastName" name="Last Name" />
-	<userproperty id="email" name="Email" />
-</usermanager>

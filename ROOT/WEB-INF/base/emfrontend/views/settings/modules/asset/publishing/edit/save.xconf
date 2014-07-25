@@ -1,9 +1,0 @@
-<page>
-	
-	<path-action name="DataEditModule.saveData" />
-	
-	<path-action name="DataEditModule.search" />
-	<property name="save">true</property>
-
-			
-</page>

@@ -1,9 +1,0 @@
-<page>
-<page-action name="DataEditModule.search">
-	<searchtype>${module}</searchtype>
-</page-action>
-<page-action name="ProfileModule.saveProperties"/>
-<property name="tab">profile</property>
-<property name="hitssessionid">hits${module}${catalogid}</property>
-
-</page>

@@ -1,9 +1,0 @@
-<properties>
-  <property id="id" datatype="number" index="true" stored="true">Id</property>
-  <property id="description" editable="true" index="true" stored="true">Status</property>
-  <property id="projectnumber" editable="true" index="true" stored="true">Project Number</property>
-  <property id="formnumber" editable="true" index="true" stored="true">Form Number</property>
-  <property id="date" editable="true" index="true" stored="true" datatype="date">Date</property>
-  <property id="user" editable="false" index="true" stored="true" viewtype="user">User</property>
-  <property id="assetid" editable="true" index="true" stored="true">Asset ID</property>
-</properties>

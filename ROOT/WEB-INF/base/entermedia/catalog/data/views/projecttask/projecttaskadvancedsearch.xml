@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<root> 
-  <property id="assigned"/>  
-  <property id="library"/>  
-  <property id="taskstatus"/>  
-  <property id="client"/>
-</root>

@@ -1,6 +1,0 @@
-<page>
-	<path-action name="OrderModule.findOrderItems"/>
-	<path-action name="User.getUserManager"/>
-	
-
-</page>

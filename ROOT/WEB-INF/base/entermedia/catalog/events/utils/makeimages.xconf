@@ -1,7 +1,0 @@
-<page>
-	<property name="eventname">Make Images</property>	
-	<property name="eventdescription">Creates previews, thumbs and all medium images</property>	
-	<path-action name="Script.run">
-		<script>/${catalogid}/events/scripts/makeimages.groovy</script>
-	</path-action>
-</page>

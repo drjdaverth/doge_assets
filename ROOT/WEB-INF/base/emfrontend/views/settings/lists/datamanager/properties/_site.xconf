@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-	<property name="datatab">properties</property>
-   <inner-layout>${dataroot}/list/innerlayout.html</inner-layout>
-</page>

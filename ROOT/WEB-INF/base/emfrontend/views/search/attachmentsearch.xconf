@@ -1,5 +1,0 @@
-<page>
-	<path-action name="DataEditModule.search"/>
-	<property name="searchtype">attachment</property>
-	<property name="hitsperpage">25</property>
-</page>

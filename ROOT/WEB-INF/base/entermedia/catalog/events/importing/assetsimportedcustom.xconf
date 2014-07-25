@@ -1,8 +1,0 @@
-<page>
-	<property name="virtual">true</property>
-
-	<property name="enabled">true</property>
-	<path-action name="Script.run" allowduplicates="true">
-		<script>/${catalogid}/events/scripts/importing/assetsimportedcustom.groovy</script>
-	</path-action>
-</page>

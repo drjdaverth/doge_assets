@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property tab="datamanager" id="datamanager"  type="toplevel" module="system" path="/views/settings/lists/datamanager/index.html" ordering="040">Data Manager</property>
-  
-</properties>
-

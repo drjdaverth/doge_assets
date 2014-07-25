@@ -1,7 +1,0 @@
-<page>
-
-	<path-action name="Script.run" >
-		<script>./export.groovy</script>
-	</path-action>
-
-</page>

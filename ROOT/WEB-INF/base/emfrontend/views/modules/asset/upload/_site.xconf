@@ -1,7 +1,0 @@
-<page>
-
-<permission name="view">
-		<pagevalue name="canviewrecentuploads" equals="true"/>
-</permission>
-
-</page>

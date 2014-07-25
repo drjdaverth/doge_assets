@@ -1,5 +1,0 @@
-<page>
-
-	<path-action name="PathEventModule.runSharedEvent" runpath="/${catalogid}/events/publishing/publishassets.html" allowduplicates="true" />
-	
-</page>

@@ -1,2 +1,0 @@
-<event operation="authentication" user="admin" details="invalidpassword" catalogid="system" date="2014-05-02 17:25:41 +0000" indexed="false"/>
-<event operation="authentication" user="admin" details="login" catalogid="system" date="2014-06-26 12:01:24 +0000" indexed="false"/>

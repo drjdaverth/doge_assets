@@ -1,7 +1,0 @@
-<page>
-	<property name="tab">asseteditorhistory</property>
-	<property name="subtab">converthistory</property>
-	<property name="assettab">viewassetpreviewhistory</property>
-	<property name="searchtype">conversiontask</property>
-	
-</page>

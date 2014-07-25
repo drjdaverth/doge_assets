@@ -1,6 +1,0 @@
-<page>
-	<property name="tab">asseteditormetadata</property>
-	<property name="assettab">metadatageneral</property>
-	<property name="scrollable">true</property>
-
-</page>

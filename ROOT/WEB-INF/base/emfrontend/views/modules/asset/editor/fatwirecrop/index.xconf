@@ -1,5 +1,0 @@
-<page>
-	
-	<path-action name="ConvertStatusModule.addConvertRequest"/>
-	<page-action name="PageValue.loadPageVariable" bean="conversionUtil"/>
-</page>

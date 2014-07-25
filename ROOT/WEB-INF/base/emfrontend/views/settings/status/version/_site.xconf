@@ -1,5 +1,0 @@
-<page>
-		<path-action bean="pageManager" name="PageValue.loadPageVariable" allowduplicates="true" />
-		<property name="subtab">version</property>
-	
-</page>

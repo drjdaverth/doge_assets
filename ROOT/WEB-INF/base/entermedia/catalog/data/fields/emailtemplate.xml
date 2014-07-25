@@ -1,9 +1,0 @@
-
-<properties prefix="emailtemplates">
-  <property id="id" index="true" stored="true" editable="true" searchtype="emailtemplate" internalfield="true">Id</property>
-  <property id="name" index="true" stored="true" editable="true" searchtype="emailtemplate">Name</property>
-  <property id="to" index="true" stored="true" editable="true" searchtype="emailtemplate">To</property>
-  <property id="bcc" index="true" stored="true" editable="true" type="list" listid="emailrecipient" viewtype="multiselect" searchtype="emailtemplate" internalfield="false" datatype="list">BCC List</property>
-  <property id="from" index="true" stored="true" editable="true" searchtype="emailtemplate" internalfield="false">From</property>
-  <property id="subject" index="true" stored="true" editable="true" searchtype="emailtemplate">Subject</property>
-</properties>

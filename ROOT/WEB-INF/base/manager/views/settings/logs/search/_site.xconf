@@ -1,5 +1,0 @@
-<page>
-	<inner-layout>${logroot}/search/innerlayout.html</inner-layout>
-	<property name="hitsname">loghits</property>
-	<property name="defaultsort">dateDown</property>
-</page>

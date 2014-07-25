@@ -1,7 +1,0 @@
-#
-#Fri May 07 10:36:51 CLT 2010
-Category\ Id=ID de Categor\u00EDa
-Id=Id
-File\ Name=Nombre del Archivo
-Short\ Description=Descripci\u00F3n Breve
-Category\ Name=Nombre de Categor\u00EDa

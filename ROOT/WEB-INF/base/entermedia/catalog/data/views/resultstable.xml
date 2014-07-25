@@ -1,8 +1,0 @@
-<properties>
-	<property id="name"/>
-	<property id="datatype" />
-	<property id="mediatype"/>
-	<property id="lob"/>
-	<property id="assettitle">Item Name</property>
-	<property id="owner" />
-</properties>

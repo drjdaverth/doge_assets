@@ -1,7 +1,0 @@
-<page>
-
-	<path-action name="Script.run" >
-		<script>./assetsrecentlyordered.groovy</script>
-	</path-action>
-
-</page>

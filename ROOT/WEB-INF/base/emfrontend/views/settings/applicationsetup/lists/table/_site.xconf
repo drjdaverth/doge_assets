@@ -1,5 +1,0 @@
-<page>
-	<property name="searchhome">/${applicationid}/views/settings/lists/table</property>
-	<property name="xmledithome">/${applicationid}/components/xml</property>
-	<property name="subtab">projects</property>
-</page>

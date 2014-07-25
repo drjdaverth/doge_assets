@@ -1,5 +1,0 @@
-<page>
-		<property name="typespath">${dataroot}/types</property>
-		<property name="usestartswith">true</property>
-		
-</page>

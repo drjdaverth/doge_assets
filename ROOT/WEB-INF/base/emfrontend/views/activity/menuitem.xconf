@@ -1,5 +1,0 @@
-<page>
-	<page-action name="OrderModule.loadOrderBasket"/>
-	<inner-layout/>
-
-</page>

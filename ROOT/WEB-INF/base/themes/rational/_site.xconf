@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<page>
-	<property name="themename">Rational</property>
-	<property name="themeprefix">/themes/rational</property>
-	<property name="oetextfilter">translation</property>
-	<inner-layout>${themeprefix}/layouts/layout.html</inner-layout>
-</page>

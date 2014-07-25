@@ -1,7 +1,0 @@
-<properties usagelabel="Specify columns used on results Table Data view">
-	<property id="assettype" />
-	<property id="assettitle"/>
-	<property id="name"/>
-	<property id="filesize" />
-	
-</properties>

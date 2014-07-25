@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties usagelabel="Detail Editor / General Information / Item Information">
-  <property id="assettitle" />
-  <property id="longcaption" />
-  <property id="longcaption" />
-  <property id="importstatus"/>
-  <property id="editstatus"/>
-</properties>

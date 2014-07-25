@@ -1,5 +1,0 @@
-<page>
-
-	<page-action name="DataEditModule.loadViews" />
-	<property name="searchtype">asset</property>
-</page>

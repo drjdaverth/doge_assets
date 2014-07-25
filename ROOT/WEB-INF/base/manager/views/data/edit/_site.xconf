@@ -1,5 +1,0 @@
-<page>
-	<path-action name="DataEditModule.loadSearcherForEdit" />
-	<property name="tab">searchdata</property>
-	
-</page>

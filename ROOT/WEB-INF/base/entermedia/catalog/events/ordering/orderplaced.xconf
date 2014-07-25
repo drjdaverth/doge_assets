@@ -1,8 +1,0 @@
-<page>
-	<property name="eventname">Order Placed</property>	
-	<path-action name="OrderModule.createConversionRequest" />
-	
-	<path-action name="PathEventModule.runSharedEvent" allowduplicates="true">
-		<runpath>/${catalogid}/events/runconversions.html</runpath>
-	</path-action>
-</page>

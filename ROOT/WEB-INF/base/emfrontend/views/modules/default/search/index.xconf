@@ -1,8 +1,0 @@
-<page>
-	<path-action name="DataEditModule.loadPageOfSearch">
-				<searchtype>${module}</searchtype>
-	</path-action>
-	
-	<property name="virtual">true</property>
-	<property name="assetrootfolder">/${applicationid}/assets</property>
-</page>

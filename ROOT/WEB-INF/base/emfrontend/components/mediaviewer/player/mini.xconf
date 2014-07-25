@@ -1,4 +1,0 @@
-<page>
-	<path-action name="MediaArchiveModule.getAsset"  />
-	<page-action name="PageValue.loadPageVariable" bean="numberutils" class="org.apache.commons.lang.math.NumberUtils"/>
-</page>

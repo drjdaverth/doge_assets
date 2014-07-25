@@ -1,7 +1,0 @@
-<page>
-	<!--path-action name="DataEditModule.loadFields" /-->
-	<path-action name="DataEditModule.addProperty" />
-	
-	   <inner-layout>${dataroot}/list/innerlayout.html</inner-layout>
- 
-</page>

@@ -1,5 +1,0 @@
-#if( !$treeNode.getName().startsWith(".") )
-	#if ($pages.canDo("viewallattachments", $page.path) || $item.path.contains("ClientView"))
-		$pages.include("$cataloghome/attachments/displaynode.html", $context)
-	#end
-#end	

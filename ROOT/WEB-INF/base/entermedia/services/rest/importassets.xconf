@@ -1,6 +1,0 @@
-<page>
-	<path-action name="AssetEditModule.createAssetsFromFile" alltypes="true" />
-	<path-action name="DataEditModule.saveData" alltypes="true" />
-	<property name="searchtype">asset</property>
-	<property name="save">true</property>
-</page>

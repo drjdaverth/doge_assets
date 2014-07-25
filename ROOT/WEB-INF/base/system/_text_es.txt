@@ -1,3 +1,0 @@
-#
-#Wed Apr 28 12:45:21 CLT 2010
-text.edittext=text.edittext

@@ -1,4 +1,0 @@
-#foreach( $row in $sheet.getRows())
-#foreach( $cell in $row.getCells() )$!cell.text	#end
-
-#end

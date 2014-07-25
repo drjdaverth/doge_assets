@@ -1,7 +1,0 @@
-<permissions>
-
-	<permission id="view" name="Show Catalog" description="Allow views of this catalog"/>
-	<permission id="upload" name="Uploading" description="Uploading to this catalog"/>
-	<permission id="browsecategories" name="Category Tree" description="Browse assets using the category tree"/> 
-</permissions>
-

@@ -1,4 +1,0 @@
-<page>
-	<path-action name="DataEditModule.loadPageOfSearch" alltypes="true" />
-	<property name="hitsname">hits</property>
-</page>

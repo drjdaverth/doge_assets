@@ -1,6 +1,0 @@
-<page>
-	<path-action name="DataEditModule.deleteProperty" />
-	<path-action name="DataEditModule.loadProperties" />
-	
-	
-</page>

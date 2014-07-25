@@ -1,9 +1,0 @@
-<properties>
-	<property id="id" index="true" stored="true">ID</property>
-	<property id="name" editable="true" index="true" stored="true">Name</property>
-	<property id="status" editable="true" index="true" stored="true">Status</property>
-	<property id="filesize" editable="true" type="number" index="true" stored="true">File Size</property>
-	<property id="filesizeuploaded" editable="true" type="number" index="true" stored="true">Upload So Far</property>
-	<property id="date" editable="true" type="date" viewtype="datetime" index="true" stored="true">Date</property>
-	<property id="sourcepath" index="true" stored="true">Source Path</property>		
-</properties>

@@ -1,3 +1,0 @@
-<page>
-    <inner-layout id="applevel">${themeprefix}/layouts/application.html</inner-layout>
-</page>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-	<page-action bean="searcherManager" name="PageValue.loadPageVariable"/>
-	<layout/>
-	<inner-layout/>
- </page>

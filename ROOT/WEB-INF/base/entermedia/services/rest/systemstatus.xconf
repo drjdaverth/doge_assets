@@ -1,4 +1,0 @@
-<page>
-			<path-action bean="cacheManager" name="PageValue.loadPageVariable" allowduplicates="true" alltypes="true"/>
-<permission name="view"><blank/></permission>
-</page>

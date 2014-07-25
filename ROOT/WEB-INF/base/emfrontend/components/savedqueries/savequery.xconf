@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-
-	<path-action name="SavedQueryModule.loadCurrentQuery"/>
-	<property name="titleprefix">Save New</property>
-	
-</page>

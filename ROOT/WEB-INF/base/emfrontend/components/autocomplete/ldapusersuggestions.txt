@@ -1,3 +1,0 @@
-#foreach ($res in $results)
-$res.mail|$existingmail$res.mail;
-#end

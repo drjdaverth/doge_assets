@@ -1,6 +1,0 @@
-#
-#Thu Apr 29 15:17:44 CLT 2010
-Download=Descargar
-You\ must\ agree\ to\ adhere\ to\ the\ usage\ restrictions.=Debe comprometerse a respetar las restricciones de uso.
-Complete\ the\ form\ below\ to\ continue\ the\ download\ process.=Complete el siguiente formulario para continuar con el proceso de descarga.
-Download\ Usage=Historial de Uso

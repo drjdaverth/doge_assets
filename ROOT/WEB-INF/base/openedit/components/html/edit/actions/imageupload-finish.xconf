@@ -1,9 +1,0 @@
-<page>
-	
-	<path-action name="Script.run">
-		<script>./handleupload.groovy</script>    
-	
-	</path-action>
-	<property name="hitsname">hits</property>
-	<inner-layout/>
-</page>

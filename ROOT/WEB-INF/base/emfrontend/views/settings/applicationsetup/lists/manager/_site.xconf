@@ -1,6 +1,0 @@
-<page>
-	<path-action name="DataEditModule.loadSearchTypes" />
-	<property name="hitsname">datalist</property>
-	<property name="dataroot">/${applicationid}/views/settings/lists/manager/</property>
-	<property name="subtab">manager</property>
-</page>

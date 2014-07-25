@@ -1,9 +1,0 @@
-<tr class="emsearchfieldrow">
-	<td valign="middle" class="emsearchfield" nowrap="true">
-		$!detail.getText($context) 
-	</td>
-	<td id="detail_${detail.id}" align="left" valign="middle" class="emsearchfieldvalue" nowrap >
-		<input name="field" value="$searcher.getCatalogId():$view:${detail.getId()}" type="hidden">
-		$pages.include("/${applicationid}/components/advancedsearch/detail.html", $context)
-	</td>
-</tr>

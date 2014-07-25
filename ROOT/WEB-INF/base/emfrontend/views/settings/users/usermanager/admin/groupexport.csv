@@ -1,8 +1,0 @@
-#set( $datalist = $userTracker)
-#set( $details = $searcher.getStoredProperties())	
-#foreach( $detail in $details )property.${detail.getId()}	#end 
-
-#foreach ( $hit in $datalist.getAllHits() )
-#foreach( $detail in $details )#set( $newval = "$!hit.get($detail.getId())")$newval	#end#foreach($group in $hit.getGroups())$group.id,#end
-
-#end

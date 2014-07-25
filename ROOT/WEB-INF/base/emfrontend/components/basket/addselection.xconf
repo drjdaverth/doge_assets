@@ -1,5 +1,0 @@
-<page>
-	<path-action name="OrderModule.addSelectionsToOrderBasket"/>
-	<inner-layout/>
-	<layout/>
-</page>

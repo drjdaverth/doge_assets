@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-
-<page>
-	<page-action name="User.findUsersInGroup" />
-	<page-action name="User.loadPageOfResults" />
-	<property name="oemaxlevel">1</property>
-</page>

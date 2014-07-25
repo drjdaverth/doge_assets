@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-	<path-action name="MediaSearchModule.searchExactCatalogs" alltypes="true"/>
-	<property name="virtual">true</property>
-	<!--generator name="categoryDownloadGenerator"/-->
-	<view-permissions><blank /></view-permissions>
-	<path-action name="MediaArchiveModule.forceDownload" alltypes="true" />	
-</page>

@@ -1,8 +1,0 @@
-<page>
-	<path-action name="MediaArchiveModule.getAsset"/>
-	<path-action name="Admin.loadPermissions"/>
-	<inner-layout>${themeprefix}/layouts/dialoglayout.html</inner-layout>
-	<property name="text.agreement">
-		<value>I agree to adhere to all usage restrictions and licenses provided in the details page of each item I am about to download.</value>
-	</property>
-</page>

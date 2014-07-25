@@ -1,4 +1,0 @@
-<page>
-	<path-action name="SpreadSheetModule.saveColumn" />
-	<inner-layout />
-</page>

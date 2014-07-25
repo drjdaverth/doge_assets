@@ -1,7 +1,0 @@
-<page>
-	<property name="eventname">Fix Missing Generated Images</property>	
-
-	<path-action name="Script.run" allowduplicates="true" >
-		<script>/${catalogid}/events/scripts/conversions/generatemissing.groovy</script>
-	</path-action>
-</page>

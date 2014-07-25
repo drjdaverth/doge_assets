@@ -1,6 +1,0 @@
-<properties>
-	<property id="id" index="true" stored="true">Vote Id</property>
-	<property id="assetid" index="true" stored="true">Asset Id</property>
-	<property id="username" index="true" viewtype="user" stored="true">User Name</property>
-	<property id="time" datatype="date" index="true" stored="true" >Time</property>
-</properties>

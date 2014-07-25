@@ -1,6 +1,0 @@
-
-<properties prefix="emailrecipients" beanname="dataSearcher">
-  <property id="id" index="true" stored="true" editable="true" searchtype="emailrecipient" internalfield="true">Id</property>
-  <property id="name" index="true" stored="true" editable="true" searchtype="emailrecipient">Name</property>
-  <property id="sourcepath" searchtype="emailrecipient">SourcePath</property>
-</properties>

@@ -1,7 +1,0 @@
-<page>
-	<path-action name="DataEditModule.deleteData" />
-    	<property name='text.Deleted'>
-        	<value>Deleted</value>
-		<value locale="es">Eliminado</value>
-    	</property>
-</page>

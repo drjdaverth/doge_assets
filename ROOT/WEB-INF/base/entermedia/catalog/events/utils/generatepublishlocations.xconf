@@ -1,7 +1,0 @@
-<page>
-	<property name="eventname">Generate Publish Locations</property>	
-
-	<path-action name="Script.run">
-		<script>/${catalogid}/events/scripts/publishing/dump_smartjog_server_list.groovy</script>
-	</path-action>
-</page>

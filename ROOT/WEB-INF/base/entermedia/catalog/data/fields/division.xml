@@ -1,6 +1,0 @@
-
-<properties>
-  <property id="id" index="true" editable="true"  stored="true">Id</property>
-  <property id="name" editable="true" index="true" stored="true">Name</property>
-  <property id="folder" editable="true" index="true" stored="true" note="Top level folder name ie projects/1234">Folder Name</property>
-</properties>

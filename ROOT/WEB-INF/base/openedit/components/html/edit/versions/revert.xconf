@@ -1,7 +1,0 @@
-<page>
-	
-	<path-action name="EditModule.releaseEditLock" />
-	<page-action name="RevisionEditor.getRevisionContent" />
-	<page-action name="RevisionEditor.writeRevisionContent" />
-	<page-action name="EditModule.redirectToOriginal" />
-</page>

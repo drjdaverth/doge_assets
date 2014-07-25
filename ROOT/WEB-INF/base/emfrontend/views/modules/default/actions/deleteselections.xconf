@@ -1,7 +1,0 @@
-<page>
-<path-action name="DataEditModule.deleteSelections">
-	
-		<searchtype>${module}</searchtype>
-	
-</path-action>
-</page>

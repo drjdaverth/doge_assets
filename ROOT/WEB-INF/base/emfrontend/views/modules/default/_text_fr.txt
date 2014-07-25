@@ -1,5 +1,0 @@
-#
-#Mon Aug 27 12:16:24 EDT 2012
-Export\ results\ with\ Friendly\ values=Exporter les r\u00E9sultats avec les valeurs amicales
-Delete\ Selected\ Items=Supprimer les \u00E9l\u00E9ments s\u00E9lectionn\u00E9s
-Export\ results\ CSV=Export CSV des r\u00E9sultats

@@ -1,6 +1,0 @@
-<page>
-	<property name="uploaderpath">/${catalogid}/upload/multiupload</property>
-	<property name="appletserial">2010041501</property>
-	<property name="hitsname">syncassets</property>
-    <property name="searchcurrentcatalogonly">true</property>
-</page>

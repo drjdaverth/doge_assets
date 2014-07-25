@@ -1,4 +1,0 @@
-<page>
-	<path-action name="DataEditModule.addNewView" />
-	<path-action name="DataEditModule.loadViews" />
-</page>

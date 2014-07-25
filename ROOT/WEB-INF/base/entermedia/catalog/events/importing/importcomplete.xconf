@@ -1,5 +1,0 @@
-<page>
-	<property name="eventname">Import Complete</property>	
-	<path-action name="PathEventModule.runSharedEvent" runpath="/${catalogid}/events/conversions/runconversions.html" allowduplicates="true" />
-	
-</page>

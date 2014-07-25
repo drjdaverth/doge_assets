@@ -1,4 +1,0 @@
-<page>
-	<path-action name="EditModule.releaseEditLock" />
-	<path-action name="HtmlEditor.save" />	
-</page>

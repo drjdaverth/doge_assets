@@ -1,5 +1,0 @@
-#set( $rid = $row.getId() )
-#set( $cid = $cell.getId() )
-
-#set ($color = $sheet.pickColor($cell.text))
-<div id="${rid}_${cid}" #if ($color) style="background-color: $color" #end >$!cell.getText()</div>

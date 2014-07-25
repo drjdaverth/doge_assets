@@ -1,7 +1,0 @@
-<page>
-	<property name="outputtype">mp3</property>
-	<path-action name="Script.run">
-		<script>./scripts/makeavpreview.groovy</script>
-	</path-action>
-<property name="virtual">true</property>
-</page>

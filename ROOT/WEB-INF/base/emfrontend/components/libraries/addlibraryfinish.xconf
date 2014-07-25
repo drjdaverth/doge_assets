@@ -1,6 +1,0 @@
-<page>
-	<path-action name="DataEditModule.saveData"/>
-	<path-action name="ProjectModule.savedLibrary"/>
-	<path-action name="ProfileModule.savePreference"/>
-	
-</page>

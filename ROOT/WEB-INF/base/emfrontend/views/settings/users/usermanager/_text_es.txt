@@ -1,8 +1,0 @@
-#
-#Tue Apr 27 11:48:42 CLT 2010
-Import/Export=Importar/Exportar
-User\ Permissions=Permisos de Usuario
-Users=Usuarios
-Settings=Ajustes
-Groups=Grupos
-

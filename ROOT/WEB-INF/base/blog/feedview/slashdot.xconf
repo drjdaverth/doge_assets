@@ -1,6 +1,0 @@
-<page>
-<page-action name="RSSModule.loadRomeFeed">
-<feed>http://rss.slashdot.org/Slashdot/slashdot</feed>
-</page-action>
-
-</page>

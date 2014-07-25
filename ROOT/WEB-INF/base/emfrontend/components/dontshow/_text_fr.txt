@@ -1,5 +1,0 @@
-#
-#Mon Aug 27 10:52:50 EDT 2012
-None=aucun
-All=tous
-Filters=filtres

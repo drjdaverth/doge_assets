@@ -1,6 +1,0 @@
-<page>
-	<property name='text.Menu Editor'>
-        	<value>Menu Editor</value>
-		<value locale="es">Editor del Menú</value>
-    	</property>
-</page>

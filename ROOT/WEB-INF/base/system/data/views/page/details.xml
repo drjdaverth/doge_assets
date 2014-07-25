@@ -1,7 +1,0 @@
-<properties>
-	<property id="id">ID</property>
-	<property id="name">name</property>
-	<property id="size">Size</property>
-	<property id="actualpath">Actual Path</property>
-	<property id="content">Actual Path</property>
-</properties>

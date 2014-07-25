@@ -1,5 +1,0 @@
-#
-#Thu Apr 29 14:43:58 CLT 2010
-Date=Fecha
-Action=Acci\u00F3n
-User=Usuario

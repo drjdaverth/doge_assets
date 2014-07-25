@@ -1,5 +1,0 @@
-<properties>
-	<property id="unauthorized" name="Unauthorized User" errorcode="403" message="Use an authorized CAS user to use this REST resource." description="HTTP 403: User does not have permission to access the REST resource."></property>
-	<property id="configuration" name="Asset Configuration" errorcode="404" message="Verify existence of the site and/or asset type, if necessary create the site and/or type and make sure that the type is enabled in the site." description="HTTP 404: Either site and/or asset type does not exist, or the asset type is not enabled in the site."></property>
-	<property id="generic" name="Generic Server Exception" errorcode="500" message="Verify that the source AssetBean has been provided with all mandatory attributes, associations as per type definition, verify that at least one site has been provided in the publish attribute of the AssetBean." description="HTTP 500: Generic server side exception."></property>
-</properties>

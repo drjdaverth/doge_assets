@@ -1,4 +1,0 @@
-<page>
-<inner-layout>/${applicationid}/views/links/listinnerlayout.html</inner-layout>
-	<path-action name="LinkTree.saveLink"/>
-</page>

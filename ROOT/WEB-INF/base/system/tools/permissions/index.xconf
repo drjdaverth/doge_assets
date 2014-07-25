@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-  	<property name="text.Please select or add a permission type.">
-    		<value>Please select or add a permission type.</value>
-    		<value locale="es">Por favor, seleccione o agregue un tipo de permiso.</value>
-  	</property>
-</page>

@@ -1,4 +1,0 @@
-<page>
-	<path-action name="BlogAdminModule.sendNotification" />
-	<layout />
-</page>

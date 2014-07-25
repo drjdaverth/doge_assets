@@ -1,5 +1,0 @@
-<properties>
-	<property id="firstname"/>
-	<property id="lastname" />
-	<property id="company" />
-</properties>

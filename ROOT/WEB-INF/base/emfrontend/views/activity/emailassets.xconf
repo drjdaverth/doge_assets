@@ -1,8 +1,0 @@
-<page>
-	<path-action name="OrderModule.createOrderWithItems"/>
-	<path-action name="OrderModule.findOrderItems"/>
-	<path-action name="OrderModule.findOrderAssets"/>
-	
-	<inner-layout>${themeprefix}/layouts/share.html</inner-layout>
-	<property name="sectiontitle">Email</property>
-</page>

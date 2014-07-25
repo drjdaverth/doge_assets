@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-	<page-action name="RevisionEditor.getRevisions" alltypes="true"/>   
-	<page-action name="PageValue.loadPageVariable" bean="sizer" alltypes="true"/>	
-	
-</page>

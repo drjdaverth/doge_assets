@@ -1,6 +1,0 @@
-<page>
-	<path-action name="MediaSearchModule.searchCategories"/>
-	
-	<property name="assetrootfolder">/${applicationid}/views/assets</property>
-
-</page>

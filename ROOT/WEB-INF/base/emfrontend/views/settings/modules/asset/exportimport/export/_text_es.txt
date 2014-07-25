@@ -1,7 +1,0 @@
-#
-#Tue Apr 27 10:52:41 CLT 2010
-Assets=Artículos
-Export=Exportar
-Assets\ and\ Categories=Artículos y Categor\u00EDas
-Categories=Categor\u00EDas
-

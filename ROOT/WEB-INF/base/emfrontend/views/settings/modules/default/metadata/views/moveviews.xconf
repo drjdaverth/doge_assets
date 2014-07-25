@@ -1,4 +1,0 @@
-<page>
-	<path-action name="DataEditModule.sortList" />
-		<inner-layout />
-</page>

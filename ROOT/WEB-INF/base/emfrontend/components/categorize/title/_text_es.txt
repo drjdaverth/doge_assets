@@ -1,4 +1,0 @@
-#
-#Thu Aug 12 21:30:52 EDT 2010
-Edit\ Title=Editar t\u00EDtulo
-Add\ Title=A\u00F1adir t\u00EDtulo

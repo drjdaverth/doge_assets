@@ -1,8 +1,0 @@
-<page>
-	<property name="editable">false</property>
-	<layout />
-	<inner-layout />
-	<property name="from">admin@openedit.org</property>
-	<property name="subject">Notification</property>
-	
-</page>

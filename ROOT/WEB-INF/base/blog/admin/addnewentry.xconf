@@ -1,5 +1,0 @@
-<page>
-	<page-action name="BlogModule.addNewEntry" />
-		<property name="title">New Story</property>
-	
-</page>

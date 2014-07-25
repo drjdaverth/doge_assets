@@ -1,4 +1,0 @@
-<linktree>
-	<a folder="userpermissions" module="library"  id="librarypermissions"  useajax="false" multiedit="false" name="Privacy" />
-	<a folder="git" module="library"  id="librarygit"  useajax="false" multiedit="false" name="Download Folder" />
-</linktree>

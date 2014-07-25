@@ -1,9 +1,0 @@
-<properties>
-	<property id="id" editable="false" index="true" stored="true">History Id</property>
-	<property id="orderid" editable="false" index="true" stored="true">Order Id</property>
-	<property id="userstatus" index="true" type="list" stored="true" listid="order/userstatus" >Last Status</property>
-	<property id="userid" editable="false" index="true" stored="true">User ID</property>
-	<property id="date" editable="false" index="true" stored="true" type="date" >Date</property>
-	<property id="note"  index="true" stored="true">Note</property>
-	<property id="assets" index="true" stored="true" >Attachments</property>
-</properties>

@@ -1,8 +1,0 @@
-<page>
-	<property name="virtual">true</property>
-	<view-requirements />
-	<path-action name="TabModule.selectTab">
-		<tablistname>oeadminmode</tablistname>
-	</path-action>
-	
-</page>

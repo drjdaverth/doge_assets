@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property id="singleupload" path="/views/upload/index.html">Single Asset</property>
-  <property id="multiupload" path="/components/upload/types/draganddrop.html">Mhultiple Assets</property>
-  <property id="hotfolders" path="/views/settings/hotfolders/index.html">Hotfolders</property>
-  <property id="addnewrecord" path="">Create New Record</property>
-</properties>

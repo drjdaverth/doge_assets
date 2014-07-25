@@ -1,5 +1,0 @@
-#
-#Mon Jul 11 15:26:38 EDT 2011
-Share=Anteil
-Edit\ Permissions=Bearbeitungsberechtigungen
-Note\:\ Sharing\ enables\ access\ to\ anonymous\ visitors=Hinweis\: Die Freigabe erm\u00F6glicht den Zugriff auf anonyme Besucher

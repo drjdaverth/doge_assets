@@ -1,5 +1,0 @@
-#
-#Tue Apr 27 17:04:27 EDT 2010
-Language=Sprache
-Read=lesen
-Translation\ Exporter=\u00DCbersetzung Ausf\u00FChrer

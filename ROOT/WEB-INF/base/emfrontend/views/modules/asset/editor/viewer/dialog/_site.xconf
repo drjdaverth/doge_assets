@@ -1,5 +1,0 @@
-<page>
-
-	<inner-layout>${themeprefix}/entermedia/layouts/mediaviewerdialog.html</inner-layout>
-
-</page>

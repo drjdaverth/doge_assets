@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property id="divisionviews" type="toplevel" module="division" parentid="divisionviews" ordering="100" path="/views/settings/modules/division/metadata/views/index.html" sublabel="Editing">Views</property>
-  <property id="divisionpermissions" type="toplevel" module="division" parentid="divisionpermissions" ordering="300" path="/views/settings/modules/division/permissions/index.html" sublabel="Editing">Permissions</property>
-  <property id="divisionsystemviews" module="division" parentid="divisionviews" path="/views/settings/modules/division/metadata/viewssystem/index.html" ordering="110">System</property>
-</properties>
-  	

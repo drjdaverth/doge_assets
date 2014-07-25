@@ -1,6 +1,0 @@
-#
-#Thu Apr 08 15:07:02 EDT 2010
-Users=Benutzer
-Groups=Gruppen
-Security=Sicherheit
-User\ Account\ Manager=Benutzer-Account-Manager

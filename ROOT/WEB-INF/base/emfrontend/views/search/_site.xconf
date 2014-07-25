@@ -1,8 +1,0 @@
-<page>
-	<inner-layout>${themeprefix}/layouts/searchlayout.html</inner-layout>
-	<property name="hitsname">hits</property>
-	<property name="searchtype">asset</property>
-	<path-action name="DataEditModule.loadPageOfSearch" />
-	<property name="sortby">assetaddeddateDown</property>
-	<property name="section">assets</property>
-</page>

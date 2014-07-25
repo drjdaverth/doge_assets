@@ -1,8 +1,0 @@
-<page>
-
-	<property name="text.Add New">
-		<value>Add New</value>
-		<value locale="es">Agregar nuevo</value>
-	</property>
-
-</page>

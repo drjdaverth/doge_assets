@@ -1,9 +1,0 @@
-<page>
-	
-	
-	<path-action name="Script.run">
-		<script>/${applicationid}/components/html/edit/actions/handleupload.groovy</script>    
-	
-	</path-action>
-<inner-layout>/${openeditid}/html/browse/assetlayout.html</inner-layout>
-</page>

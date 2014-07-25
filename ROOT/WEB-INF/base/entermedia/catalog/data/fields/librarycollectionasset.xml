@@ -1,8 +1,0 @@
-<properties beanname="dataSearcher" >
-  <property id="id" index="true" stored="true" editable="true" internalfield="true">Id</property>
-  <property id="sourcepath" >SourcePath</property>  
-  <property id="librarycollection" index="true" filter="true" type="list" stored="true" editable="true" internalfield="false">Collection</property>
-  <property id="asset" index="true" stored="true" editable="true" type="list" viewtype="asset" >Asset</property>
-  <property id="collectioncategory" index="true" stored="true" editable="true" type="list" viewtype="tageditor" >Category</property>
-  <property id="collectionstatus" index="true" stored="true" editable="true" type="list" viewtype="tageditor" >Status</property>
-</properties>

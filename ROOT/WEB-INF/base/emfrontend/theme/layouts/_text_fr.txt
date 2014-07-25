@@ -1,5 +1,0 @@
-#
-#Tue Sep 04 11:11:35 EDT 2012
-Editing\ across\ $asset.size()\ records=Modification \u00E0 travers asset.size $ () enregistre
-There\ was\ a\ problem\ completing\ this\ request=Il y avait une difficult\u00E9 \u00E0 remplir cette demande
-Asset\ is\ missing=Actif est manquant

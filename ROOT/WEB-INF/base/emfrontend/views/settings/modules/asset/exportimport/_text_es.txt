@@ -1,7 +1,0 @@
-#
-#Mon Apr 12 12:35:39 CLT 2010
-Import=Importar
-Catalog\ Administration=Administración del Cat\u00E1logo
-Export=Exportar
-Actions=Acciones
-

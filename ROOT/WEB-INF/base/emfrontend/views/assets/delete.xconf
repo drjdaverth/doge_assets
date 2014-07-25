@@ -1,7 +1,0 @@
-<page>
-	<path-action name="AssetEditModule.deleteAssets">
-		<property name="searchtype">asset</property>
-	</path-action>
-	<inner-layout>/${themeprefix}/layouts/searchlayout.html</inner-layout>
-	
-</page>

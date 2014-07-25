@@ -1,5 +1,0 @@
-<page>
-	<page-action name="BlogModule.changeCommentVisibility" />	
-	<property name="virtual">true</property>
-	
-</page>

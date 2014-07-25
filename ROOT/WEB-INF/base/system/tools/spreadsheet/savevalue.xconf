@@ -1,4 +1,0 @@
-<page>
-	<path-action name="SpreadSheetModule.saveValue" />
-	<inner-layout />
-</page>

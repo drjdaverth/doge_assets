@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<root>
-  <property id="ordertype"/>
-  <property id="id"/>
-  <property id="userid"/>
-  <property id="historyuserstatus"/>
-  <property id="historydate"/>
-</root>

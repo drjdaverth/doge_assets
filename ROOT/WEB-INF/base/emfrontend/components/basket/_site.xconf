@@ -1,6 +1,0 @@
-<page>
-	<property name="albumid">4</property>
-	<property name="autocreatealbum">true</property>
-	<property name="showaddselections">false</property>
-  <property name="showremoveselections">true</property>
-</page>

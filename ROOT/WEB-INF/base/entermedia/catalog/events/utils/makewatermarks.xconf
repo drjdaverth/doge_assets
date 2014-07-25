@@ -1,6 +1,0 @@
-<page>
-
-	<path-action name="Script.run">
-		<script>./scripts/makewatermarks.bsh</script>
-	</path-action>
-</page>

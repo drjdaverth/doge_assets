@@ -1,5 +1,0 @@
-<page>
-	<path-action name="DataEditModule.saveData">
-		<property name="searchtype">asset</property>
-	</path-action>
-</page>

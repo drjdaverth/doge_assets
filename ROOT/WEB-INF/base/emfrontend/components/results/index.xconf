@@ -1,6 +1,0 @@
-<page>
- <path-action name="ProfileModule.saveValues" />
- <path-action name="DataEditModule.loadPageOfSearch"/>
- <inner-layout />
-  
-</page>

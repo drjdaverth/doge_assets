@@ -1,4 +1,0 @@
-<page>
-	<path-action name="DataEditModule.moveFieldInView" />
-		<inner-layout />
-</page>

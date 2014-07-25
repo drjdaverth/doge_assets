@@ -1,6 +1,0 @@
-<page>
-	<page-action name="CommentModule.addComment"/>
-	<permission name="view">
-		<pagevalue name="cancomment" equals="true"/>
-	</permission>
-</page>

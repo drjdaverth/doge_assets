@@ -1,9 +1,0 @@
-$suggestions.setHitsPerPage(50)
-#set( $q = $searchstring)
-[
-#foreach ($res in $suggestions.getPageOfHits())
-#if( $velocityCount > 1 ),#end
-{"label": "$res", "value": "$res.get('id')", "display": "$res"}
-
-#end
-]

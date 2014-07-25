@@ -1,6 +1,0 @@
-<page>
-	<path-action name="SpreadSheetModule.loadSheet" alltypes="true"/>
-
-	<generator name="velocityGenerator" />
-	
-</page>

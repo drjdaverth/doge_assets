@@ -1,7 +1,0 @@
-<page>
-	<property name="runmultiple">true</property>
-	
-	<path-action name="Script.run" allowduplicates="true" >
-		<script>/${catalogid}/events/scripts/ordering/finalizeorder.groovy</script>
-	</path-action>
-</page>

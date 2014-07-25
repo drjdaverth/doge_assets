@@ -1,8 +1,0 @@
-
-<properties>
-	<property id="specialrestrictiontype" editable="true"  >Restriction Type</property>
-  	<property id="specialgeographicrestriction" editable="true" >Geographical Restriction</property>
-  	<property id="specialrestrictioncontact" editable="true">Contact</property>
-  	<property id="specialrestrictionstartdate"  datatype="date"  format="MM/dd/yyyy" editable="true">Start Date</property>
-  	<property id="specialrestrictionenddate" datatype="date"  format="MM/dd/yyyy" editable="true">End Date</property>
-</properties>

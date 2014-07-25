@@ -1,8 +1,0 @@
-<page>
-	<property name='text.Are you sure you want to remove old versions?]'>
-        	<value>Are you sure you want to remove old versions?]</value>
-		<value locale="es">¿Está seguro de que quiere borrar las versiones anteriores?</value>
-    	</property>
-
-	<inner-layout>/system/tools/template.html</inner-layout>
-</page>

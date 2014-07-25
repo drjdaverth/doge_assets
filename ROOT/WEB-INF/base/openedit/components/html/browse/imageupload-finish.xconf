@@ -1,8 +1,0 @@
-<page>
-	
-	
-	<path-action name="MediaArchiveModule.uploadAsset"/>
-	<path-action name="AssetEditModule.createAssetFromUploads"/>
-	<property name="hitsname">hits</property>
-	<inner-layout/>
-</page>

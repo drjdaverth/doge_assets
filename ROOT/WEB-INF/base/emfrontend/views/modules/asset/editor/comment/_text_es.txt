@@ -1,8 +1,0 @@
-#
-#Tue Apr 27 12:30:31 CLT 2010
-Write\ a\ comment=Escribir un comentario
-register\ here.=reg\u00EDstrese aqu\u00ED.
-If\ you\ don't\ have\ an\ account,\ please=si no tiene una cuenta, por favor
-You\ must\ be\ logged\ in\ to\ leave\ your\ own\ comments.=Debe ingresar para dejar sus comentarios.
-Comments=Comentarios
-

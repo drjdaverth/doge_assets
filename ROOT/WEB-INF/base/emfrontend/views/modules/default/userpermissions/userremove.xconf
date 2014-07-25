@@ -1,4 +1,0 @@
-<page>
-	<inner-layout />
-	<path-action name="DataEditModule.deleteData" />
-</page>

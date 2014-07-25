@@ -1,5 +1,0 @@
-<page>
-	<generator name="nullGenerator" />
-	<path-action name="UpdateModule.downloadFiles" alltypes="true" />
-	<property name="virtual">true</property>
-</page>

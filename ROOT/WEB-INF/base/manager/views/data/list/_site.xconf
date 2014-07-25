@@ -1,8 +1,0 @@
-<page>
-	<property name="tab">searchdata</property>
-	<property name="hitsname">datalist</property>
-	<inner-layout>${dataroot}/list/innerlayout.html</inner-layout>
-	<property name="sectiontitle">
-		<value>Data Search</value>
-	</property>
-</page>

@@ -1,6 +1,0 @@
-<page>
-	<layout/>
-	<inner-layout/>
-		<page-action name="PageValue.loadPageVariable"  bean="searcherManager" />
-	
-</page>

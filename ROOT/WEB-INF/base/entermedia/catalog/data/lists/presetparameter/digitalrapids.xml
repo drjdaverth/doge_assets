@@ -1,8 +1,0 @@
-<properties>
-  <preset id="rapidspreview1" presetdata="rapidspreview" value="/tmp/holding" >inputfolderholding</preset> 
-  <preset id="rapidspreview2" presetdata="rapidspreview" value="/tmp/input/complete" >completefolder</preset> 
-  <preset id="rapidspreview3" presetdata="rapidspreview" value="/tmp/input" >inputfolder</preset> 
-  <preset id="rapidspreview4" presetdata="rapidspreview" value="/tmp/output" >outputfolder</preset> 
-  <preset id="rapidspreview5" presetdata="rapidspreview" value="/tmp/input/failed" >outputfolderfailed</preset> 
-  <preset id="rapidspreview6" presetdata="rapidspreview" value="mp4" >outputextension</preset> 
-</properties>

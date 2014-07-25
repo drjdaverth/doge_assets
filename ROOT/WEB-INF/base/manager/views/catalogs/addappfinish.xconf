@@ -1,7 +1,0 @@
-<page>
-	<path-action name="MediaAdminModule.deployApp" >
-		<property name="applicationid">media</property>
-	</path-action>
-	
-	
-</page>

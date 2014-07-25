@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-
-<page>
-	<property name="save">true</property>
-	<property name="searchtype">assettype</property>
-	<path-action name="DataEditModule.saveData" />
-</page>

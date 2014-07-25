@@ -1,5 +1,0 @@
-<page>
-
-	<layout />	
-	<path-action name="BlogAdminModule.renderPreview" />
-</page>

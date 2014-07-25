@@ -1,7 +1,0 @@
-<page>
-  	<path-action name="UpdateModule.updateProject" />
-	<property name='text.Installation Complete'>
-        	<value>Installation Complete</value>
-		<value locale="es">Instalación Completa</value>
-    	</property>
-</page>

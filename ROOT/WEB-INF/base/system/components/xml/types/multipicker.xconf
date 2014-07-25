@@ -1,3 +1,0 @@
-<page>
- <path-action name="PageValue.loadPageVariable"  bean="strings" allowduplicates="true" />	
- </page>

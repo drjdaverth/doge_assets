@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-
-<page>  
-	<inner-layout>${themeprefix}/layouts/application.html</inner-layout>
-</page>

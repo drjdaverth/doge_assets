@@ -1,3 +1,0 @@
-#
-#Mon Feb 28 10:58:12 EST 2011
-text.edittext=text.edittext

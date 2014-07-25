@@ -1,5 +1,0 @@
-#
-#Mon Aug 27 11:11:04 EDT 2012
-Basket=panier
-Add\ To\ Basket=Ajouter au panier
-Remove\ From\ Basket=Retirer du panier

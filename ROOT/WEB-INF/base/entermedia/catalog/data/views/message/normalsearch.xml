@@ -1,6 +1,0 @@
-<properties>
-  
-  <property id="user" index="true" stored="true" keyword="true" viewtype="list" listcatalogid="system" searchtype="user">Posted By</property>
-  <property id="message" index="true" stored="true" keyword="true" >Message</property>
-  
-</properties>

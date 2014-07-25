@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<page>
-	 <path-action name="User.getUserManager" alltypes="true"/>
- 	 <!-- path-action name="MediaArchiveModule.forceDownload" alltypes="true" / -->
-	 <path-action name="CategoryEditModule.getCategoryEditor" alltypes="true"/>
-  	<property name="tab">importexport</property>
-</page>

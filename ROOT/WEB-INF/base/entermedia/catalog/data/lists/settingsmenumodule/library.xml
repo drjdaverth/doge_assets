@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property id="libraryviews" type="toplevel" module="library" parentid="libraryviews" ordering="100" path="/views/settings/modules/library/metadata/views/index.html" sublabel="Editing">Views</property>
-  <property id="librarypermissions" type="toplevel" module="library" parentid="librarypermissions" ordering="300" path="/views/settings/modules/library/permissions/index.html" sublabel="Editing">Permissions</property>
-	<!--   <property id="libraryuserpermissions" module="library" parentid="librarypermissions" ordering="400" path="/views/settings/modules/library/userpermissions/index.html" >User Permissions</property>  -->
-  <property id="librarysystemviews" module="library" parentid="libraryviews" path="/views/settings/modules/library/metadata/viewssystem/index.html" ordering="110">System</property>
-</properties>
-  	

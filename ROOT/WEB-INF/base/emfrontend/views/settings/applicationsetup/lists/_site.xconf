@@ -1,5 +1,0 @@
-<page>
-	<property name="tab">lists</property>
-	<inner-layout>${themeprefix}/layouts/settingssubtablayout.html</inner-layout>
-	<property name="subsettinglist">system</property>
-</page>

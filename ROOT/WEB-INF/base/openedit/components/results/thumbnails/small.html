@@ -1,9 +1,0 @@
-	
-		
-	#if( $hit.previewstatus && $hit.previewstatus == "mime")
-		#set ($mime = $mediaarchive.getMimeTypeIcon($hit.fileformat))
-		#set( $thumbpath =  "$themeprefix/images/mimetypes/${mime}.png" ) 
-		<img class="mimethumb" style="height:64px" src="$home$thumbpath" border="0"/>
-	#else	
-		<img class="smallthumb" style="height:64px;" src="$home$cataloghome/downloads/preview/crop/$hit.sourcepath/thumb.jpg" border="0" />
-	#end

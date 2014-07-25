@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-#if( $entermediakey )
-<rsp stat="ok">
-<key>$entermediakey</key>
-#else
-<rsp stat="fail">
-Login failed
-#end
-</rsp>

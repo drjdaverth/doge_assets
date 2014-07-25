@@ -1,8 +1,0 @@
-<page>
-	<path-action name="MediaArchiveModule.getAsset"  />
-	<page-action name="Script.run">
-		<script>/${catalogid}/events/scripts/assets/loadassetstatus.groovy</script>
-	</page-action>
-	
-	<inner-layout />
-</page>

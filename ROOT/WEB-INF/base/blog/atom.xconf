@@ -1,8 +1,0 @@
-<page>
-	<path-action name="BlogModule.generateFeed" alltypes="true"/>
-	<property name="feedtype">atom_0.3</property>
-	<layout />
-	<inner-layout />
-	
-	<generator name="velocity"/>
-</page>

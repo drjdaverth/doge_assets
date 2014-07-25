@@ -1,7 +1,0 @@
-<page>
-	<path-action name="MediaArchiveModule.getAsset"  />
-	<path-action name="Admin.loadPermissions"/>
-	<path-action name="Admin.allowViewing">
-			<login-path>/${applicationid}/authentication/nopermissions.html</login-path>
-	</path-action>
-</page>

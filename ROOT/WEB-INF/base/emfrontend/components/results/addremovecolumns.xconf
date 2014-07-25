@@ -1,5 +1,0 @@
-<page>
- <path-action name="ProfileModule.addRemoveColumn"/>
- <path-action name="DataEditModule.loadPageOfSearch"/>
- 
-</page>

@@ -1,9 +1,0 @@
-
-<properties  beanname="folderSearcher">
-  <property id="id" type="number" index="true" stored="true">Id</property>
-  <property id="name" editable="true" index="true" stored="true">Name</property>
-  <property id="path" editable="true" index="true" stored="true">Path</property>
-  <property id="caption" editable="true" index="true" stored="true">Caption</property>
-  <property id="ordering" editable="true" index="true" stored="true">Ordering</property>
-  <property id="longdescription" editable="true" index="true" stored="true">Description</property>
-</properties>

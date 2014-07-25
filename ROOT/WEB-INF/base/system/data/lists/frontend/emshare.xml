@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property id="emshare" ordering="10"  module="asset"  path="/WEB-INF/base/emshare/components/deploy" caption="Media sharing web site" longdescription="EnterMedia Share is a media sharing website. It allows users to comment, share to Facebook, upload, view assets in galleries, and play videos. Starting with EMShare you can customize your own web site by changing the logo and color scheme.">EM Share</property>
-</properties>

@@ -1,8 +1,0 @@
-<page>
-	<path-action name="OrderModule.updateOrder"/>
-	<path-action name="OrderModule.findOrderItems"/>
-	<path-action name="OrderModule.filterOrderItems"/>
-	<page-action name="PageValue.loadPageVariable" bean="numberutils" class="org.apache.commons.lang.math.NumberUtils"/>
-	<property name="sectiontitle">Publish - Verify Publish Formats</property>
-	
-</page>

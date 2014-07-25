@@ -1,9 +1,0 @@
-<permissionchild>
-	<permissionchild id="viewassets"  permission="assetadmin">View Assets</permissionchild>
-	<permissionchild id="editasset"  permission="assetadmin">Edit Metadata</permissionchild>
-	<permissionchild id="deleteasset"  permission="assetadmin">Delete Assets</permissionchild>
-	
-	<permissionchild id="deleteorder"  permission="vieworders">Delete Orders</permissionchild>	
-	
-</permissionchild>
-

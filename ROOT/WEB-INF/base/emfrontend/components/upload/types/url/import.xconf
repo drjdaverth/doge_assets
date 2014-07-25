@@ -1,5 +1,0 @@
-<page>
-	<page-action name="FetchModule.importFromUrl"/>
-	<inner-layout >${themeprefix}/entermedia/layouts/dialoglayout.html</inner-layout>
-	
-</page>

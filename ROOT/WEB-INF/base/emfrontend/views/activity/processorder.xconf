@@ -1,7 +1,0 @@
-<page>
-	<path-action name="OrderModule.createConversionAndPublishRequest"/>
-	<path-action name="PathEventModule.runEvent">
-       <runpath>/${catalogid}/events/conversions/runconversions.html</runpath>
-   </path-action>
-   <property name="sectiontitle"></property>
-</page>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-
-	<path-action name="PathEventModule.runSharedEvent" runpath="/${catalogid}/events/importing/importfolders.html"  allowduplicates="true"/>
-<!--
-  <path-action name="HotFolderModule.importFolder"/>
--->
-</page>

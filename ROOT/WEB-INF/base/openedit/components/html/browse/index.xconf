@@ -1,5 +1,0 @@
-<page>
-	<path-action name="MediaSearchModule.searchCategories"/>
-
-<inner-layout>/${openeditid}/html/browse/assetlayout.html</inner-layout>
-</page>

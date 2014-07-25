@@ -1,6 +1,0 @@
-<page>
-<path-action name="WebTree.reloadTree" >
-	<property name="tree-name">pageTree</property>
-	<property name="renderleaves">false</property>
-</path-action>	
-</page>

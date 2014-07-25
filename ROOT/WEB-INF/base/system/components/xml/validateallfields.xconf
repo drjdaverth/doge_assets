@@ -1,9 +1,0 @@
-<page>
-	<inner-layout/>
-	<layout/>
-   	<page-action name="ValidationModule.validateFields"/>
-	<property name='text.Form is not yet complete'>
-        	<value>Form is not yet complete</value>
-		<value locale="es">El formulario aún no está completo</value>
-    	</property>
-</page>

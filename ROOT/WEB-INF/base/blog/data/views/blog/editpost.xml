@@ -1,7 +1,0 @@
-<properties>
-
- <property id="title" editable="true" index="true" stored="true">Title</property>
- <property id="thumb" editable="true" searchtype="asset" catalogid="media/catalogs/public"  index="true">Image</property>
-  
-	
-</properties>

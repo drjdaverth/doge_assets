@@ -1,6 +1,0 @@
-<page>
-	<path-action name="Script.run" allowduplicates="true">
-		<script>./scripts/creimport.bsh</script>
-	</path-action>
-	<property name="eventname">Cumulus CRE Import</property>
-</page>

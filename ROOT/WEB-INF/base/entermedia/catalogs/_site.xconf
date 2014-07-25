@@ -1,3 +1,0 @@
-<page>
-	<page-action bean="searcherManager" name="PageValue.loadPageVariable"/>
-</page>

@@ -1,5 +1,0 @@
-
-<properties>
-  <property id="id" editable="true" index="true" stored="true">ID</property>
-  <property id="name" editable="true" index="true" stored="true">Name</property>
-</properties>

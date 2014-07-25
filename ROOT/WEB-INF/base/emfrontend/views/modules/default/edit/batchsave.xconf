@@ -1,6 +1,0 @@
-<page>
-	<property name="searchtype">${module}</property>
-    <path-action name="Script.run">
-    	<script >${searchhome}/scripts/editor.groovy</script>
-    </path-action>
-</page>

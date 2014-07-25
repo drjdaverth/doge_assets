@@ -1,9 +1,0 @@
-<page>
-	<page-action name="MediaSearchModule.searchCategories"/>
-	<property name="sortby">assetaddeddateDown</property>
-	<property name="section">assets</property>
-	<property name="virtual">true</property>
-	<property name="assetrootfolder">/${applicationid}/views/assets</property>
-	<property name="categoryid">index</property>
-
-</page>

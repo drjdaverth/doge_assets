@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property id="name"  editable="true" index="true" stored="true">Category Name</property>
-  <property id="id" editable="true" index="true" stored="true">Category Id</property>
-  <property id="shortdescription"  editable="true" index="true" stored="true">Short Description</property>
-  <property id="parentid" listid="category" type="list" editable="true" index="true" stored="true">Parent Category Id</property>
-  
-</properties>

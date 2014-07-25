@@ -1,9 +1,0 @@
-.tabs ul {list-style-type: none;  margin: 0px; padding: 0px; margin-left: 50px;}
-.tabs ul li { float: left; border:solid;border-width: 0px 0px 0 0px;margin: 0 0.5em 0 0;}
-.tabs ul li a { display: block; text-decoration: none; padding: 3px 20px; margin: 4px 1px 0px;  }	
-.tabs ul li.active a {font-weight: bold; padding: 6px 20px 4px 20px;margin: 0px 2px 0px;}
-
-#content {
-	
-	clear: both;
-}

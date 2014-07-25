@@ -1,5 +1,0 @@
-<properties beanname="folderSearcher">
-	<!-- This would be stuff like "Full, Partial, None -->
-	<property id="id">ID</property>
-	<property id="name">Name</property>	
-</properties>

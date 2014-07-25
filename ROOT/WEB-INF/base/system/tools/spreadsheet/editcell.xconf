@@ -1,4 +1,0 @@
-<page>
-	<path-action name="SpreadSheetModule.loadCell" />
-	<inner-layout />
-</page>

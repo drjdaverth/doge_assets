@@ -1,5 +1,0 @@
-<page>
-	<page-action name="LogSearchModule.recentSearch"/>
-	<page-action name="LogSearchModule.fieldSearch"/>
-	<path-action name="LogSearchModule.loadPageOfSearch" />
-</page>

@@ -1,5 +1,0 @@
-<page>
- <path-action name="ProfileModule.moveColumn"/>
- <path-action name="DataEditModule.loadPageOfSearch"/>
- <inner-layout />
-</page>

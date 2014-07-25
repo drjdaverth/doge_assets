@@ -1,6 +1,0 @@
-<page>
-	<property name="assettab">viewfatwirecrop</property>
-	<inner-layout>/${applicationid}/views/modules/asset/editor/fatwirecrop/innerlayout.html</inner-layout>
-		<path-action name="PageValue.loadPageVariable" bean="mathtool" class="org.apache.velocity.tools.generic.MathTool"/>
-	
-</page>

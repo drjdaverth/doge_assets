@@ -1,6 +1,0 @@
-<page>
-	<!--property name="themename">SF Jobs</property-->
-	<property name="themeprefix">/themes/jobs</property>
-	<!--inner-layout>${themeprefix}/entermedia/layouts/mediaapplication.html</inner-layout-->
-	<property name="fallbackdirectory">/WEB-INF/base/themes/entermedia</property>
-</page>

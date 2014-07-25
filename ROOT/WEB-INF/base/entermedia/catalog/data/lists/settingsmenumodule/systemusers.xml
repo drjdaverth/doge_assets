@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property id="users" type="toplevel" parentid="users" module="system" path="/views/settings/users/usermanager/users/index.html" ordering="010">Users</property>
-  <property id="admin" parentid="users" module="system" path="/views/settings/users/usermanager/admin/index.html" ordering="110">Import / Export</property>
-
-</properties>
-

@@ -1,5 +1,0 @@
-<page>
-	<page-action name="RevisionEditor.getRevisionContent" />
-	<page-action name="RevisionEditor.writeRevisionContent" />
-
-</page>

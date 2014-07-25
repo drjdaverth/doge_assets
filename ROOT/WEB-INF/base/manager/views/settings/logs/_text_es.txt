@@ -1,5 +1,0 @@
-#
-#Tue Apr 27 12:26:14 CLT 2010
-Select\ a\ logging\ folder\ below\ to\ view.=Seleccione una carpeta de registros a continuación para verla.
-Log\ Reports=Informes del Registros
-

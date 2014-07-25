@@ -1,6 +1,0 @@
-<page>
-	<path-action name="Script.run" alltypes="true">
-		<script>/${applicationid}/views/reports/scripts/data.groovy</script>
-	</path-action>
-	<generator name="velocity"/>
-</page>

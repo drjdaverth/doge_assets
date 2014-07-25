@@ -1,1 +1,0 @@
-<input type="text" class="autosubmited #if($detail.isRequired() && !$multiedit) required #end" value="#esc($val)"  id="${detail.getId()}.value" name="$!{detailprefix}${detail.getId()}.value"  onblur="if( typeof validate == 'function' ) validate('$searcher.getCatalogId()','$searcher.getSearchType()','$view','$detail.getId()');" />

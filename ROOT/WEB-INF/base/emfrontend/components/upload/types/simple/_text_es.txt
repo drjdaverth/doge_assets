@@ -1,8 +1,0 @@
-#
-#Tue Apr 27 12:28:41 CLT 2010
-No\ assets\ were\ uploaded\ or\ there\ was\ an\ error\ uploading\ your\ files.=No se subió ningún artículo o se ha producido un error al subir sus archivos.
-Please\ try\ again\ or\ contact\ the\ site\ administrator.=Por favor, int\u00E9ntelo de nuevo o p\u00F3ngase en contacto con el administrador del sitio.
-Multiple\ assets\ were\ created.=M\u00FAltiples artículos fueron creados.
-Your\ asset\ has\ been\ uploaded.=Su artículo fue subido.
-Check\ the\ details\ here.=Compruebe los detalles aqu\u00ED.
-

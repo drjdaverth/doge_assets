@@ -1,6 +1,0 @@
-<page>
-
-<path-action name="DataEditModule.loadPageOfSearch"/>
-<property name="searchtype">asset</property>
-<property name="friendly">true</property>
-</page>

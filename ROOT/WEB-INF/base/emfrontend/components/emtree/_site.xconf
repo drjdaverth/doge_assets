@@ -1,5 +1,0 @@
-<page>
-	<property name="tab">categories</property>
-	<inner-layout>${themeprefix}/layouts/settingslayout.html</inner-layout>
-	
-</page>

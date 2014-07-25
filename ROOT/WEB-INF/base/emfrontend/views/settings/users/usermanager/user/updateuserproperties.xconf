@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-
-<page>
-	<page-action name="User.updateUserProperties" />
-	<page-action name="User.getUserGroupList" />
-</page>

@@ -1,4 +1,0 @@
-<page>
-	<path-action name="ProjectModule.addAssetToCollection"/>
-	<property name="virtual">true</property>
-</page>

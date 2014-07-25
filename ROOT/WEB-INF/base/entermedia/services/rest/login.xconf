@@ -1,6 +1,0 @@
-<page>
-<permission name="view">
-	<blank/>
-</permission>
-	<path-action name="Admin.login"  alltypes="true" />
-</page>

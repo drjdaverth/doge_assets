@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-
-<page>
-
-		<property name="section">scripts</property>
-	  	<path-action bean="pageManager" name="PageValue.loadPageVariable"/>
-  	<path-action name="LinkTree.loadSizer"/>
-	
-</page>

@@ -1,5 +1,0 @@
-<properties beanname="folderSearcher">
-	<property id="id" editable="true">ID</property>
-	<property id="name" editable="true" stored="true" index="true">Name</property>	
-	<property id="deploypath" editable="true" stored="true" index="true">Deploy Path</property>	
-</properties>

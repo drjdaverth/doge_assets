@@ -1,5 +1,0 @@
-<page>
-	<page-action name="TimeCopy.remove">
-	</page-action>
-	<property name="virtual">true</property>
-</page>

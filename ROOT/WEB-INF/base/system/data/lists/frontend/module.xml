@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property id="module" ordering="00" path="/WEB-INF/base/modulefrontend/components/deploy" caption="Public Facing Module Web Site" longdescription="Create custom web sites to track module data such as recipe lists or any module.">Database Front End</property>
-</properties>

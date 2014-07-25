@@ -1,6 +1,0 @@
-#
-#Tue Apr 27 15:26:34 CLT 2010
-Language=Idioma
-Read=Leer
-Translation\ Exporter=Exportador de Traducci\u00F3n
-

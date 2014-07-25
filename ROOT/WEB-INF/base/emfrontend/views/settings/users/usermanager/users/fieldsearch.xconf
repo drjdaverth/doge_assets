@@ -1,8 +1,0 @@
-<page>	
-	<page-action name="DataEditModule.search" >
-	<property name="searchtype">user</property>
-	<property name="catalogid">system</property>
-	
-	</page-action>
-	<property name="oemaxlevel">1</property>
-</page>

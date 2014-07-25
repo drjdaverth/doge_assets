@@ -1,9 +1,0 @@
-<page>
-	<property name="searchtype">order</property>
-	<property name="hitsname">orders</property>
-	<property name="sortby">dateDown</property>
-	
-	
-	<path-action name="DataEditModule.search" />
-	<page-action name="OrderModule.loadOrderManager" />
-</page>

@@ -1,6 +1,0 @@
-<page>
-	<page-action name="BlogAdminModule.getNotify" />
-	<path-action name="BlogModule.editEntry" />
-	<page-action name="User.getUserManager" />
-	
-</page>

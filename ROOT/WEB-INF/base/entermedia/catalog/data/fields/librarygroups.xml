@@ -1,6 +1,0 @@
-
-<properties>
-  <property id="id" index="true" stored="true">Id</property>
-  <property id="groupid" type="list" listid="group" listcatalogid="system" editable="true" index="true" stored="true">Group</property>
-  <property id="libraryid" type="list" listid="library" editable="true" index="true" stored="true">Library</property>
-</properties>

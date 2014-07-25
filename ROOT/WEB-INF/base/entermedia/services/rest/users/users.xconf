@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<page>
-	<path-action name="DataEditModule.search" alltypes="true"/>   
-	<path-action name="DataEditModule.loadPageOfSearch" alltypes="true" />	
-	<property name="searchtype">user</property>
-	<property name="catalogid">system</property>
-	<property name="hitsname">hits</property>
-</page>

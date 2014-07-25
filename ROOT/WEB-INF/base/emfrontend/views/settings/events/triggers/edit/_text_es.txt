@@ -1,7 +1,0 @@
-#
-#Tue Apr 27 18:16:03 EDT 2010
-seconds.=segundos.
-Ran\ in=corri\u00F3 en
-in\ milliseconds\ (can\ use\ h,\ d\ or\ m)=en milisegundos (puede usar h, d, o m)
-Save=guardar
-run\ now=Ejecutar ahora

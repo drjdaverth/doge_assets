@@ -1,4 +1,0 @@
-<page>
-	<property name="tab">status</property>
-	<inner-layout>${themeprefix}/layouts/settingslayout.html</inner-layout>
-</page>

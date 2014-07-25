@@ -1,5 +1,0 @@
-<page>
-	<path-action name="DataEditModule.deleteData">
-		<property name="searchtype">settingsgroup</property>
-	</path-action>
-</page>

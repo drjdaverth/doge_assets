@@ -1,5 +1,0 @@
-#if( !$val || $val.length() < 30)
-	<input type="text" class="autosubmited #if($detail.isRequired() && !$multiedit) required #end" value="#esc($val)"  id="${detail.getId()}.value" name="$!{detailprefix}${detail.getId()}.value"  onblur="if( typeof validate == 'function' ) validate('$searcher.getCatalogId()','$searcher.getSearchType()','$view','$detail.getId()');" />
-#else
-	<textarea name="$!{detailprefix}${detail.getId()}.value" class="autosubmited #if($detail.isRequired() && !$multiedit) required #end" onChange="if( typeof validate == 'function' ) validate('$searcher.getCatalogId()','$searcher.getSearchType()','$view','$detail.getId()');" id="${detail.getId()}.value" cols="40" rows="5" >#esc($val)</textarea>
-#end

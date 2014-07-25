@@ -1,6 +1,0 @@
-<page>
-<page-action name="RSSModule.loadRomeFeed">
-<feed>http://www.openedit.org/community/rss.xml</feed>
-</page-action>
-
-</page>

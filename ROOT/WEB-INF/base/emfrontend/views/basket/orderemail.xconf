@@ -1,5 +1,0 @@
-<page>
-<inner-layout/>
-<page-action bean="searcherManager" name="PageValue.loadPageVariable" allowduplicates="true" />
-<property name="emailtemplateid">orderemail</property>
-</page>

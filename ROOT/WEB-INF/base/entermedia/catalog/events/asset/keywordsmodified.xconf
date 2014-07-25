@@ -1,5 +1,0 @@
-<page>
-	<property name="enabled">true</property>
-	<property name="delay">1m</property>
-	<path-action name="AssetEditModule.writeAssetKeywords"/>
-</page>

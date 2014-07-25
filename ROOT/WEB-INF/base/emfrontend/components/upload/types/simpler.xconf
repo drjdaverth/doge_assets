@@ -1,5 +1,0 @@
-<page>
-	<page-action name="Date.now">
-		<format>yyyy/MM</format>
-	</page-action>
-</page>

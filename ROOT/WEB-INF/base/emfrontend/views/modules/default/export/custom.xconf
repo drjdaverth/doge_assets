@@ -1,4 +1,0 @@
-<page>
-<path-action name="DataEditModule.loadSearcher"/>
-<property name="searchtype">${module}</property>
-</page>

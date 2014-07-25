@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<page>
-	<layout />
-	<inner-layout />
-	<page-action name="PageValue.loadPageVariable" bean="mathutil" class="org.openedit.entermedia.util.MathUtils" />	
-	<page-action name="PageValue.loadPageVariable" bean="sizer" />
-</page>

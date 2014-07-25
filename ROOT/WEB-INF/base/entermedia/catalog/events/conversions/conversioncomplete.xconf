@@ -1,7 +1,0 @@
-<page>
-
-<!--deprecated, This is too many assets, just use the plural version
-	<path-action name="PathEventModule.runEvent" runpath="/${catalogid}/events/publishing/publishassets.html" allowduplicates="true" />
--->
-	
-</page>

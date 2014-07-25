@@ -1,9 +1,0 @@
-<page>
-	<path-action name="CommentModule.removeComment"/>
-	<permission name="view">
-		<not>
-			<pagevalue name="caneditasset" equals="false"/>
-		</not>
-	</permission>
-	<property name="oemaxlevel">1</property>
-</page>

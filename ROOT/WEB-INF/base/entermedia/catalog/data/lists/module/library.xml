@@ -1,4 +1,0 @@
-<properties>
-  <property id="library"  href="/views/modules/library/index.html">Projects</property>
-  <property id="librarycollection"  href="/views/modules/collection/index.html">Collections</property>
-</properties>

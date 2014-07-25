@@ -1,6 +1,0 @@
-#set($idcount = $context.getRequestParameter("idcount"))
-#if(!$idcount)
-	#set($idcount = "")
-#end
-
-<input name="${detail.getId()}.value"  id="${detail.id}${idcount}.value" #if ($detail.picker != "false") class="datepicker" #end value="#esc($!val)" size="20" type="text" onblur="if( typeof validate == 'function' ) validate('$searcher.getCatalogId()','$searcher.getSearchType()','$view','$detail.getId()${idcount}');">

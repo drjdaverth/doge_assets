@@ -1,4 +1,0 @@
-#
-#Mon Aug 27 13:55:53 EDT 2012
-$asset=$ d'actifs
-Preview\ Image=image de pr\u00E9visualisation

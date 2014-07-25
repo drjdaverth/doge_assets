@@ -1,5 +1,0 @@
-<page>
-	<path-action name="Script.run">
-		<script>/${catalogid}/events/scripts/cleanversions.bsh</script>
-	</path-action>
-</page>

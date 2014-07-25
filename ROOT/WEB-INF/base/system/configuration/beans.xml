@@ -1,3 +1,0 @@
-<beans>
-	<bean  id="authenticationLogSearcher" bean="logSearcher" />
-</beans>

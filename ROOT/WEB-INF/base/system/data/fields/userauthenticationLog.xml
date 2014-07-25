@@ -1,8 +1,0 @@
-<properties>
-
-
-<property id="user"  keyword="true"  index="true" stored="true">User</property>
-<property id="details" index="true" stored="true" editable="true">Action</property>
-<property id="date" type="date" date="true" format="dd/MM/yyyy hh:mm:ss a" index="true" stored="true" editable="true">Date</property>
-
-</properties>

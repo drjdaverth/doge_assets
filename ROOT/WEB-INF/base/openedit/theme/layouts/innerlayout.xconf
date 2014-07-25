@@ -1,5 +1,0 @@
-<page>
-
-  <inner-layout>${themeprefix}/layouts/layout.html</inner-layout>
-  
-</page>

@@ -1,5 +1,0 @@
-<files>
-#foreach( $fileitem in $fileitemlist )
-$fileitem.asXML()
-#end
-</files>

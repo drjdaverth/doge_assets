@@ -1,8 +1,0 @@
-#set( $fields = $mediaarchive.getPropertyDetailsArchive().getStoredProperties("asset") )
-#foreach( $field in $fields )$field.id	#end##new line
-#foreach( $hit in $mediaarchive.getAssetSearcher().getAllHits() )   ##hits
-
-#set( $asset = false )
-#set( $asset = $mediaarchive.getAssetBySourcePath($hit.sourcepath) )
-#foreach( $field in $fields )$!asset.get($field.id)	#end##new line here
-#end

@@ -1,3 +1,0 @@
-#
-#Sat Jul 27 09:20:40 CDT 2013
-Asset\ Type=Type d'actif

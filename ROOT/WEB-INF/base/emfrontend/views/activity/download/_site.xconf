@@ -1,6 +1,0 @@
-<page>
-
-	<inner-layout>${themeprefix}/layouts/section.html</inner-layout>
-	<property name="sectiontitle">Download</property>
-
-</page>

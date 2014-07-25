@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-
-<page>
-	<inner-layout />
-	<layout />
-	<page-action name="WebTree.toggleTreeNode" />
-</page>

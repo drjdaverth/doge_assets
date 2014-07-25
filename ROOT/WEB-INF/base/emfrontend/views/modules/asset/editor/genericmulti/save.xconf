@@ -1,9 +1,0 @@
-<page>
-	<path-action name="DataEditModule.saveMultiJoinData"/>
-	<path-action name="DataEditModule.updateDataIndex">
-		<property name="searchtype">asset</property>
-	</path-action>
-	<property name="saveokpage">/tools/edit/saveok.html</property>
-	<layout/>
-	<inner-layout/>
-</page>

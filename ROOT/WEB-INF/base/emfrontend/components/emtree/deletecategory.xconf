@@ -1,5 +1,0 @@
-<page>
-<path-action name="CategoryEditModule.loadCategory"/>
-<path-action name="CategoryEditModule.deleteCategory"/>
-<property name="virtual">true</property>
-</page>

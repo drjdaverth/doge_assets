@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<properties>
-  <property id="categories" type="toplevel" module="asset" path="/views/settings/modules/asset/categories/index.html" ordering="020">Categories</property>
- 
-</properties>

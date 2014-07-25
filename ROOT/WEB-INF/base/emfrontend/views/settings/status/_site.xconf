@@ -1,6 +1,0 @@
-<page>
-			<inner-layout>${themeprefix}/layouts/settingssubtablayout.html</inner-layout>
-	
-	<property name="tab">cache</property>
-
-</page>
