@@ -1,0 +1,732 @@
+<?php
+/**
+ * @file
+ * Responsible for managing the required SWF and JS files for soundmanager2 to
+ * work
+ */
+
+/**
+ * Implements hook_library().
+ */
+function soundmanager2_library() {
+  $sm2_module_path = drupal_get_path('module', 'soundmanager2');
+  $sm2_library_path = variable_get('sm2_path', 'sites/all/libraries/soundmanager2');
+
+  return array(
+    // SoundManager 2 library
+    'soundmanager2' => array(
+      'title' => 'SoundManager 2',
+      'website' => 'http://www.schillmania.com/projects/soundmanager2/doc/download/',
+      'version' => '2.97',
+      'js' => array(
+        $sm2_library_path . '/script/soundmanager2-nodebug-jsmin.js' => array(),
+        array(
+          'type' => 'setting',
+          'data' => array(
+            'soundmanager2' => array(
+              'mod_url' => base_path() . $sm2_library_path . '/swf/',
+              'debug' => FALSE,
+            ),
+          ),
+        ),
+      ),
+    ),
+    // SoundManager 2 debug library
+    'soundmanager2_debug' => array(
+      'title' => 'SoundManager 2',
+      'website' => 'http://www.schillmania.com/projects/soundmanager2/doc/download/',
+      'version' => '2.97',
+      'js' => array(
+        $sm2_library_path . '/script/soundmanager2.js' => array(),
+        array(
+          'type' => 'setting',
+          'data' => array(
+            'soundmanager2' => array(
+              'mod_url' => base_path() . $sm2_library_path . '/swf/',
+              'debug' => TRUE,
+            ),
+          ),
+        ),
+      ),
+    ),
+    // SoundManager 2 Page Player
+    'soundmanager2_page_player' => array(
+      'title' => t('SoundManager 2 Page Player'),
+      'website' => 'http://www.schillmania.com/projects/soundmanager2/doc/download/',
+      'version' => '2.97',
+      'js' => array(
+        $sm2_library_path . '/demo/page-player/script/page-player.js' => array(),
+      ),
+      'css' => array(
+        $sm2_library_path . '/demo/page-player/css/page-player.css' => array(),
+      ),
+    ),
+    // SoundManager 2 UI 360
+    'soundmanager2_ui360' => array(
+      'title' => t('SoundManager 2 UI 360'),
+      'website' => 'http://www.schillmania.com/projects/soundmanager2/doc/download/',
+      'version' => '2.97',
+      'js' => array(
+        // TODO: excanvas.js is only used for IE, see if there is a better way to conditionally add this
+        $sm2_library_path . '/demo/360-player/script/excanvas.js' => array(),
+        $sm2_library_path . '/demo/360-player/script/berniecode-animator.js' => array(),
+        $sm2_library_path . '/demo/360-player/script/360player.js' => array(),
+      ),
+      'css' => array(
+        $sm2_library_path . '/demo/360-player/360player.css' => array(),
+        $sm2_library_path . '/demo/360-player/360player-visualization.css' => array(),
+      ),
+    ),
+    // SoundManager 2 Inline Player
+    'soundmanager2_inline_player' => array(
+      'title' => t('SoundManager 2 Inline Player'),
+      'website' => 'http://www.schillmania.com/projects/soundmanager2/demo/play-mp3-links/',
+      'version' => '2.97',
+      'js' => array(
+        $sm2_library_path . '/demo/play-mp3-links/script/inlineplayer.js' => array(),
+      ),
+      'css' => array(
+        $sm2_library_path . '/demo/play-mp3-links/css/inlineplayer.css',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_permission().
+ */
+function soundmanager2_permission() {
+  return array(
+    'administer sm2' => array(
+      'title' => t('Administer SoundManager 2'),
+      'description' => t('Performs administration tasks for SoundManager 2.'),
+    ),
+  );
+}
+
+/**
+ * Implmentation of hook_theme().
+ */
+function soundmanager2_theme() {
+  return array(
+    'soundmanager2_page_player' => array(
+      'variables' => array('tracks' => array()),
+      'template' => 'soundmanager2-page-player',
+    ),
+    'soundmanager2_page_player_pause' => array(
+      'variables' => array(),
+    ),
+    'soundmanager2_ui360' => array(
+      'variables' => array(
+        'tracks' => array(),
+        'settings' => array(),
+      ),
+      'template' => 'soundmanager2-ui360',
+    ),
+    'soundmanager2_inline_player' => array(
+      'variables' => array('tracks' => array()),
+      'template' => 'soundmanager2-inline-player',
+    ),
+    'soundmanager2_inline_player_pause' => array(
+      'variables' => array(),
+    ),
+        'soundmanager2_config' => array(
+      'variables' => array(),
+    ),
+    'soundmanager2_config_ui360' => array(
+      'variables' => array(),
+    ),
+    'soundmanager2_config_ui360_pause' => array(
+      'variables' => array(),
+    ),
+    
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ * Define a block for debug information of the soundmanager2.
+ */
+function soundmanager2_block_info() {
+  $blocks['sm2_debug'] = array(
+    'info' => t('SoundManager 2 Debug'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implments hook_block_view().
+ */
+function soundmanager2_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'sm2_debug':
+      // Only show the debug block if debug mode is enabled
+      if (variable_get('sm2_debug_mode', FALSE)) {
+        $block_content = '<div id="soundmanager-debug"><p>Debug block for SoundManager 2</p></div>';
+        $block = array(
+          'subject' => t('SoundManager 2 Debug'),
+          'content' => $block_content,
+        );
+        drupal_add_css('#soundmanager-debug { position:absolute;position:fixed;*position:absolute;bottom:10px;right:10px;width:50em;height:18em;overflow:auto;background:#fff;margin:1em;padding:1em;border:1px solid #999;font-family:"lucida console",verdana,tahoma,"sans serif";font-size:x-small;line-height:1.5em;opacity:0.9;filter:alpha(opacity=90);}', array('type' => 'inline'));
+      }
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function soundmanager2_menu() {
+  $items = array();
+
+  $items['admin/config/media/soundmanager2'] = array(
+    'title' => 'SoundManager 2 settings',
+    'description' => 'Setup SoundManager 2 module (<a href="http://schillmania.com/projects/soundmanager2">more info about SoundManager 2</a>)',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('soundmanager2_admin'),
+    'access arguments' => array('administer sm2'),
+  );
+
+  return $items;
+}
+
+/**
+ * Page callback for the admin page.
+ */
+function soundmanager2_admin() {
+  $form = array();
+
+  $form['sm2_debug_mode'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Activate Debug Mode'),
+    '#default_value' => variable_get('sm2_debug_mode', FALSE),
+    '#description' => t('If checked, the SoundManager 2 module will output debug text in the block.'),
+  );
+  $form['sm2_path'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Path to SoundManager 2 files'),
+    '#default_value' => variable_get('sm2_path', 'sites/all/libraries/soundmanager2'),
+    '#description' => t('Path to the SoundManager 2 files. No trailing or beggining backslash. <a href="http://www.schillmania.com/projects/soundmanager2/doc/download/">Download SoundManager 2</a>.'),
+    '#size' => 60,
+    '#maxlength' => 128,
+    '#required' => TRUE,
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Validation callback for the admin settings form.
+ */
+function soundmanager2_admin_validate($form, &$form_state) {
+  $sm_path = trim($form_state['values']['sm2_path'], '/');
+  form_set_value($form['sm2_path'], $sm_path, $form_state);
+  $sm_path_swf = $sm_path . '/swf';
+  $sm_path_script = $sm_path . '/script';
+
+  if ((!_soundmanager2_check_directory_readable($sm_path)) || (!_soundmanager2_check_directory_readable($sm_path_swf)) || (!_soundmanager2_check_directory_readable($sm_path_script))) {
+    form_set_error('sm2_path', t('The directories of SoundManager 2 do not exist.'));
+  }
+}
+
+/*******************************************************************************
+ * Field formatter hooks
+ ******************************************************************************/
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function soundmanager2_field_formatter_info() {
+  return array(
+    'soundmanager2_page_player' => array(
+      'label' => t('SoundManager 2 Page Player'),
+      'field types' => array('file', 'media', 'link_field'),
+      'settings' => array(
+        'stream' => FALSE,
+        'audio_type' => 'default',
+        'pause' => 'pause',
+        'text' => 'filename',
+      ),
+    ),
+    'soundmanager2_ui360' => array(
+      'label' => t('SoundManager 2 UI 360'),
+      'field types' => array('file', 'media', 'link_field'),
+      'settings' => array(
+        'stream' => FALSE,
+        'audio_type' => 'default',
+        'pause' => 'pause',
+        'inline' => FALSE,
+        'visualization' => TRUE,
+        'waveform' => TRUE,
+        'eq' => TRUE,
+        'amplifier' => TRUE,
+        'diameter' => 256,
+        'text' => 'filename',
+      ),
+    ),
+    'soundmanager2_inline_player' => array(
+      'label' => t('SoundManager 2 Inline Player'),
+      'field types' => array('file', 'media', 'link_field'),
+      'settings' => array(
+        'stream' => FALSE,
+        'audio_type' => 'default',
+        'pause' => 'pause',        
+        'text' => 'filename',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function soundmanager2_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $element = array();
+
+  switch ($display['type']) {
+    // SoundManager 2 Page Player
+    case 'soundmanager2_page_player':
+      if ($field['type'] == 'link_field') {
+        $element['stream'] = array(
+          '#title' => t('Streaming audio'), 
+          '#type' => 'checkbox',
+          '#default_value' => $settings['stream'],
+        );
+       $element['audio_type'] = array(
+          '#title' => t('Audio type'), 
+          '#type' => 'select',
+         '#options' => _audio_type_options(),
+          '#default_value' => $settings['type'],
+        );
+      }
+      $element['pause'] = array(
+        '#title' => t('Pause Action'),
+        '#type' => 'select',
+        '#options' => _pause_options(),
+        '#default_value' => $settings['pause'],
+      );
+      $element['text'] = array(
+        '#title' => t('Link text'),
+        '#type' => 'select',
+        '#options' => _link_text_options(),
+        '#default_value' => $settings['text'],
+      );
+      break;
+
+    // SoundManager 2 UI 360
+    case 'soundmanager2_ui360':
+      if ($field['type'] == 'link_field') {
+        $element['stream'] = array(
+          '#title' => t('Streaming audio'), 
+          '#type' => 'checkbox',
+          '#default_value' => $settings['stream'],
+        );
+       $element['audio_type'] = array(
+          '#title' => t('Audio type'), 
+          '#type' => 'select',
+         '#options' => _audio_type_options(),
+          '#default_value' => $settings['type'],
+        );
+      }
+     $element['pause'] = array(
+        '#title' => t('Pause Action'),
+        '#type' => 'select',
+        '#options' => _pause_options(),
+        '#default_value' => $settings['pause'],
+      );
+      $element['inline'] = array(
+        '#title' => t('Display inline'), 
+        '#type' => 'checkbox',
+        '#default_value' => $settings['inline'],
+      );
+      $element['visualization'] = array(
+        '#title' => t('UI 360 visualization'),
+        '#type' => 'checkbox',
+        '#default_value' => $settings['visualization'],
+      );
+      $element['waveform'] = array(
+        '#title' => t('Waveform'),
+        '#type' => 'checkbox',
+	      '#default_value' => $settings['waveform'],
+      );
+      $element['eq'] = array(
+        '#title' => t('EQ'),
+        '#type' => 'checkbox',
+        '#default_value' => $settings['eq'],
+      );
+      $element['amplifier'] = array(
+        '#title' => t('Amplifier'),
+        '#type' => 'checkbox',
+        '#default_value' => $settings['amplifier'],
+      );
+      $element['diameter'] = array(
+        '#title' => t('Circle diameter'),
+        '#type' => 'textfield',
+        '#size' => 4,
+        '#default_value' => $settings['diameter'],
+        '#required' => TRUE,
+        '#element_validate' => array('_element_validate_integer_positive'),
+      );
+      $element['text'] = array(
+        '#title' => t('Link text'),
+        '#type' => 'select',
+        '#options' => _link_text_options(),
+        '#default_value' => $settings['text'],
+      );
+      break;
+
+    // SoundManager 2 Inline Player
+    case 'soundmanager2_inline_player':
+      if ($field['type'] == 'link_field') {
+        $element['stream'] = array(
+          '#title' => t('Streaming audio'), 
+          '#type' => 'checkbox',
+          '#default_value' => $settings['stream'],
+        );
+       $element['audio_type'] = array(
+          '#title' => t('Audio type'), 
+          '#type' => 'select',
+         '#options' => _audio_type_options(),
+          '#default_value' => $settings['type'],
+        );
+      }
+      $element['pause'] = array(
+        '#title' => t('Pause Action'),
+        '#type' => 'select',
+        '#options' => _pause_options(),
+        '#default_value' => $settings['pause'],
+      );
+      $element['text'] = array(
+        '#title' => t('Link text'),
+        '#type' => 'select',
+        '#options' => _link_text_options(),
+        '#default_value' => $settings['text'],
+      );
+      break;
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary
+ */
+function soundmanager2_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary = array();
+  $options = _link_text_options();
+  $pause = _pause_options();
+  
+  switch ($display['type']) {
+    // SoundManager 2 Page Player
+    case 'soundmanager2_page_player':
+      if ($field['type'] == 'link_field') { 
+        $summary[] = $settings['stream'] ? t('Streaming: YES') : t('Streaming: NO');
+        $summary[] = $settings['audio_type'] == 'default' ? t('Audio type: default') : t('Audio type: ') . $settings['audio_type'];
+      }
+      $summary[] = t('Pause action: @pause', array('@pause' => $pause[$settings['pause']]));
+      $summary[] = t('Link text: @text', array('@text' => $options[$settings['text']]));
+      break;
+
+    // SoundManager 2 UI 360
+    case 'soundmanager2_ui360':
+     if ($field['type'] == 'link_field') { 
+        $summary[] = $settings['stream'] ? t('Streaming: YES') : t('Streaming: NO');
+        $summary[] = $settings['audio_type'] == 'default' ? t('Audio type: default') : t('Audio type: ') . $settings['audio_type'];
+      }
+      $summary[] = t('Pause action: @pause', array('@pause' => $pause[$settings['pause']]));
+      $summary[] = $settings['inline'] ? t('Display inline') : t('Display as playlist');
+      $summary[] = $settings['visualization'] ? t('UI 360 visualization') : t('UI 360 basic');
+      $summary[] = $settings['waveform'] ? t('Show waveform') : t('Hide waveform');
+      $summary[] = $settings['eq'] ? t('Show EQ') : t('Hide EQ');
+      $summary[] = $settings['amplifier'] ? t('Show amplifier') : t('Hide amplifier');
+      $summary[] = t('Circle diameter: @diameter', array('@diameter' => $settings['diameter']));
+      $summary[] = t('Link text: @text', array('@text' => $options[$settings['text']]));
+      break;
+
+    // SoundManager 2 Inline Player
+    case 'soundmanager2_inline_player':
+     if ($field['type'] == 'link_field') { 
+        $summary[] = $settings['stream'] ? t('Streaming: YES') : t('Streaming: NO');
+        $summary[] = $settings['audio_type'] == 'default' ? t('Audio type: default') : t('Audio type: ') . $settings['audio_type'];
+      }
+      $summary[] = t('Pause action: @pause', array('@pause' => $pause[$settings['pause']]));
+      $summary[] = t('Link text: @text', array('@text' => $options[$settings['text']]));
+      break;
+  }
+
+  return implode('<br />', $summary);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function soundmanager2_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+
+  $tracks = array();
+  foreach ($items as $delta => $item) {
+    // Prepend a random parameter to the URL in case this track appears
+    // multiple times in the same page.
+    $attributes = array();
+    if ($settings['audio_type'] != 'default'){
+      $attributes['type'] = $settings['audio_type'];
+    }
+    $url_options = array('query' => array('uuid' => uniqid()), 'attributes' => $attributes);
+    if (isset($item['file'])) {
+      // A Media file type.
+      $file = $item['file'];
+      // Get text to use in link
+      $text = $file->filename;
+      if (array_key_exists('text', $settings)) {
+        if ($settings['text'] == 'description' && !empty($item['description'])) {
+          $text = $file->description;
+        }
+        else if ($settings['text'] == 'title' && !empty($entity->title)) {
+          $text = $entity->title;
+        }
+      }
+      
+      $tracks[$delta] = l($text, file_create_url($file->uri), $url_options);
+    } elseif (isset($item['url'])) {
+      // A Link file type.
+      $file = $item['url'];
+      // Get text to use in link
+      $text = $item['title'];
+      if (array_key_exists('text', $settings)) {
+        if ($settings['text'] == 'description' && !empty($item['description'])) {
+          $text = $item['title'];
+        }
+        else if ($settings['text'] == 'title' && !empty($entity->title)) {
+          $text = $entity->title;
+        }
+      }
+      
+      $tracks[$delta] = l($text, file_create_url($item['url']), $url_options);
+   
+      
+    } else {
+      // Get text to use in link
+      $text = $item['filename'];
+      if (array_key_exists('text', $settings)) {
+        if ($settings['text'] == 'description' && !empty($item['description'])) {
+          $text = $item['description'];
+        }
+        else if ($settings['text'] == 'title' && !empty($entity->title)) {
+          $text = $entity->title;
+        }
+      }
+
+      $tracks[$delta] = l($text, file_create_url($item['uri']), $url_options);
+    }
+    switch ($display['type']) {
+      case 'soundmanager2_page_player':
+        $element[0] = array(
+          '#theme' => 'soundmanager2_page_player',
+          '#tracks' => $tracks,
+          '#attached' => array(
+          'library' => array(
+            array('soundmanager2', variable_get('sm2_debug_mode', FALSE) ? 'soundmanager2_debug' : 'soundmanager2'),
+            array('soundmanager2', 'soundmanager2_page_player'),
+            ),
+          ),
+        );
+        drupal_add_js(array('soundmanager2' => array(
+          'stream' => $settings['stream'],
+        )), 'setting');
+        // Add in the config files
+        theme('soundmanager2_config');
+        if ($settings['pause'] == 'stop') {
+          theme('soundmanager2_page_player_pause');
+        }
+        break;
+      case 'soundmanager2_ui360':
+        $element[0] = array(
+          '#theme' => 'soundmanager2_ui360',
+          '#tracks' => $tracks,
+          '#settings' => $settings,
+          '#attached' => array(
+            'library' => array(
+              array('soundmanager2', variable_get('sm2_debug_mode', FALSE) ? 'soundmanager2_debug' : 'soundmanager2'),
+              array('soundmanager2', 'soundmanager2_ui360'),
+            ),
+          ),
+        );
+        // Add relevant JS settings
+        drupal_add_js(array('soundmanager2' => array(
+          'visualization' => $settings['visualization'],
+          'waveform' => $settings['waveform'],
+          'eq' => $settings['eq'],
+          'amplifier' => $settings['amplifier'],
+          'stream' => $settings['stream'],
+        )), 'setting');
+             
+        // Add CSS
+        drupal_add_css('.ui360-vis, .ui360-vis .sm2-360ui, .sm2-inline-list .ui360-vis { width: ' . $settings['diameter'] . 'px; height: ' . $settings['diameter'] . 'px; } .ui360-vis .sm2-timing { line-height: ' . $settings['diameter'] . 'px; } .sm2-inline-list .ui360, .sm2-inline-block .ui360 { margin-bottom: 0; }', 'inline');
+        drupal_add_css('#sm2-container { height: 0; overflow: hidden; visibility: hidden; }');
+
+        // Add in the config files
+        theme('soundmanager2_config');
+        theme('soundmanager2_config_ui360');
+        if ($settings['pause'] == 'stop') {
+          theme('soundmanager2_config_ui360_pause');
+        }       
+        break;
+      case 'soundmanager2_inline_player':
+        $element[0] = array(
+          '#theme' => 'soundmanager2_inline_player',
+          '#tracks' => $tracks,
+          '#attached' => array(
+            'library' => array(
+              array('soundmanager2', variable_get('sm2_debug_mode', FALSE) ? 'soundmanager2_debug' : 'soundmanager2'),
+              array('soundmanager2', 'soundmanager2_inline_player'),
+            ),
+          ),
+        );
+
+       drupal_add_js(array('soundmanager2' => array(
+           'stream' => $settings['stream'],
+        )), 'setting');
+               
+        // Add in the config files
+        theme('soundmanager2_config');
+        if ($settings['pause'] == 'stop') {
+          theme('soundmanager2_inline_player_pause');
+        }
+        break;
+     }
+  }
+
+  return $element;
+}
+
+/**
+ * Theme function for adding the SoundManager 2 configuration JS file.  Allows
+ * others to easily override it.
+ */
+function theme_soundmanager2_config() {
+  drupal_add_js(drupal_get_path('module', 'soundmanager2') . '/soundmanager2_config.js', array('type' => 'file', 'scope' => 'footer'));
+}
+
+/**
+ * Theme function for adding the SoundManager 2 UI 360 player configuration.
+ * Allows other to easily override it.
+ */
+function theme_soundmanager2_config_ui360() {
+  drupal_add_js(drupal_get_path('module', 'soundmanager2') . '/ui360.js', array('type' => 'file', 'scope' => 'footer'));
+}
+
+/**
+ * Theme function for overriding the UI 360 player configuration for pause/stop.
+ */
+function theme_soundmanager2_config_ui360_pause() {
+  drupal_add_css('.ui360 .sm2-360ui.sm2_playing .sm2-360btn:hover, .ui360 .sm2-360btn-playing:hover { background:transparent url(/'.drupal_get_path('module', 'soundmanager2') . '/images/360-button-stop.png) no-repeat 50% 50%; _background:transparent url(/'.drupal_get_path('module', 'soundmanager2') . '/images/360-button-stop.gif) no-repeat 50% 50%; }', array('type' => 'inline', 'scope' => 'header'));      
+  $data = "threeSixtyPlayer.css = {sDefault: 'sm2_link', sBuffering: 'sm2_buffering', sPlaying: 'sm2_playing', sPaused: 'sm2_link'}; ";
+  $data .= "threeSixtyPlayer.events.stop = function() { threeSixtyPlayer.removeClass(this._360data.oUIBox,this._360data.className); this._360data.className = ''; threeSixtyPlayer.stopSound(this); threeSixtyPlayer.fanIn(this);}; ";
+  $data .= "threeSixtyPlayer.events.pause = function() { threeSixtyPlayer.removeClass(this._360data.oUIBox,this._360data.className); this._360data.className = ''; threeSixtyPlayer.stopSound(this); threeSixtyPlayer.fanIn(this);}; ";
+  $data .= "threeSixtyPlayer.events.resume = function() { threeSixtyPlayer.removeClass(this._360data.oUIBox,this._360data.className); this._360data.className = threeSixtyPlayer.css.sPlaying; threeSixtyPlayer.addClass(this._360data.oUIBox,this._360data.className); threeSixtyPlayer.fanOut(this);}; ";
+  drupal_add_js($data, array('type' => 'inline', 'scope' => 'footer'));
+} 
+  
+/**
+ * Theme function for overriding the Inline player configuration for pause/stop.
+ */
+function theme_soundmanager2_inline_player_pause() {
+  drupal_add_css('ul.graphic li a.sm2_playing, ul.graphic li a.sm2_playing:hover { background:#003366 url(/'.drupal_get_path('module', 'soundmanager2') . '/images/icon_stop.png) no-repeat 3px 50%; _background-image:url(/'.drupal_get_path('module', 'soundmanager2') . '/images/icon_stop.gif); }', array('type' => 'inline', 'scope' => 'header'));         
+  $data = "inlinePlayer.css = {sDefault: 'sm2_link', sLoading: 'sm2_loading', sPlaying: 'sm2_playing', sPaused: 'sm2_link'}; ";
+  $data .= "inlinePlayer.events.stop = function() { inlinePlayer.removeClass(this._data.oLink,this._data.className); this._data.className = ''; inlinePlayer.stopSound(this);}; ";
+  $data .= "inlinePlayer.events.pause = function() { inlinePlayer.removeClass(this._data.oLink,this._data.className); this._data.className = ''; inlinePlayer.stopSound(this);}; ";
+  $data .= "inlinePlayer.events.resume = function() { inlinePlayer.removeClass(this._data.oLink,this._data.className); this._data.className = inlinePlayer.css.sPlaying; inlinePlayer.addClass(this._data.oLink,this._data.className);}; ";
+
+    drupal_add_js($data, array('type' => 'inline', 'scope' => 'footer'));
+} 
+
+/**
+ * Theme function for overriding the Page player configuration for pause/stop.
+ */
+function theme_soundmanager2_page_player_pause() {
+  $data = "pagePlayer.css = {sDefault: 'sm2_link', sLoading: 'sm2_loading', sPlaying: 'sm2_playing', sPaused: 'sm2_link'}; ";
+  $data .= "pagePlayer.events.stop = function() { pagePlayer.removeClass(this._data.oLI,this._data.className); this._data.className = ''; pagePlayer.stopSound(this); this._data.oPosition.style.width = '0px'; self.setPageTitle(); self.resetPageIcon();}; ";
+  $data .= "pagePlayer.events.pause = function() { pagePlayer.removeClass(this._data.oLI,this._data.className); this._data.className = ''; pagePlayer.stopSound(this); this._data.oPosition.style.width = '0px'; self.setPageTitle(); self.resetPageIcon();}; ";
+  $data .= "pagePlayer.events.resume = function() { pagePlayer.removeClass(this._data.oLI,this._data.className); this._data.className = pagePlayer.css.sPlaying; pagePlayer.addClass(this._data.oLI,this._data.className); self.setPageTitle(this._data.originalTitle);}; ";
+  drupal_add_js($data, array('type' => 'inline', 'scope' => 'footer'));
+} 
+
+
+/**
+ * Get the version of the SoundManager 2
+ */
+function _soundmanager2_get_version($sm2_script = 'sites/all/libraries/soundmanager2/script/soundmanager2.js') {
+  $version_str = '';
+
+  if (file_exists($sm2_script) ) {
+    $lines = file($sm2_script);
+    foreach ($lines as $line) {
+      if (preg_match('/V(.*)$/', $line)) {
+        $version_str = check_plain(preg_replace('/^(.*) /i', '', $line));
+        break;
+      }
+    }
+  }
+
+  return $version_str;
+}
+
+/**
+ * Function to check if directory exists and is readable
+ */
+function _soundmanager2_check_directory_readable(&$directory) {
+  if (!file_stream_wrapper_valid_scheme(file_uri_scheme($directory))) {
+    // Only trim if we're not dealing with a stream.
+    $directory = rtrim($directory, '/\\');
+  }
+
+  // Check if directory exists.
+  if (!is_dir($directory)) {
+    return FALSE;
+  }
+  return TRUE;
+}
+
+/**
+ * Options array for link text.
+ */
+function _link_text_options() {
+  return array(
+    'filename' => t('Filename'),
+    'description' => t('Description'),
+    'title' => t('Node/entity title'),
+  );
+}
+
+/**
+ * Options array for audio type.
+ */
+function _audio_type_options() {
+  return array(
+   'default' => t('use default'),
+   'audio/mp3' => t('audio/mp3'),
+  );
+}
+
+/**
+ * Options array for audio type.
+ */
+function _pause_options() {
+  return array(
+   'pause' => t('Pause'),
+   'stop' => t('Stop'),
+  );
+}

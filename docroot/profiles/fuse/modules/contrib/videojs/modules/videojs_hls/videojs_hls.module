@@ -1,0 +1,126 @@
+<?php
+/**
+ * @file
+ * Provides bandwidth switching for the Video.js player.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function videojs_hls_menu() {
+  $items = array();
+
+  $items['m3u8/%'] = array(
+    'title' => 'm3u8 master index',
+    'page callback' => 'videojs_hls_render_dynamic',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'file' => 'videojs_hls.pages.inc',
+    'type' => MENU_CALLBACK,
+    'delivery callback' => 'videojs_hls_deliver',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_preprocess_videojs().
+ */
+function videojs_hls_preprocess_videojs(&$vars) {
+  $m3u8items = array();
+  $singleitem = NULL;
+
+  foreach ($vars['items'] as $k => $item) {
+    if ($item['videotype'] != 'application/vnd.apple.mpegurl') {
+      continue;
+    }
+    unset($vars['items'][$k]);
+
+    $m3u8items[] = $item['uri'];
+    $singleitem = $item;
+  }
+
+  // If there are no m3u8 files, return now.
+  if (empty($m3u8items)) {
+    return;
+  }
+  // If there is just one m3u8 item, don't create an alternates file.
+  if (count($m3u8items) == 1) {
+    $vars['items'][] = $singleitem;
+    return;
+  }
+
+  if (variable_get('videojs_hls_delivery_type', 'dynamic') === 'dynamic') {
+    $file = url('m3u8/' . rawurlencode(implode('|', $m3u8items)));
+  }
+  else {
+    module_load_include('pages.inc', 'videojs_hls');
+    $file = videojs_hls_create_static_file($m3u8items);
+  }
+
+  array_unshift($vars['items'], array(
+    'uri' => $file,
+    'videotype' => 'application/vnd.apple.mpegurl',
+  ));
+}
+
+function videojs_hls_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id != 'videojs_settings_form') {
+    return;
+  }
+
+  array_unshift($form['#submit'], 'videojs_hls_submit');
+
+  $form['hls'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Video.js HTTP Live Streaming'),
+  );
+
+  $form['hls']['videojs_hls_delivery_type'] = array(
+    '#type' => 'radios',
+    '#title' => t('Delivery mode'),
+    '#options' => array(
+      'dynamic' => t('Dynamic files: m3u8 index files are create dynamically'),
+      'static' => t('Static files: m3u8 index files are written to disk'),
+    ),
+    '#default_value' => variable_get('videojs_hls_delivery_type', 'dynamic'),
+    '#required' => TRUE,
+  );
+
+  $scheme_options = array();
+  foreach (file_get_stream_wrappers(STREAM_WRAPPERS_WRITE_VISIBLE) as $scheme => $stream_wrapper) {
+    $scheme_options[$scheme] = $stream_wrapper['name'];
+  }
+
+  $form['hls']['videojs_hls_delivery_static_scheme'] = array(
+    '#type' => 'radios',
+    '#title' => t('Destination location'),
+    '#options' => $scheme_options,
+    '#default_value' => variable_get('videojs_hls_delivery_static_scheme', variable_get('file_default_scheme', 'public')),
+    '#states' => array(
+      'visible' => array(
+        ':input[name=videojs_hls_delivery_type]' => array('value' => 'static'),
+      ),
+    ),
+  );
+
+  $form['hls']['videojs_hls_delivery_static_path'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Destination path'),
+    '#default_value' => variable_get('videojs_hls_delivery_static_path', 'm3u8'),
+    '#states' => array(
+      'visible' => array(
+        ':input[name=videojs_hls_delivery_type]' => array('value' => 'static'),
+      ),
+    ),
+  );
+}
+
+function videojs_hls_submit($form, &$form_state) {
+  if ($form_state['values']['videojs_hls_delivery_type'] != 'static') {
+    db_delete('variable')->condition('name', array('videojs_hls_delivery_static_scheme', 'videojs_hls_delivery_static_path'), 'IN')->execute();
+
+    unset($form_state['values']['videojs_hls_delivery_static_scheme']);
+    unset($form_state['values']['videojs_hls_delivery_static_path']);
+  }
+}

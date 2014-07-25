@@ -1,0 +1,19 @@
+name = simplehtmldom API
+description = A wrapper module around the simplehtmldom PHP library at sourceforge.
+package = Filter
+core = 7.x
+
+
+; Information added by drupal.org packaging script on 2011-06-13
+version = "7.x-1.12"
+core = "7.x"
+project = "simplehtmldom"
+datestamp = "1307968619"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

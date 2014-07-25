@@ -1,0 +1,8 @@
+Gdoc_field is an extension to the core field module, which must be enabled.
+
+1. Unpack the gdoc_field folder and contents in the appropriate modules
+   directory of your Drupal installation.  This is probably
+   sites/all/modules/
+2. Enable the gdoc_field module in the administration tools. It appears
+   in the Modules list as "Embedded Google Docs Viewer."
+

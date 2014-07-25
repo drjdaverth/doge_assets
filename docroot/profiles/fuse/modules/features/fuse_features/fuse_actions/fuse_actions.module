@@ -1,0 +1,69 @@
+<?php
+/**
+ * @file
+ * VBO action code for the mailchimp dc module
+ */
+ 
+/**
+ * Implements hook_action_info
+ */
+function fuse_actions_action_info() {
+  $actions = array();
+
+  if (module_exists('multiform')) {
+    $actions['fuse_actions_bulk_edit'] = array(
+      'label' => t('Edit selected files'),
+      'type' => 'file',
+      'configurable' => FALSE,
+      'vbo_configurable' => FALSE,
+      'triggers' => array('any'),
+    );
+  }
+
+  return $actions;
+}
+
+/**
+ * Action callback for bulk editing
+ */
+function fuse_actions_bulk_edit(&$entity, $context) {
+  // let's create a temporary session var
+  global $user;
+  $edit = variable_get($user->uid .'_vbo', array());
+  if ($context['progress']['current'] < $context['progress']['total']) {
+    $edit[$entity->fid] = $entity->fid;
+    variable_set($user->uid .'_vbo', $edit);
+  }
+  elseif ($context['progress']['current'] === $context['progress']['total']) {
+    // let's generate the redirect url for multiple edits
+    $edit[$entity->fid] = $entity->fid;
+    variable_set($user->uid .'_vbo', $edit);
+  }
+}
+
+/**
+ * Implements hook_batch_alter
+ */
+function fuse_actions_batch_alter(&$batch) {
+  // change the finished batch operation
+  if (!array_key_exists('finished', $batch['sets'][$batch['current_set']])) {
+    return;
+  }
+    
+  if ($batch['sets'][$batch['current_set']]['finished'] == 'views_bulk_operations_execute_finished') {
+    $batch['sets'][$batch['current_set']]['finished'] = 'fuse_actions_vbo_execute_finished';
+  }
+}
+
+function fuse_actions_vbo_execute_finished($success, $results, $operations) {
+  global $user;
+  views_bulk_operations_execute_finished($success, $results, $operations);
+  $edit = variable_get($user->uid .'_vbo', array());
+  if (!empty($edit)) {
+    // feed the FIDs and redirect to the multiple media edit page
+    $fids = $edit;
+    $fids = array_keys(array_filter($fids));
+    variable_del($user->uid .'_vbo');
+    drupal_goto(media_file_edit_url($fids), array('query' => array('destination' => '<front>')));
+  }
+}

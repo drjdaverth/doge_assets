@@ -1,0 +1,107 @@
+name = Fuse Media
+description = A distribution for Digital Asset Management (DAM)
+version = 7.x-1.0
+core = 7.x
+dependencies[] = block
+dependencies[] = color
+;dependencies[] = comment
+dependencies[] = contextual
+;dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+;dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = dblog
+;dependencies[] = search
+;dependencies[] = shortcut
+;dependencies[] = toolbar
+;dependencies[] = overlay
+dependencies[] = field_ui
+dependencies[] = file
+;dependencies[] = rdf
+
+; UI
+dependencies[] = colorbox
+
+; Editing
+dependencies[] = autocomplete_deluxe
+
+; System
+dependencies[] = backup_migrate
+; dependencies[] = devel
+dependencies[] = diff
+dependencies[] = multiform
+dependencies[] = libraries
+dependencies[] = file_entity
+
+; Importing
+dependencies[] = job_scheduler
+dependencies[] = feeds
+dependencies[] = feeds_xpathparser
+
+; Media
+dependencies[] = media
+dependencies[] = mediafield
+dependencies[] = media_internet
+dependencies[] = media_colorbox
+dependencies[] = media_vimeo
+dependencies[] = media_youtube
+dependencies[] = pdf_reader
+dependencies[] = plupload
+dependencies[] = soundmanager2
+dependencies[] = videojs
+dependencies[] = file_download_count
+dependencies[] = gdoc_field
+
+; Admin UX
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+
+; Views
+dependencies[] = ctools
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = views_fluidgrid
+dependencies[] = views_bulk_operations
+
+; Misc
+dependencies[] = front_page
+dependencies[] = simplehtmldom
+
+; Features
+dependencies[] = strongarm
+dependencies[] = features
+
+; Patched
+dependencies[] = oembed
+dependencies[] = oembedprovider
+
+; Custom
+dependencies[] = oembedoutput
+dependencies[] = vbo_tag
+
+; Feature modules
+dependencies[] = fuse_actions
+dependencies[] = fuse_config
+dependencies[] = fuse_display
+
+; Minor work around, we enable this module after PDF file type has been defined
+;dependencies[] = fuse_permissions
+dependencies[] = fuse_sample_importers
+
+; Information added by drush on 2014-02-19
+version = "master-dev"
+project = "fuse"
+datestamp = "1392854584"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

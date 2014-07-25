@@ -1,0 +1,22 @@
+name = "Feeds module tests"
+description = "Support module for Feeds related testing."
+package = Testing
+version = VERSION
+core = 7.x
+files[] = feeds_test.module
+hidden = TRUE
+
+
+; Information added by drush on 2014-02-19
+version = "7.x-2.0-alpha8+13-dev"
+core = "7.x"
+project = "feeds"
+datestamp = "1392854606"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

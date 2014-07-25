@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Fuse Display feature.
+ */
+
+include_once 'fuse_display.features.inc';

@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Uninstall function for the Media Colorbox module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function media_colorbox_uninstall() {
+  //Remove all colorbox_file varialbes
+  db_delete('variable')->condition('name', 'media_colorbox_%', 'LIKE')->execute();
+}
+
+/**
+ * Updates all _default file displays to remove Media Colorbox as a file display formatter.
+ *
+ */
+function media_colorbox_update_7101() {
+  db_update('file_display')
+    ->expression('settings', "'N;'")
+    ->condition('name', '%default__file_field_media_colorbox', 'LIKE')
+    ->execute();
+}

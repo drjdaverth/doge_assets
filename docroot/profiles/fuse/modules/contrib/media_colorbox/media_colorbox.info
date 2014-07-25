@@ -1,0 +1,24 @@
+name = Media Colorbox
+description = Provides integration between the Media module (file entities) and the Colorbox module.
+core = 7.x
+
+files[] = media_colorbox.module
+
+dependencies[] = file_entity
+dependencies[] = colorbox
+
+scripts[] = media_colorbox.js
+
+; Information added by drupal.org packaging script on 2013-08-08
+version = "7.x-1.0-rc4"
+core = "7.x"
+project = "media_colorbox"
+datestamp = "1375920182"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

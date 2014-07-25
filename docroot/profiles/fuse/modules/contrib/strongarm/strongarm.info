@@ -1,0 +1,22 @@
+name = Strongarm
+description = Enforces variable values defined by modules that need settings set to operate properly.
+core = 7.x
+dependencies[] = ctools
+
+files[] = strongarm.admin.inc
+files[] = strongarm.install
+files[] = strongarm.module
+
+; Information added by drupal.org packaging script on 2012-06-13
+version = "7.x-2.0"
+core = "7.x"
+project = "strongarm"
+datestamp = "1339604214"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

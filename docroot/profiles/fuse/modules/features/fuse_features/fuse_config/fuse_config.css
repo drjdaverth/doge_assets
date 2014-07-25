@@ -1,0 +1,71 @@
+/*
+ * Css file
+ */
+
+/**
+ * General styles for each media items
+ */
+.views-fluidgrid-item-inner {
+    border: 1px solid grey;
+    padding: 2px;
+}
+
+.views-fluidgrid-item.masonry-brick {
+    padding: 5px 0;
+}
+
+/**
+ * A grey hidden filename bar
+ */
+.views-field-filename {
+    background-color: #666;
+    color:#FFF;
+    width:96%;
+    /*border-radius: 15px;*/
+    z-index: 1;
+    opacity: 0.75;
+    position: absolute;
+    top: 7px;
+    text-align:center;
+    font-size:10px;
+    display:none;
+}
+
+.ui360 a.sm2_link {
+    display:none;
+}
+
+.ui360-vis .sm2-360ui {
+    margin-left:0 !important;
+}
+
+.ui360-vis .sm2-360ui {
+    position: static;
+    display:block;
+    float:none;
+}
+
+.ui360 .sm2-canvas {
+    /*display:none;*/
+}
+
+.ui360-vis {
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+    background:#eee;
+}
+
+/**
+ * VBO styles
+ */
+.visible_vbo .form-type-checkbox {
+    display:inline;
+}
+
+span.vbo-item {
+    display:none;
+}
+
+.vbo-select-all-markup {
+    margin:10px 0;
+}

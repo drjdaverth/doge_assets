@@ -1,0 +1,64 @@
+<?php
+/**
+ * @file
+ * Installation file for Video.js module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function videojs_requirements($phase) {
+  $requirements = array();
+
+  if ($phase == 'runtime') {
+    $requirements['videojs']['title'] = t('Video.js');
+    $videojs_version = videojs_get_version();
+    if ($videojs_version == NULL) {
+      $requirements['videojs']['value'] = t('Not found');
+      $requirements['videojs']['description'] = t('Missing the Video.js library. Please <a href="!url">download Video.js</a> and extract it into the %directory directory.', array('!url' => url('http://videojs.com'), '%directory' => variable_get('videojs_directory', 'sites/all/libraries/video-js')));
+      $requirements['videojs']['severity'] = REQUIREMENT_ERROR;
+    }
+    elseif (version_compare($videojs_version, '4', '<')) {
+      $requirements['videojs']['value'] = t('Unsupported Video.js version @version', array('@version' => $videojs_version));
+      $requirements['videojs']['description'] = t('The installed version of the Video.js library is not supported. This version of the Video.js module only supports Video.js version 4. <a href="@videojs-url">Download Video.js version 4</a> and extract it into the %directory directory or <a href="@videojs-module-url">download Video.js module version 7.x-2.x</a> to use Video.js 3.', array('@videojs-url' => url('http://videojs.com'), '%directory' => variable_get('videojs_directory', 'sites/all/libraries/video-js'), '@videojs-module-url' => url('http://drupal.org/project/videojs')));
+      $requirements['videojs']['severity'] = REQUIREMENT_ERROR;
+    }
+    elseif (version_compare($videojs_version, '4', '<')) {
+      $requirements['videojs']['value'] = t('Unsupported Video.js version @version', array('@version' => $videojs_version));
+      $requirements['videojs']['description'] = t('The installed version of the Video.js library is not supported. This version of the Video.js module only supports Video.js version 4. <a href="@videojs-url">Download Video.js version 4</a> and extract it into the %directory directory or <a href="@videojs-module-url">download Video.js module version 7.x-2.x</a> to use Video.js 3.', array('@videojs-url' => url('http://videojs.com'), '%directory' => variable_get('videojs_directory', 'sites/all/libraries/video-js'), '@videojs-module-url' => url('http://drupal.org/project/videojs')));
+      $requirements['videojs']['severity'] = REQUIREMENT_ERROR;
+    }
+    else {
+      $requirements['videojs']['value'] = $videojs_version;
+      $requirements['videojs']['severity'] = REQUIREMENT_OK;
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function videojs_uninstall() {
+  variable_del('videojs_location');
+  variable_del('videojs_directory');
+
+  module_load_include('inc', 'videojs', 'includes/videojs.utility');
+  $options = array_keys(videojs_utility::getDisplaySettings());
+  foreach ($options as $key) {
+    variable_del('videojs_' . $key);
+  }
+
+  // Obsolete variables.
+  variable_del('videojs_skin');
+}
+
+/**
+ * Remove obsolete variable videojs_skin.
+ */
+function videojs_update_7200() {
+  variable_del('videojs_skin');
+
+  return array();
+}

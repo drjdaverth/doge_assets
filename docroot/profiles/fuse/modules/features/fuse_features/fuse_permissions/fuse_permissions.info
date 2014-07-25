@@ -1,0 +1,70 @@
+name = Fuse Permissions
+description = Provide user role/permissions for the Fuse media distribution
+core = 7.x
+package = Fuse media
+version = 7.x-1.0-beta2
+project = fuse_permissions
+dependencies[] = admin_menu
+dependencies[] = features
+dependencies[] = file_entity
+dependencies[] = fuse_config
+dependencies[] = media
+dependencies[] = media_internet
+dependencies[] = node
+dependencies[] = oembedoutput
+dependencies[] = system
+dependencies[] = taxonomy
+datestamp = 1391807308
+features[features_api][] = api:2
+features[user_permission][] = access administration menu
+features[user_permission][] = access administration pages
+features[user_permission][] = access content overview
+features[user_permission][] = add media from remote sources
+features[user_permission][] = administer files
+features[user_permission][] = create files
+features[user_permission][] = delete any image files
+features[user_permission][] = delete any pdf files
+features[user_permission][] = delete own audio files
+features[user_permission][] = delete own document files
+features[user_permission][] = delete own image files
+features[user_permission][] = delete own pdf files
+features[user_permission][] = delete own video files
+features[user_permission][] = download any audio files
+features[user_permission][] = download any document files
+features[user_permission][] = download any image files
+features[user_permission][] = download any pdf files
+features[user_permission][] = download any video files
+features[user_permission][] = download own audio files
+features[user_permission][] = download own document files
+features[user_permission][] = download own image files
+features[user_permission][] = download own pdf files
+features[user_permission][] = download own video files
+features[user_permission][] = edit any files
+features[user_permission][] = edit any pdf files
+features[user_permission][] = edit own audio files
+features[user_permission][] = edit own document files
+features[user_permission][] = edit own image files
+features[user_permission][] = edit own pdf files
+features[user_permission][] = edit own video files
+features[user_permission][] = edit terms in tags
+features[user_permission][] = import media
+features[user_permission][] = output oembed
+features[user_permission][] = view files
+features[user_permission][] = view own files
+features[user_permission][] = view own private files
+features[user_permission][] = view private files
+features[user_role][] = media user
+
+; Information added by Drupal.org packaging script on 2014-02-18
+version = "7.x-1.0-beta2+4-dev"
+core = "7.x"
+project = "fuse_features"
+datestamp = "1392764958"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

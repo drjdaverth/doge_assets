@@ -1,0 +1,19 @@
+name = Diff
+description = Show differences between content revisions.
+core = 7.x
+
+files[] = DiffEngine.php
+
+; Information added by drupal.org packaging script on 2012-11-13
+version = "7.x-3.2"
+core = "7.x"
+project = "diff"
+datestamp = "1352784357"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

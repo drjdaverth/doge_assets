@@ -1,0 +1,102 @@
+<?php
+/**
+ * @file
+ * Code for the Media Demo Config feature.
+ */
+
+include_once 'fuse_config.features.inc';
+
+/**
+ * Views preprocess function
+ * @param $vars
+ */
+function fuse_config_preprocess_views_view(&$vars) {
+  $view = $vars['view'];
+  if ($view->name !== 'media_browsing') {
+    return;
+  }
+  // adding video.js library
+//  if (module_exists('videojs')) {
+//    videojs_add();
+//  }
+  drupal_add_js(drupal_get_path('module', 'fuse_config') . '/fuse_config.js');
+  drupal_add_css(drupal_get_path('module', 'fuse_config') . '/fuse_config.css');
+}
+
+/**
+ * Implements hook_permission().
+ */
+function fuse_config_permission() {
+  return array(
+    'edit any files' => array(
+      'title' => t('PATCHED: edit multiple files'),
+      'description' => t('Access media browser settings.'),
+    ),
+  );
+}
+
+
+/**
+ * Implements hook_init
+ */
+//function fuse_config_init() {
+//  // redirect anonymous user to login page, this whole site should be locked down for anonymous users
+//  global $user;
+//  if ($user->uid === 0) {
+//    if (arg(0) != 'user') {
+//      drupal_goto('user/login');
+//    }
+//  }
+//}
+
+/**
+ * Implements hook_user_login
+ * @param $edit
+ * @param $account
+ */
+function fuse_config_user_login(&$edit, $account) {
+  // redirect user after login to the home page
+  $front_page = variable_get('site_frontpage', 'node');
+  $edit['redirect'] = $front_page;
+}
+
+
+/**
+ * Implements hook_views_api().
+ */
+function fuse_config_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+/**
+ * Implements hook_views_data_alter
+ * @param $data
+ */
+function fuse_config_views_data_alter(&$data) {
+  // Let's use our own download handler
+  $data['file_managed']['download'] = array(
+    'title' => t('Download link'),
+    'help' => t('Provide a simple link to download the file entity.'),
+    'field' => array(
+      'handler' => 'views_handler_field_media_link_download',
+      'real field' => 'fid',
+      'additional fields' => array(
+        'fid',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_file_entity_download_scheme_disallow
+ * @return array
+ */
+function fuse_config_file_entity_download_scheme_disallow() {
+  return array(
+     'youtube',
+     'vimeo',
+     'oembed',
+  );
+}

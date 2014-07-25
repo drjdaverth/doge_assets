@@ -1,0 +1,20 @@
+name = File download count
+description = Tracks the number of times a file is downloaded.
+core = 7.x
+recommends[] = file_entity
+recommends[] = views
+recommends[] = token_formatters
+
+; Information added by drupal.org packaging script on 2013-08-07
+version = "7.x-1.0-rc1"
+core = "7.x"
+project = "file_download_count"
+datestamp = "1375883240"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

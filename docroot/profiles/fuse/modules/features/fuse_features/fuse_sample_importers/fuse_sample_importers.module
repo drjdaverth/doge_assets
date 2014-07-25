@@ -1,0 +1,139 @@
+<?php
+/**
+ * @file
+ * Code for the Fuse sample importers feature.
+ */
+
+include_once 'fuse_sample_importers.features.inc';
+
+/**
+ * Implements hook_feeds_presave
+ * @param FeedsSource $source
+ * @param $entity
+ * @param $item
+ */
+function fuse_sample_importers_feeds_presave(FeedsSource $source, $entity, $item) {
+  // parsing youtube urls
+  $importer = $source->importer();
+  $config = $importer->config;
+  if ($config['name'] == 'Sample youtube importer') {
+    $url = drupal_parse_url($item['url']);
+    $uri = 'youtube://v/' . $url['query']['v'];
+    $entity->uri = $uri;
+  }
+
+  // importing images from flickr feed
+  if ($config['name'] == 'Sample flickr importer') {
+    // save the file locally, retrieve the url
+    $entity->feeds_item->skip = TRUE;
+    // need to tie GUID to feeds??
+    if (empty($item['xpathparser:0'])) {
+      return;
+    }
+    // process the image ourselves.
+    fuse_sample_importer_fetch_image($item['xpathparser:0']);
+
+    // @todo: adding title and other metadata
+  }
+}
+
+/**
+ * @param $url
+ * @return Fetch an image from an url
+ */
+function fuse_sample_importer_fetch_image($url) {
+  $file = new stdClass();
+  $result = drupal_http_request($url);
+  // error with fetching the url
+  if ($result->code != '200') {
+    return;
+  }
+  $file_name = '';
+  $file_name = parse_url($url);
+  if (array_key_exists('path', $file_name)) {
+    $file_name = pathinfo($file_name['path']);
+    $file_name = $file_name['basename'];
+  }
+
+  $file = file_save_data($result->data, 'public://' . $file_name);
+  if (!empty($file)) {
+    $image_info = image_get_info(drupal_realpath($file->uri));
+    if (!$image_info) {
+      return;
+    }
+    $file->width = $image_info['width'];
+    $file->height = $image_info['height'];
+  }
+
+  return $file;
+}
+
+
+// @todo: delete this debugging function
+function fuse_sample_importers_menu() {
+  $items = array();
+
+  $items['xyz'] = array(
+    'title'            => 'Sample data',
+    'page callback'    => 'drupal_get_form',
+    'page arguments'   => array('fuse_sample_importer_sample_form'),
+    'type'             => MENU_CALLBACK,
+    'access arguments' => array('view published content'),
+  );
+
+  return $items;
+}
+
+function fuse_sample_importer_sample_form($form, &$form_state) {
+  $form['message'] = array(
+    '#prefix' => '<div class="messages status">',
+    '#markup' => 'Please check below if you would like to load some sample media into the installation',
+    '#suffix' => '</div>',
+  );
+
+  if (module_exists('fuse_sample_importers')) {
+    $form['sample_data'] = array(
+      '#type' => 'fieldset',
+      '#title' => 'Sample data',
+    );
+
+    // @todo: let's automate this a bit by loading the importers that we have created
+    $form['sample_data']['youtube'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Youtube video from CNN'),
+    );
+
+    $form['sample_data']['flickr'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Public Flickr feeds')
+    );
+  }
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Continue',
+  );
+
+  return $form;
+}
+
+/**
+ * Form submission callback
+ * @param $form
+ * @param $form_state
+ */
+function fuse_sample_importer_sample_form_submit($form, &$form_state) {
+  $feeds = array();
+  $v = $form_state['values'];
+  if ($v['youtube'] === 1) {
+    $feeds['sample_youtube_importer'] = 'http://www.youtube.com/rss/user/cnn/video.rss';
+  }
+  if ($v['flickr'] === 1) {
+    $feeds['sample_flickr_importer'] = 'http://api.flickr.com/services/feeds/photos_public.gne?format=rss2';
+  }
+
+  if (empty($feeds)) {
+    return;
+  }
+  variable_set('fuse_sample_content', $feeds);
+}
