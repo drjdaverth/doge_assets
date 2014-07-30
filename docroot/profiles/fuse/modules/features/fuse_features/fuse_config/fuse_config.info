@@ -2,8 +2,8 @@ name = Fuse Config
 description = Contains base configuration for Fuse media
 core = 7.x
 package = Fuse media
-version = 7.x-1.0-beta2
-project = fuse_config
+version = 7.x-1.0-beta3
+project = fuse
 dependencies[] = autocomplete_deluxe
 dependencies[] = ctools
 dependencies[] = features
@@ -12,7 +12,7 @@ dependencies[] = image
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
-datestamp = 1391807308
+datestamp = 1392856719
 features[ctools][] = file_entity:file_default_displays:1
 features[ctools][] = file_entity:file_type:1
 features[ctools][] = strongarm:strongarm:1
@@ -26,8 +26,6 @@ features[field_instance][] = file-image-field_file_image_alt_text
 features[field_instance][] = file-image-field_file_image_title_text
 features[field_instance][] = file-image-field_tags
 features[field_instance][] = file-pdf-field_tags
-features[field_instance][] = file-presentation-field_tags
-features[field_instance][] = file-spreadsheet-field_tags
 features[field_instance][] = file-video-field_tags
 features[image][] = colorbox_large
 features[image][] = thumb__w_150
@@ -64,17 +62,3 @@ features[variable][] = file_entity_allow_insecure_download
 features[variable][] = media__icon_base_directory
 features[variable][] = site_frontpage
 files[] = views/views_handler_field_media_link_download.inc
-
-; Information added by Drupal.org packaging script on 2014-02-18
-version = "7.x-1.0-beta2+4-dev"
-core = "7.x"
-project = "fuse_features"
-datestamp = "1392764958"
-
-
-; Information added by Drupal.org packaging script on 2014-02-20
-version = "7.x-1.0-beta3"
-core = "7.x"
-project = "fuse"
-datestamp = "1392856719"
-

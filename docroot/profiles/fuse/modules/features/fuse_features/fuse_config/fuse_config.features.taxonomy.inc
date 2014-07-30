@@ -13,7 +13,7 @@ function fuse_config_taxonomy_default_vocabularies() {
       'name' => 'tags',
       'machine_name' => 'tags',
       'description' => '',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
     ),

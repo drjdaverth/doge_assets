@@ -2,27 +2,13 @@ name = Fuse sample importers
 description = Provides some sample content to be loaded when the distribution is installed
 core = 7.x
 package = Fuse media
-version = 7.x-1.0
-project = fuse_sample_importers
+version = 7.x-1.0-beta3
+project = fuse
 dependencies[] = ctools
 dependencies[] = feeds
 dependencies[] = feeds_xpathparser
-datestamp = 1390058810
+datestamp = 1392856719
 features[ctools][] = feeds:feeds_importer_default:1
 features[features_api][] = api:2
 features[feeds_importer][] = sample_flickr_importer
 features[feeds_importer][] = sample_youtube_importer
-
-; Information added by Drupal.org packaging script on 2014-02-18
-version = "7.x-1.0-beta2+4-dev"
-core = "7.x"
-project = "fuse_features"
-datestamp = "1392764958"
-
-
-; Information added by Drupal.org packaging script on 2014-02-20
-version = "7.x-1.0-beta3"
-core = "7.x"
-project = "fuse"
-datestamp = "1392856719"
-
