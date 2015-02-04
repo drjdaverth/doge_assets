@@ -52,7 +52,9 @@ DPwmYiPwdUtaWLAc3bmdtgkyzUBb6rNj8h
 
 
 
-/End of /u/urthwalker's text. The following is from me (/u/cryptosforacause)
+/End 
+====
+End of /u/urthwalker's text. The following is from me (/u/cryptosforacause)
 
 If you want to add files, feel free to follow the instructions above and send me a pull request. If you don't see a response in a day or two, please PM me on Reddit :)
 
