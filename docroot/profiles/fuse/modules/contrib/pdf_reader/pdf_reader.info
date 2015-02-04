@@ -1,0 +1,23 @@
+name = PDF Reader
+description = "Creates new display format for fields that renders the file using PDF Reader"
+version = 7.x-1.0-rc4
+core = 7.x
+files[] = pdf_reader.module
+files[] = pdf_reader.admin.inc
+files[] = pdf_reader.install
+files[] = tests/pdf_reader.test
+
+configure = admin/config/pdf/reader
+; Information added by drupal.org packaging script on 2012-08-21
+version = "7.x-1.0-rc4"
+core = "7.x"
+project = "pdf_reader"
+datestamp = "1345571581"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

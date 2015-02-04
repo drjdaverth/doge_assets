@@ -1,0 +1,19 @@
+package = Views
+name = VBO Tag
+description = Tag multiple contents
+core = 7.x
+version = "7.x-1.0"
+
+; Information added by Drupal.org packaging script on 2014-02-10
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "vbo_tag"
+datestamp = "1392063810"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

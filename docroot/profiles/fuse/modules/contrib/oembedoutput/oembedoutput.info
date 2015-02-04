@@ -1,0 +1,21 @@
+package = oEmbed
+name = oEmbed Output
+description = Outputs embed code to be used on other sites
+core = 7.x
+dependencies[] = oembedprovider
+dependencies[] = simplehtmldom
+
+
+; Information added by Drupal.org packaging script on 2014-02-10
+version = "7.x-1.0-alpha1"
+core = "7.x"
+project = "oembedoutput"
+datestamp = "1392062918"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

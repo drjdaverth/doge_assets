@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Media: Vimeo module.
+ */
+
+/**
+ * Implement hook_install().
+ */
+function media_vimeo_install() {
+  return array();
+}
+
+/**
+ * Implement hook_uninstall().
+ */
+function media_vimeo_uninstall() {
+  drupal_load('module', 'media_vimeo');
+
+  foreach (media_vimeo_variable_default() as $variable => $value) {
+    media_vimeo_variable_del($variable);
+  }
+  return array(array('success' => TRUE, 'query' => "Deleted all variables in the Media: Vimeo namespace."));
+}
+
+/**
+ * Empty update function.
+ */
+function media_vimeo_update_7200() {
+  // Code removed in response to http://drupal.org/node/1911970.
+}

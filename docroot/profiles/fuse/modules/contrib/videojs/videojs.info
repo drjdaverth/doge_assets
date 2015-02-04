@@ -1,0 +1,20 @@
+name = Video.js
+description = Video.js is an HTML5 Video Player.
+package = Media
+core = 7.x
+configure = admin/config/media/videojs
+
+files[] = includes/videojs.utility.inc
+; Information added by drupal.org packaging script on 2013-10-19
+version = "7.x-3.0-alpha2+9-dev"
+core = "7.x"
+project = "videojs"
+datestamp = "1382151905"
+
+
+; Information added by Drupal.org packaging script on 2014-02-20
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "fuse"
+datestamp = "1392856719"
+

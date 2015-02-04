@@ -1,0 +1,34 @@
+
+/**
+ *  @file
+ *  Overlay for Vimeo thumbnails in the media library browser.
+ *
+ *  @TODO: Is this all for the Media Browser Providers logos? If so,
+ *  they've been removed in latest Media dev and this file can be removed.
+ *
+ */
+#media-browser .styles-container-media_vimeo {
+  /* Relative wrapper for the overlay. */
+  position: relative;
+}
+#media-browser .styles-container-media_vimeo span {
+  /* Here's the overlay image. */
+  background: url(images/stream-vimeo.png) no-repeat;
+
+  /* Absolute positioning in the relative wrapper creates the overlay. */
+  position: absolute;
+
+  /* Size of the overlay */
+  width: 69px;
+  height: 22px;
+
+  /* Position of the overlay */
+  left: 33px;
+  top: 80px;
+}
+#media-browser .styles-container-media_vimeo span:hover {
+  /* The  */
+  background-position: 0px -22px;
+}
+#media-browser .styles-container-media_vimeo img {
+}

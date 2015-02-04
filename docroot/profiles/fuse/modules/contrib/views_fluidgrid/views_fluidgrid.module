@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * Implementation of hook_views_api().
+ */
+function views_fluidgrid_views_api() {
+  return array(
+  	'api' => 3,
+  	'path' => drupal_get_path('module', 'views_fluidgrid') . '/includes',
+  );
+}
+
+/**
+ * Template function for views_fluidgrid
+ *
+ * @param array $vars
+ *  Array of template variables.
+ */
+function template_preprocess_views_view_fluidgrid(&$vars) {
+  $view = $vars['view'];
+  $options = $view->style_plugin->options;
+  $vars['views_fluidgrid_id'] = 'views_fluidgrid_'. $view->name .'_'. $view->current_display;
+  
+  // If we want to use CSS for animation, let's describe them
+  if ($options['animation_options']['use_css']) {
+    $duration_in_seconds = intval($options['animation_options']['duration']) / 1000;
+
+    $css = '.masonry, .masonry .masonry-brick {
+              -webkit-transition-duration: ' . $duration_in_seconds . 's;
+                 -moz-transition-duration: ' . $duration_in_seconds . 's;
+                   -o-transition-duration: ' . $duration_in_seconds . 's;
+                      transition-duration: ' . $duration_in_seconds . 's;
+		    }
+			
+			.masonry {
+			  -webkit-transition-property: height, width;
+                 -moz-transition-property: height, width;
+                   -o-transition-property: height, width;
+                      transition-property: height, width;
+            }
+
+            .masonry .masonry-brick {
+              -webkit-transition-property: left, right, top;
+                 -moz-transition-property: left, right, top;
+                   -o-transition-property: left, right, top;
+                      transition-property: left, right, top;
+            }';
+
+    drupal_add_css($css, 'inline');
+  }
+  
+  // add modernizr
+  if ($modernizr_path = libraries_get_path('modernizr')) {
+    drupal_add_js($modernizr_path . '/modernizr-1.7.min.js');
+  }
+
+  // TODO - move this to modules, add modernizr dependency
+  drupal_add_js(drupal_get_path('module', 'views_fluidgrid') .'/js/jquery.masonry.min.js');
+  drupal_add_js(drupal_get_path('module', 'views_fluidgrid') .'/js/init.js');
+  drupal_add_js(array(
+    'viewsFluidGrid' => array(
+      $vars['views_fluidgrid_id'] => array(
+        'columnWidth' => $options['column_width'],
+        'gutterWidth' => $options['gutter_width'],
+        'resizable' => $options['resizable'],
+        'rtl' => $options['rtl'],
+        'fitWidth' => $options['fit_width'],
+        'animate' => $options['animate'],
+        'animationOptions' => array(
+        'useCss' => $options['animation_options']['use_css'],
+          'queue' => $options['animation_options']['queue'],
+          'duration' => $options['animation_options']['duration']
+        ),
+        'reloadOnWindowLoad' => $options['reload_on_window_load'],
+      ),
+    ),
+  ), 'setting');
+}
+
+/**
+ * Only returns true the first time it's called for an id
+ *
+ * @param $id
+ *  A uniqe view id.
+ *
+ * @return bool
+ *  TRUE for the first time called for a given $id
+ *  FALSE for each time after that
+ */
+function theme_views_fluidgrid_display_item($id) {
+  $display = &drupal_static(__FUNCTION__);
+
+  return $display[$id] = !isset($display[$id]) ? FALSE : TRUE;
+}

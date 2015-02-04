@@ -1,0 +1,9 @@
+; Drush Make (http://drupal.org/project/drush_make)
+api = 2
+core = 7.x
+
+projects[video-js][type] = library
+projects[video-js][download][type] = get
+projects[video-js][download][url] = http://www.videojs.com/downloads/video-js-4.0.0.zip
+
+projects[libraries] = 2

@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * Implements hook_action_info
+ */
+function vbo_tag_action_info() {
+  return array(
+    'vbo_tag_action_callback' => array(
+      'label' => t('Apply tag(s)'),
+      'type' => 'file',
+      'configurable' => FALSE,
+      'vbo_configurable' => TRUE,
+      'triggers' => array('any'),
+    ),
+  );
+}
+
+/**
+ * Operation callback
+ * @param $entity
+ * @param $context
+ */
+function vbo_tag_action_callback($entity, $context) {
+  if (empty($context['tags'])) {
+    return;
+  }
+  $tags = $context['tags'];
+  foreach ($tags as $key => $tag) {
+    if ($tag['tid'] === 'autocreate') {
+      // it might be possible that this tag is created from the previous action, let's find out
+      $existing = taxonomy_get_term_by_name($tag['name'], $tag['vocabulary_machine_name']);
+      if (!empty($existing)) {
+        unset($tags[$key]);
+        $tags[] = (array) current($existing);
+        continue;
+      }
+      $_tag = new stdClass();
+      $_tag->vid = $tag['vid'];
+      $_tag->name = $tag['name'];
+      $_tag->vocabulary_machine_name = $tag['vocabulary_machine_name'];
+      taxonomy_term_save($_tag);
+      unset($tags[$key]);
+      $tags[] = (array) $_tag;
+    }
+  }
+
+  // with a list of tags in place, we now are able to tag them into the entity
+  // let's check if this taxonomy term field instance exists with this bundle
+  $tag_field = $context['settings']['tag_field'];
+  if (!array_key_exists($tag_field, $entity)) {
+    return;
+  }
+
+  // if there's no tags in this entity
+  if(empty($entity->{$tag_field}[LANGUAGE_NONE])) {
+    foreach ($tags as $tag) {
+      $items[] = array('tid' => $tag['tid']);
+    }
+    $entity->{$tag_field}[LANGUAGE_NONE] = $items;
+  }
+  // if there are some tags already exist, we only add those new term references
+  else {
+    // let's do a quick calculation to see which tags are there
+    $entity_tags = array();
+    foreach ($entity->{$tag_field}[LANGUAGE_NONE] as $tag) {
+      $entity_tags[$tag['tid']] = $tag['tid'];
+    }
+    // go through and add the tags to the entity
+    foreach ($tags as $tag) {
+      if (!array_key_exists($tag['tid'], $entity_tags)) {
+        $entity->{$tag_field}[LANGUAGE_NONE][] = array('tid' => $tag['tid']);
+      }
+    }
+  }
+  // calling file_save, node_save, etc
+  $func = $context['entity_type'] . '_save';
+  $func($entity);
+}
+
+/**
+ * Configuration callback
+ * @param $context
+ * @param $form_state
+ */
+function vbo_tag_action_callback_form($context, &$form_state) {
+
+  $form = array();
+  $tag_field = $context['settings']['tag_field'];
+  $form_state['entity_type'] = $entity_type = $context['entity_type'];
+  $form_state['tag_field'] = $tag_field;
+  $info = entity_get_info($context['entity_type']);
+  $bundle_key = $info['entity keys']['bundle'];
+  $default_values = array();
+
+  // If the bundle key exists, it must always be set on an entity.
+  if (!empty($bundle_key)) {
+    $field = field_info_field($tag_field);
+    if (!empty($field['bundles'])) {
+      $default_values[$bundle_key] = reset($field['bundles'][$entity_type]);
+    } else {
+      $bundle_names = array_keys($info['bundles']);
+      $bundle_name = reset($bundle_names);
+      $default_values[$bundle_key] = $bundle_name;
+    }
+  }
+  $entity = entity_create($context['entity_type'], $default_values);
+  $form_state['entity'] = $entity;
+
+  field_attach_form($context['entity_type'], $entity, $form, $form_state);
+
+  foreach ($form as $name => $element) {
+    if ($name !== $tag_field && substr($name, 0, 1) !== '#') {
+      hide($form[$name]);
+    }
+  }
+  return $form;
+}
+
+/**
+ * Form validation callback
+ * @param $form
+ * @param $form_state
+ */
+function vbo_tag_action_callback_validate($form, &$form_state) {
+  // The entity used is irrelevant, and we can't rely on
+  // $form_state['entities'] being non-empty, so a new one is created.
+  $entity = $form_state['entity'];
+
+  // handle empty values
+  // @todo: language support
+  $tag_field = $form_state['tag_field'];
+  if (empty($form_state['values'][$tag_field][LANGUAGE_NONE])) {
+    form_set_error($tag_field, t('Please enter some terms'));
+  }
+  field_attach_form_validate($form_state['entity_type'], $entity, $form, $form_state);
+}
+
+/**
+ * Form submission callback
+ * @param $form
+ * @param $form_state
+ */
+function vbo_tag_action_callback_submit($form, &$form_state) {
+  field_attach_submit($form_state['entity_type'], $form_state['entity'], $form, $form_state);
+  $tag_field = $form_state['tag_field'];
+  return array(
+    'tags' => $form_state['values'][$tag_field][LANGUAGE_NONE],
+  );
+}
+
+/**
+ * [action_callback]_views_bulk_operations_form
+ * @param $options
+ * @param $entity_type
+ * @param $dom_id
+ * @return mixed
+ */
+function vbo_tag_action_callback_views_bulk_operations_form($options, $entity_type, $dom_id) {
+
+  $info = entity_get_info($entity_type);
+  $bundles = array_keys($info['bundles']);
+  $bundle_field_instances = array();
+  // get all the field instance information from all of the bundles
+  foreach ($bundles as $bundle) {
+    $bundle_field_instances = array_merge($bundle_field_instances, field_info_instances($entity_type, $bundle));
+  }
+
+  $op = array('' => t('--Select--'));
+  // let's sort out which ones are taxonomy reference fields
+  foreach ($bundle_field_instances as $field_name => $info) {
+    $field_info = field_info_field($field_name);
+    if ($field_info['type'] == 'taxonomy_term_reference') {
+      $op[$field_name] = $info['label'];
+    }
+  }
+
+  $form['tag_field'] = array(
+    '#type' => 'select',
+    '#title' => t('Tag field'),
+    '#options' => $op,
+    '#default_value' => $options['tag_field'],
+    '#required' => TRUE,
+  );
+
+  return $form;
+}

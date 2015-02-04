@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * @file
+ * A field formatter for the File field, which renders the file as
+ * an embedded document, using Google's Google Docs embeddable file viewer.
+ * At the current time this viewer will reasonably display files of these
+ * types: Adobe .pdf, Microsoft .doc/.docx, .xls/.xlsx. and .ppt/.pptx.
+ *
+ * The field may be resized and/or otherwise modified using the css selector
+ * ".gdoc-field"
+ */
+
+/**
+ * Implements hook_help(). 
+ *
+ * Describe the purpose and usage  of this module.
+ */
+function gdoc_field_help($path, $arg) {
+  $helptext = '';
+  if ($path == 'admin/help#gdoc_field') {
+    $helptext = '<p>';
+    $helptext .= t('This module provides a new format for the File field type.' .
+    ' This format presents the file as a fully rendered object within a web page -' .
+    ' i.e. it displays the contents of the file as appropriate to its filetype' .
+    ' (Adobe Acrobat .pdf, Microsoft Word .doc/.docx, Micrososft Excel .xls/.xlsx, Microsoft Powerpoint .ppt/.pptx),' .
+    ' using the Google Docs embedded rendering engine.</p>' . 
+    '<p>N.B.: Only files that are public may use this formatter -' . 
+	' Google Docs must be able to access the file in order to ' .
+	' render and display it. In other words, it won\'t work on' . 
+	' a typical development laptop, or if your server is behind' .
+	' a firewall where Google is unable to access it.');
+    $helptext .= '</p>';
+    $helptext .= '<p>';
+    $helptext .= t('To use this field format, add a File field to a new or existing content type (such as Basic Page) on the content type\'s Manage Fields form.' .
+    ' The File field type provides only one widget type - File - so select that. On the content type\'s "Manage Display" form,' .
+    ' there will be a drop-down select list of available display formats for the File field. To display the file within the embedded' .
+    ' Google Docs viewer, choose the \'Google Embedded Document Viewer\' format.');
+    $helptext .= '</p>';
+    $helptext .= '<p>';
+    $helptext .= t('The document viewer may be styled using the CSS selector \'.gdoc-field\'. By default, the viewer\'s width is 100% and its height is 400px, with a 1px black border.');
+    $helptext .= '</p>';
+  }
+  return $helptext;
+}
+
+/**
+ * Implements hook_field_formatter_info_alter().
+ *
+ * Add a new formatter to the
+ * list of formatters available for the File field type.
+ */
+function gdoc_field_field_formatter_info_alter(&$info) {
+  $new_formatter = array(
+    'label' => t('Embedded Google Docs viewer'),
+    'field types' => array(0 => 'file'),
+    'settings' => array(),
+    'module' => 'gdoc_field',
+  );
+  $info['gdoc_field_embedded_doc'] = $new_formatter;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ *
+ * Renders the ouput of an
+ * 'Embedded Google Docs viewer' formatted field within an iframe that
+ * pulls in the Google Docs viewer to display the file inline.
+ *
+ */
+function gdoc_field_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    // This formatter outputs the field within an iframe.
+    case 'gdoc_field_embedded_doc':
+      foreach ($items as $delta => $item) {
+        $item_uri = $item['uri'];
+        if (file_uri_scheme($item_uri) == 'public') {
+          $url = file_create_url($item_uri);
+          $encoded_url = urlencode($url);
+          drupal_add_css(drupal_get_path('module', 'gdoc_field') . '/gdoc_field.css');
+          $element[$delta]['#markup'] = '<iframe class="gdoc-field" src="http://docs.google.com/gview?embedded=true&url=' . $encoded_url . '"></iframe>';
+        }
+        else {
+          drupal_set_message(t('The file (%file) is not publicly accessable. It must be publicly available in order for the Google Docs viewer to be able to access it.', array('%file' => $item['filename'])), 'error', FALSE);
+        }
+      }
+      break;
+  }
+  return $element;
+}

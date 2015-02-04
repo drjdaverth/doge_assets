@@ -1,0 +1,56 @@
+<?php
+/**
+ * @file
+ * Implements installation and requirements functions.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function soundmanager2_uninstall() {
+  variable_del('sm2_debug_mode');
+  variable_del('sm2_path');
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function soundmanager2_requirements($phase) {
+
+  $t = get_t();
+
+  $sm2_path = variable_get('sm2_path', 'sites/all/libraries/soundmanager2');
+  $requirements = array();
+  if ($phase == 'runtime') {
+    // Test availability of SoundManager 2
+    $requirements['soundmanager2']['title'] = $t('SoundManager 2');
+    $sm2_swf = $sm2_path . '/swf/';
+    $sm2_script = $sm2_path . '/script/soundmanager2.js';
+    if (file_exists($sm2_path) && file_exists($sm2_swf) && file_exists($sm2_script) ) {
+      $requirements['soundmanager2']['value'] = _soundmanager2_get_version($sm2_script);
+      $requirements['soundmanager2']['severity'] = REQUIREMENT_OK;
+    }
+    else {
+      $requirements['soundmanager2']['value'] = $t('Soundmanager2 not found');
+      $requirements['soundmanager2']['description'] = $t('You must install !download to %sm2dir, or !configure.', array('!download' => l(t('SoundManager 2'), 'http://www.schillmania.com/projects/soundmanager2/doc/download/'), '%sm2dir' => $sm2_path, '!configure' => l(t('configure its installation path'), 'admin/config/media/soundmanager2')));
+      $requirements['soundmanager2']['severity'] = REQUIREMENT_ERROR;
+    }
+  }
+  else if ($phase == 'install' && db_set_active()) {
+    $requirements['soundmanager2']['title'] = $t('SoundManager 2');
+    $requirements['soundmanager2']['value'] = $t('SoundManager 2: remember!');
+    $requirements['soundmanager2']['description'] = $t('You must install !download to %sm2dir, or !configure.', array('!download' => l(t('SoundManager 2'), 'http://www.schillmania.com/projects/soundmanager2/doc/download/'), '%sm2dir' => $sm2_path, '!configure' => l(t('configure its installation path'), 'admin/config/media/soundmanager2')));
+    $requirements['soundmanager2']['severity'] = REQUIREMENT_INFO;
+  }
+
+  return $requirements;
+}
+
+/**
+ * Update the variables table to change the naming of a couple SM2 variables
+ * that used dashes in the variable names.
+ */
+function soundmanager2_update_7200() {
+  db_query('UPDATE {variable} SET name = \'sm2_debug_mode\' WHERE name = \'sm2-debug-mode\'');
+  db_query('UPDATE {variable} SET name = \'sm2_path\' WHERE name = \'sm2-path\'');
+}

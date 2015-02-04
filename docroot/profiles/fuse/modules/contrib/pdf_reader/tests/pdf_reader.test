@@ -1,0 +1,31 @@
+<?php
+class PdfReaderTest extends DrupalWebTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => 'PDF Reader tests',
+      'description' => 'Tests for PDF Reader module.',
+      'group' => 'Other',
+    );
+  }
+  
+  function testIframeRendering() {
+
+    $settings = array(
+      'file' => array(
+        'uri' => 'http://test.com'
+      ),
+      'settings' => array(
+        'renderer' => 0
+      )
+    );
+    
+    $html = theme('pdf_reader', array('file' => $item, 'settings' => $settings));
+    $message = t('iframe for Google Viewer should be there.');
+    $this->assertNotEqual(strpos($html, 'iframe'), FALSE, $message);
+  }
+
+  function testPdfLoad() {
+    
+  }
+}
+

@@ -1,0 +1,278 @@
+<?php
+/**
+* @file
+* Install, update and uninstall functions for the minimal installation profile.
+*/
+
+DEFINE('FUSE_MEDIA_USER_ROLE', 'media user');
+
+/**
+* Implements hook_install().
+*
+* Performs actions to set up the site for this profile.
+*
+* @see system_install()
+*/
+function fuse_install() {
+  // Enable the admin theme.
+  theme_enable(array('shiny'));
+  variable_set('admin_theme', 'shiny');
+  variable_set('node_admin_theme', '1');
+  variable_set('theme_default', 'shiny');
+
+  // Disable user registration
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+
+  // Enable default permissions for system roles.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+
+  // copy media icons
+  _fuse_install_copy_icons();
+}
+
+/**
+ * Implements hook_install_tasks
+ */
+function fuse_install_tasks() {
+
+  $current_task = variable_get('install_task', 'done');
+  $fuse_sample_content = variable_get('fuse_sample_content', array());
+
+  $task['config'] = array(
+    'display_name' => t('Post configuration settings'),
+    'display' => FALSE,
+    'function' => 'fuse_install_config',
+  );
+
+  $task['sql_import'] = array(
+    'display_name' => t('Import SQL data'),
+    'display' => FALSE,
+    'function' => 'fuse_install_import_sql',
+  );
+
+  $task['fuse_install_sample_data'] = array(
+    'display_name' => t('Load sample media'),
+    'display' => TRUE,
+    'type' => 'form',
+  );
+
+  $task['fuse_install_sample_data_batch'] = array(
+    'display_name' => t('Loading sample media'),
+    'type' => 'batch',
+  );
+
+  return $task;
+}
+
+/**
+ * Callback function from install_tasks
+ * Configuring modules after installation is complete
+ */
+function fuse_install_config() {
+  // create the new file types
+  _fuse_install_file_types();
+
+  // workaround, enabling the permissions here
+  module_enable(array('fuse_permissions'));
+
+  // set soundmanager library path
+  if (module_exists('soundmanager2')) {
+    variable_set('sm2_path', 'profiles/fuse/libraries/soundmanager2');
+  }
+
+  // disable the youtube and vimeo provider plugins because we are using the media plugins for them
+  if (module_exists('oembed')) {
+    ctools_include('export');
+    $providers = ctools_export_load_object('oembed_provider');
+    if (array_key_exists('youtube', $providers)) {
+      ctools_export_crud_disable('oembed_provider', $providers['youtube']);
+    }
+    if (array_key_exists('vimeo', $providers)) {
+      ctools_export_crud_disable('oembed_provider', $providers['vimeo']);
+    }
+  }
+
+  // set home page for anonymous users to the login page
+  if (module_exists('front_page')) {
+    variable_set('front_page_enable', 1);
+    // find each of the user roles and insert their settings
+    $media_user_role = user_role_load_by_name(FUSE_MEDIA_USER_ROLE);
+    $media_user_rid = $media_user_role->rid;
+    $rids = array(
+      DRUPAL_ANONYMOUS_RID => array(
+        'rid' => DRUPAL_ANONYMOUS_RID,
+        'mode' => 'redirect',
+        'data' => 'user/login',
+      ),
+      DRUPAL_AUTHENTICATED_RID => array(
+        'rid' => DRUPAL_AUTHENTICATED_RID,
+        'data' => '',
+      ),
+      $media_user_rid => array(
+        'rid' => $media_user_rid,
+        'data' => '',
+      ),
+    );
+    foreach ($rids as $rid => $record) {
+      drupal_write_record('front_page', $record);
+    }
+  }
+}
+
+/**
+ * Import SQL scripts
+ */
+function fuse_install_import_sql() {
+  $path = drupal_get_path('profile', 'fuse') . '/sql';
+  $sql_imports = array();
+  $sql_imports = glob($path . '/*.sql');
+  if (empty($sql_imports)) {
+    return;
+  }
+  foreach ($sql_imports as $sql) {
+    $import = file_get_contents($sql);
+    if (!$import) {
+      continue;
+    }
+    db_query($import);
+  }
+}
+
+/**
+ * Check to install sample data
+ */
+function fuse_install_sample_data() {
+  $form = array();
+  $form_state = array();
+  if (module_exists('fuse_sample_importers')) {
+    $form = fuse_sample_importer_sample_form($form, $form_state);
+  } else {
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => st('Continue'),
+    );
+  }
+  return $form;
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ * Form submission handler
+ */
+function fuse_install_sample_data_submit(&$form, &$form_state) {
+  // based on selection, let's trigger the feed importer
+  if (module_exists('fuse_sample_importers')) {
+    fuse_sample_importer_sample_form_submit($form, $form_state);
+  }
+}
+
+function fuse_install_sample_data_batch() {
+
+  $feeds = variable_get('fuse_sample_content', array());
+  if (empty($feeds)) {
+    return;
+  }
+
+  $operations = array();
+
+  foreach ($feeds as $feed => $url) {
+    $feedSource = feeds_source($feed);
+    $config = $feedSource->getConfig();
+    $config['FeedsHTTPFetcher']['source'] = $url;
+    $feedSource->setConfig($config);
+    $feedSource->save();
+
+    $operations[] = array('feeds_batch', array('import', $feed, 0));
+  }
+  $batch = array(
+    'title' => t('Importing data from feed url: @url', array('@url' => $url)),
+    'operations' => $operations,
+  );
+
+  return $batch;
+}
+
+/**
+ * Add new file type configurations
+ * we are not using feature because it is not fully functional
+ */
+function _fuse_install_file_types() {
+  // create the new file types
+  if (!module_exists('file_entity')) {
+    return;
+  }
+
+  $file_types = array();
+  $file_types['pdf'] = new stdClass();
+  $file_types['pdf']->disabled = FALSE;
+  $file_types['pdf']->api_version = 1;
+  $file_types['pdf']->type = 'pdf';
+  $file_types['pdf']->label = 'PDF';
+  $file_types['pdf']->description = 'PDF file type';
+  $file_types['pdf']->mimetypes = array(
+    0 => 'application/pdf',
+  );
+
+  $file_types['presentation'] = new stdClass();
+  $file_types['presentation']->disabled = FALSE;
+  $file_types['presentation']->api_version = 1;
+  $file_types['presentation']->type = 'presentation';
+  $file_types['presentation']->label = 'Presentation';
+  $file_types['presentation']->description = 'A slideshow presentation, popular types includes Microsoft Powerpoint.';
+  $file_types['presentation']->mimetypes = array(
+    0 => 'application/vnd.ms-powerpoint',
+    1 => 'application/vnd.oasis.opendocument.spreadsheet',
+    2 => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+  );
+
+  $file_types['spreadsheet'] = new stdClass();
+  $file_types['spreadsheet']->disabled = FALSE;
+  $file_types['spreadsheet']->api_version = 1;
+  $file_types['spreadsheet']->type = 'spreadsheet';
+  $file_types['spreadsheet']->label = 'Spreadsheet';
+  $file_types['spreadsheet']->description = 'Spreadsheet file type, some of the common types include Microsoft Excel, Open Office Calc';
+  $file_types['spreadsheet']->mimetypes = array(
+    0 => 'application/vnd.ms-excel',
+    1 => 'application/vnd.oasis.opendocument.spreadsheet',
+    2 => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  );
+
+  // also modify document's mime types
+  $document = file_type_load('document');
+  if (!empty($document)) {
+    $mimetypes = array(
+      'text/plain',
+      'application/msword',
+      'application/vnd.oasis.opendocument.text',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'text/oembed',
+    );
+    $document->mimetypes = $mimetypes;
+    $file_types['document'] = $document;
+  }
+
+  foreach ($file_types as $file_type) {
+    file_type_save($file_type);
+  }
+}
+
+/**
+ * Copy our custom media icons from install profile into file directory for use
+ */
+function _fuse_install_copy_icons() {
+  $destination = 'public://fuse-icons' . '/' . variable_get('media__icon_set', 'default');
+  if (!file_prepare_directory($destination, FILE_CREATE_DIRECTORY)) {
+    throw new Exception("Unable to create directory $destination.");
+  }
+  // @todo If we ever add another default icon set, this should copy all images from one directory up.
+  $source = drupal_get_path('profile', 'fuse') . '/media-icons';
+  $files = file_scan_directory($source, '/.*\.(png|jpg)$/');
+  foreach ($files as $file) {
+    $result = file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_REPLACE);
+    if (!$result) {
+      throw new Exception("Unable to copy {$file->uri} to $destination.");
+    }
+  }
+}

@@ -1,0 +1,174 @@
+<?php
+
+/**
+ * @file
+ * Embed.ly support for oEmbed.module
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function oembedoutput_menu() {
+  $items = array();
+
+  $items['oembed/%file/output'] = array(
+    'title'            => 'oEmbed output',
+    'description'      => 'Output embed code from given file for other websites to embed the media',
+    'page callback'    => 'oembedoutput_main',
+    'page arguments'   => array(1),
+    'type'             => MENU_CALLBACK,
+    'access arguments' => array('output oembed'),
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_ctools_plugin_directory
+ * @param $module
+ * @param $plugin
+ * @return string
+ */
+function oembedouput_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'oembedoutput' && $plugin == 'type') {
+    return 'plugins/' . $plugin;
+  }
+}
+
+/**
+ * Implements hook_theme
+ */
+function oembedoutput_theme() {
+  return array(
+    'oembedoutput_form' => array(
+      'variables' => array(
+        'file' => NULL,
+        'form' => NULL,
+        'result' => NULL,
+        'type' => NULL,
+      ),
+      'template' => 'oembedoutput_form',
+      'file' => 'oembedoutput.theme.inc',
+    ),
+  );
+}
+
+/**
+ * Implements hook_permission().
+ */
+function oembedoutput_permission() {
+  return array(
+    'output oembed' => array(
+      'title' => t('Share oEmbed embed code'),
+      'description' => t('Export html or other oEmbed code for other site to use'),
+    ),
+  );
+}
+
+/**
+ * Provide the embedding form with html code
+ * @todo: add different input options for different types of media
+ * @param $file
+ */
+function oembedoutput_main($file) {
+  // for now let's stick with json
+  $type = 'json';
+
+  $url = _oembedoutput_format_url($file->fid, $type);
+  $_result = drupal_http_request($url);
+
+  if ($_result->code != 200) {
+    // @todo: watchdog log this request
+    return;
+  }
+
+  $result = array();
+  switch($type) {
+    case 'json':
+    default:
+      $result = drupal_json_decode($_result->data);
+    break;
+  }
+
+  if (!$result) {
+    return;
+  }
+
+  // @todo: better solution, perhaps theme override to get rid of extra divs
+  // sometimes the html includes extra divs such as youtube embed
+  $html_obj = str_get_html($result['html']);
+  $container = $html_obj->find('div');
+  if (!empty($container)) {
+    $result['html'] = $container[0]->children[0]->__toString();
+  }
+
+  // @todo: let's move the form generation here to account for various type of files (image, video etc)
+  // @todo: there will need to be a javascript that aggregate all the form elements and generate/change the embed code
+  $form = oembedoutput_embed_form($result);
+
+  // return render($form);
+  // we don't want to "return" because we don't need the full drupal theme bootstrap
+  print theme('oembedoutput_form', array('file' => $file, 'form'=> $form, 'result' => $result, 'type' => $type));
+}
+
+/**
+ * Generate the additional form elements for the embed form per type
+ * @param $oembed_array
+ * @return mixed
+ */
+function oembedoutput_form_callback($oembed_array) {
+  $type = $oembed_array['type'];
+  if (!module_load_include('inc', 'oembedoutput', 'plugins/' . $type)) {
+    dpm($type);
+    return;
+  }
+  return call_user_func('oembedoutput_plugin_' . $type . '_fields', $oembed_array);
+}
+
+
+/**
+ * @param $oembed_array
+ * @param string $type
+ * @return mixed
+ */
+function oembedoutput_embed_form($oembed_array) {
+
+  $form['embed_code'] = array(
+    '#type' => 'textarea',
+    '#title' => 'Embed code',
+    '#description' => t('Please copy and paste this embed code to any website you wish, additional configuration options may present above'),
+    '#weight' => 0,
+    '#value' => (isset($oembed_array['html'])) ? $oembed_array['html'] : '',
+    '#attributes' => array('class' => array('oembed_code'),),
+  );
+
+  $form['button'] = array(
+    '#type' => 'button',
+    '#value' => t('Select Embed code'),
+    '#weight' => 100,
+  );
+
+  $add_element = oembedoutput_form_callback($oembed_array);
+  if ($add_element) {
+    $form = array_merge($form, $add_element);
+  }
+
+  return $form;
+}
+
+function _oembedoutput_format_url($fid, $format = 'json') {
+  global $base_url;
+
+  // the oembed endpoint url looks like
+  // http://yoursite.com/oembed/endpoint/?url=http://yoursite.com/file/[fid]&format=[json|xml]
+
+  $options = array(
+    'query' => array(
+      'url' => $base_url . '/file/' . $fid,
+      'format' => $format,
+    ),
+    'absolute' => TRUE,
+  );
+
+  return url('oembed/endpoint', $options);
+}

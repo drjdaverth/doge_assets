@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the File download count module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function file_download_count_schema() {
+  $schema['file_download_count'] = array(
+    'fields' => array(
+      'fid' => array(
+        'description' => 'The {file_managed}.fid of the file that was downloaded.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'timestamp' => array(
+        'description' => 'The UNIX timestamp of the date the file was downloaded.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'uid' => array(
+        'description' => 'The {users}.uid of the user that downloaded the file.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'ip_address' => array(
+        'description' => 'The IP address of the user that downloaded the file.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array('fid'),
+      'timestamp' => array('timestamp'),
+      'uid' => array('uid'),
+    ),
+    'foreign keys' => array(
+      'file_managed' => array(
+        'table' => 'file_managed',
+        'columns' => array('fid' => 'fid'),
+      ),
+      'users' => array(
+        'table' => 'users',
+        'columns' => array('uid' => 'uid'),
+      ),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Update the ip_address column to use an empty string as the default value.
+ */
+function file_download_count_update_7100() {
+  db_change_field('file_download_count', 'ip_address', 'ip_address', array(
+    'description' => 'The IP address of the user that downloaded the file.',
+    'type' => 'varchar',
+    'length' => 128,
+    'not null' => TRUE,
+    'default' => '',
+  ));
+}

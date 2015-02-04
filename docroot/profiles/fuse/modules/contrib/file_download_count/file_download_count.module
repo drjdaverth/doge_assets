@@ -1,0 +1,138 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function file_download_count_menu() {
+  $items = array();
+
+  if (!module_exists('file_entity')) {
+    $items['file/%file/download'] = array(
+      'page callback' => 'file_download_count_public_download',
+      'page arguments' => array(1),
+      'access callback' => TRUE,
+      'type' => MENU_CALLBACK,
+    );
+  }
+
+  return $items;
+}
+
+/**
+ * Implements hook_file_load().
+ */
+function file_download_count_file_load(array $files) {
+  $counts = db_query("SELECT fid, COUNT(fid) FROM {file_download_count} WHERE fid IN (:fids) GROUP BY fid", array(':fids' => array_keys($files)))->fetchAllKeyed();
+  foreach ($files as $file) {
+    $file->download_count = isset($counts[$file->fid]) ? $counts[$file->fid] : 0;
+  }
+}
+
+/**
+ * Implements hook_file_download_headers_alter().
+ *
+ * @see file_download_count_page()
+ */
+function file_download_count_file_download_headers_alter(array &$headers, $file) {
+  file_download_count_track_file_download($file);
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function file_download_count_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+/**
+ * Implements hook_admin_paths().
+ */
+function file_download_count_admin_paths() {
+  $paths = array(
+    'file/*/downloads' => TRUE,
+  );
+  return $paths;
+}
+
+/**
+ * Register a file had been downloaded.
+ *
+ * @param object $file
+ *   A file entity object.
+ */
+function file_download_count_track_file_download($file) {
+  $limit = variable_get('file_download_count_threshold_limit', 25);
+  $window = variable_get('file_download_count_threshold_window', 3600);
+  if (!flood_is_allowed('file_download_count', $limit, $window)) {
+    return;
+  }
+
+  flood_register_event('file_download_count');
+
+  db_insert('file_download_count')
+    ->fields(array(
+      'fid' => $file->fid,
+      'timestamp' => REQUEST_TIME,
+      'uid' => $GLOBALS['user']->uid,
+      'ip_address' => ip_address(),
+    ))
+    ->execute();
+
+  // Clear the cache for this file since we've increased the download count.
+  entity_get_controller('file')->resetCache(array($file->fid));
+}
+
+/**
+ * Menu callback; download a single file entity.
+ */
+function file_download_count_public_download($file) {
+  file_download_count_track_file_download($file);
+  $url = file_create_url($file->uri);
+  drupal_goto($url);
+}
+
+/**
+ * Fetch the number of times a user has downloaded certain files.
+ *
+ * @param int $uid
+ *   A user account ID.
+ * @param array $fids
+ *   An array of file IDs to check.
+ *
+ * @return array
+ *   An array of the number of times each file has been downloaded by the user,
+ *   keyed by the file ID.
+ */
+function file_download_count_get_user_files_count($uid, array $fids) {
+  $counts = &drupal_static(__FUNCTION__, array());
+
+  if (!isset($counts[$uid])) {
+    $counts[$uid] = array();
+  }
+
+  $fids = array_combine($fids, $fids);
+  if ($unknown_fids = array_diff_key($fids, $counts[$uid])) {
+    $counts[$uid] += db_query("SELECT fid, COUNT(fid) FROM {file_download_count} WHERE fid IN (:fids) AND uid = :uid GROUP BY fid", array(':fids' => $unknown_fids, ':uid' => $uid))->fetchAllKeyed();
+    $counts[$uid] += array_fill($fids, 0);
+  }
+
+  return array_intersect_key($counts[$uid], $fids);
+}
+
+/**
+ * Fetch the number of times a user has downloaded a certain file.
+ *
+ * @param int $uid
+ *   A user account ID.
+ * @param int $fid
+ *   A file ID.
+ *
+ * @return int
+ *   The number of times the user has downloaded the file.
+ */
+function file_download_count_get_user_file_count($uid, $fid) {
+  $result = file_download_count_get_user_files_count($uid, array($fid));
+  return reset($result);
+}
