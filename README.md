@@ -1,3 +1,5 @@
+The following text is taken from /u/urthwalker's repo, of which this is a fork:
+
 Very Design.  So Assets.  Much Creative.  Wow!
 =====================================
 ***
@@ -47,3 +49,11 @@ Sure!
 Seriously though, I am doing this for the love of doge and nothing more.  That said, it is a fair amount of work, so if you feel the need then who am I to say no!  I'll make sure all proceeds go towards making the project better.
 
 DPwmYiPwdUtaWLAc3bmdtgkyzUBb6rNj8h
+
+
+
+/End of /u/urthwalker's text. The following is from me (/u/cryptosforacause)
+
+If you want to add files, feel free to follow the instructions above and send me a pull request. If you don't see a response in a day or two, please PM me on Reddit :)
+
+Oh, and if you want to send some cryptos for the work put into this, hold on to it and use it for one of the charity projects over at /r/dogecoin :)
